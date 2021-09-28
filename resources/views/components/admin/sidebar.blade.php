@@ -60,13 +60,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
+                            <a href="{{route('product.tambah')}}" class="nav-link active">
                                 <i class="far fa-dot-circle nav-icon"></i>
                                 <p>Tambah Produk</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{route('product.semua')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Semua Product</p>
                             </a>
@@ -83,13 +83,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
+                            <a href="{{route('tanaman.tambah')}}" class="nav-link active">
                                 <i class="far fa-dot-circle nav-icon"></i>
                                 <p>Tambah Tanaman</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{route('tanaman.semua')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Semua Tanaman</p>
                             </a>
@@ -106,13 +106,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
+                            <a href="{{route('pengguna.tambah')}}" class="nav-link active">
                                 <i class="far fa-dot-circle nav-icon"></i>
                                 <p>Tambah Pengguna</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{route('pengguna.semua')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Semua Pengguna</p>
                             </a>
@@ -129,7 +129,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
+                            <a href="#" class="nav-link active">
                                 <i class="far fa-dot-circle nav-icon"></i>
                                 <p>General</p>
                             </a>
