@@ -29,7 +29,9 @@
     <!-- Styles -->
     @livewireStyles
     @stack('css')
-
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
@@ -55,13 +57,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">{{request()->segment(2)}}</h1>
+                        <h1 class="m-0">{{Str::title(request()->segment(2))}}@if(!empty(request()->segment(3))) <span class="text-warning fs-12px">{{'/'.request()->segment(3)}}</span>  @endif</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             @foreach(request()->segments() as $segment)
-                                <li class="breadcrumb-item"><a href="#">{{$segment}}</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-warning">{{$segment}}</a></li>
                             @endforeach
+
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -105,5 +108,9 @@
 <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 @livewireScripts
 @stack('js')
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@5.0.5/material-ui/material-ui.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<x-livewire-alert::scripts />
+
 </body>
 </html>
