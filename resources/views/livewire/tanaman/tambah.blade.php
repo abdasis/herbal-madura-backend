@@ -7,11 +7,13 @@
                     <div class="card-body">
                         <div class="form-group">
                             <input type="text" class="form-control" wire:model="nama_tanaman" placeholder="Masukan Nama Tanaman">
+                            <x-error-message error="nama_tanaman" />
                         </div>
                         <div class="form-group">
                             <div class="editor-content" wire:ignore>
                                 <textarea name="" class="form-control" placeholder="Tulis lengkap diskripsi tanaman" id="manfaat" cols="30" rows="10"></textarea>
                             </div>
+                            <x-error-message error="manfaat_tanaman" />
                         </div>
                     </div>
                     <div class="card-body">
@@ -20,11 +22,14 @@
                             <label for="">Refrensi</label>
                             <textarea class="form-control" name="" wire:model="referensi" id="" cols="30" rows="5"></textarea>
                             <small class="text-muted">Pisahkan dengan koma (,) jika memiliki banyak refrensi</small>
+                            <x-error-message error="refrensi" />
                         </div>
 
                         <div class="form-group">
                             <label for="">Pustaka</label>
                             <textarea class="form-control" name="" wire:model="pustaka" id="" cols="30" rows="5"></textarea>
+                            <x-error-message error="pustaka" />
+
                         </div>
 
                         <div class="row">
@@ -32,6 +37,7 @@
                                 <div class="form-group">
                                     <label for="">Nama Latin</label>
                                     <input type="text" class="form-control" wire:model="nama_latin" placeholder="Masukan Nama Latin Tanaman">
+                                    <x-error-message error="nama_latin" />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -41,6 +47,8 @@
                                         <input wire:model="gambar_tanaman" type="file" class="custom-file-input" id="customFile">
                                         <label class="custom-file-label" for="customFile">{{ !empty($gambar_tanaman) ? $gambar_tanaman->temporaryUrl() : 'Pilih gambar'}}</label>
                                     </div>
+                                    <x-error-message error="gambar_tanaman" />
+
                                 </div>
                             </div>
                         </div>
@@ -60,7 +68,7 @@
                                         <option value="Direview">Direview</option>
                                         <option value="Diterbitkan">Diterbitkan</option>
                                     </select>
-
+                                    <x-error-message error="status" />
                                 </div>
                             </div>
                         </div>

@@ -8,19 +8,6 @@ use Livewire\WithFileUploads;
 
 class Tambah extends Component
 {
-<<<<<<< HEAD
-    public $nama_tanaman, $nama_latin, $manfaat, $bagian_tanaman, $cara_pembuatan, $gambar_tanaman, $status;
-
-    public function rules()
-    {
-        return[
-            'nama_tanaman' => 'required',
-            'nama_latin' => 'required',
-            'manfaat' => 'required',
-            'bagian_tanaman' => 'required',
-            'cara_pembuatan' => 'required',
-            'gambar_tanaman' => 'required',
-=======
     use WithFileUploads;
     public $nama_tanaman, $nama_latin,$gambar_tanaman, $status, $diskripsi, $pustaka, $referensi,  $jenis_spesies;
 
@@ -31,7 +18,6 @@ class Tambah extends Component
             'nama_latin' => 'required',
             'diskripsi' => 'required',
             'gambar_tanaman' => 'required|mimes:jpg,png|max:2048',
->>>>>>> 9d964d8f81d778301beb71cd9440071b223fc5d2
             'status' => 'required'
         ];
     }
@@ -39,9 +25,6 @@ class Tambah extends Component
     public function simpan()
     {
         $this->validate();
-<<<<<<< HEAD
-
-=======
         $nama_gambar = \Str::uuid() . '.' . $this->gambar_tanaman->extension();
         try {
             $tanaman = new Tanaman();
@@ -61,7 +44,6 @@ class Tambah extends Component
         }catch (\Error $error){
             $this->alert('error', 'Terjadi kesalahan');
         }
->>>>>>> 9d964d8f81d778301beb71cd9440071b223fc5d2
     }
     public function render()
     {
