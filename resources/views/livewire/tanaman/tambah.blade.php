@@ -13,7 +13,7 @@
                             <div class="editor-content" wire:ignore>
                                 <textarea name="" class="form-control" placeholder="Tulis lengkap diskripsi tanaman" id="manfaat" cols="30" rows="10"></textarea>
                             </div>
-                            <x-error-message error="manfaat_tanaman" />
+                            <x-error-message error="diskripsi" />
                         </div>
                     </div>
                     <div class="card-body">
