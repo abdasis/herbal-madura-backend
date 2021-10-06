@@ -104,5 +104,9 @@
 <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 @livewireScripts
 @stack('js')
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@5.0.5/material-ui/material-ui.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<x-livewire-alert::scripts />
+
 </body>
 </html>
