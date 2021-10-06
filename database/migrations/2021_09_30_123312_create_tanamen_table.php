@@ -16,12 +16,13 @@ class CreateTanamenTable extends Migration
         Schema::create('tanamen', function (Blueprint $table) {
             $table->id();
             $table->string('nama_tanaman');
+            $table->string('slug')->nullable();
             $table->string('nama_latin')->nullable();
-            $table->longText('bagian_tanaman');
-            $table->longText('manfaat');
-            $table->longText('lingkungan_hidup');
-            $table->longText('cara_pembuatan');
+            $table->longText('diskripsi_tanaman');
             $table->string('gambar_tanaman');
+            $table->string('jenis_spesies')->nullable();
+            $table->longText('refrensi')->nullable();
+            $table->longText('pustaka')->nullable();
             $table->string('status');
             $table->string('dibuat_oleh');
             $table->string('diupdate_oleh');

@@ -9,17 +9,14 @@ use Livewire\WithFileUploads;
 class Tambah extends Component
 {
     use WithFileUploads;
-    public $nama_tanaman, $nama_latin, $bagian_tanaman, $manfaat, $lingkungan_hidup, $cara_pembuatan, $gambar_tanaman, $status;
+    public $nama_tanaman, $nama_latin,$gambar_tanaman, $status, $diskripsi, $pustaka, $referensi,  $jenis_spesies;
 
     public function rules()
     {
         return [
             'nama_tanaman' => 'required',
             'nama_latin' => 'required',
-            'bagian_tanaman' => 'required',
-            'manfaat' => 'required',
-            'lingkungan_hidup' => 'required',
-            'cara_pembuatan' => 'required',
+            'diskripsi' => 'required',
             'gambar_tanaman' => 'required|mimes:jpg,png|max:2048',
             'status' => 'required'
         ];
@@ -28,24 +25,25 @@ class Tambah extends Component
     public function simpan()
     {
         $this->validate();
+        $nama_gambar = \Str::uuid() . '.' . $this->gambar_tanaman->extension();
         try {
             $tanaman = new Tanaman();
             $tanaman->nama_tanaman = $this->nama_tanaman;
             $tanaman->nama_latin = $this->nama_latin;
-            $tanaman->bagian_tanaman = $this->bagian_tanaman;
-            $tanaman->manfaat = $this->manfaat;
-            $tanaman->lingkungan_hidup = $this->lingkungan_hidup;
-            $tanaman->cara_pembuatan = $this->cara_pembuatan;
-            $tanaman->gambar_tanaman = $this->gambar_tanaman;
+            $tanaman->diskripsi_tanaman = $this->diskripsi;
+            $tanaman->gambar_tanaman = $nama_gambar;
             $tanaman->status = $this->status;
+            $tanaman->jenis_spesies = $this->jenis_spesies;
+            $tanaman->refrensi = $this->referensi;
+            $tanaman->pustaka = $this->pustaka;
             $tanaman->save();
+            $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_gambar);
             $this->alert('success', 'Data berhasil disimpan');
+            sleep(2);
+            $this->redirectRoute('tanaman.semua');
         }catch (\Error $error){
             $this->alert('error', 'Terjadi kesalahan');
         }
-
-
-
     }
     public function render()
     {

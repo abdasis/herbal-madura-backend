@@ -29,7 +29,9 @@
     <!-- Styles -->
     @livewireStyles
     @stack('css')
-
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
@@ -55,12 +57,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">{{Str::title(request()->segment(2))}}@if(!empty(request()->segment(3))) <span class="text-warning fs-12px">{{'/'.request()->segment(3)}}</span>  @endif</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            @foreach(request()->segments() as $segment)
+                                <li class="breadcrumb-item"><a href="#" class="text-warning">{{$segment}}</a></li>
+                            @endforeach
+
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
