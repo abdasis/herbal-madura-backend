@@ -81,7 +81,7 @@
             selector: 'textarea#manfaat',
             plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
             toolbar_mode: 'floating',
-            menubar: false,
+            menubar: true,
             height: 600,
             setup: function (editor) {
                 editor.on('init change', function () {
