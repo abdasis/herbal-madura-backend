@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{route('statistik.semua')}}" class="nav-link">
                         <i class="nav-icon fas fa-chart-line"></i>
                         <p>
                             Statistik Pembaca

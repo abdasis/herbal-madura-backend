@@ -21,6 +21,9 @@ class TabelTanaman extends DataTableComponent
                 return '<div class="badge badge-'. $status .'">'. $val .'</div>';
             })->asHtml(),
             Column::make('Dibuat Oleh', 'dibuat_oleh'),
+            Column::make('Dilihat', 'id')->format(function ($val, $column, $row){
+                return views($row)->count() .' kali';
+            })->sortable(),
             Column::make('Options', 'slug')->format(function ($val){
                 return view('partials.tombol-aksi',[
                     'edit' => route('tanaman.sunting', $val),

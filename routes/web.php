@@ -41,6 +41,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
         Route::get('sunting/{slug}', Sunting::class)->name('pengguna.sunting');
         Route::get('detail/{slug}', Detail::class)->name('pengguna.detail');
    });
+
+   Route::group(['prefix' => 'statistik'], function (){
+       Route::get('semua', App\Http\Livewire\Statistik\Semua::class)->name('statistik.semua');
+   });
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
