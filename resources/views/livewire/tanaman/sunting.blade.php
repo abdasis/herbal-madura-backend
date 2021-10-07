@@ -11,7 +11,7 @@
                         </div>
                         <div class="form-group">
                             <div class="editor-content" wire:ignore>
-                                <textarea name="" class="form-control" placeholder="Tulis lengkap diskripsi tanaman" id="manfaat" cols="30" rows="10"></textarea>
+                                <textarea name="" class="form-control" wire:model="diskripsi" placeholder="Tulis lengkap diskripsi tanaman" id="manfaat" cols="30" rows="10"></textarea>
                             </div>
                             <x-error-message error="diskripsi" />
                         </div>
@@ -45,7 +45,7 @@
                                     <label for="">Gambar Unggulan</label>
                                     <div class="custom-file">
                                         <input wire:model="gambar_tanaman" type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">{{ !empty($gambar_tanaman) ? $gambar_tanaman->temporaryUrl() : 'Pilih gambar'}}</label>
+                                        <label class="custom-file-label" for="customFile">{{ 'Pilih gambar'}}</label>
                                     </div>
                                     <x-error-message error="gambar_tanaman" />
 

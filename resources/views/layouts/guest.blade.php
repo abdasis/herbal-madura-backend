@@ -40,7 +40,7 @@
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light shadow-sm">
         <div class="container">
-            <a href="index3.html" class="navbar-brand">
+            <a href="{{url('/')}}" class="navbar-brand">
                 <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-1" style="opacity: .8">
                 <span class="brand-text font-weight-light">SKRIPSI</span>
             </a>
@@ -92,7 +92,7 @@
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a href="#">
-                        <button class="btn btn-sm btn-warning">Masuk</button>
+                        <button class="btn btn-sm text-light btn-warning">Masuk</button>
 
                     </a>
                 </li>
@@ -119,22 +119,22 @@
 
             <!-- Right -->
             <div>
-                <a href="" class="text-white me-4">
+                <a href="" class="text-white mx-2">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="" class="text-white me-4">
+                <a href="" class="text-white mx-2">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="" class="text-white me-4">
+                <a href="" class="text-white mx-2">
                     <i class="fab fa-google"></i>
                 </a>
-                <a href="" class="text-white me-4">
+                <a href="" class="text-white mx-2">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="" class="text-white me-4">
+                <a href="" class="text-white mx-2">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="" class="text-white me-4">
+                <a href="" class="text-white mx-2">
                     <i class="fab fa-github"></i>
                 </a>
             </div>

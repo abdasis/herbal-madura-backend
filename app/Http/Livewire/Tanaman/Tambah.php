@@ -29,6 +29,7 @@ class Tambah extends Component
         try {
             $tanaman = new Tanaman();
             $tanaman->nama_tanaman = $this->nama_tanaman;
+            $tanaman->slug = \Str::slug($this->nama_tanaman);
             $tanaman->nama_latin = $this->nama_latin;
             $tanaman->diskripsi_tanaman = $this->diskripsi;
             $tanaman->gambar_tanaman = $nama_gambar;

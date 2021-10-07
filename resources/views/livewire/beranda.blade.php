@@ -56,62 +56,24 @@
             </div>
             <div class="content-section">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="card shadow-sm border-light">
-                            <img src="{{asset('dist/img/herbal-ayurvda.png')}}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="text-bold p-0 m-0">
-                                    Temu Lawak
-                                </h5>
-                                <span class="badge badge-danger">Curcuma zanthorrhiza</span>
-                                <span class="badge badge-secondary"><i class="fas fa-bookmark"></i></span>
+                    @foreach($semua_tanaman as $tanaman)
+                        <div class="col-md-3">
+                            <div class="card shadow-sm border-light">
+                                <img src="{{asset('gambar-tanaman') . '/' . $tanaman->gambar_tanaman}}" class="card-img-top rounded gambar-tanaman" alt="">
+                                <div class="card-body">
+                                    <h5 class="text-bold p-0 m-0">
+                                        {{$tanaman->nama_tanaman}}
+                                    </h5>
+                                    <span class="badge badge-danger">{{$tanaman->nama_latin}}</span>
+                                    <span class="badge badge-secondary"><i class="fas fa-bookmark"></i></span>
 
-                                <button class="btn btn-warning btn-sm btn-block text-light" style="margin-bottom: -30px; margin-top: 20px">Selengkapnya</button>
+                                    <a href="{{route('tanaman.baca', $tanaman->slug)}}">
+                                        <button class="btn btn-warning btn-sm btn-block text-light" style="margin-bottom: -30px; margin-top: 20px">Selengkapnya</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card shadow-sm border-light">
-                            <img src="{{asset('dist/img/herbal-ayurvda.png')}}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="text-bold p-0 m-0">
-                                    Temu Lawak
-                                </h5>
-                                <span class="badge badge-danger">Curcuma zanthorrhiza</span>
-                                <span class="badge badge-secondary"><i class="fas fa-bookmark"></i></span>
-
-                                <button class="btn btn-warning btn-sm btn-block text-light" style="margin-bottom: -30px; margin-top: 20px">Selengkapnya</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card shadow-sm border-light">
-                            <img src="{{asset('dist/img/herbal-ayurvda.png')}}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="text-bold p-0 m-0">
-                                    Temu Lawak
-                                </h5>
-                                <span class="badge badge-danger">Curcuma zanthorrhiza</span>
-                                <span class="badge badge-secondary"><i class="fas fa-bookmark"></i></span>
-
-                                <button class="btn btn-warning btn-sm btn-block text-light" style="margin-bottom: -30px; margin-top: 20px">Selengkapnya</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card shadow-sm border-light">
-                            <img src="{{asset('dist/img/herbal-ayurvda.png')}}" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="text-bold p-0 m-0">
-                                    Temu Lawak
-                                </h5>
-                                <span class="badge badge-danger">Curcuma zanthorrhiza</span>
-                                <span class="badge badge-secondary"><i class="fas fa-bookmark"></i></span>
-
-                                <button class="btn btn-warning btn-sm btn-block text-light" style="margin-bottom: -30px; margin-top: 20px">Selengkapnya</button>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>
@@ -214,6 +176,11 @@
 
 @push('css')
     <style>
+        .gambar-tanaman{
+            min-height: 180px;
+            max-height: 180px;
+            object-fit: scale-down;
+        }
         .jumbotron.jumbotron-fluid {
             background: url(http://127.0.0.1:8000/dist/img/herbal-ayurvda.png);
             background-color: #F6F8FC;
