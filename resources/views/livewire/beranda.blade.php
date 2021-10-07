@@ -192,6 +192,5 @@
             background-position: right bottom;
             background-size: contain;
         }
-
     </style>
 @endpush
