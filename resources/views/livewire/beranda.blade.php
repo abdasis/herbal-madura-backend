@@ -58,7 +58,7 @@
                 <div class="row">
                     @foreach($semua_tanaman as $tanaman)
                         <div class="col-md-3">
-                            <div class="card shadow-sm border-light">
+                            <div class="card shadow-sm border-light mb-2">
                                 <img src="{{asset('gambar-tanaman') . '/' . $tanaman->gambar_tanaman}}" class="card-img-top rounded gambar-tanaman" alt="">
                                 <div class="card-body">
                                     <h5 class="text-bold p-0 m-0">
