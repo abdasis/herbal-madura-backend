@@ -35,10 +35,10 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
-<body class="layout-top-nav">
+<body class="layout-top-nav layout-navbar-fixed">
 <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light shadow-sm">
+    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light border">
         <div class="container">
             <a href="{{url('/')}}" class="navbar-brand">
                 <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-1" style="opacity: .8">
@@ -100,7 +100,9 @@
         </div>
     </nav>
     <!-- /.navbar -->
-    {{$slot}}
+    <div class="content-wrapper bg-white mt-5">
+        {{$slot}}
+    </div>
 
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <footer

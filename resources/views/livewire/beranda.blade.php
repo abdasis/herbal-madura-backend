@@ -12,7 +12,7 @@
                                 <div class="card shadow-sm border-none p-1">
                                     <img src="https://www.halodoc.com/assets/img/home-v2/webp/chat-doctor-v2.webp" class="card-img-top mx-auto w-75 p-3" alt="">
                                     <div class="card-body p-0 text-center">
-                                        <p>Konsultasi</p>
+                                        <p class="text-bold">Konsultasi</p>
                                     </div>
                                 </div>
                             </div>
@@ -20,7 +20,7 @@
                                 <div class="card shadow-sm border-none p-1">
                                     <img src="https://www.halodoc.com/assets/img/home-v2/webp/health-store-v2.webp" class="card-img-top mx-auto w-75 p-3" alt="">
                                     <div class="card-body p-0 text-center">
-                                        <p>Toko Herbal</p>
+                                        <p class="text-bold">Toko Herbal</p>
                                     </div>
                                 </div>
                             </div>
@@ -28,7 +28,7 @@
                                 <div class="card shadow-sm border-none p-1">
                                     <img src="https://www.halodoc.com/assets/img/home-v2/webp/visit-hospital-v2.webp" class="card-img-top mx-auto w-75 p-3" alt="">
                                     <div class="card-body p-0 text-center">
-                                        <p>Konsultasi</p>
+                                        <p class="text-bold">Konsultasi</p>
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                 <div class="card shadow-sm border-none p-1">
                                     <img src="https://www.halodoc.com/assets/img/home-v2/webp/donation.webp" class="card-img-top mx-auto w-75 p-3" alt="">
                                     <div class="card-body p-0 text-center">
-                                        <p>Donasi</p>
+                                        <p class="text-bold">Donasi</p>
                                     </div>
                                 </div>
                             </div>
@@ -64,8 +64,11 @@
                                     <h5 class="text-bold p-0 m-0">
                                         {{$tanaman->nama_tanaman}}
                                     </h5>
-                                    <span class="badge badge-danger">{{$tanaman->nama_latin}}</span>
-                                    <span class="badge badge-secondary"><i class="fas fa-bookmark"></i></span>
+
+                                    <div class="meta d-flex flex-row justify-content-between">
+                                        <span class="badge badge-danger">{{$tanaman->nama_latin}}</span>
+                                        <span class="badge"><i class="fas fa-bookmark"></i></span>
+                                    </div>
 
                                     <a href="{{route('tanaman.baca', $tanaman->slug)}}">
                                         <button class="btn btn-warning btn-sm btn-block text-light" style="margin-bottom: -30px; margin-top: 20px">Selengkapnya</button>
@@ -160,7 +163,7 @@
                                     <div class="card-text">
                                         Semua konten Herbal Madura dibuat berdasarkan masukan dari pakar medis, spesialis, dan pekerja kesehatan profesional sesuai bidangnya masing-masing. Mereka memastikan seluruh konten ditulis secara akurat dari sisi medis dan non-medis. Mereka juga memastikan konten tersebut berasal dari sumber terpercaya, merujuk pada riset terkini dan teruji secara ilmiah.
                                     </div>
-                                    <button class="btn btn-warning btn-block">
+                                    <button class="btn btn-warning text-white btn-block mt-2">
                                         Lihat Semuanya
                                     </button>
 
