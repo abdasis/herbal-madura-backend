@@ -185,7 +185,7 @@
             width: auto;
         }
         .jumbotron.jumbotron-fluid {
-            background: url(http://127.0.0.1:8000/dist/img/herbal-ayurvda.png);
+            background: url(https://herbalmadura.my.id/dist/img/herbal-ayurvda.png);
             background-color: #F6F8FC;
             background-repeat: no-repeat;
             background-position: right bottom;
