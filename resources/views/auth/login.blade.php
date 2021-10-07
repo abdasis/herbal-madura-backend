@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="login-box mx-auto my-5">
+    <div class="login-box mx-auto" style="margin-top: 150px">
         <div class="login-logo">
             <a href="{{url('/')}}"><b>Herbal</b> Madura</a>
         </div>
@@ -10,7 +10,6 @@
 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus >
                         <div class="input-group-append">
@@ -29,8 +28,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
