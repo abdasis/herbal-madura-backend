@@ -183,6 +183,7 @@
             min-height: 180px;
             max-height: 180px;
             width: auto;
+            object-fit: cover;
         }
         .jumbotron.jumbotron-fluid {
             background: url(https://herbalmadura.my.id/dist/img/herbal-ayurvda.png);
