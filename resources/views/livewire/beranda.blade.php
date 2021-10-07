@@ -8,32 +8,32 @@
                         <h3 class="font-weight-bold">Solusi Kesehatan Terlengkap</h3>
                         <p class="lead">Chat dokter, kunjungi rumah sakit, beli obat, cek lab dan update informasi seputar kesehatan, semua bisa di Halodoc!</p>
                         <div class="row">
-                            <div class="col-md-3">
-                                <div class="card shadow-sm border-none">
+                            <div class="col-6 col-lg-3">
+                                <div class="card shadow-sm border-none p-1">
                                     <img src="https://www.halodoc.com/assets/img/home-v2/webp/chat-doctor-v2.webp" class="card-img-top mx-auto w-75 p-3" alt="">
                                     <div class="card-body p-0 text-center">
                                         <p>Konsultasi</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="card shadow-sm border-none">
+                            <div class="col-6 col-lg-3">
+                                <div class="card shadow-sm border-none p-1">
                                     <img src="https://www.halodoc.com/assets/img/home-v2/webp/health-store-v2.webp" class="card-img-top mx-auto w-75 p-3" alt="">
                                     <div class="card-body p-0 text-center">
                                         <p>Toko Herbal</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="card shadow-sm border-none">
+                            <div class="col-6 col-lg-3">
+                                <div class="card shadow-sm border-none p-1">
                                     <img src="https://www.halodoc.com/assets/img/home-v2/webp/visit-hospital-v2.webp" class="card-img-top mx-auto w-75 p-3" alt="">
                                     <div class="card-body p-0 text-center">
                                         <p>Konsultasi</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="card shadow-sm border-none">
+                            <div class="col-6 col-lg-3">
+                                <div class="card shadow-sm border-none p-1">
                                     <img src="https://www.halodoc.com/assets/img/home-v2/webp/donation.webp" class="card-img-top mx-auto w-75 p-3" alt="">
                                     <div class="card-body p-0 text-center">
                                         <p>Donasi</p>
@@ -179,7 +179,7 @@
         .gambar-tanaman{
             min-height: 180px;
             max-height: 180px;
-            object-fit: scale-down;
+            width: auto;
         }
         .jumbotron.jumbotron-fluid {
             background: url(http://127.0.0.1:8000/dist/img/herbal-ayurvda.png);
