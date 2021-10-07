@@ -86,14 +86,7 @@
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown mr-2">
                     <a href="#">
-                        <button class="btn btn-light btn-sm">Daftar</button>
-                    </a>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a href="#">
-                        <button class="btn btn-sm text-light btn-warning">Masuk</button>
-
+                        <button class="btn btn-outline-warning btn-sm">Masuk / Mendaftar</button>
                     </a>
                 </li>
             </ul>
