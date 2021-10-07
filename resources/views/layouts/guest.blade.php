@@ -38,7 +38,7 @@
 <body class="layout-top-nav layout-navbar-fixed">
 <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light border">
+    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light border-bottom">
         <div class="container">
             <a href="{{url('/')}}" class="navbar-brand">
                 <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-1" style="opacity: .8">
