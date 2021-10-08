@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Livewire\Beranda::class)->name('beranda');
 Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tanaman.baca');
+Route::get('hasil-pencarian/{keyword}', \App\Http\Livewire\Wiki\HasilPencarian::class)->name('wiki.hasil-pencarian');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
    Route::group(['prefix' => 'product'], function (){

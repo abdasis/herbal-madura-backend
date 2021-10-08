@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Google Font: Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
@@ -35,7 +38,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
-<body class="layout-top-nav layout-navbar-fixed">
+<body class="layout-top-nav">
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light border-bottom">
@@ -45,110 +48,43 @@
                 <span class="brand-text font-weight-light">SKRIPSI</span>
             </a>
 
-            <button class="navbar-toggler order-1 collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0 order-1 collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="navbar-collapse order-3 collapse" id="navbarCollapse" style="">
-                <!-- Left navbar links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="index3.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Konsultasi</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kategori</a>
-                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <li><a href="#" class="dropdown-item">Suplement </a></li>
-                            <li><a href="#" class="dropdown-item">Obat Herbal</a></li>
-
-                        </ul>
-                    </li>
-                </ul>
-
-                <!-- SEARCH FORM -->
-                <form class="form-inline ml-0 ml-md-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar bg-light" type="search" placeholder="Cari product herbal" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-navbar" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
 
             <!-- Right navbar links -->
             <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown mr-2">
                     <a href="#">
-                        <button class="btn btn-outline-warning btn-sm">Masuk / Mendaftar</button>
+                        <button class="btn btn-outline-secondary btn-sm">Masuk / Mendaftar</button>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
     <!-- /.navbar -->
-    <div class="content-wrapper bg-white mt-5">
+    <div class="container bg-white mt-5">
         {{$slot}}
     </div>
 
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <footer
-        class="text-left text-lg-start text-white"
+        class="text-left bg-light text-dark"
         style="background-color: #1c2331"
     >
-        <!-- Section: Social media -->
-        <section
-            class="d-flex justify-content-between p-4 bg-warning"
-        >
-            <!-- Left -->
-            <div class="me-5">
-                <span>Get connected with us on social networks:</span>
-            </div>
-            <!-- Left -->
-
-            <!-- Right -->
-            <div>
-                <a href="" class="text-white mx-2">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="" class="text-white mx-2">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="" class="text-white mx-2">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="" class="text-white mx-2">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="" class="text-white mx-2">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="" class="text-white mx-2">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-            <!-- Right -->
-        </section>
-        <!-- Section: Social media -->
-
-        <!-- Section: Links  -->
-        <section class="">
+        <section class="py-2 px-3">
             <div class="container  text-md-start mt-5">
                 <!-- Grid row -->
                 <div class="row mt-3">
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
-                        <h6 class="text-uppercase fw-bold">Herbal Madura</h6>
+                        <h6 class="text-uppercase fw-bold">Wiki Herbal</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
-                            style="width: 60px; background-color: #7c4dff; height: 2px"
+                            style="width: 60px; background-color: #f3f3f3; height: 2px"
                         />
                         <p>
                             Herbal Madura adalah sebuah situs layanan penyedia informasi kesehatan dengan bahan herbal, mulai dari suplement kesehatan dan obat-obat penyembuhan
@@ -159,16 +95,16 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Products</h6>
+                        <h6 class="text-uppercase fw-bold">Menjadi Kontributor</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
-                            style="width: 60px; background-color: #7c4dff; height: 2px"
+                            style="width: 60px; background-color: #f3f3f3; height: 2px"
                         />
                         <p>
-                            <a href="#!" class="text-white">Obat Sariawan Herbal </a>
+                            <a href="#!" class="text-dark">Masuk </a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Herbal Jantung Sehat</a>
+                            <a href="#!" class="text-dark">Daftar</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -179,19 +115,19 @@
                         <h6 class="text-uppercase fw-bold">Informasi</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
-                            style="width: 60px; background-color: #7c4dff; height: 2px"
+                            style="width: 60px; background-color: #f3f3f3; height: 2px"
                         />
                         <p>
-                            <a href="#!" class="text-white">Ketentuan Pengguna</a>
+                            <a href="#!" class="text-dark">Ketentuan Pengguna</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Kebijakan Privasi</a>
+                            <a href="#!" class="text-dark">Kebijakan Privasi</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Kebijakan Editorial dan Koreksi</a>
+                            <a href="#!" class="text-dark">Kebijakan Editorial dan Koreksi</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Panduan Komunitas</a>
+                            <a href="#!" class="text-dark">Panduan Komunitas</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -199,15 +135,15 @@
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Contact</h6>
+                        <h6 class="text-uppercase fw-bold">Link Lainnya</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
-                            style="width: 60px; background-color: #7c4dff; height: 2px"
+                            style="width: 60px; background-color: #f3f3f3; height: 2px"
                         />
-                        <p><i class="fas fa-home mr-3"></i> Bangkalan, Madura, Jawa Timur</p>
-                        <p><i class="fas fa-envelope mr-3"></i>info@maduraherbal.my.id</p>
-                        <p><i class="fas fa-phone mr-3"></i> +6281944999994</p>
-                        <p><i class="fas fa-print mr-3"></i> +6281944999993</p>
+                        <p>FAQ</p>
+                        <p>Tentang</p>
+                        <p>Syarat</p>
+                        <p>Para Pakar</p>
                     </div>
                     <!-- Grid column -->
                 </div>
@@ -217,13 +153,10 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div
-            class=" p-3"
-            style="background-color: rgba(0, 0, 0, 0.2)"
-        >
+        <div class="p-3 border-top border-gray">
            <div class="container">
                © 2020 Copyright:
-               <a class="text-white" href="https://herbalmadura.my.id/"
+               <a class="text-dark" href="https://herbalmadura.my.id/"
                >Herbal Madura</a
                >
            </div>
