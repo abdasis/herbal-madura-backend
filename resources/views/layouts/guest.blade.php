@@ -57,9 +57,13 @@
             <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown mr-2">
-                    <a href="{{route('login')}}">
-                        <button class="btn btn-outline-secondary btn-sm">Masuk / Mendaftar</button>
-                    </a>
+                    @if(Auth::check())
+                        Hallo, {{Auth::user()->name}}
+                    @else
+                        <a href="{{route('login')}}">
+                            <button class="btn btn-outline-secondary btn-sm">Masuk / Mendaftar</button>
+                        </a>
+                    @endif
                 </li>
             </ul>
         </div>

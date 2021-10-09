@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', \App\Http\Livewire\Beranda::class)->name('beranda');
 Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tanaman.baca');
 Route::get('hasil-pencarian', \App\Http\Livewire\Wiki\HasilPencarian::class)->name('wiki.hasil-pencarian');
+Route::get('profile/{id}', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
    Route::group(['prefix' => 'product'], function (){
@@ -54,4 +55,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['prefix' => 'auth'], function (){
    Route::get('register', \App\Http\Livewire\Auth\Register::class)->name('auth.register');
+});
+
+Route::get('register', function (){
+   return redirect()->route('auth.register');
 });

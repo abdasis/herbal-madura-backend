@@ -4,7 +4,7 @@
         <div class="col-md-5">
             <div class="card shadow-none border-0">
                <div class="card-body">
-                   <h1 class="title-page-login">Selamat Datang Di Wiki Herbal</h1>
+                   <h1 class="title-page-login">Selamat Datang Di WikiHerbal</h1>
                    <p class="text-muted subtitle-page-login">Daftar untuk menjadi seorang kontributor di <strong>WikiHerbal</strong></p>
                    <div class="register-box px-0">
                        <form wire:submit.prevent="simpan">

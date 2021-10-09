@@ -12,7 +12,7 @@ class Register extends Component
 
     public function rules()
     {
-        return[
+        return [
             'name' => 'required',
             'email' => 'required|unique:users',
             'pendidikan_terakhir' => 'required',
