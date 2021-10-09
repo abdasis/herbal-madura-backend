@@ -46,10 +46,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
    Route::group(['prefix' => 'statistik'], function (){
        Route::get('semua', App\Http\Livewire\Statistik\Semua::class)->name('statistik.semua');
    });
-
-   Route::get('test', function(){
-        return view('dashboard')
-   })
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
