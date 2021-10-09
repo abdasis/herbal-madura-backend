@@ -22,9 +22,9 @@
                             Terdapat 10jt lebih artikel lengkap mengenai tanaman herbal yang ada di seluruh dunia
                         </p>
                     </div>
-                    <form   >
+                    <form wire:submit.prevent="pencarian">
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-lg bg-light border-0" placeholder="Masukan nama tanaman yang dicari..." name="" id="">
+                            <input wire:model="keyword" type="text" class="form-control form-control-lg bg-light border-0" required placeholder="Masukan nama tanaman yang dicari..." name="pencarian" id="">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-light float-right">Lihat Hasil Pencarian <i class="fas fa-arrow-right"></i> </button>

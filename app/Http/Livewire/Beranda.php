@@ -7,6 +7,14 @@ use Livewire\Component;
 
 class Beranda extends Component
 {
+    public $keyword;
+    public function pencarian()
+    {
+        redirect()->route('wiki.hasil-pencarian',[
+            'keyword' => $this->keyword
+        ]);
+
+    }
     public function render()
     {
         $tanaman = Tanaman::where('status', 'Diterbitkan')->latest()->get();
