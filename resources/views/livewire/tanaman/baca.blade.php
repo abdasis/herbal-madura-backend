@@ -69,8 +69,10 @@
                     <ol style="padding-left: 10px" data-toc="div.diskripsi-tanaman" data-toc-headings="h2,h3,h4"></ol>
                 </div>
                 <div class="card riwayat-revisi shadow-none border-light border mt-3">
-                    <div class="card-body">
+                    <div class="card-header border-bottom border-light">
                         <h5>Riwayat Revisi</h5>
+                    </div>
+                    <div class="card-body">
                     </div>
                 </div>
             </div>
@@ -81,11 +83,22 @@
 
 @push('css')
     <style>
+        .riwayat-revisi h5{
+            font-weight: bold;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 18px;
+        }
         #blogContents{
             background: #f6f6f6;
             padding: 20px;
             border: 1px solid #f5f5f5;
             border-radius: 10px;
+        }
+        #blogContents a, ol, li{
+            color: #0a001f;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
         }
         .profile-pakar p{
             font-family: 'Quicksand', sans-serif;

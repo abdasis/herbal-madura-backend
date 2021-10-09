@@ -34,10 +34,14 @@
                     <div class="card shadow-none border-light border mb-2">
                         <div class="card-body">
                             <div class="card-title">
-                                <h5 class="title-tanaman">Jeruk (Latin: Oranges)</h5>
+                                <a href="{{route('tanaman.baca', $tanaman_detail->slug)}}">
+                                    <h5 class="title-tanaman">{{$tanaman_detail->nama_tanaman}} (Latin: {{$tanaman_detail->nama_latin}})</h5>
+                                </a>
                             </div>
                             <div class="card-text diskripsi-singkat-tanaman">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque aut beatae dolorem ea earum eius error id iste laboriosam magni obcaecati officia, pariatur quam quibusdam quod temporibus veniam voluptatem.</p>
+                                <p>
+                                    {!! Str::limit($tanaman_detail->diskripsi_tanaman, 250) !!}
+                                </p>
                             </div>
                             <div class="card-text">
                                 <div class="meta-artikel">
