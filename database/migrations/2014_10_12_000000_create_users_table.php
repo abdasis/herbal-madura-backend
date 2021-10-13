@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('alamat')->nullable();
             $table->string('pendidikan_terakhir')->nullable();
             $table->string('alamat_website')->nullable();
+            $table->enum('status', ['aktif', 'non-aktif'])->default('non-aktif');
+            $table->enum('roles',['admin','kontributor','user'])->default('kontributor');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
