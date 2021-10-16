@@ -7,7 +7,8 @@ use Livewire\Component;
 
 class HasilPencarian extends Component
 {
-    public $tanaman, $keyword;
+    public $tanaman;
+    public $keyword;
 
     public $queryString = ['keyword'];
 
@@ -15,10 +16,19 @@ class HasilPencarian extends Component
 
     public function updatingKeyword()
     {
-        $this->tanaman = Tanaman::where('nama_tanaman', 'LIKE', '%'.$this->keyword.'%')->get();
-
+        $this->getTanaman($this->keyword);
     }
 
+    public function mount()
+    {
+        # code...
+        $this->getTanaman($this->keyword);
+    }
+
+    public function getTanaman($keyword)
+    {
+        $this->tanaman = Tanaman::where('nama_tanaman', 'LIKE', '%' . $keyword . '%')->get();
+    }
     public function render()
     {
         return view('livewire.wiki.hasil-pencarian')->layout('layouts.guest');
