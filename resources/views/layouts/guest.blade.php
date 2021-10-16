@@ -44,8 +44,7 @@
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light border-bottom">
         <div class="container">
             <a href="{{url('/')}}" class="navbar-brand">
-                <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-1" style="opacity: .8">
-                <span class="brand-text font-weight-light">SKRIPSI</span>
+                <img src="{{asset('dist/img/logo.png')}}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
             </a>
             <button class="navbar-toggler border-0 order-1 collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
