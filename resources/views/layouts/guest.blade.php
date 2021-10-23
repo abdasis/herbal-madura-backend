@@ -81,6 +81,83 @@
         class="text-left bg-light text-dark px-0"
         style="background-color: #1c2331"
     >
+        <section class="py-2">
+            <div class="container mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3 px-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Ensiklopedia Herbal</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #f3f3f3; height: 2px"
+                        />
+                        <p>
+                            Ensiklopedia Herbal adalah sebuah situs layanan penyedia informasi kesehatan dengan bahan herbal, mulai dari suplement kesehatan dan obat-obat penyembuhan
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Menjadi Kontributor</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #f3f3f3; height: 2px"
+                        />
+                        <p>
+                            <a href="{{route('login')}}" class="text-dark">Masuk </a>
+                        </p>
+                        <p>
+                            <a href="{{route('auth.register')}}" class="text-dark">Daftar</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Informasi</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #f3f3f3; height: 2px"
+                        />
+                        <p>
+                            <a href="#!" class="text-dark">Ketentuan Pengguna</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-dark">Kebijakan Privasi</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-dark">Kebijakan Editorial dan Koreksi</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-dark">Panduan Komunitas</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Link Lainnya</h6>
+                        <hr
+                            class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #f3f3f3; height: 2px"
+                        />
+                        <p>FAQ</p>
+                        <p>Tentang</p>
+                        <p>Syarat</p>
+                        <p>Para Pakar</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
 
         <!-- Copyright -->
         <div class="p-3 border-top border-gray">
