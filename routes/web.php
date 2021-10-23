@@ -23,6 +23,8 @@ Route::get('hasil-pencarian', \App\Http\Livewire\Wiki\HasilPencarian::class)->na
 Route::get('profile/{id}', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail');
 Route::get('daftar-kontributor', \App\Http\Livewire\Pengguna\DaftarPengguna::class)->name('kontributor');
 Route::get('halaman-utama', \App\Http\Livewire\HalamanUtama::class)->name('halaman-utama');
+Route::get('tulis-artikel', \App\Http\Livewire\Wiki\TambahArtikel::class)->name('wiki.tambah-artikel')->middleware('auth');
+Route::get('revisi-artikel/{slug}', \App\Http\Livewire\Wiki\SuntingArtikel::class)->name('wiki.sunting-artikel')->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
      Route::group(['prefix' => 'product'], function () {

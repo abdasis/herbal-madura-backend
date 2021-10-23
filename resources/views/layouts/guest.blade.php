@@ -82,9 +82,9 @@
         style="background-color: #1c2331"
     >
         <section class="py-2">
-            <div class="container mt-5 px-0">
+            <div class="container mt-5">
                 <!-- Grid row -->
-                <div class="row mt-3">
+                <div class="row mt-3 px-3">
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->

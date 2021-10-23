@@ -27,7 +27,7 @@ class HasilPencarian extends Component
 
     public function getTanaman($keyword)
     {
-        $this->tanaman = Tanaman::where('nama_tanaman', 'LIKE', '%' . $keyword . '%')->get();
+        $this->tanaman = Tanaman::where('nama_tanaman', 'LIKE', '%' . $keyword . '%')->where('status', 'Diterbitkan')->get();
     }
     public function render()
     {
