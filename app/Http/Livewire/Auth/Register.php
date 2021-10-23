@@ -35,6 +35,7 @@ class Register extends Component
         $user->email = $this->email;
         $user->pendidikan_terakhir = $this->pendidikan_terakhir;
         $user->password = \Hash::make($this->password);
+        $user->roles = 'user';
         $user->save();
         $this->alert('success', 'Berhasil',[
             'text' => 'Selamat pendaftaran anda berhasil',
