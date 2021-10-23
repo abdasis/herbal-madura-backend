@@ -28,12 +28,15 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
-    <title>{{ config('app.name', 'Herbal Madura') }}</title>
+    <title>Ensiklopedia Herbal | Situs web penyedia informasi lengkap tentang tanaman herbal</title>
     <!-- Styles -->
     @livewireStyles
     @stack('css')
     <style>
         [x-cloak] { display: none !important; }
+        .text-quicksand {
+            font-family: 'Quicksand', sans-serif;
+        }
     </style>
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -44,8 +47,8 @@
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light border-bottom">
         <div class="container">
             <a href="{{url('/')}}" class="navbar-brand">
-                <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-1" style="opacity: .8">
-                <span class="brand-text font-weight-light">WikiHerbal</span>
+                <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Ensiklopedia Herbal" class="brand-image img-circle elevation-1" style="opacity: .8">
+                <span class="brand-text font-weight-light">Ensiklopedia Herbal</span>
             </a>
             <button class="navbar-toggler border-0 order-1 collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -75,11 +78,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <footer
-        class="text-left bg-light text-dark"
+        class="text-left bg-light text-dark px-0"
         style="background-color: #1c2331"
     >
-        <section class="py-2 px-3">
-            <div class="container  text-md-start mt-5">
+        <section class="py-2">
+            <div class="container mt-5 px-0">
                 <!-- Grid row -->
                 <div class="row mt-3">
                     <!-- Grid column -->

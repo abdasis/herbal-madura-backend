@@ -4,7 +4,7 @@
         <div class="col-md-3">
 
             <div class="list-group shadow-sm list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action border-light">
+                <a href="{{route('halaman-utama')}}" class="list-group-item list-group-item-action border-light">
                     <span>🏠</span> Halaman Utama
                 </a>
                 <a href="#" class="list-group-item list-group-item-action border-light">
