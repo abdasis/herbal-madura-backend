@@ -12,7 +12,7 @@ class Dashboard extends Component
     {
         if (in_array(\Auth::user()->roles, ['kontributor', 'user']))
         {
-            $this->redirectRoute('auth.detail');
+            $this->redirectRoute('auth.detail', \Auth::id());
         }
     }
     public function render()
