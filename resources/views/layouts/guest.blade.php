@@ -44,7 +44,8 @@
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light border-bottom">
         <div class="container">
             <a href="{{url('/')}}" class="navbar-brand">
-                <img src="{{asset('dist/img/logo.png')}}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
+                <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-1" style="opacity: .8">
+                <span class="brand-text font-weight-light">WikiHerbal</span>
             </a>
             <button class="navbar-toggler border-0 order-1 collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,7 +58,7 @@
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown mr-2">
                     @if(Auth::check())
-                        Hallo, {{Auth::user()->name}}
+                        Hallo, {{Str::title(Auth::user()->name)}}
                     @else
                         <a href="{{route('login')}}">
                             <button class="btn btn-outline-secondary btn-sm">Masuk / Mendaftar</button>
