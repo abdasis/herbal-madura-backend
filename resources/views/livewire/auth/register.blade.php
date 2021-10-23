@@ -11,10 +11,13 @@
                            <div class="form-group">
                                <label for="">Nama Lengkap</label>
                                <input type="text" class="form-control" name="" id="" wire:model="name" placeholder="Masukan nama lengkap">
+                               <x-error-message error="name"/>
                            </div>
                            <div class="form-group">
                                <label for="">Email</label>
                                <input type="email" class="form-control" name="" wire:model="email" id="" placeholder="Masukan Email">
+                               <x-error-message error="email"/>
+
                            </div>
                            <div class="form-group">
                                <label for="">Pendidikan Terakhir</label>
@@ -28,10 +31,14 @@
                                    <option value="S3">S3</option>
                                    <option value="Lainnya">Lainnya</option>
                                </select>
+                               <x-error-message error="pendidikan_terakhir"/>
+
                            </div>
                            <div class="form-group">
                                <label for="">Password</label>
                                <input type="password" class="form-control" name="" wire:model="password" id="" placeholder="Masukan nama lengkap">
+                               <x-error-message error="password"/>
+
                            </div>
                            <div class="form-group">
                                <button class="btn btn-light bg-gradient-orange text-white btn-block rounded-pill">Daftar Sekarang</button>
