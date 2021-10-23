@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Pengguna;
 
 use App\Models\User;
+use App\Traits\AlertConfirm;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -10,6 +11,19 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 class TablePengguna extends DataTableComponent
 {
 
+    use AlertConfirm;
+
+    protected $listeners = ['dihapus', 'batal'];
+
+    public function dihapus()
+    {
+        if ($this->model_id){
+            User::find($this->model_id)->delete();
+            $this->alert('success', 'Data berhasil dihapus');
+        }else{
+            $this->alert('error', 'Data tidak ditemukan');
+        }
+    }
     public function columns(): array
     {
         return [
@@ -23,6 +37,7 @@ class TablePengguna extends DataTableComponent
                 return view('partials.tombol-aksi', [
                     'edit' => route('pengguna.sunting', $val),
                     'detail' => route('pengguna.detail', $val),
+                    'hapus' => $val
                 ]);
             })
 

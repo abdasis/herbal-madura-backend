@@ -49,7 +49,7 @@
                         <h5 class="text-bold">Tulisan Terbaru</h5>
                     </div>
                    <div class="card-text">
-                       @foreach($semua_tanaman as $key => $tanaman_detail)
+                       @forelse($semua_tanaman as $key => $tanaman_detail)
                            <div class="card shadow-none border-light border mb-2">
                                <div class="card-body">
                                    <div class="card-title">
@@ -64,13 +64,15 @@
                                    </div>
                                    <div class="card-text">
                                        <div class="meta-artikel">
-                                           <div class="badge badge-light p-1">12 Agustus 2021</div>
-                                           <div class="badge badge-light p-1">Ditinjau oleh: Abdul Aziz, SpOG</div>
+                                           <div class="badge badge-light p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
+                                           <div class="badge badge-light p-1">Ditinjau oleh: {{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</div>
                                        </div>
                                    </div>
                                </div>
                            </div>
-                       @endforeach
+                       @empty
+                           <div class="alert alert-default-info">Belum ada tulisan yang dipublikasi</div>
+                       @endforelse
                    </div>
                 </div>
             </div>

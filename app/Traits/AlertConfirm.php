@@ -23,6 +23,22 @@ trait AlertConfirm
         $this->model_id = $id;
     }
 
+    public function verifikasi($id)
+    {
+        $this->confirm('Yakin verifikasi data ini?', [
+            'text' => 'Jika setuju maka anda akan jadi pemverifikasi data!',
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => true,
+            'cancelButtonText' => 'Batal',
+            'confirmButtonText' => 'Yakin',
+            'onConfirmed' => 'diverifikasi',
+            'onCancelled' => 'batalVerifikasi'
+        ]);
+
+        $this->model_id = $id;
+    }
+
     public function batal()
     {
         return $this->alert('info', 'Penghapusan dibatalkan');

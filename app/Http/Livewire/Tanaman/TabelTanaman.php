@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
 use App\Traits\AlertConfirm;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -12,7 +13,7 @@ class TabelTanaman extends DataTableComponent
 {
     use AlertConfirm;
 
-    protected $listeners = ['dihapus', 'batal'];
+    protected $listeners = ['dihapus', 'batal', 'diverifikasi'];
 
     public function dihapus()
     {
@@ -22,6 +23,19 @@ class TabelTanaman extends DataTableComponent
             $this->alert('error', 'Data tidak ditemukan');
         }
 
+    }
+
+    public function diverifikasi()
+    {
+        if ($this->model_id)
+        {
+            $tanaman = Tanaman::find($this->model_id);
+            $tanaman->diverifikasi_oleh = \Auth::id();
+            $tanaman->tanggal_verifikasi = Carbon::now();
+            $tanaman->save();
+            $this->alert('success', 'Data berhasil diverifikasi');
+
+        }
     }
 
     public function columns(): array
@@ -43,6 +57,7 @@ class TabelTanaman extends DataTableComponent
                     'edit' => route('tanaman.sunting', $val),
                     'hapus' => $row->id,
                     'detail' => route('tanaman.detail', $val),
+                    'verifikasi' => $row->id
                 ]);
             })
         ];

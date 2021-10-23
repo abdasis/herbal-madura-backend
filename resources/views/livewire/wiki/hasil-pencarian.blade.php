@@ -10,7 +10,7 @@
                 <a href="#" class="list-group-item list-group-item-action border-light">
                     <span>📑</span> Artikel Terbaru
                 </a>
-                <a href="#" class="list-group-item list-group-item-action border-light">
+                <a href="{{route('kontributor')}}" class="list-group-item list-group-item-action border-light">
                     <span>👨‍🏫</span> Para Kontributor
                 </a>
                 <a href="#" class="list-group-item list-group-item-action border-light">
@@ -55,7 +55,7 @@
                             <div class="card-text">
                                 <div class="meta-artikel">
                                     <div class="badge badge-light p-1">12 Agustus 2021</div>
-                                    <div class="badge badge-light p-1">Ditinjau oleh: <span></span></div>
+                                    <div class="badge badge-light p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name}}</span></div>
                                 </div>
                             </div>
                         </div>

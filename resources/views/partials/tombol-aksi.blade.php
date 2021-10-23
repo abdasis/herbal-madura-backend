@@ -15,6 +15,14 @@
         </a>
     @endif
 
+    @if(!empty($verifikasi))
+        <a href="{{$verifikasi}}" class="text-muted" wire:click.prevent="verifikasi({{$verifikasi}})">
+            <button class="btn btn-link btn-sm text-success">
+                <i class="fas fa-check-square"></i>
+            </button>
+        </a>
+    @endif
+
     @if(!empty($hapus))
         <button wire:click="hapus({{$hapus}})" class="btn btn-link btn-sm text-danger">
             <i class="fas fa-trash-alt"></i>

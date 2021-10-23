@@ -21,6 +21,7 @@ Route::get('/', \App\Http\Livewire\Beranda::class)->name('beranda');
 Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tanaman.baca');
 Route::get('hasil-pencarian', \App\Http\Livewire\Wiki\HasilPencarian::class)->name('wiki.hasil-pencarian');
 Route::get('profile/{id}', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail');
+Route::get('daftar-kontributor', \App\Http\Livewire\Pengguna\DaftarPengguna::class)->name('kontributor');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
      Route::group(['prefix' => 'product'], function () {
