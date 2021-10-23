@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 class Tanaman extends Model implements Viewable
 {
     use HasFactory;
-    use Blameable;
     use InteractsWithViews;
+
+    public function user()
+    {
+       return $this->belongsTo(User::class, 'id');
+    }
 }

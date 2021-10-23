@@ -10,7 +10,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex border-light">
             <div class="image">
-                <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-1" alt="User Image">
+                <img src="{{asset('dist/img/user.png')}}" class="img-circle" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">{{Str::title(Auth::user()->name)}}</a>
@@ -38,29 +38,6 @@
                             Statistik Pembaca
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-wine-bottle"></i>
-                        <p>
-                            Product
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('product.tambah')}}" class="nav-link active">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Tambah Produk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('product.semua')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Semua Product</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">

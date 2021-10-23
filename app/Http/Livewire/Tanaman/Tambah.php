@@ -37,6 +37,8 @@ class Tambah extends Component
             $tanaman->jenis_spesies = $this->jenis_spesies;
             $tanaman->refrensi = $this->referensi;
             $tanaman->pustaka = $this->pustaka;
+            $tanaman->dibuat_oleh = \Auth::id();
+            $tanaman->diupdate_oleh = \Auth::id();
             $tanaman->save();
             $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_gambar);
             $this->alert('success', 'Data berhasil disimpan');

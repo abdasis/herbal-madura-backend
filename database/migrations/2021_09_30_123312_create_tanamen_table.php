@@ -24,12 +24,18 @@ class CreateTanamenTable extends Migration
             $table->longText('refrensi')->nullable();
             $table->longText('pustaka')->nullable();
             $table->string('status');
-            $table->string('dibuat_oleh');
-            $table->string('diupdate_oleh');
-            $table->string('diverifikasi_oleh')->nullable();
+            $table->unsignedBigInteger('dibuat_oleh');
+            $table->unsignedBigInteger('diupdate_oleh');
+            $table->unsignedBigInteger('diverifikasi_oleh')->nullable();
             $table->string('tanggal_verifikasi')->nullable();
             $table->softDeletes();
             $table->timestamps();
+
+            /*membuat foreign key*/
+
+            $table->foreign('dibuat_oleh')->references('id')->on('users');
+            $table->foreign('diupdate_oleh')->references('id')->on('users');
+            $table->foreign('diverifikasi_oleh')->references('id')->on('users');
         });
     }
 

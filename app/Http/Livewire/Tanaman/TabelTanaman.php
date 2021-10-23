@@ -20,7 +20,7 @@ class TabelTanaman extends DataTableComponent
                 $status = $val == 'Diterbitkan' ? 'success' : 'warning';
                 return '<div class="badge badge-'. $status .'">'. $val .'</div>';
             })->asHtml(),
-            Column::make('Dibuat Oleh', 'dibuat_oleh'),
+            Column::make('Dibuat Oleh', 'user.name'),
             Column::make('Dilihat', 'id')->format(function ($val, $column, $row){
                 return views($row)->count() .' kali';
             })->sortable(),

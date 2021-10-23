@@ -1,7 +1,7 @@
 <div>
     {{-- Stop trying to control. --}}
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-5">
             <div class="card card-outline card-orange shadow-sm">
                 <div class="card-header bg-white border-bottom border-lighter">
                     Form Tambah Pengguna
@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <label for="">Pendidikan Terakhir</label>
-                            <select name="" class="custom-select shadow-none" id="">
+                            <select name="" wire:model="pendidikan_terakhir" class="custom-select shadow-none" id="">
                                 <option value="">Pilih Pendidikan Terakhir</option>
                                 <option value="SD/Sederajat">SD/Sederajat</option>
                                 <option value="SMP/Sederajat">SMP/Sederajat</option>
@@ -31,7 +31,7 @@
                                 <option value="S2">S2</option>
                                 <option value="S3">S3</option>
                             </select>
-                            <x-error-message error="name"/>
+                            <x-error-message error="pendidikan_terakhir"/>
                         </div>
 
                         <div class="form-group">
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Alamat Website</label>
+                            <label for="">Alamat Tinggal</label>
                             <textarea type="text" class="form-control" rows="6" wire:model="alamat" name="" id=""></textarea>
                             <x-error-message error="alamat"/>
                         </div>
@@ -54,8 +54,19 @@
 
                         <div class="form-group">
                             <label for="">Konfirmasi Password</label>
-                            <input type="password" name="" wire:model="password" id="" class="form-control" placeholder="Konfirmasi Password">
+                            <input type="password" name="" wire:model="password_confirmation" id="" class="form-control" placeholder="Konfirmasi Password">
                             <x-error-message error="password_confirmation"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Roles</label>
+                            <select name="" wire:model="roles" class="custom-select shadow-none" id="">
+                                <option value="">Pilih Roles</option>
+                                <option value="admin">Admin</option>
+                                <option value="kontributor">Kontributor</option>
+                                <option value="user">User</option>
+                            </select>
+                            <x-error-message error="roles"/>
                         </div>
 
                         <div class="form-group">

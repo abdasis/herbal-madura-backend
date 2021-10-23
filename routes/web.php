@@ -40,8 +40,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
      Route::group(['prefix' => 'pengguna'], function () {
           Route::get('semua', Semua::class)->name('pengguna.semua');
           Route::get('tambah', Tambah::class)->name('pengguna.tambah');
-          Route::get('sunting/{slug}', Sunting::class)->name('pengguna.sunting');
-          Route::get('detail/{slug}', Detail::class)->name('pengguna.detail');
+          Route::get('sunting/{id}', Sunting::class)->name('pengguna.sunting');
+          Route::get('detail/{id}', Detail::class)->name('pengguna.detail');
      });
 
      Route::group(['prefix' => 'statistik'], function () {

@@ -6,7 +6,7 @@
     </a>
 @endif
 
-@if(!empty($edit))
+@if(!empty($detail))
     <a href="{{$detail}}" class="text-muted">
         <button class="btn btn-link btn-sm">
             <i class="fas fa-eye"></i>

@@ -27,6 +27,7 @@ class UserFactory extends Factory
         return [
             'name' => 'ADMINISTRATOR',
             'email' => 'admin@herbalmadura.com',
+            'roles' => 'admin',
             'email_verified_at' => now(),
             'password' => \Hash::make('(randomuser123)'), // password
             'remember_token' => Str::random(10),
