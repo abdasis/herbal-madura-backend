@@ -55,7 +55,7 @@
                             <div class="card-text">
                                 <div class="meta-artikel">
                                     <div class="badge badge-light p-1">12 Agustus 2021</div>
-                                    <div class="badge badge-light p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name}}</span></div>
+                                    <div class="badge badge-light p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
                                 </div>
                             </div>
                         </div>
