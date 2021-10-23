@@ -8,6 +8,6 @@ class Detail extends Component
 {
     public function render()
     {
-        return view('livewire.auth.detail');
+        return view('livewire.auth.detail')->layout('layouts.guest');
     }
 }
