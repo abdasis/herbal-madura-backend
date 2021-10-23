@@ -10,7 +10,7 @@ class Dashboard extends Component
 {
     public function mount()
     {
-        if (in_array(\Auth::user()->roles(), ['kontributor', 'user']))
+        if (in_array(\Auth::user()->roles, ['kontributor', 'user']))
         {
             $this->redirectRoute('auth.detail');
         }
