@@ -49,9 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
      });
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-     return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', \App\Http\Livewire\Dashboard::class)->name('dashboard');
 
 Route::group(['prefix' => 'auth'], function () {
      Route::get('register', \App\Http\Livewire\Auth\Register::class)->name('auth.register');

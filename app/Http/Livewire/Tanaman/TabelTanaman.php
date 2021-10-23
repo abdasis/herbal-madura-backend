@@ -3,12 +3,26 @@
 namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
+use App\Traits\AlertConfirm;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
 class TabelTanaman extends DataTableComponent
 {
+    use AlertConfirm;
+
+    protected $listeners = ['dihapus', 'batal'];
+
+    public function dihapus()
+    {
+        if ($this->model_id){
+            Tanaman::find($this->model_id)->delete();
+        }else{
+            $this->alert('error', 'Data tidak ditemukan');
+        }
+
+    }
 
     public function columns(): array
     {
@@ -24,10 +38,10 @@ class TabelTanaman extends DataTableComponent
             Column::make('Dilihat', 'id')->format(function ($val, $column, $row){
                 return views($row)->count() .' kali';
             })->sortable(),
-            Column::make('Options', 'slug')->format(function ($val){
+            Column::make('Options', 'slug')->format(function ($val, $column, $row){
                 return view('partials.tombol-aksi',[
                     'edit' => route('tanaman.sunting', $val),
-                    'hapus' => $val,
+                    'hapus' => $row->id,
                     'detail' => route('tanaman.detail', $val),
                 ]);
             })

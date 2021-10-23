@@ -14,7 +14,7 @@ class HasilPencarian extends Component
 
     protected $listeners = ['pencarian'];
 
-    public function updatingKeyword()
+    public function updatedKeyword()
     {
         $this->getTanaman($this->keyword);
     }

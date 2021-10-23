@@ -85,13 +85,13 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
-                        <h6 class="text-uppercase fw-bold">Wiki Herbal</h6>
+                        <h6 class="text-uppercase fw-bold">Ensiklopedia Herbal</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #f3f3f3; height: 2px"
                         />
                         <p>
-                            Herbal Madura adalah sebuah situs layanan penyedia informasi kesehatan dengan bahan herbal, mulai dari suplement kesehatan dan obat-obat penyembuhan
+                            Ensiklopedia Herbal adalah sebuah situs layanan penyedia informasi kesehatan dengan bahan herbal, mulai dari suplement kesehatan dan obat-obat penyembuhan
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -105,10 +105,10 @@
                             style="width: 60px; background-color: #f3f3f3; height: 2px"
                         />
                         <p>
-                            <a href="#!" class="text-dark">Masuk </a>
+                            <a href="{{route('login')}}" class="text-dark">Masuk </a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">Daftar</a>
+                            <a href="{{route('auth.register')}}" class="text-dark">Daftar</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -190,9 +190,8 @@
 <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 @livewireScripts
 @stack('js')
-<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@5.0.5/material-ui/material-ui.min.css" rel="stylesheet">
+<link rel="stylesheet" href="@sweetalert2/theme-bootstrap-4/bootstrap-4.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <x-livewire-alert::scripts />
-
 </body>
 </html>

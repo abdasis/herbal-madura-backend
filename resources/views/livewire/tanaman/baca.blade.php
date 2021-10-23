@@ -20,26 +20,26 @@
                     </div>
                 </div>
                 <div class="card shadow-none border-light border">
-                    <div class="card-header">
+                    <div class="card-header border-light">
                         Referensi
                     </div>
                     <div class="card-body">
-                        {{$tanaman->referensi}}
+                        {{$tanaman->refrensi}}
                     </div>
                 </div>
                 <div class="card shadow-none border-light border">
-                    <div class="card-header">
+                    <div class="card-header border-light">
                         Tentang Penulis
                     </div>
                     <div class="card-body">
                         <div class="card-text">
                             <div class="row justify-content-start">
                                 <div class="col-2">
-                                    <img src="{{asset('dist/img/user8-128x128.jpg')}}" class="img-circle img-thumbnail img-penulis" alt="">
+                                    <img src="{{asset('dist/img/user.png')}}" class="img-circle img-thumbnail img-penulis" alt="">
                                 </div>
                                 <div class="col my-auto">
                                     <h5 class="title-penulis">Disusun Oleh</h5>
-                                    <h2 class="nama-penulis">Abdul Aziz SpOG <i class="fas fa-check-circle text-primary"></i> </h2>
+                                    <h2 class="nama-penulis">{{$tanaman->user->name}} <i class="fas fa-check-circle text-primary"></i> </h2>
                                 </div>
                             </div>
                         </div>
@@ -58,8 +58,8 @@
                     <div class="card shadow-none border-light border">
                         <div class="card-body">
                             <p>
-                                Ditulis Oleh <b>{{Str::title($tanaman->dibuat_oleh)}}</b> Diperbarui pada <strong>{{\Carbon\Carbon::parse($tanaman->updated_at)->format('d/m/Y')}}</strong>
-                                dan Ditinjau oleh Pakar Herbal <strong>{{$tanaman->diverifikasi_oleh ?? 'None'}}</strong>
+                                Ditulis Oleh <b>{{Str::title($tanaman->user->name)}}</b> Diperbarui pada <strong>{{\Carbon\Carbon::parse($tanaman->updated_at)->format('d/m/Y')}}</strong>
+                                dan Ditinjau oleh Pakar Herbal <strong>{{$tanaman->diverifikasi->name ?? 'None'}}</strong>
                             </p>
                         </div>
                     </div>

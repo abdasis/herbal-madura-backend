@@ -21,7 +21,8 @@ class TablePengguna extends DataTableComponent
             Column::make('Tanggal Terdaftar', 'created_at')->sortable()->searchable(),
             Column::make('Option', 'id')->format(function ($val){
                 return view('partials.tombol-aksi', [
-                    'edit' => route('pengguna.sunting', $val)
+                    'edit' => route('pengguna.sunting', $val),
+                    'detail' => route('pengguna.detail', $val),
                 ]);
             })
 

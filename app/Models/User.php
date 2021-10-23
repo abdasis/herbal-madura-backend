@@ -61,6 +61,6 @@ class User extends Authenticatable
 
     public function tanaman()
     {
-        return $this->hasOne(Tanaman::class, 'id');
+        return $this->hasOne(Tanaman::class, 'id', 'diverifikasi_oleh');
     }
 }

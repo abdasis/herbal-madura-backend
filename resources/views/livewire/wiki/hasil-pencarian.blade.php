@@ -2,17 +2,26 @@
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
     <div class="row" style="min-height: 100vh">
         <div class="col-md-3">
-            <div class="left-sidebar bg-light p-3 rounded-lg">
-                <ul class="list-unstyled">
-                    <li>Halaman Utama</li>
-                    <li>Daftar Isi</li>
-                    <li>Peristiwa Terkini</li>98
-                    <li>Paling Dibaca</li>
-                </ul>
-                <hr>
-                <ul class="list-unstyled">
-                    <li>Cetak Artikel</li>
-                </ul>
+
+            <div class="list-group shadow-sm list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action border-light">
+                    <span>🏠</span> Halaman Utama
+                </a>
+                <a href="#" class="list-group-item list-group-item-action border-light">
+                    <span>📑</span> Artikel Terbaru
+                </a>
+                <a href="#" class="list-group-item list-group-item-action border-light">
+                    <span>👨‍🏫</span> Para Kontributor
+                </a>
+                <a href="#" class="list-group-item list-group-item-action border-light">
+                    <span>❔</span> Bantuan
+                </a>
+                <a href="#" class="list-group-item list-group-item-action border-light">
+                    <span>📦</span> Product
+                </a>
+                <a href="#" class="list-group-item list-group-item-action border-light">
+                    <span>🔗</span> Komunitas
+                </a>
             </div>
         </div>
         <div class="col-md-8">
@@ -40,13 +49,13 @@
                             </div>
                             <div class="card-text diskripsi-singkat-tanaman">
                                 <p>
-                                    {!! Str::limit($tanaman_detail->diskripsi_tanaman, 250) !!}
+                                    {!! Str::limit(strip_tags($tanaman_detail->diskripsi_tanaman), 250) !!}
                                 </p>
                             </div>
                             <div class="card-text">
                                 <div class="meta-artikel">
                                     <div class="badge badge-light p-1">12 Agustus 2021</div>
-                                    <div class="badge badge-light p-1">Ditinjau oleh: Abdul Aziz, SpOG</div>
+                                    <div class="badge badge-light p-1">Ditinjau oleh: <span></span></div>
                                 </div>
                             </div>
                         </div>

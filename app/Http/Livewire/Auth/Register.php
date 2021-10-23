@@ -9,6 +9,13 @@ class Register extends Component
 {
     public $name, $email, $pendidikan_terakhir, $password;
 
+    public function mount()
+    {
+        if (\Auth::check())
+        {
+            $this->redirectRoute('login');
+        }
+    }
 
     public function rules()
     {

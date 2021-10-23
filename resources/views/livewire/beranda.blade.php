@@ -4,10 +4,10 @@
             <div class="content-baner text-center px-4">
                 <img src="{{asset('dist/img/logo-herbal.png')}}" class="img-fluid w-50" alt="">
                 <div class="banner-title">
-                    <h2 class="text-center">Wiki Herbal</h2>
+                    <h2 class="text-center">Ensiklopedia Herbal</h2>
                 </div>
                 <div class="content">
-                    <p>Selamat datang di Wiki Herbal, adalah situs yang menyediakan berbagai informasi tentang tanaman herbal</p>
+                    <p>Selamat datang di <strong>Ensiklopedia Herbal</strong>, adalah situs yang menyediakan berbagai informasi tentang tanaman herbal</p>
                 </div>
             </div>
         </div>
