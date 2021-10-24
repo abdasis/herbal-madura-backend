@@ -37,6 +37,30 @@
         .text-quicksand {
             font-family: 'Quicksand', sans-serif;
         }
+
+        body{
+            background: #f9f9f9;
+        }
+
+        .blur {
+            background: url('https://image.freepik.com/free-photo/blurred-background-coffee-shop-garden-blur-background-with-bokeh-vintage-filtered-image_1253-1442.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            filter: blur(40px);
+            position: absolute;
+            height: 100vh;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            width: 100%;
+            opacity: 0.3;
+
+        }
+
+        .shadow-md{
+            box-shadow: rgba(0, 0, 0, 0.15) 0.9px 0.1px 4px;
+        }
     </style>
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -44,8 +68,8 @@
 <body class="layout-top-nav">
 <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white border-light border-bottom">
-        <div class="container">
+    <nav class="main-header navbar bg-transparent navbar-expand-md border-light bg-white navbar-light shadow-md navbar-white">
+        <div class="container-fluid py-2">
             <a href="{{url('/')}}" class="navbar-brand">
                 <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Ensiklopedia Herbal" class="brand-image img-circle elevation-1" style="opacity: .8">
                 <span class="brand-text font-weight-light">Ensiklopedia Herbal</span>
@@ -72,13 +96,13 @@
         </div>
     </nav>
     <!-- /.navbar -->
-    <div class="container bg-white mt-5">
+    <div class="container-fluid my-3">
         {{$slot}}
     </div>
 
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <footer
-        class="text-left bg-light text-dark px-0"
+        class="text-left bg-white text-dark px-0"
         style="background-color: #1c2331"
     >
         <section class="py-2">
@@ -88,7 +112,7 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
-                        <h6 class="text-uppercase fw-bold">Ensiklopedia Herbal</h6>
+                        <h6 class="text-uppercase text-bold text-quicksand">Ensiklopedia Herbal</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #f3f3f3; height: 2px"
@@ -102,7 +126,7 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Menjadi Kontributor</h6>
+                        <h6 class="text-uppercase text-bold text-quicksand">Menjadi Kontributor</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #f3f3f3; height: 2px"
@@ -119,7 +143,7 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Informasi</h6>
+                        <h6 class="text-uppercase text-bold text-quicksand">Informasi</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #f3f3f3; height: 2px"
@@ -142,7 +166,7 @@
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Link Lainnya</h6>
+                        <h6 class="text-uppercase text-bold text-quicksand">Link Lainnya</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #f3f3f3; height: 2px"
@@ -160,7 +184,7 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="p-3 border-top border-gray">
+        <div class="p-3 border-top border-light bg-white">
            <div class="container">
                © 2020 Copyright:
                <a class="text-dark" href="https://herbalmadura.my.id/"

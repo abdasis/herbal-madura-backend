@@ -1,5 +1,6 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
+    <div class="blur"></div>
     <div class="row" style="min-height: 100vh">
         <div class="col-md-3">
 
@@ -30,7 +31,7 @@
         <div class="col-md-8">
             <form>
                 <div class="form-group">
-                    <input wire:model="keyword" type="text" class="form-control bg-light border-0" placeholder="Masukan nama tanaman yang dicari..." name="" id="">
+                    <input wire:model="keyword" type="text" class="form-control bg-white border border-warning" placeholder="Masukan nama tanaman yang dicari..." name="" id="">
                 </div>
             </form>
             <div class="alert alert-default-info info-hasil-text">

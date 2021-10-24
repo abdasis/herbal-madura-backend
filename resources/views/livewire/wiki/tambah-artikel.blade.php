@@ -1,9 +1,10 @@
 <div>
     {{-- The best athlete wants his opponent at his best. --}}
+    <div class="blur"></div>
     <form wire:submit.prevent="simpan">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card shadow-none border-0">
                     <div class="card-body">
                         <div class="card-title"><h5 class="text-bold mb-3">Tulis Artikel</h5></div>
                         <div class="form-group">
@@ -63,7 +64,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Status Tanaman</label>
+                                    <label for="">Status Artikel</label>
                                     <select name="" wire:model="status" disabled class="custom-select" id="">
                                         <option value="">Pilih status</option>
                                         <option selected value="Direview">Direview</option>
