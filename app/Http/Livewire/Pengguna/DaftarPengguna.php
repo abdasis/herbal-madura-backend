@@ -9,7 +9,7 @@ class DaftarPengguna extends Component
 {
     public function render()
     {
-        $pengguna = User::latest()->paginate(16);
+        $pengguna = User::latest()->where('roles', '!=', 'admin')->paginate(16);
         return view('livewire.pengguna.daftar-pengguna',[
             'semua_pengguna' => $pengguna
         ])->layout('layouts.guest');

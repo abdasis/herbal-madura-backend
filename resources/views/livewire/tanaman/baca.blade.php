@@ -44,7 +44,7 @@
                             </div>
                             <div class="col my-auto">
                                 <h5 class="title-penulis">Disusun Oleh</h5>
-                                <h2 class="nama-penulis">{{$tanaman->user->name}} <i class="fas fa-check-circle text-primary"></i> </h2>
+                                <h2 class="nama-penulis">{{$tanaman->user->name ?? 'None'}} <i class="fas fa-check-circle text-primary"></i> </h2>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="card shadow-none border-light border">
                     <div class="card-body">
                         <p>
-                            Ditulis Oleh <b>{{Str::title($tanaman->user->name)}}</b> Diperbarui pada <strong>{{\Carbon\Carbon::parse($tanaman->updated_at)->format('d/m/Y')}}</strong>
+                            Ditulis Oleh <b>{{Str::title($tanaman->user->name ?? 'None')}}</b> Diperbarui pada <strong>{{\Carbon\Carbon::parse($tanaman->updated_at)->format('d/m/Y')}}</strong>
                             dan Ditinjau oleh Pakar Herbal <strong>{{$tanaman->diverifikasi->name ?? 'None'}}</strong>
                         </p>
                     </div>

@@ -20,6 +20,10 @@ class CreateTanamenTable extends Migration
             $table->string('nama_latin')->nullable();
             $table->longText('diskripsi_tanaman');
             $table->string('gambar_tanaman');
+            $table->string('kerajaan')->nullable();
+            $table->string('ordo')->nullable();
+            $table->string('famili')->nullable();
+            $table->string('genus')->nullable();
             $table->string('jenis_spesies')->nullable();
             $table->longText('refrensi')->nullable();
             $table->longText('pustaka')->nullable();

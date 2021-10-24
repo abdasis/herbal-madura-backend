@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('alamat')->nullable();
             $table->string('pendidikan_terakhir')->nullable();
+            $table->string('profesi')->nullable();
             $table->string('alamat_website')->nullable();
             $table->enum('status', ['aktif', 'non-aktif'])->default('non-aktif');
             $table->enum('roles',['admin','kontributor','user'])->default('kontributor');
@@ -38,6 +39,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('users');
+        Schema::enableForeignKeyConstraints();
     }
 }
