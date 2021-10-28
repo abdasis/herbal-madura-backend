@@ -25,7 +25,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
-    <title>{{ config('app.name', 'Herbal Madura') }}</title>
+    <title>Wiki Herbal Madura</title>
     <!-- Styles -->
     @livewireStyles
     @stack('css')

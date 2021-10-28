@@ -16,6 +16,7 @@ class Tambah extends Component
             $alamat,
             $password,
             $password_confirmation,
+            $profesi,
             $roles;
 
 
@@ -30,7 +31,7 @@ class Tambah extends Component
             'password_confirmation' => 'required',
             'password' => 'required|confirmed',
             'roles' => 'required',
-
+            'profesi' => 'required'
         ];
     }
 
@@ -44,6 +45,7 @@ class Tambah extends Component
         $user->alamat_website = $this->alamat_website;
         $user->alamat  = $this->alamat;
         $user->password = \Hash::make($this->password);
+        $user->profesi = $this->profesi;
         $user->roles = $this->roles;
         $user->save();
         $this->alert('success', 'Data berhasil disimpan');

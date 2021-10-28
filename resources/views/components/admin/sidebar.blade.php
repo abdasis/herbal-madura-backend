@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="{{route('dashboard')}}" class="brand-link border-bottom border-light">
         <img src="{{asset('dist/img/logo.jpg')}}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
-        <span class="brand-text text-dark text-bold">Herbal Madura</span>
+        <span class="brand-text text-secondary text-bold">Info Herbal & Jamu</span>
     </a>
 
     <!-- Sidebar -->

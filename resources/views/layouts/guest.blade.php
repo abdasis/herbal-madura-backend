@@ -71,8 +71,8 @@
     <nav class="main-header navbar bg-transparent navbar-expand-md border-light bg-white navbar-light shadow-md navbar-white">
         <div class="container-fluid py-2">
             <a href="{{url('/')}}" class="navbar-brand">
-                <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="Ensiklopedia Herbal" class="brand-image img-circle elevation-1" style="opacity: .8">
-                <span class="brand-text font-weight-light">Ensiklopedia Herbal</span>
+                <img src="{{asset('dist/img/logo.png')}}" alt="Ensiklopedia Herbal" class="brand-image img-circle elevation-1" style="opacity: .8">
+                <span class="brand-text font-weight-light">infonherbalmadura.com</span>
             </a>
             <button class="navbar-toggler border-0 order-1 collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -85,7 +85,7 @@
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown mr-2">
                     @if(Auth::check())
-                        Hallo, {{Str::title(Auth::user()->name)}}
+                        Hallo, <a class="text-orange" href="{{route('auth.detail', Auth::id())}}">{{Str::title(Auth::user()->name)}}</a>
                     @else
                         <a href="{{route('login')}}">
                             <button class="btn btn-outline-secondary btn-sm">Masuk / Mendaftar</button>
@@ -112,13 +112,13 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
-                        <h6 class="text-uppercase text-bold text-quicksand">Ensiklopedia Herbal</h6>
+                        <h6 class="text-uppercase text-bold text-quicksand">Info Herbal Madura</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #f3f3f3; height: 2px"
                         />
                         <p>
-                            Ensiklopedia Herbal adalah sebuah situs layanan penyedia informasi kesehatan dengan bahan herbal, mulai dari suplement kesehatan dan obat-obat penyembuhan
+                            Info Herbal Madura adalah sebuah situs layanan penyedia informasi kesehatan dengan bahan herbal, mulai dari suplement kesehatan dan obat-obat penyembuhan
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -187,8 +187,8 @@
         <div class="p-3 border-top border-light bg-white">
            <div class="container">
                © 2020 Copyright:
-               <a class="text-dark" href="https://herbalmadura.my.id/"
-               >Herbal Madura</a
+               <a class="text-dark" href="https://infoherbalmadura.com/"
+               >Info Herbal Madura</a
                >
            </div>
         </div>
