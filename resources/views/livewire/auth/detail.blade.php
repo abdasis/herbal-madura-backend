@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="card-text diskripsi-singkat-tanaman">
                                             <p>
-                                                {!! Str::limit($tanaman_detail->diskripsi_tanaman, 250) !!}
+                                                {!! Str::limit(strip_tags($tanaman_detail->diskripsi_tanaman), 250) !!}
                                             </p>
                                         </div>
                                         <div class="card-text">
