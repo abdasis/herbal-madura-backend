@@ -13,7 +13,7 @@
                             <h5 class="widget-user-desc text-light">{{$pengguna->roles}}</h5>
                         </div>
                         <div class="widget-user-image">
-                            <img class="img-circle elevation-1" src="{{asset('dist/img/user.png')}}" alt="User Avatar">
+                            <img class="img-circle elevation-1" src="{{asset('upload' . '/' . $pengguna->profile_photo_path) ?? asset('dist/img/user.png')}}" alt="User Avatar">
                         </div>
                         <div class="card-footer text-center">
                             <a href="{{$pengguna->alamat_website}}" class="text-orange">
