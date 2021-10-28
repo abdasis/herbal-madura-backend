@@ -108,7 +108,7 @@
         <section class="py-2">
             <div class="container mt-5">
                 <!-- Grid row -->
-                <div class="row mt-3 px-3">
+                <div class="row justify-center mt-3 px-3">
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
@@ -126,7 +126,7 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase text-bold text-quicksand">Menjadi Kontributor</h6>
+                        <h6 class="text-uppercase text-bold text-quicksand text-nowrap">Menjadi Kontributor</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #f3f3f3; height: 2px"

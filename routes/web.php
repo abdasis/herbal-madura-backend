@@ -21,6 +21,7 @@ Route::get('/', \App\Http\Livewire\Beranda::class)->name('beranda');
 Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tanaman.baca');
 Route::get('hasil-pencarian', \App\Http\Livewire\Wiki\HasilPencarian::class)->name('wiki.hasil-pencarian');
 Route::get('profile/{id}', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail');
+Route::get('profile/{id}/update', \App\Http\Livewire\Auth\Sunting::class)->name('auth.sunting');
 Route::get('daftar-kontributor', \App\Http\Livewire\Pengguna\DaftarPengguna::class)->name('kontributor');
 Route::get('halaman-utama', \App\Http\Livewire\HalamanUtama::class)->name('halaman-utama');
 Route::get('tulis-artikel', \App\Http\Livewire\Wiki\TambahArtikel::class)->name('wiki.tambah-artikel')->middleware('auth');

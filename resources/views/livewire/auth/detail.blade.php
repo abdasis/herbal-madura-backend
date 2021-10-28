@@ -10,7 +10,7 @@
                                 <div class="avatar">
                                     <img src="{{asset('upload' . '/' . $user->profile_photo_path) ?? asset('dist/img/user.png')}}" alt="avatar-pengguna" class="text-center w-75 img-rounded img-thumbnail mx-auto d-block">
                                 </div>
-                                <p class="text-center " wire:click.prevent="uploadPhoto({{$user->id}})">
+                                <p class="text-center mt-2 " wire:click.prevent="uploadPhoto({{$user->id}})">
                                     <a href="#" class="text-center text-orange">
                                         <i class="fas fa-upload"></i>
                                         Update Avatar
@@ -41,8 +41,10 @@
                                             <i class="fas fa-map-marker mr-1"></i>{{$user->alamat}}
                                         </span>
                                         </li>
-
                                     </ul>
+                                    <a href="{{route('auth.sunting', $user->id)}}">
+                                        <button class="btn btn-primary btn-xs"><i class="fas fa-user-edit"></i> Edit Profile</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
