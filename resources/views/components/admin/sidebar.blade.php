@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-light-orange ">
     <!-- Brand Logo -->
     <a href="{{route('dashboard')}}" class="brand-link border-bottom border-light">
-        <img src="{{asset('dist/img/logo.png')}}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
-        <span class="brand-text font-weight-light text-white">.</span>
+        <img src="{{asset('dist/img/logo.jpg')}}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
+        <span class="brand-text text-dark text-bold">Herbal Madura</span>
     </a>
 
     <!-- Sidebar -->

@@ -26,7 +26,6 @@ class CreateTanamenTable extends Migration
             $table->string('genus')->nullable();
             $table->string('jenis_spesies')->nullable();
             $table->longText('refrensi')->nullable();
-            $table->longText('pustaka')->nullable();
             $table->string('status');
             $table->unsignedBigInteger('dibuat_oleh');
             $table->unsignedBigInteger('diupdate_oleh');
