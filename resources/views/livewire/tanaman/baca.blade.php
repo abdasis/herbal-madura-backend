@@ -40,7 +40,7 @@
                     <div class="card-text">
                         <div class="row justify-content-start">
                             <div class="col-2">
-                                <img src="{{asset('dist/img/user.png')}}" class="img-circle img-thumbnail img-penulis" alt="">
+                                <img src="{{asset('upload' . '/' . $tanaman->user->profile_photo_path) ?? asset('dist/img/user.png')}}" class="img-circle img-thumbnail img-penulis" alt="">
                             </div>
                             <div class="col my-auto">
                                 <h5 class="title-penulis">Disusun Oleh</h5>
