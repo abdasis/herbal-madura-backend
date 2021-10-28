@@ -3,7 +3,7 @@
     <div class="blur"></div>
     <div class="container">
         <h5 class="text-bold text-quicksand mb-4">DAFTAR KONTRIBUTOR KAMI</h5>
-        <div class="row">
+        <div class="row" style="min-height: 100vh">
             @forelse($semua_pengguna as $pengguna)
                 <div class="col-md-3">
                     <div class="card card-widget widget-user shadow-sm">

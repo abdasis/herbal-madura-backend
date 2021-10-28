@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
      Route::group(['prefix' => 'product'], function () {
           Route::get('semua', \App\Http\Livewire\Product\Semua::class)->name('product.semua');
           Route::get('tambah', \App\Http\Livewire\Product\Tambah::class)->name('product.tambah');
-          Route::get('sunting/{slug}', \App\Http\Livewire\Product\Sunting::class)->name('product.sunting');
+          Route::get('sunting/{id}', \App\Http\Livewire\Product\Sunting::class)->name('product.sunting');
           Route::get('detail/{slug}', \App\Http\Livewire\Product\Detail::class)->name('product.detail');
      });
 

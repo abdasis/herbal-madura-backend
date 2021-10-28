@@ -41,6 +41,29 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-wine-bottle"></i>
+                        <p>
+                            Jamu
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('product.tambah')}}" class="nav-link active">
+                                <i class="far fa-dot-circle nav-icon"></i>
+                                <p>Tambah Produk</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('product.semua')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Semua Produk</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-leaf"></i>
                         <p>
                             Data Tanaman

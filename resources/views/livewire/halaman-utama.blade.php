@@ -2,7 +2,7 @@
     {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="blur"></div>
 
-    <div class="container">
+    <div class="container" style="min-height: 100vh">
         <div class="jumbotron rounded-full hero-halaman-utama">
             <div class="container">
                 <h1 class="display-4 text-bold text-black">Ensiklopedia Herbal</h1>
@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section" >
             <h5 class="text-bold text-quicksand mb-4">Jelajahi Artikel Kami</h5>
             <div class="content-wrap">
                 @forelse($semua_tanaman as $tanaman_detail)
