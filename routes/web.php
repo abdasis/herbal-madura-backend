@@ -21,6 +21,7 @@ Route::get('/', \App\Http\Livewire\Beranda::class)->name('beranda');
 Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tanaman.baca');
 Route::get('hasil-pencarian', \App\Http\Livewire\Wiki\HasilPencarian::class)->name('wiki.hasil-pencarian');
 Route::get('profile/{id}', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail');
+Route::get('profile/{id}/update', \App\Http\Livewire\Auth\Sunting::class)->name('auth.sunting');
 Route::get('daftar-kontributor', \App\Http\Livewire\Pengguna\DaftarPengguna::class)->name('kontributor');
 Route::get('halaman-utama', \App\Http\Livewire\HalamanUtama::class)->name('halaman-utama');
 Route::get('tulis-artikel', \App\Http\Livewire\Wiki\TambahArtikel::class)->name('wiki.tambah-artikel')->middleware('auth');
@@ -30,7 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
      Route::group(['prefix' => 'product'], function () {
           Route::get('semua', \App\Http\Livewire\Product\Semua::class)->name('product.semua');
           Route::get('tambah', \App\Http\Livewire\Product\Tambah::class)->name('product.tambah');
-          Route::get('sunting/{slug}', \App\Http\Livewire\Product\Sunting::class)->name('product.sunting');
+          Route::get('sunting/{id}', \App\Http\Livewire\Product\Sunting::class)->name('product.sunting');
           Route::get('detail/{slug}', \App\Http\Livewire\Product\Detail::class)->name('product.detail');
      });
 

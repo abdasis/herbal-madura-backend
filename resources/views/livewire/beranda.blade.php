@@ -4,12 +4,12 @@
         <div class="row" style="min-height: 90vh">
             <div class="col-md-6 my-auto">
                 <div class="content-baner text-center px-4">
-                    <img src="{{asset('dist/img/logo-herbal.png')}}" class="img-fluid w-50" alt="">
+                    <img src="{{asset('dist/img/logo.png')}}" class="img-fluid w-50" alt="">
                     <div class="banner-title">
-                        <h2 class="text-center">Ensiklopedia Herbal</h2>
+                        <h2 class="text-center">Info Herbal Madura</h2>
                     </div>
                     <div class="content">
-                        <p>Selamat datang di <strong>Ensiklopedia Herbal</strong>, adalah situs yang menyediakan berbagai informasi tentang tanaman herbal</p>
+                        <p>Selamat datang di <strong>Info Herbal Madura</strong>, adalah situs yang menyediakan berbagai informasi tentang tanaman herbal</p>
                     </div>
                 </div>
             </div>

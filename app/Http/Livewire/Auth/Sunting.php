@@ -1,25 +1,37 @@
 <?php
 
-namespace App\Http\Livewire\Pengguna;
-
-use Livewire\Component;
+namespace App\Http\Livewire\Auth;
 
 use App\Models\User;
+use Livewire\Component;
 
-class Tambah extends Component
+class Sunting extends Component
 {
-
     public  $name;
     public  $email,
-            $pendidikan_terakhir,
-            $alamat_website,
-            $alamat,
-            $password,
-            $password_confirmation,
-            $profesi,
-            $roles;
+        $pendidikan_terakhir,
+        $alamat_website,
+        $alamat,
+        $password,
+        $password_confirmation,
+        $roles,
+        $profesi,
+        $user_id;
 
 
+    public function mount($id)
+    {
+        $user = User::find($id);
+
+        $this->name = $user->name;
+        $this->email = $user->email;
+        $this->pendidikan_terakhir = $user->pendidikan_terakhir;
+        $this->alamat_website = $user->alamat_website;
+        $this->alamat = $user->alamat;
+        $this->roles = $user->roles;
+        $this->profesi = $user->profesi;
+        $this->user_id = $user->id;
+    }
     public function rules()
     {
         return[
@@ -31,14 +43,14 @@ class Tambah extends Component
             'password_confirmation' => 'required',
             'password' => 'required|confirmed',
             'roles' => 'required',
-            'profesi' => 'required'
+
         ];
     }
 
     public function simpan()
     {
         $this->validate();
-        $user = new User();
+        $user = User::find($this->user_id);
         $user->name = \Str::title($this->name);
         $user->email = $this->email;
         $user->pendidikan_terakhir = $this->pendidikan_terakhir;
@@ -48,14 +60,14 @@ class Tambah extends Component
         $user->profesi = $this->profesi;
         $user->roles = $this->roles;
         $user->save();
-        $this->alert('success', 'Data berhasil disimpan');
-        $this->reset();
+        $this->alert('success', 'Data berhasil diperbarui');
+        $this->redirectRoute('pengguna.semua');
 
     }
 
 
     public function render()
     {
-        return view('livewire.pengguna.tambah');
+        return view('livewire.auth.sunting')->layout('layouts.guest');
     }
 }

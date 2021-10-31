@@ -8,8 +8,14 @@
                     <div class="row">
                         <div class="col-md-4 ">
                             <div class="avatar">
-                                <img src="{{asset('dist/img/user.png')}}" alt="avatar-pengguna" class="text-center  mx-auto d-block">
+                                <img src="{{asset('upload' . '/' . $user->profile_photo_path) ?? asset('dist/img/user.png')}}" alt="avatar-pengguna" class="text-center w-75 img-rounded img-thumbnail mx-auto d-block">
                             </div>
+                            <p class="text-center" wire:click.prevent="uploadPhoto({{$user->id}})">
+                                <a href="#" class="text-center">
+                                    <i class="fas fa-upload"></i>
+                                    Update Avatar
+                                </a>
+                            </p>
                         </div>
                         <div class="col-md-8">
                             <div class="biodata">
@@ -78,4 +84,43 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" wire:ignore id="modalUploadAvatar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">Upload Avatar</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form wire:submit.prevent="upload">
+                        <div class="form-group">
+                            <input type="file" wire:model="photo" class="form-control" name="" id="">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+@push('js')
+
+    <script>
+        Livewire.on('modalUpload', params => {
+            $('#modalUploadAvatar').modal('show')
+        })
+
+        Livewire.on('closeModal', params => {
+            $('#modalUploadAvatar').modal('hide')
+
+        })
+    </script>
+@endpush
