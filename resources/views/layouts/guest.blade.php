@@ -102,7 +102,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <footer
-        class="text-left bg-white text-dark px-0"
+        class="text-left bg-white text-dark px-0 border-top border-light shadow-sm"
         style="background-color: #1c2331"
     >
         <section class="py-2">
