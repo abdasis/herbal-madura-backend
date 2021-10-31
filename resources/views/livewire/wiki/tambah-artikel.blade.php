@@ -62,26 +62,26 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Kerajaan</label>
-                                    <input type="text" class="form-control" wire:model="kerajaan" placeholder="Jenis spesies">
+                                    <input type="text" class="form-control" wire:model="kerajaan" placeholder="Kerajaan">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Ordo</label>
-                                    <input type="text" class="form-control" wire:model="ordo" placeholder="Jenis spesies">
+                                    <input type="text" class="form-control" wire:model="ordo" placeholder="Ordo">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Famili</label>
-                                    <input type="text" class="form-control" wire:model="famili" placeholder="Jenis spesies">
+                                    <input type="text" class="form-control" wire:model="famili" placeholder="Famili">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Genus</label>
-                                    <input type="text" class="form-control" wire:model="genus" placeholder="Jenis spesies">
+                                    <input type="text" class="form-control" wire:model="genus" placeholder="Genus">
                                 </div>
                             </div>
                             <div class="col-md-6">

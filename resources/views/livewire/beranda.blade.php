@@ -9,7 +9,7 @@
                         <h2 class="text-center">Info Herbal Madura</h2>
                     </div>
                     <div class="content">
-                        <p>Selamat datang di <strong>Info Herbal Madura</strong>, adalah situs yang menyediakan berbagai informasi tentang tanaman herbal</p>
+                        <p class="text-quicksand">Selamat datang di <strong>Info Herbal Madura</strong>, adalah situs yang menyediakan berbagai informasi tentang tanaman herbal & Jamu Madura</p>
                     </div>
                 </div>
             </div>
@@ -18,18 +18,18 @@
                     <div class="card-body">
                         <div class="card-text">
                             <p class="title-pencarian">
-                                Temukan berbagai informasi tentang tanaman herbal
+                                Temukan berbagai informasi tentang tanaman herbal & Jamu Madura
                             </p>
                             <p class="sub-title">
-                                Terdapat 10jt lebih artikel lengkap mengenai tanaman herbal yang ada di seluruh dunia
+                                Terdapat banyak artikel lengkap mengenai tanaman herbal nusantara
                             </p>
                         </div>
                         <form wire:submit.prevent="pencarian">
                             <div class="form-group">
-                                <input wire:model="keyword" type="text" class="form-control rounded-pill border shadow-sm form-control-lg bg-light" required placeholder="Masukan nama tanaman yang dicari..." name="pencarian" id="">
+                                <input wire:model="keyword" type="text" class="form-control  border border-light shadow-sm form-control-lg bg-light" required placeholder="Pencarian..."  name="pencarian" id="">
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-warning rounded-pill text-white float-right">Lihat Hasil Pencarian <i class="fas fa-arrow-right"></i> </button>
+                                <button class="btn btn-warning  text-white float-right">Lihat Hasil Pencarian <i class="fas fa-arrow-right"></i> </button>
                             </div>
                         </form>
                     </div>
@@ -48,9 +48,10 @@
             margin-top: 10px;
         }
         .title-pencarian{
-            font-size: 18px;
+            font-size: 20px;
             font-family: 'Quicksand', sans-serif;
             margin-bottom: 5px;
+            line-height: 22px;
         }
         .sub-title{
             font-size: 14px;

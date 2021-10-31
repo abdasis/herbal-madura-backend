@@ -9,16 +9,19 @@
                 <div class="card-body">
                     <ul class="nav nav-tabs mb-5">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Tanaman</a>
+                            <a wire:click.prevent="$set('kategori', 'semua')" class="nav-link {{$kategori == 'semua' ? 'active' : ''}}" aria-current="page" href="#">Semua</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Jamu</a>
+                            <a wire:click.prevent="$set('kategori', 'tanaman')" class="nav-link {{$kategori == 'tanaman' ? 'active' : ''}} "  href="#">Tanaman</a>
+                        </li>
+                        <li class="nav-item">
+                            <a wire:click.prevent="$set('kategori', 'jamu')" class="nav-link {{$kategori == 'jamu' ? 'active' : ''}}" href="#">Jamu</a>
                         </li>
 
                     </ul>
                     <form>
                         <div class="form-group">
-                            <input wire:model="keyword" type="text" class="form-control bg-white border border-warning" placeholder="Masukan nama tanaman yang dicari..." name="" id="">
+                            <input wire:model="keyword" type="text" class="form-control bg-white border border-warning" name="" id="">
                         </div>
                     </form>
                     <div class="alert alert-default-info info-hasil-text">
@@ -30,33 +33,112 @@
                             <a href="#">Klik Disini</a>
                         </div>
                     @else
-                        @forelse($tanaman as $tanaman_detail)
-                            <div class="card shadow-none  mb-2">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <a href="{{route('tanaman.baca', $tanaman_detail->slug)}}">
-                                            <h5 class="title-tanaman">{{$tanaman_detail->nama_tanaman}} (Latin: {{$tanaman_detail->nama_latin}})</h5>
-                                        </a>
-                                    </div>
-                                    <div class="card-text diskripsi-singkat-tanaman">
-                                        <p>
-                                            {!! Str::limit(strip_tags($tanaman_detail->diskripsi_tanaman), 250) !!}
-                                        </p>
-                                    </div>
-                                    <div class="card-text">
-                                        <div class="meta-artikel">
-                                            <div class="badge badge-light p-1">12 Agustus 2021</div>
-                                            <div class="badge badge-light p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
+                        @if($kategori == 'tanaman')
+                            @forelse($tanaman as $tanaman_detail)
+                                <div class="card shadow-none  mb-2">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <a href="{{route('tanaman.baca', $tanaman_detail->slug)}}">
+                                                <h5 class="title-tanaman">{{$tanaman_detail->nama_tanaman}} (Latin: {{$tanaman_detail->nama_latin}})</h5>
+                                            </a>
+                                        </div>
+                                        <div class="card-text diskripsi-singkat-tanaman">
+                                            <p>
+                                                {!! Str::limit(strip_tags($tanaman_detail->diskripsi_tanaman), 250) !!}
+                                            </p>
+                                        </div>
+                                        <div class="card-text">
+                                            <div class="meta-artikel">
+                                                <div class="badge badge-light p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
+                                                <div class="badge badge-light p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @empty
-                            <div class="alert alert-secondary">
-                                Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
-                                <a href="#">Klik Disini</a>
-                            </div>
-                        @endforelse
+                            @empty
+                                <div class="alert alert-secondary">
+                                    Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
+                                    <a href="{{route('wiki.tambah-artikel')}}">Klik Disini</a>
+                                </div>
+                            @endforelse
+                        @elseif($kategori == 'jamu')
+                            @forelse($produk as $detail_produk)
+                                <div class="card shadow-none  mb-2">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <a href="{{route('produk.baca', $detail_produk->slug)}}">
+                                                <h5 class="title-tanaman">{{$detail_produk->nama_produk}}</h5>
+                                            </a>
+                                        </div>
+                                        <div class="card-text diskripsi-singkat-tanaman">
+                                            <p>
+                                                {!! Str::limit(strip_tags($detail_produk->deskripsi), 250) !!}
+                                            </p>
+                                        </div>
+                                        <div class="card-text">
+                                            <div class="meta-artikel">
+                                                <div class="badge badge-light p-1">{{\Carbon\Carbon::parse($detail_produk->created_at)->format('d F Y')}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                <div class="alert alert-secondary">
+                                    Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
+                                    <a href="{{route('wiki.tambah-artikel')}}">Klik Disini</a>
+                                </div>
+                            @endforelse
+                        @else
+                            @forelse($tanaman as $tanaman_detail)
+                                <div class="card shadow-none  mb-2">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <a href="{{route('tanaman.baca', $tanaman_detail->slug)}}">
+                                                <h5 class="title-tanaman">{{$tanaman_detail->nama_tanaman}} (Latin: {{$tanaman_detail->nama_latin}})</h5>
+                                            </a>
+                                        </div>
+                                        <div class="card-text diskripsi-singkat-tanaman">
+                                            <p>
+                                                {!! Str::limit(strip_tags($tanaman_detail->diskripsi_tanaman), 250) !!}
+                                            </p>
+                                        </div>
+                                        <div class="card-text">
+                                            <div class="meta-artikel">
+                                                <div class="badge badge-light p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
+                                                <div class="badge badge-light p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+
+                            @endforelse
+
+                            @forelse($produk as $detail_produk)
+                                <div class="card shadow-none  mb-2">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <a href="{{route('produk.baca', $detail_produk->slug)}}">
+                                                <h5 class="title-tanaman">{{$detail_produk->nama_produk}}</h5>
+                                            </a>
+                                        </div>
+                                        <div class="card-text diskripsi-singkat-tanaman">
+                                            <p>
+                                                {!! Str::limit(strip_tags($detail_produk->deskripsi), 250) !!}
+                                            </p>
+                                        </div>
+                                        <div class="card-text">
+                                            <div class="meta-artikel">
+                                                <div class="badge badge-light p-1">{{\Carbon\Carbon::parse($detail_produk->created_at)->format('d F Y')}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+
+                            @endforelse
+
+                        @endif
                     @endif
                 </div>
             </div>
@@ -65,9 +147,6 @@
         <div class="col-md-3" style="margin-top: 34px">
 
             <div class="list-group shadow-sm list-group-flush">
-                <a href="{{route('halaman-utama')}}" class="list-group-item list-group-item-action border-light">
-                    <span>🏠</span> Halaman Utama
-                </a>
                 <a href="{{route('kontributor')}}" class="list-group-item list-group-item-action border-light">
                     <span>👨‍🏫</span> Para Kontributor
                 </a>
@@ -101,6 +180,13 @@
         .info-hasil-text{
             font-family: 'Quicksand', sans-serif;
             font-size: 16px;
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #495057;
+            background-color: #fff;
+            border-color: white !important;
+            border-bottom: 3px solid orange !important;
         }
     </style>
 @endpush

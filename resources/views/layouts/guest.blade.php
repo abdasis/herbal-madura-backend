@@ -102,7 +102,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <footer
-        class="text-left bg-white text-dark px-0 border-top border-light shadow-sm"
+        class="text-left bg-white text-dark px-0 border-top border-gray shadow-sm"
         style="background-color: #1c2331"
     >
         <section class="py-2">
@@ -110,15 +110,15 @@
                 <!-- Grid row -->
                 <div class="row justify-center mt-3 px-3">
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
                         <!-- Content -->
                         <h6 class="text-uppercase text-bold text-quicksand">Info Herbal Madura</h6>
                         <hr
                             class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #f3f3f3; height: 2px"
                         />
-                        <p>
-                            Info Herbal Madura adalah sebuah situs layanan penyedia informasi kesehatan dengan bahan herbal, mulai dari suplement kesehatan dan obat-obat penyembuhan
+                        <p class="text-quicksand">
+                            Info Herbal Madura adalah sebuah situs layanan penyedian informasi kesehatan dengan bahan herbal dan produk dari jamu Madura. Terdapat <i>open access</i> bagi kontributor untuk membagi ilmu seputar kesehatan dengan bahan herbal dan produk Jamu Madura
                         </p>
                     </div>
                     <!-- Grid column -->
