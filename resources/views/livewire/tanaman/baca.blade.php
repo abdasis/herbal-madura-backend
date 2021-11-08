@@ -29,7 +29,7 @@
                     Referensi
                 </div>
                 <div class="card-body">
-                    {{$tanaman->refrensi}}
+                    {!! $tanaman->refrensi !!}
                 </div>
             </div>
             <div class="card shadow-none border-light border">
