@@ -23,6 +23,7 @@ class Tambah extends Component
         $this->validate();
 
         $nama_gambar = \Str::slug($this->nama_produk) . '-' . $this->gambar_produk->getClientOriginalName();
+
         $produk = new Product();
         $produk->nama_produk = $this->nama_produk;
         $produk->slug = \Str::slug($this->nama_produk);

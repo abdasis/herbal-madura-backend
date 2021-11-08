@@ -36,10 +36,10 @@ class HasilPencarian extends Component
     public function getTanaman($keyword)
     {
         if ($this->kategori == 'semua'){
-            $this->produk = Product::where('nama_produk', 'LIKE', '%' . $keyword . '%')->get();
+            $this->produk = Product::where('nama_produk', 'LIKE', '%' . $keyword . '%')->where('deskripsi', 'LIKE', '%'.$keyword.'%')->get();
             $this->tanaman = Tanaman::where('nama_tanaman', 'LIKE', '%' . $keyword . '%')->where('status', 'Diterbitkan')->get();
         }elseif($this->kategori == 'jamu'){
-            $this->produk = Product::where('nama_produk', 'LIKE', '%' . $keyword . '%')->get();
+            $this->produk = Product::where('nama_produk', 'LIKE', '%' . $keyword . '%')->where('deskripsi', 'LIKE', '%'.$keyword.'%')->get();
         }else{
             $this->tanaman = Tanaman::where('nama_tanaman', 'LIKE', '%' . $keyword . '%')->where('status', 'Diterbitkan')->get();
         }

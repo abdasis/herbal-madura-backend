@@ -1,68 +1,20 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
     <div class="blur"></div>
-    <div class="row">
-        <div class="col-md-3  p-4">
-            <div id="blogContents bg-transparent">
-                <h5 class="text-bold text-quicksand">DAFTAR ISI</h5>
-                <ol style="padding-left: 10px" data-toc="div.diskripsi-tanaman" data-toc-headings="h2,h3,h4"></ol>
-            </div>
-
-        </div>
-        <div class="col-md-6">
-            <div class="card border-0 shadow-none">
-                <div class="card-body bg-transparent">
-                    <div class="card-title title-tanaman mb-5">
-                        <h2 class="text-bold">{{$produk->nama_produk}}</h2>
-                        <small class="text-muted">Ditulis Pada: {{\Carbon\Carbon::now()->format('d F Y H:s')}}</small>
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="row p-2">
+                    <div class="col-md-6">
+                        <img src="{{asset('upload/' . '/' . $produk->gambar_produk)}}" class="img-fluid rounded" alt="">
                     </div>
-                    <div class="card-text meta-artikel">
+                    <div class="col-md-6">
 
-                    </div>
-                    <div class="card-text diskripsi-tanaman">
-                        {!! $produk->deskripsi !!}
-                    </div>
-                </div>
-            </div>
-
-            <div class="card shadow-none border-light border">
-                <div class="card-header border-light">
-                    Tentang Penulis
-                </div>
-                <div class="card-body">
-                    <div class="card-text">
-                        <div class="row justify-content-start">
-                            <div class="col-2">
-                                <img src="{{asset('upload' . '/' . $produk->user->profile_photo_path) ?? asset('dist/img/user.png')}}" class="img-circle img-thumbnail img-penulis" alt="">
-                            </div>
-                            <div class="col my-auto">
-                                <h5 class="title-penulis">Disusun Oleh</h5>
-                                <h2 class="nama-penulis">{{$produk->user->name ?? 'None'}} <i class="fas fa-check-circle text-primary"></i> </h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-text diskripsi-penulis mt-2">
-                        <p>
-                            Artikel ini disusun oleh tim penyunting terlatih dan peneliti yang memastikan keakuratan dan kelengkapannya.
-
-                            Tim Manajemen Konten wikiHow memantau hasil penyuntingan staf kami secara saksama untuk menjamin artikel yang berkualitas tinggi. Artikel ini telah dilihat 141.769 kali.
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="profile-pakar">
-                <div class="card shadow-none border-light border">
-                    <div class="card-body">
-                        <p>
-                            Ditulis Oleh <b>{{Str::title($produk->user->name ?? 'None')}}</b> Diperbarui pada <strong>{{\Carbon\Carbon::parse($produk->updated_at)->format('d/m/Y')}}</strong>
-                            dan Ditinjau oleh Pakar Herbal <strong>{{$produk->diverifikasi->name ?? 'None'}}</strong>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 
