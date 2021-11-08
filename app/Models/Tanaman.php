@@ -15,7 +15,7 @@ class Tanaman extends Model implements Viewable
 
     public function user()
     {
-       return $this->belongsTo(User::class, 'id');
+       return $this->belongsTo(User::class, 'id', 'dibuat_oleh');
     }
 
     public function diverifikasi()
