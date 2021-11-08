@@ -101,6 +101,7 @@
     </div>
 
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <div class="img-boder"></div>
     <footer
         class="text-left bg-white text-dark px-0 border-top border-gray shadow-sm"
         style="background-color: #1c2331"
@@ -199,7 +200,14 @@
 
 
 <!-- ./wrapper -->
-
+<style>
+    .img-boder{
+        background: url(/dist/img/floral-repeat.png);
+        height: 60px;
+        width: 100%;
+        background-size: contain;
+    }
+</style>
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
