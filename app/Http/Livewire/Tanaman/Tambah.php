@@ -10,7 +10,7 @@ use Livewire\WithFileUploads;
 class Tambah extends Component
 {
     use WithFileUploads;
-    public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Direview', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
+    public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Diterbitkan', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
 
     public $kerajaan, $ordo, $famili, $genus, $spesies;
 
