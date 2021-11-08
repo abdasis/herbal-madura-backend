@@ -60,12 +60,12 @@
                                <div class="card-body">
                                    <div class="card-title">
                                        <a href="{{route('tanaman.baca', $tanaman_detail->slug)}}">
-                                           <h5 class="title-tanaman">{{$tanaman_detail->nama_tanaman}} (Latin: {{$tanaman_detail->nama_latin}})</h5>
+                                           <h5 class="title-tanaman text-bold text-orange">{{$tanaman_detail->nama_tanaman}} (Latin: {{$tanaman_detail->nama_latin}})</h5>
                                        </a>
                                    </div>
                                    <div class="card-text diskripsi-singkat-tanaman">
                                        <p>
-                                           {!! Str::limit($tanaman_detail->diskripsi_tanaman, 250) !!}
+                                           {!! Str::limit(strip_tags($tanaman_detail->diskripsi_tanaman), 250) !!}
                                        </p>
                                    </div>
                                    <div class="card-text">

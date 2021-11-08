@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Livewire\Beranda::class)->name('beranda');
 Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tanaman.baca');
+Route::get('/produk/{slug}', \App\Http\Livewire\Product\Baca::class)->name('produk.baca');
 Route::get('hasil-pencarian', \App\Http\Livewire\Wiki\HasilPencarian::class)->name('wiki.hasil-pencarian');
 Route::get('profile/{id}', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail');
 Route::get('profile/{id}/update', \App\Http\Livewire\Auth\Sunting::class)->name('auth.sunting');
