@@ -72,7 +72,7 @@
         <div class="container-fluid py-2">
             <a href="{{url('/')}}" class="navbar-brand">
                 <img src="{{asset('dist/img/logo.png')}}" alt="Ensiklopedia Herbal" class="brand-image img-circle elevation-1" style="opacity: .8">
-                <span class="brand-text font-weight-light">infonherbalmadura.com</span>
+                <span class="brand-text font-weight-light">infoherbalmadura.com</span>
             </a>
             <button class="navbar-toggler border-0 order-1 collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
