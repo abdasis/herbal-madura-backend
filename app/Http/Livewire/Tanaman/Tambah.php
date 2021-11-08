@@ -36,7 +36,7 @@ class Tambah extends Component
             $tanaman->nama_latin = $this->nama_latin;
             $tanaman->diskripsi_tanaman = $this->diskripsi;
             $tanaman->gambar_tanaman = $nama_gambar;
-            $tanaman->status = 'Direview';
+            $tanaman->status = $this->status;
             $tanaman->kerajaan = $this->ordo;
             $tanaman->famili = $this->famili;
             $tanaman->genus = $this->genus;
