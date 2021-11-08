@@ -17,10 +17,11 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('nama_produk');
             $table->string('slug');
-            $table->string('deskripsi');
+            $table->longText('deskripsi');
             $table->string('link_produk')->nullable();
             $table->string('gambar_produk');
             $table->string('sku')->nullable();
+            $table->string('produsen')->nullable();
             $table->string('dibuat_oleh');
             $table->string('diupdate_oleh');
             $table->timestamps();

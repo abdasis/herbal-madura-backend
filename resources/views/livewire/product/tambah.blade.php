@@ -23,9 +23,9 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="" >SKU</label>
-                                <input type="text" class="form-control" wire:model="sku" name="" id="" placeholder="Masukan SKU Produk">
-                                <x-error-message error="sku" />
+                                <label for="" >Produsen</label>
+                                <input type="text" class="form-control" wire:model="produsen" name="" id="" placeholder="Nama produsen pembuat">
+                                <x-error-message error="produsen" />
                             </div>
                             <div class="col-md-4">
                                 <label for="" >Link Toko Online</label>

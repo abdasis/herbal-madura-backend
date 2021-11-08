@@ -11,7 +11,7 @@ class Tambah extends Component
     use WithFileUploads;
 
 
-    public $nama_produk, $deskripsi, $link_produk, $sku, $gambar_produk;
+    public $nama_produk, $deskripsi, $link_produk, $sku, $gambar_produk, $produsen;
 
     protected $rules = [
         'nama_produk' => 'required',
@@ -28,7 +28,7 @@ class Tambah extends Component
         $produk->slug = \Str::slug($this->nama_produk);
         $produk->deskripsi = $this->deskripsi;
         $produk->link_produk = $this->link_produk;
-        $produk->sku = $this->sku;
+        $produk->produsen = $this->produsen;
         $produk->gambar_produk = $nama_gambar;
         $produk->dibuat_oleh = \Auth::id();
         $produk->diupdate_oleh = \Auth::id();
