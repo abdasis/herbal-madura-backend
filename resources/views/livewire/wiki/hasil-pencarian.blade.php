@@ -28,7 +28,7 @@
                         <small>Hasil pencarian yang ditemukan total <strong>{{!empty($tanaman) ? $tanaman->count() : 0}}</strong> data tanaman untuk keyword : <strong>{{$keyword}}</strong></small>
                     </div>
                     @if(empty($tanaman))
-                        <div class="alert alert-secondary">
+                        <div class="alert alert-light">
                             Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
                             <a href="#">Klik Disini</a>
                         </div>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                             @empty
-                                <div class="alert alert-secondary">
+                                <div class="alert alert-light">
                                     Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
                                     <a href="{{route('wiki.tambah-artikel')}}">Klik Disini</a>
                                 </div>
@@ -83,9 +83,8 @@
                                     </div>
                                 </div>
                             @empty
-                                <div class="alert alert-secondary">
-                                    Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
-                                    <a href="{{route('wiki.tambah-artikel')}}">Klik Disini</a>
+                                <div class="alert alert-light">
+                                    Mohon maaf produk yang anda cari belum tersedia di database kami, silahkan masukan kata pencarian lainnya?
                                 </div>
                             @endforelse
                         @else

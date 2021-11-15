@@ -7,9 +7,11 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Tanaman extends Model implements Viewable
 {
+    use Searchable;
     use HasFactory;
     use InteractsWithViews;
 
