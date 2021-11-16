@@ -6,12 +6,14 @@ use App\Models\Tanaman;
 use App\Traits\AlertConfirm;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
 class TabelTanaman extends DataTableComponent
 {
     use AlertConfirm;
+    use LivewireAlert;
 
     protected $listeners = ['dihapus', 'batal', 'diverifikasi'];
 

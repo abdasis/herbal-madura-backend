@@ -2,14 +2,18 @@
 
 namespace App\Traits;
 
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+
 trait AlertConfirm
 {
+    use LivewireAlert;
+
     public $model_id;
 
 
     public function hapus($id)
     {
-        $this->confirm('Yakin hapus data ini?', [
+        $this->alert('question','Yakin hapus data ini?', [
             'text' => 'Data yang dihapus tidak dapat dikembalikan',
             'toast' => false,
             'position' => 'center',
@@ -17,7 +21,8 @@ trait AlertConfirm
             'cancelButtonText' => 'Batal',
             'confirmButtonText' => 'Yakin',
             'onConfirmed' => 'dihapus',
-            'onCancelled' => 'batal'
+            'onCancelled' => 'batal',
+            'timer' => null
         ]);
 
         $this->model_id = $id;

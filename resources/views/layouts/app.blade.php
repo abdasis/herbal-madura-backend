@@ -108,8 +108,7 @@
 <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 @livewireScripts
 @stack('js')
-<link rel="stylesheet" href="@sweetalert2/theme-bootstrap-4/bootstrap-4.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
 </body>
 </html>
