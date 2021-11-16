@@ -4,11 +4,13 @@ namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
 use Illuminate\Database\Eloquent\Model;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Tambah extends Component
 {
+    use LivewireAlert;
     use WithFileUploads;
     public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Diterbitkan', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
 
