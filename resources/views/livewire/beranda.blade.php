@@ -4,7 +4,7 @@
         <div class="row" style="min-height: 90vh">
             <div class="col-md-6 my-auto">
                 <div class="content-baner text-center px-4">
-                    <img src="{{asset('dist/img/logo.jpeg')}}" class="img-fluid w-50" alt="">
+                    <img src="{{asset('dist/img/logo.png')}}" class="img-fluid w-50" alt="">
                     <div class="banner-title">
                         <h2 class="text-center">Info Herbal Madura</h2>
                     </div>
