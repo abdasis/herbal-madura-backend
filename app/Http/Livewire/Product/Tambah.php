@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Tambah extends Component
 {
     use WithFileUploads;
+    use LivewireAlert;
 
 
     public $nama_produk, $deskripsi, $link_produk, $sku, $gambar_produk, $produsen;
