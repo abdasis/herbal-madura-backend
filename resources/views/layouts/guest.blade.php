@@ -82,14 +82,21 @@
             <!-- Right navbar links -->
             <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                 <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown mr-2">
+                <li class="nav-item dropdown">
+
                     @if(Auth::check())
-                        Hallo, <a class="text-orange" href="{{route('auth.detail', Auth::id())}}">{{Str::title(Auth::user()->name)}}</a>
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="text-orange" href="#">Halo!, {{Str::title(Auth::user()->name)}}</a>
                     @else
                         <a href="{{route('login')}}">
                             <button class="btn btn-outline-secondary btn-sm">Masuk / Mendaftar</button>
                         </a>
                     @endif
+                    <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="navbarDropdown">
+                        @auth
+                            <a  class="dropdown-item" href="{{route('auth.detail', Auth::id())}}">Profile</a>
+                        @endauth
+                        <a class="dropdown-item text-danger" href="{{route('kelaur')}}">Logout</a>
+                    </div>
                 </li>
             </ul>
         </div>

@@ -74,6 +74,7 @@
                                             <div class="meta-artikel">
                                                 <div class="badge badge-light p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
                                                 <div class="badge badge-light p-1">Ditinjau oleh: {{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</div>
+                                                <div class="badge badge-success p-1"><a class="text-white" href="{{route('wiki.sunting-artikel', $tanaman_detail->slug)}}">Edit</a></div>
                                             </div>
                                         </div>
                                     </div>

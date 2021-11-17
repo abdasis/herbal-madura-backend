@@ -1,11 +1,11 @@
 <x-guest-layout>
     <div class="row justify-content-center" style="min-height: 70vh">
-        <div class="col-md-5 my-auto">
-            <div class="card shadow-none border-0">
+        <div class="col-md-4 col-lg-3 my-auto">
+            <div class="card shadow-sm p-3 border-0">
                 <div class="card-body">
                     <h1 class="title-page-login">Selamat Datang Di Wiki Herbal</h1>
                     <p class="text-muted subtitle-page-login">Login untuk menulis di <strong>WikiHerbal</strong></p>
-                    <div class="register-box px-0">
+                    <div class="px-0">
                         @if($errors->any())
                             <div class="alert alert-default-danger">
                                 @foreach($errors->all() as $error)

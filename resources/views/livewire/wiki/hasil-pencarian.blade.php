@@ -25,7 +25,17 @@
                         </div>
                     </form>
                     <div class="alert alert-default-info info-hasil-text">
-                        <small>Hasil pencarian yang ditemukan total <strong>{{!empty($tanaman) ? $tanaman->count() : 0}}</strong> data tanaman untuk keyword : <strong>{{$keyword}}</strong></small>
+
+                        <small>Hasil pencarian yang ditemukan total
+
+                            @if($kategori == 'semua')
+                                <strong>{{$tanaman->count() + $produk->count()}}</strong>
+                            @elseif($kategori == 'jamu')
+                                <strong>{{$produk->count()}}</strong>
+                            @else
+                                <strong>{{$tanaman->count()}}</strong>
+                            @endif
+                            data tanaman untuk keyword : <strong>{{$keyword}}</strong></small>
                     </div>
                     @if(empty($tanaman))
                         <div class="alert alert-light">

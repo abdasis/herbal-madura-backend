@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Auth;
 
 use App\Models\Tanaman;
 use App\Models\User;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -11,6 +12,7 @@ class Detail extends Component
 {
     use WithFileUploads;
 
+    use LivewireAlert;
 
     public $user, $semua_tanaman;
 

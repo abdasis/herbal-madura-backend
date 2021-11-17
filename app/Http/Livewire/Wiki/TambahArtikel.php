@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Wiki;
 
 use App\Models\Tanaman;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class TambahArtikel extends Component
 {
+    use LivewireAlert;
     use WithFileUploads;
     public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Direview', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
 

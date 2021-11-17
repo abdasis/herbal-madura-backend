@@ -60,7 +60,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', \App\Http\Liv
 Route::group(['prefix' => 'auth'], function () {
      Route::get('register', \App\Http\Livewire\Auth\Register::class)->name('auth.register');
 });
-
+Route::get('keluar', function () {
+    Auth::logout();
+    return redirect()->route('login');
+})->name('kelaur');
 Route::get('register', function () {
      return redirect()->route('auth.register');
 });
