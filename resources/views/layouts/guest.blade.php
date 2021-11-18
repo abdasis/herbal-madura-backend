@@ -28,7 +28,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
-    <title>Ensiklopedia Herbal | Situs web penyedia informasi lengkap tentang tanaman herbal</title>
+    <title>Info Herbal Madura - Platform Data Tanaman Herbal Madura</title>
     <!-- Styles -->
     @livewireStyles
     @stack('css')
@@ -92,10 +92,15 @@
                         </a>
                     @endif
                     <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="navbarDropdown">
+
                         @auth
+                            @if(Auth::user()->roles == 'admin')
+                                <a href="{{route('dashboard')}}" class="nav-link">Admin Panel</a>
+                            @endif
                             <a  class="dropdown-item" href="{{route('auth.detail', Auth::id())}}">Profile</a>
+                            <a class="dropdown-item text-danger" href="{{route('kelaur')}}">Logout</a>
+
                         @endauth
-                        <a class="dropdown-item text-danger" href="{{route('kelaur')}}">Logout</a>
                     </div>
                 </li>
             </ul>

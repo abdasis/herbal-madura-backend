@@ -74,12 +74,11 @@
                                         <option value="">Pilih Roles</option>
                                         <option value="admin">Admin</option>
                                         <option value="kontributor">Kontributor</option>
-                                        <option value="user">User</option>
                                     </select>
                                     <x-error-message error="roles"/>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn btn-warning mt-2">Tambah Pengguna</button>
+                                    <button class="btn btn btn-warning mt-2">Update Pengguna</button>
                                 </div>
                             </div>
                         </div>

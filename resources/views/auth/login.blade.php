@@ -3,8 +3,8 @@
         <div class="col-md-4 col-lg-3 my-auto">
             <div class="card shadow-sm p-3 border-0">
                 <div class="card-body">
-                    <h1 class="title-page-login">Selamat Datang Di Wiki Herbal</h1>
-                    <p class="text-muted subtitle-page-login">Login untuk menulis di <strong>WikiHerbal</strong></p>
+                    <h1 class="title-page-login">Selamat Datang Di <br>Info Herbal Madura</h1>
+                    <p class="text-muted subtitle-page-login">Login untuk menulis di <strong>Info Herbal Madura</strong></p>
                     <div class="px-0">
                         @if($errors->any())
                             <div class="alert alert-default-danger">

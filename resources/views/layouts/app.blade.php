@@ -25,7 +25,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
-    <title>Wiki Herbal Madura</title>
+    <title>Info Herbal Madura - Platform Data Tanaman Herbal Madura</title>
     <!-- Styles -->
     @livewireStyles
     @stack('css')

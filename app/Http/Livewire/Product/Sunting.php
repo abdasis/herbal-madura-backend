@@ -3,17 +3,20 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Sunting extends Component
 {
     use WithFileUploads;
+    use LivewireAlert;
 
 
     public $nama_produk, $deskripsi, $link_produk, $sku, $gambar_produk;
     public $produk_id;
     public $produl;
+    public $produsen;
 
     protected $rules = [
         'nama_produk' => 'required',
@@ -28,9 +31,11 @@ class Sunting extends Component
         $this->nama_produk = $produk->nama_produk;
         $this->deskripsi = $produk->deskripsi;
         $this->link_produk = $produk->link_produk;
-        $this->sku = $produk->sku;
+        $this->sku = $produk->produsen;
         $this->produk_id = $id;
         $this->produl = $produk;
+        $this->produsen = $produk->produsen;
+
     }
     public function simpan()
     {

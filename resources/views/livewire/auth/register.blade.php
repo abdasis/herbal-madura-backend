@@ -2,10 +2,10 @@
     {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="row justify-content-center" style="min-height: 100vh">
         <div class="col-md-4 col-lg-3 my-auto">
-            <div class="card shadow-none border-0">
+            <div class="card shadow-sm p-3 border-0">
                <div class="card-body">
-                   <h1 class="title-page-login">Selamat Datang Di WikiHerbal</h1>
-                   <p class="text-muted subtitle-page-login">Daftar untuk menjadi seorang kontributor di <strong>WikiHerbal</strong></p>
+                   <h1 class="title-page-login">Selamat Datang Di <br> Info Herbal Madura</h1>
+                   <p class="text-muted subtitle-page-login">Daftar untuk menjadi seorang kontributor di <strong>Info Herbal Madura</strong></p>
                    <form wire:submit.prevent="simpan">
                        <div class="form-group">
                            <label for="">Nama Lengkap</label>

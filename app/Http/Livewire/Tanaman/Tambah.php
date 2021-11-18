@@ -50,7 +50,7 @@ class Tambah extends Component
             $tanaman->save();
             $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_gambar);
             $this->alert('success', 'Data berhasil disimpan');
-            $this->redirectRoute('halaman-utama');
+            $this->redirectRoute('tanaman.semua');
         }catch (\Error $error){
             $this->alert('error', 'Terjadi kesalahan');
         }

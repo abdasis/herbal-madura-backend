@@ -31,7 +31,7 @@ class TabelProduk extends DataTableComponent
             Column::make('Deskripsi', 'deskripsi')->format(function ($val){
                 return strip_tags($val);
             })->sortable()->searchable(),
-            Column::make('SKU', 'sku')->sortable()->searchable(),
+            Column::make('Produsen', 'produsen')->sortable()->searchable(),
             Column::make('Option', 'id')->format(function ($val){
                 return view('partials.tombol-aksi',[
                     'edit' => route('product.sunting', $val),
