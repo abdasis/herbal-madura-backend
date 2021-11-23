@@ -1,34 +1,36 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    <div class="container">
+        <div class="row justify-content-center" style="min-height: 80vh">
+            <div class="col-md-5 my-auto">
+                <div class="alert alert-default-info">
+                    Untuk request password, pastikan email anda sudah terdaftar di website kami
+                </div>
+                <div class="card shadow-sm border-bottom border-light">
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="mb-4 alert alert-default-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        <x-jet-validation-errors class="mb-4" />
+
+                        <form method="POST" action="{{ route('password.email') }}">
+                            @csrf
+
+                            <div class="form-group">
+                                <x-jet-label class="form-label" for="email" value="{{ __('Email') }}" />
+                                <x-jet-input id="email" class="form-control bg-light shadow-none" type="email" placeholder="Masukan email" name="email" :value="old('email')" required autofocus />
+                            </div>
+
+                            <button class="btn btn-warning btn-flat text-white">
+                                {{ __('Email Password Reset Link') }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
+    </div>
 </x-guest-layout>

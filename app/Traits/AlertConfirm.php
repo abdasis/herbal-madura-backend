@@ -18,10 +18,11 @@ trait AlertConfirm
             'toast' => false,
             'position' => 'center',
             'showConfirmButton' => true,
+            'showCancelButton' => true,
             'cancelButtonText' => 'Batal',
             'confirmButtonText' => 'Yakin',
             'onConfirmed' => 'dihapus',
-            'onCancelled' => 'batal',
+            'onDismissed' => 'batal',
             'timer' => null
         ]);
 

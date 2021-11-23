@@ -55,7 +55,8 @@
                             </div>
                         </form>
                         <p class="text-center mt-4" style="font-family: 'Quicksand', sans-serif">
-                            Belum punya akun? silahkan daftar <a href="{{route('auth.register')}}">Disini</a>
+                            Belum punya akun? silahkan daftar <a href="{{route('auth.register')}}">Disini</a> <br>
+                            Atau <a href="{{route('password.request')}}">Lupa Password</a>
                         </p>
                     </div>
                 </div>

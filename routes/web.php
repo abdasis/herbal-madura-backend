@@ -5,7 +5,7 @@ use App\Http\Livewire\Pengguna\Semua;
 use App\Http\Livewire\Pengguna\Sunting;
 use App\Http\Livewire\Pengguna\Tambah;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +60,25 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', \App\Http\Liv
 Route::group(['prefix' => 'auth'], function () {
      Route::get('register', \App\Http\Livewire\Auth\Register::class)->name('auth.register');
 });
+
+/*route untuk reset password*/
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.request');
+
+/*handle resetting password*/
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    return $status === Password::RESET_LINK_SENT
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
 Route::get('keluar', function () {
     Auth::logout();
     return redirect()->route('login');

@@ -35,7 +35,7 @@
                        </div>
                        <div class="form-group">
                            <label for="">Password</label>
-                           <input type="password" class="form-control" name="" wire:model="password" id="" placeholder="Masukan nama lengkap">
+                           <input type="password" class="form-control" name="" wire:model="password" id="" placeholder="Masukan Password">
                            <x-error-message error="password"/>
 
                        </div>
@@ -47,7 +47,7 @@
                </div>
             </div>
         </div>
-        <div class="col-md-5 my-auto">
+        <div class="col-md-4 my-auto">
             <img src="{{asset('dist/img/register-thumbnail.png')}}" class="img-fluid" alt="">
         </div>
     </div>
