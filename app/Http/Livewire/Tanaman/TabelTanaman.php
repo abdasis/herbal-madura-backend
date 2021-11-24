@@ -21,6 +21,7 @@ class TabelTanaman extends DataTableComponent
     {
         if ($this->model_id){
             Tanaman::find($this->model_id)->delete();
+            $this->alert('success', 'Data berhasil dihapus');
         }else{
             $this->alert('error', 'Data tidak ditemukan');
         }

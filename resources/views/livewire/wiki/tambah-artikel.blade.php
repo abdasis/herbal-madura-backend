@@ -117,10 +117,11 @@
     <script>
         tinymce.init({
             selector: 'textarea#manfaat',
-            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            plugins: 'advlist paste autolink lists link image charmap print preview hr anchor pagebreak',
             toolbar_mode: 'floating',
             menubar: true,
             height: 600,
+            paste_as_text: true,
             setup: function (editor) {
                 editor.on('init change', function () {
                     editor.save();
@@ -133,10 +134,11 @@
 
         tinymce.init({
             selector: 'textarea#referensi',
-            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak list',
+            plugins: 'advlist paste autolink lists link image charmap print preview hr anchor pagebreak list',
             toolbar_mode: 'floating',
             menubar: true,
             height: 300,
+            paste_as_text: true,
             setup: function (editor) {
                 editor.on('init change', function () {
                     editor.save();
