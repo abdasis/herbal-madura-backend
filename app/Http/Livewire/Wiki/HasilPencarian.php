@@ -23,7 +23,7 @@ class HasilPencarian extends Component
 
     public function mount()
     {
-        # code...
+
         $this->getTanaman($this->keyword);
     }
 

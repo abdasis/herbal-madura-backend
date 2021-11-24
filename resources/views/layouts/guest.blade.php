@@ -69,7 +69,7 @@
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar bg-transparent navbar-expand-md border-light bg-white navbar-light shadow-md navbar-white">
-        <div class="container py-2">
+        <div class="container-fluid py-2">
             <a href="{{url('/')}}" class="navbar-brand">
                 <img src="{{asset('dist/img/logo.png')}}" alt="Ensiklopedia Herbal" class="brand-image img-circle elevation-1" style="opacity: .8">
                 <span class="text-quicksand">Info Herbal Madura</span>
@@ -148,7 +148,7 @@
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                   {{-- <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase text-bold text-quicksand">Informasi</h6>
                         <hr
@@ -167,11 +167,11 @@
                         <p>
                             <a href="#!" class="text-dark">Panduan Komunitas</a>
                         </p>
-                    </div>
+                    </div>--}}
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                   {{-- <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase text-bold text-quicksand">Link Lainnya</h6>
                         <hr
@@ -182,7 +182,7 @@
                         <p>Tentang</p>
                         <p>Syarat</p>
                         <p>Para Pakar</p>
-                    </div>
+                    </div>--}}
                     <!-- Grid column -->
                 </div>
                 <!-- Grid row -->
@@ -231,7 +231,6 @@
 <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 @livewireScripts
 @stack('js')
-<link rel="stylesheet" href="@sweetalert2/theme-bootstrap-4/bootstrap-4.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <x-livewire-alert::scripts />
 </body>

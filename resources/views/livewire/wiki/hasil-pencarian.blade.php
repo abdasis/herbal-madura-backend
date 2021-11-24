@@ -35,7 +35,15 @@
                             @else
                                 <strong>{{$tanaman->count()}}</strong>
                             @endif
-                            data tanaman untuk keyword : <strong>{{$keyword}}</strong></small>
+                            data
+                            @if($kategori == 'semua')
+                                <strong>Tanaman dan Jamu</strong>
+                            @elseif($kategori == 'jamu')
+                                <strong>Jamu</strong>
+                            @else
+                                <strong>Tanaman</strong>
+                            @endif
+                            untuk keyword : <strong>{{$keyword}}</strong></small>
                     </div>
                     @if(empty($tanaman))
                         <div class="alert alert-light">
