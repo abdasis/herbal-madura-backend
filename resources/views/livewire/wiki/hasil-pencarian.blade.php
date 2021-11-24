@@ -162,9 +162,9 @@
                 <a href="{{route('wiki.tambah-artikel')}}" class="list-group-item list-group-item-action border-light">
                     <span>📝</span> Buat Artikel
                 </a>
-                <a href="#" class="list-group-item list-group-item-action border-light">
+                {{--<a href="#" class="list-group-item list-group-item-action border-light">
                     <span>❔</span> Bantuan
-                </a>
+                </a>--}}
             </div>
         </div>
     </div>
