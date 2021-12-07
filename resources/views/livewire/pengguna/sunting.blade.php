@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="card card-outline card-orange shadow-sm">
                 <div class="card-header bg-white border-bottom border-lighter">
-                    Form Tambah Pengguna
+                    Form Update Pengguna
                 </div>
                 <div class="card-body">
                     <form wire:submit.prevent="simpan">

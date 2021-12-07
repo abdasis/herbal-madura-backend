@@ -13,7 +13,7 @@ trait AlertConfirm
 
     public function hapus($id)
     {
-        $this->alert('question','Yakin hapus data ini?', [
+        $this->confirm('Yakin hapus data ini?', [
             'text' => 'Data yang dihapus tidak dapat dikembalikan',
             'toast' => false,
             'position' => 'center',

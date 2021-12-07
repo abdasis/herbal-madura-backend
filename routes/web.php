@@ -29,7 +29,7 @@ Route::get('tulis-artikel', \App\Http\Livewire\Wiki\TambahArtikel::class)->name(
 Route::get('revisi-artikel/{slug}', \App\Http\Livewire\Wiki\SuntingArtikel::class)->name('wiki.sunting-artikel')->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-     Route::group(['prefix' => 'product'], function () {
+     Route::group(['prefix' => 'Produk'], function () {
           Route::get('semua', \App\Http\Livewire\Product\Semua::class)->name('product.semua');
           Route::get('tambah', \App\Http\Livewire\Product\Tambah::class)->name('product.tambah');
           Route::get('sunting/{id}', \App\Http\Livewire\Product\Sunting::class)->name('product.sunting');

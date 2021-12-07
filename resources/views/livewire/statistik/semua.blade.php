@@ -60,7 +60,7 @@
             <div class="card shadow-sm">
                 <div class="card-header">
                     <div class="card-title">
-                        <h5>Statisk Pengunjung</h5>
+                        <h5>Statistik Pengunjung</h5>
                     </div>
                 </div>
                 <div class="card-body">
