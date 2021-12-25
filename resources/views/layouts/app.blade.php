@@ -22,8 +22,8 @@
     <!-- summernote -->
 
     <title>Info Herbal Madura - Platform Data Tanaman Herbal Madura</title>
-    <!-- Styles -->
     @livewireStyles
+    <!-- Styles -->
     @stack('css')
     <style>
         [x-cloak] { display: none !important; }
@@ -34,10 +34,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
-    </div>
 
     <!-- Navbar -->
     <x-admin.header/>

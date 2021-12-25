@@ -22,10 +22,8 @@ return [
         'timer' => null,
         'showConfirmButton' => true,
         'showCancelButton' => true,
-        'cancelButtonText' => 'Batal',
+        'cancelButtonText' => 'No',
         'confirmButtonColor' => '#3085d6',
-        'cancelButtonColor' => '#d33',
-        'background' => '#fff url(https://sweetalert2.github.io/images/nyan-cat.gif)',
-        'backdrop' =>  'rgba(0,0,123,0.4) url(https://sweetalert2.github.io/images/nyan-cat.gif)'
+        'cancelButtonColor' => '#d33'
     ]
 ];
