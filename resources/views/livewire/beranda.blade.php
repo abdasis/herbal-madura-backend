@@ -1,39 +1,43 @@
 <div>
+    <div class="bg-tanaman"></div>
     <div class="container">
-        <div class="blur"></div>
-        <div class="row" style="min-height: 90vh">
-            <div class="col-md-6 my-auto">
-                <div class="content-baner text-center px-4">
-                    <img src="{{asset('dist/img/logo.png')}}" class="img-fluid w-50" alt="">
-                    <div class="banner-title">
-                        <h2 class="text-center">Info Herbal Madura</h2>
-                    </div>
-                    <div class="content">
-                        <p class="text-quicksand">Selamat datang di <strong>Info Herbal Madura</strong>, adalah situs yang menyediakan berbagai informasi tentang tanaman herbal & Jamu Madura</p>
-                    </div>
+        <div class="row justify-content-center align-items-center" style="min-height: 80vh">
+            <div class="col-md-6">
+                <div class="salam text-center">
+                    <h2>Planty</h2>
+                    <p>Arsip Tentang Tanaman Herbal Terlengkap di Indonesia</p>
                 </div>
-            </div>
-            <div class="col-md-6 my-auto">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <div class="card-text">
-                            <p class="title-pencarian">
-                                Temukan berbagai informasi tentang tanaman herbal & Jamu Madura
-                            </p>
-                            <p class="sub-title">
-                                Terdapat banyak artikel lengkap mengenai tanaman herbal nusantara
-                            </p>
+                <div class="form-pencarian">
+                    <div class="form-group">
+                        <div class="input-group border border-secondary p-2 rounded-pill">
+                            <div class="input-group-text border-2 me-2 rounded-circle bg-white">
+                                <i class="ri-search-2-line"></i>
+                            </div>
+                            <input type="text" class="form-control border-0" id="autoSizingInputGroup" placeholder="Pencarian...">
                         </div>
-                        <form wire:submit.prevent="pencarian">
-                            <div class="form-group">
-                                <input wire:model="keyword" type="text" class="form-control  border border-light shadow-sm form-control-lg bg-light" required placeholder="Pencarian..."  name="pencarian" id="">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-warning  text-white float-right">Lihat Hasil Pencarian <i class="fas fa-arrow-right"></i> </button>
-                            </div>
-                        </form>
                     </div>
                 </div>
+               <div class="spotlight  mt-3" >
+                   <h5>Spotlight</h5>
+                   <div class="row">
+                       <div class="col-md-6">
+                           <div class="card">
+                               <div class="card-body">
+                                   <h4>Temu Lawak</h4>
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloribus fuga iure </p>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="card">
+                               <div class="card-body">
+                                   <h4>Temu Lawak</h4>
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloribus fuga iure </p>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
             </div>
         </div>
     </div>
@@ -58,6 +62,26 @@
             font-family: 'Quicksand', sans-serif;
             color: #a3a3a3;
             margin-top: 0;
+        }
+
+        .blur-bg{
+            position: absolute;
+            min-width: 100vw;
+            min-height: 100vh;
+            /* From https://css.glass */
+            background: rgba(53, 195, 255, 0.29);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(6.4px);
+            -webkit-backdrop-filter: blur(6.4px);
+            border: 1px solid rgba(53, 195, 255, 0.3);
+        }
+        .bg-tanaman{
+            position: absolute;
+            min-width: 100vw;
+            min-height: 100vh;
+            background: url({{asset('assets/images/bg-tanaman.png')}}) repeat-x;
+            background-position: bottom;
         }
     </style>
 @endpush
