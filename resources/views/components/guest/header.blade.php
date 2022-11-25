@@ -13,19 +13,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
                     <li class="nav-item">
-                        <a class="nav-link" href="#hero">Home</a>
+                        <a class="nav-link" href="#hero">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#wallet">Wallet</a>
+                        <a class="nav-link" href="#wallet">Artkel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#marketplace">Marketplace</a>
+                        <a class="nav-link active" href="#marketplace">Kontributor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#categories">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#creators">Creators</a>
+                        <a class="nav-link" href="#categories">Tentang</a>
                     </li>
                 </ul>
 

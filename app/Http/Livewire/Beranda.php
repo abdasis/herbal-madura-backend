@@ -17,7 +17,7 @@ class Beranda extends Component
     }
     public function render()
     {
-        $tanaman = Tanaman::where('status', 'Diterbitkan')->latest()->get();
+        $tanaman = Tanaman::where('status', 'Diterbitkan')->latest()->limit(2)->get();
         return view('livewire.beranda',[
             'semua_tanaman' => $tanaman
         ])->layout('layouts.guest');

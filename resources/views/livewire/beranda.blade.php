@@ -9,33 +9,29 @@
                 </div>
                 <div class="form-pencarian">
                     <div class="form-group">
-                        <div class="input-group border border-secondary p-2 rounded-pill">
+                        <div class="input-group bg-plant border border-secondary p-2 rounded-pill">
                             <div class="input-group-text border-2 me-2 rounded-circle bg-white">
                                 <i class="ri-search-2-line"></i>
                             </div>
-                            <input type="text" class="form-control border-0" id="autoSizingInputGroup" placeholder="Pencarian...">
+                            <input type="text" class="form-control border-0 bg-transparent" id="autoSizingInputGroup" placeholder="Pencarian...">
                         </div>
                     </div>
                 </div>
-               <div class="spotlight  mt-3" >
-                   <h5>Spotlight</h5>
+               <div class="spotlight mt-4" >
+                   <h5 class="mb-3">Spotlight</h5>
                    <div class="row">
-                       <div class="col-md-6">
-                           <div class="card">
-                               <div class="card-body">
-                                   <h4>Temu Lawak</h4>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloribus fuga iure </p>
-                               </div>
+                      @foreach($semua_tanaman as $tanaman)
+                           <div class="col-md-6">
+                               <a href="{{route('tanaman.baca', $tanaman->slug)}}">
+                                   <div class="card box-content">
+                                       <div class="card-body">
+                                           <h4 class="post-title">{{$tanaman->nama_tanaman}}</h4>
+                                           <p>{{\Illuminate\Support\Str::limit(strip_tags($tanaman->diskripsi_tanaman),45,'')}}</p>
+                                       </div>
+                                   </div>
+                               </a>
                            </div>
-                       </div>
-                       <div class="col-md-6">
-                           <div class="card">
-                               <div class="card-body">
-                                   <h4>Temu Lawak</h4>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloribus fuga iure </p>
-                               </div>
-                           </div>
-                       </div>
+                      @endforeach
                    </div>
                </div>
             </div>
@@ -83,5 +79,18 @@
             background: url({{asset('assets/images/bg-tanaman.png')}}) repeat-x;
             background-position: bottom;
         }
+
+        .bg-plant{
+            background: url({{asset('assets/images/bg-search.png')}}) no-repeat;
+            background-position: right center;
+            background-size: contain;
+        }
+
+        .post-title{
+            font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
     </style>
 @endpush

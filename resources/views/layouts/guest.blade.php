@@ -14,6 +14,9 @@
     <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     @livewireStyles
     @stack('css')
     <style>
@@ -21,7 +24,7 @@
     </style>
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
-<body class="bg-white">
+<body>
 <div class="wrapper">
     <x-guest.header/>
    {{$slot}}
