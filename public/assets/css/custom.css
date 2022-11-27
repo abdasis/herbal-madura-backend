@@ -271,3 +271,19 @@ li.aksi-lainnya.active{
 label{
     margin-bottom: 3px !important;
 }
+
+.profile-page{
+    margin-top: 125px;
+}
+
+.profile-header{
+    min-height: 250px !important;
+    background: rgb(245,253,255);
+    background: linear-gradient(90deg, rgba(245,253,255,1) 0%, rgba(255,255,255,1) 100%);
+    border-radius: 10px;
+}
+
+
+footer{
+    background: #fff;
+}

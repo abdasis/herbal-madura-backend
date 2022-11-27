@@ -29,7 +29,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'pendidikan_terakhir'
+        'pendidikan_terakhir',
+        'profile_photo_path'
     ];
 
     /**
@@ -65,5 +66,10 @@ class User extends Authenticatable
     public function tanaman()
     {
         return $this->hasOne(Tanaman::class, 'id', 'diverifikasi_oleh');
+    }
+
+    public function biodata()
+    {
+        return $this->hasOne(Biodata::class);
     }
 }

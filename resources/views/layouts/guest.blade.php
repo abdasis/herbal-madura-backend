@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
     <link rel="stylesheet" href="{{asset('assets/libs/aos/aos.css')}}">
     <script src="{{asset('assets/js/layout.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
@@ -29,6 +30,7 @@
 <div class="wrapper">
     <x-guest.header/>
    {{$slot}}
+    <x-guest.footer/>
 </div>
 <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>

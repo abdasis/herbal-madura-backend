@@ -1,6 +1,6 @@
 <div>
     <div class="bg-tanaman"></div>
-    <div class="container">
+    <div class="container relative">
         <div class="row justify-content-center align-items-center" style="min-height: 80vh">
             <div class="col-md-6">
                 <div class="salam text-center">
@@ -74,10 +74,11 @@
         }
         .bg-tanaman{
             position: absolute;
-            min-width: 100vw;
-            min-height: 100vh;
+            min-width: 100%;
+            min-height: 80vh;
             background: url({{asset('assets/images/bg-tanaman.png')}}) repeat-x;
             background-position: bottom;
+            max-width: 100% !important;
         }
 
         .bg-plant{

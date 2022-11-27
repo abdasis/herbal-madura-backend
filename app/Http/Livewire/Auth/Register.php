@@ -41,24 +41,19 @@ class Register extends Component
     public function simpan()
     {
         $this->validate();
-        $nama_file = 'upload/' . \Str::slug($this->name) . '.png';
-        if (!file_exists('upload')) {
-            mkdir(public_path('upload'), 0777);
-            Avatar::create($this->name)->save($nama_file, 100);
-        }
-
-        //membuat profile berdasarkan nama
         try {
             $user = User::create([
                 'name' => $this->name,
                 'email' => $this->email,
                 'pendidikan_terakhir' => $this->pendidikan_terakhir,
                 'password' => bcrypt($this->password),
-                'profile_photo_path' => \Str::slug($nama_file) . '.png',
+                'profile_photo_path' => "https://ui-avatars.com/api/?name={$this->name}",
                 'roles' => 'user'
             ]);
 
-            auth()->login($user);
+            if (\Auth::attempt(['email' => $this->email, 'password' => $this->password])){
+                $this->redirectRoute('login');
+            }
 
             $this->flash('success', 'Berhasil', [
                 'text' => 'Selamat pendaftaran anda berhasil silahkan login',
@@ -66,8 +61,11 @@ class Register extends Component
                 'position' => 'center'
             ], route('login'));
 
-        } catch (QueryException $exception) {
-            return $this->flash('success', 'Terdapat kesalahan sistem');
+        } catch (\Exception $exception) {
+            report($exception);
+            return $this->alert('error', 'Kesalahan', [
+                'text' => 'Terjadi keslahaan saat mendaftar'
+            ]);
         }
 
     }

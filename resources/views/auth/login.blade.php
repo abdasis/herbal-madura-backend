@@ -12,11 +12,11 @@
                         </div>
                         <div class="px-0">
                             @if($errors->any())
-                                <div class="alert alert-default-danger">
-                                    @foreach($errors->all() as $error)
-                                        {{$error}}
-                                    @endforeach
-                                </div>
+                               <div class="alert alert-danger">
+                                   @foreach($errors->all() as $error)
+                                       <small class="text-danger">{{$error}}</small>
+                                   @endforeach
+                               </div>
                             @endif
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
