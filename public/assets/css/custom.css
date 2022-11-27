@@ -287,3 +287,7 @@ label{
 footer{
     background: #fff;
 }
+
+.absolute{
+    position: relative;
+}
