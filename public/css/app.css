@@ -1126,6 +1126,9 @@ select {
 .visible {
 	visibility: visible;
 }
+.static {
+	position: static;
+}
 .fixed {
 	position: fixed;
 }
@@ -1284,6 +1287,9 @@ select {
 }
 .ml-0\.5 {
 	margin-left: 0.125rem;
+}
+.box-content {
+	box-sizing: content-box;
 }
 .block {
 	display: block;
@@ -1497,6 +1503,9 @@ select {
 }
 .gap-1 {
 	gap: 0.25rem;
+}
+.gap-2 {
+	gap: 0.5rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;

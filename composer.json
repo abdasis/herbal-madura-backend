@@ -19,6 +19,7 @@
         "laravolt/avatar": "^4.1",
         "livewire/livewire": "^2.5",
         "mckenziearts/laravel-notify": "^2.2",
+        "protonemedia/laravel-form-components": "^3.6",
         "rappasoft/laravel-livewire-tables": "^1.16",
         "spatie/laravel-permission": "^5.1"
     },

@@ -9,9 +9,9 @@
                 </div>
                 <div class="form-pencarian">
                     <div class="form-group">
-                        <div class="input-group bg-plant border border-secondary p-2 rounded-pill">
-                            <div class="input-group-text border-2 me-2 rounded-circle bg-white">
-                                <i class="ri-search-2-line"></i>
+                        <div class="input-group bg-plant border border-secondary icon-search p-2 rounded-pill">
+                            <div class="input-group-text me-2 rounded-circle  border-light bg-white">
+                                <i class="ri-search-2-line fs-16"></i>
                             </div>
                             <input type="text" class="form-control border-0 bg-transparent" id="autoSizingInputGroup" placeholder="Pencarian...">
                         </div>
@@ -23,10 +23,10 @@
                       @foreach($semua_tanaman as $tanaman)
                            <div class="col-md-6">
                                <a href="{{route('tanaman.baca', $tanaman->slug)}}">
-                                   <div class="card box-content">
+                                   <div class="card card-animate">
                                        <div class="card-body">
                                            <h4 class="post-title">{{$tanaman->nama_tanaman}}</h4>
-                                           <p>{{\Illuminate\Support\Str::limit(strip_tags($tanaman->diskripsi_tanaman),45,'')}}</p>
+                                           <p>{!! \Illuminate\Support\Str::limit(strip_tags($tanaman->diskripsi_tanaman),45,'') !!}</p>
                                        </div>
                                    </div>
                                </a>

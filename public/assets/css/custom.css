@@ -7,11 +7,267 @@ File: Custom Css File
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
 
 body{
     background: #F8FAFC !important;
 }
 
-*{
+.header-post{
+    margin-top: 50px;
+    min-height: 400px;
+    background: rgb(245,253,255);
+    background: linear-gradient(90deg, rgba(245,253,255,1) 0%, rgba(255,255,255,1) 100%);
+    max-width: 100%;
+    align-items: center;
+    display: flex;
+    z-index: 999;
+}
+.header-post h1{
     font-family: 'Inter', sans-serif;
+    color: #0F172A;
+}
+
+.box-content{
+    background: #fff !important;
+    position: relative;
+    top: -15px;
+    z-index: -1;
+    padding: 70px 20px;
+}
+
+.biografi-penulis{
+    margin-top: 70px;
+}
+
+.meta-artikel{
+    font-size: 12px;
+    color: #2b3e50;
+}
+
+.featured-image{
+    max-height: 250px;
+    overflow: hidden;
+    object-fit: cover;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.deskripsi-tanaman{
+    font-family: 'EB Garamond', serif;
+}
+
+.deskripsi-tanaman p{
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 500;
+}
+
+.deskripsi-tanaman h2{
+    font-size: 28px;
+    font-family: 'EB Garamond', serif;
+    font-weight: 600;
+}
+
+.riwayat-revisi h5 {
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+
+#blogContents {
+    background: #f6f6f6;
+    padding: 20px;
+    border: 1px solid #f5f5f5;
+    border-radius: 10px;
+}
+
+#blogContents a, ol, li {
+    color: #cd6133;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.profile-pakar p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+}
+
+.diskripsi-tanaman {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.title-tanaman, .title-tanaman p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+}
+
+.post-title{
+    font-family: 'EB Garamond', serif !important;
+    font-size: 42px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.meta-artikel {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.img-penulis {
+    height: 70px;
+    object-fit: scale-down;
+}
+
+.title-penulis {
+    font-size: 12px;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+}
+
+.nama-penulis {
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+}
+
+.diskripsi-penulis {
+    font-family: 'Quicksand', sans-serif;
+}
+
+ol a {
+    color: #cd6133;
+}
+
+
+.separator{
+    min-height: 1px;
+    background: rgb(240,240,240);
+    background: linear-gradient(90deg, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 100%);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.widget-title{
+    color: #fff;
+    padding: 10px;
+    text-transform: capitalize;
+    background: #F56040;
+    border-radius: 3px;
+    color: #fff;
+    position: relative;
+    font-family: "EB Garamond", serif;
+}
+
+.widget-title:after {
+    content:'';
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    width: 0;
+    left: 0;
+    height: 0;
+    border-top: 15px solid #F56040;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    z-index: -10;
+    margin: 0 auto;
+}
+
+.widget-title-dark{
+    color: #fff;
+    padding: 10px;
+    text-transform: capitalize;
+    background: #233D4C;
+    border-radius: 3px;
+    position: relative;
+    font-family: "EB Garamond", serif;
+}
+
+.widget-title-dark:after {
+    content:'';
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    width: 0;
+    left: 0;
+    height: 0;
+    border-top: 15px solid #233D4C;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    z-index: -10;
+}
+
+.widget-body{
+    margin-top: 20px;
+    background: #FFF6F5;
+    border-radius: 3px;
+    border: 1px solid #F1E7E5;
+}
+
+#ToC{
+    padding: 15px;
+}
+
+#ToC ul{
+    padding: 0;
+    margin: 0;
+}
+
+#ToC li > a{
+    font-size: 14px !important;
+    font-family: "EB Garamond", Serif;
+    color: #B69893;
+
+}
+
+#vote{
+    background: #F2F2F2;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.aksi-lainnya{
+    color: #97A2B4;
+    cursor: pointer;
+}
+li.aksi-lainnya.active{
+    color: #F4613E;
+}
+
+.box-referensi{
+    background: #F2F2F2;
+    border-radius: 3px;
+    position: relative;
+    margin-top: 50px !important;
+}
+
+.icon-book{
+    position: absolute;
+    left: 20px;
+    top: -15px;
+    background: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.icon-book h2{
+    font-size: 12px !important;
+    margin: 0;
+}
+
+.box-artikel-terkait{
+    border: 1px solid #F2F2F2;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+.box-artikel-terkait p{
+    font-size: 12px ;
+}
+
+label{
+    margin-bottom: 3px !important;
 }

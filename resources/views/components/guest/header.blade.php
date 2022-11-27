@@ -2,7 +2,7 @@
     <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
     <nav class="navbar navbar-expand-lg navbar-landing navbar-light border-bottom border-light shadow-none fixed-top is-sticky" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{url('/')}}">
                 <img src="{{asset('assets/images/logo-dark.png')}}" class="card-logo card-logo-dark" alt="logo dark" height="17">
                 <img src="{{asset('assets/images/logo-light.png')}}" class="card-logo card-logo-light" alt="logo light" height="17">
             </a>
@@ -27,10 +27,16 @@
                 </ul>
 
                 <div class="">
-                    <a href="apps-nft-wallet.html" class="btn d-flex justify-content-center align-items-center btn-light btn-border btn-sm w-md">
-                        <em class="ri-user-3-fill me-1"></em>
-                        Buat Akun
-                    </a>
+                    @if(auth()->check())
+                        <a href="{{route('profile.show')}}">
+                            Hai
+                        </a>
+                    @else
+                        <a href="{{route('auth.register')}}" class="btn d-flex justify-content-center align-items-center btn-soft-success w-md">
+                            <em class="ri-user-3-fill me-1"></em>
+                            Buat Akun
+                        </a>
+                    @endif
                 </div>
             </div>
 
