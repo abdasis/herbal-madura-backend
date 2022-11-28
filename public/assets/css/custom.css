@@ -46,6 +46,7 @@ body{
 }
 
 .featured-image{
+    min-width: 100% !important;
     max-height: 250px;
     overflow: hidden;
     object-fit: cover;
@@ -290,4 +291,12 @@ footer{
 
 .absolute{
     position: relative;
+}
+
+.widget-footer .social-media li{
+    padding: 0 !important;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Poppins, sans-serif;
 }

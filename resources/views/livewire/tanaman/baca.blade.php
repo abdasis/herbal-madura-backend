@@ -76,7 +76,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col d-grid text-center">
                                         <img
-                                            src="{{ file_exists('upload' . '/' . $tanaman->user->profile_photo_path) ? asset('upload' . '/' . $tanaman->user->profile_photo_path) : asset('assets/images/avatar.jpg')}}"
+                                            src="{{ file_exists('upload' . '/' . $tanaman->user->profile_photo_path) ? asset($tanaman->user->profile_photo_path) : asset('assets/images/avatar.jpg')}}"
                                             class="rounded-circle img-penulis mx-auto">
                                         <h5 class="title-penulis">Disusun Oleh</h5>
                                         <h5 class="nama-penulis">{{$tanaman->user->name ?? 'None'}} <i

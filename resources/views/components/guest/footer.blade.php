@@ -19,11 +19,12 @@
                             <div class="widget-footer title">
                                 <h5>Social</h5>
                             </div>
-                            <ul class="list-unstyled p-0 m-0">
+                            <ul class="list-unstyled social-media">
                                 <li>Facebook</li>
                                 <li>Twitter</li>
                                 <li>Instagram</li>
                                 <li>YouTube</li>
+                                <li>Whatsapp</li>
                             </ul>
                         </div>
                     </div>

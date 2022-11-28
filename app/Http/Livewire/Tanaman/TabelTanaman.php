@@ -17,6 +17,11 @@ class TabelTanaman extends DataTableComponent
 
     protected $listeners = ['dihapus', 'batal', 'diverifikasi'];
 
+    public function configure(): void
+    {
+        $this->setPrimaryKey('id');
+    }
+
     public function dihapus()
     {
         if ($this->model_id){
@@ -50,23 +55,12 @@ class TabelTanaman extends DataTableComponent
             Column::make('Status', 'status')->format(function ($val){
                 $status = $val == 'Diterbitkan' ? 'success' : 'warning';
                 return '<div class="badge badge-'. $status .'">'. $val .'</div>';
-            })->asHtml(),
+            })->html(),
             Column::make('Dibuat Oleh', 'user.name'),
-            Column::make('Dilihat', 'id')->format(function ($val, $column, $row){
-                return views($row)->count() .' kali';
-            })->sortable(),
-            Column::make('Options', 'slug')->format(function ($val, $column, $row){
-                return view('partials.tombol-aksi',[
-                    'edit' => route('tanaman.sunting', $val),
-                    'hapus' => $row->id,
-                    'detail' => route('tanaman.detail', $val),
-                    'verifikasi' => $row->id
-                ]);
-            })
         ];
     }
 
-    public function query(): Builder
+    public function builder(): Builder
     {
         return Tanaman::query();
 

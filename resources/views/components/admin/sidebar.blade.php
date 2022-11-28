@@ -1,133 +1,61 @@
-<aside class="main-sidebar sidebar-light-orange ">
-    <!-- Brand Logo -->
-    <a href="{{route('dashboard')}}" class="brand-link border-bottom border-light">
-        <img src="{{asset('dist/img/logo.jpg')}}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
-        <span class="brand-text text-secondary text-bold">Info Herbal & Jamu</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex border-light">
-            <div class="image">
-                <img src="{{asset('dist/img/user.png')}}" class="img-circle" alt="User Image">
+<div class="app-menu navbar-menu">
+    <div class="navbar-brand-box">
+        <!-- Dark Logo-->
+        <a href="index.html" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo-sm.png" alt="" height="22">
+                    </span>
+            <span class="logo-lg">
+                        <img src="assets/images/logo-dark.png" alt="" height="17">
+                    </span>
+        </a>
+        <!-- Light Logo-->
+        <a href="index.html" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo-sm.png" alt="" height="22">
+                    </span>
+            <span class="logo-lg">
+                        <img src="assets/images/logo-light.png" alt="" height="17">
+                    </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+            <i class="ri-record-circle-line"></i>
+        </button>
+    </div>
+    <div id="scrollbar">
+        <div class="container-fluid">
+            <div id="two-column-menu">
             </div>
-            <div class="info">
-                <a href="#" class="d-block">{{Str::title(Auth::user()->name)}}</a>
-            </div>
-        </div>
+            <ul class="navbar-nav" id="navbar-nav">
+                <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{route('dashboard')}}">
+                        <i class="ri-dashboard-3-fill"></i>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#tanaman" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tanaman">
+                        <i class="ri-book-line"></i>Artikel</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="tanaman">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{route('tanaman.tambah')}}" class="nav-link"> Artikel </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('tanaman.semua')}}" class="nav-link"> Data Artikel </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-legacy " data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{route('dashboard')}}" class="nav-link active">
-                        <i class="nav-icon fas fa-layer-group"></i>
-                        <p>
-                            Dashboard
-                        </p>
+                    <a class="nav-link menu-link" href="widgets.html">
+                        <i class="ri-honour-line"></i> <span data-key="t-widgets">Widgets</span>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('statistik.semua')}}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-line"></i>
-                        <p>
-                            Statistik Pembaca
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-wine-bottle"></i>
-                        <p>
-                            Jamu
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('product.tambah')}}" class="nav-link active">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Tambah Produk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('product.semua')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Semua Produk</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-leaf"></i>
-                        <p>
-                            Data Tanaman
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('tanaman.tambah')}}" class="nav-link active">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Tambah Tanaman</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('tanaman.semua')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Semua Tanaman</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Data Pengguna
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('pengguna.tambah')}}" class="nav-link active">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Tambah Pengguna</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('pengguna.semua')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Semua Pengguna</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
-                            Pengaturan
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>General</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
+        </div>
     </div>
-    <!-- /.sidebar -->
-</aside>
+    <div class="sidebar-background"></div>
+</div>
