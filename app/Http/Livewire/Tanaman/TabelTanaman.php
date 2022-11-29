@@ -57,6 +57,11 @@ class TabelTanaman extends DataTableComponent
                 return '<div class="badge badge-'. $status .'">'. $val .'</div>';
             })->html(),
             Column::make('Dibuat Oleh', 'user.name'),
+            Column::make('Aksi', 'id')->format(function ($id){
+                return view('partials.tombol-aksi', [
+                    'hapus' => $id
+                ]);
+            })
         ];
     }
 

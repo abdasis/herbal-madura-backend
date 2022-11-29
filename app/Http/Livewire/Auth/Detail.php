@@ -49,6 +49,8 @@ class Detail extends Component
     }
     public function render()
     {
-        return view('livewire.auth.detail')->layout('layouts.guest');
+        return view('livewire.auth.detail',[
+            'total_kontribusi' => auth()->user()->tanaman()->count()
+        ])->layout('layouts.guest');
     }
 }

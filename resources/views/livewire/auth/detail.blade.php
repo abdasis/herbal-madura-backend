@@ -5,7 +5,7 @@
                 <div class="row g-4">
                     <div class="col-auto">
                         <div class="avatar-lg">
-                            <img src="{{auth()->user()->profile_photo_path}}" alt="user-img" class="img-thumbnail rounded-circle">
+                            <img src="{{auth()->user()->profile_photo_path}}" alt="user-img avatar-lg" class="img-thumbnail rounded-circle">
                         </div>
                     </div>
                     <!--end col-->
@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-lg-6 col-4">
                                 <div class="p-2">
-                                    <h4 class=" mb-1">1.3K</h4>
+                                    <h4 class=" mb-1">{{$total_kontribusi}}</h4>
                                     <p class="fs-14 mb-0">Kontribusi</p>
                                 </div>
                             </div>

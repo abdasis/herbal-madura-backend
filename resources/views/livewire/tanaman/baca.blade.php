@@ -68,7 +68,9 @@
                                         Referensi
                                     </h2>
                                 </div>
-                                {!! $tanaman->refrensi !!}
+                                <div class="mt-2">
+                                    {!! $tanaman->refrensi !!}
+                                </div>
                             </div>
                         @endif
                         <div class="biografi-penulis">
@@ -105,50 +107,19 @@
                     </h5>
                     <div class="widget-body bg-transparent border-0">
                         <ul class="list-unstyled">
-                            <li class="container">
-                                <div class="row align-items-center py-1 px-1 box-artikel-terkait">
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://placeimg.com/640/480/nature"  class="rounded mx-auto img-fluid" alt="">
+                            @foreach($tanaman_terkait as $item)
+                                <li class="container">
+                                    <div class="row align-items-center py-1 px-1 box-artikel-terkait">
+                                        <div class="col-md-4 p-1">
+                                            <img src="{{$item->gambar_tanaman ?? 'https://placeimg.com/640/480/nature'}}"  class="rounded border border-light mx-auto img-fluid" alt="{{$item->nama_tanaman}}">
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="mb-0">{{$item->nama_tanaman}}</h5>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <h5 class="mb-0">Title</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="container">
-                                <div class="row align-items-center py-1 px-1 box-artikel-terkait">
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://placeimg.com/640/480/nature"  class="rounded mx-auto img-fluid" alt="">
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="mb-0">Title</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="container">
-                                <div class="row align-items-center py-1 px-1 box-artikel-terkait">
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://placeimg.com/640/480/nature"  class="rounded mx-auto img-fluid" alt="">
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="mb-0">Title</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="container">
-                                <div class="row align-items-center py-1 px-1 box-artikel-terkait">
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://placeimg.com/640/480/nature"  class="rounded mx-auto img-fluid" alt="">
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="mb-0">Title</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

@@ -1,9 +1,9 @@
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-    <div class="card shadow-sm">
-        <div class="card-header border-lighter border-bottom">
+    <div class="card rounded-3">
+        <h5 class="card-header border-bottom border-light">
             Semua Tanaman
-        </div>
+        </h5>
         <div class="card-body">
             <livewire:tanaman.tabel-tanaman/>
         </div>

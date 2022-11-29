@@ -15,6 +15,8 @@ class Baca extends Component
     }
     public function render()
     {
-        return view('livewire.tanaman.baca')->layout('layouts.guest');
+        return view('livewire.tanaman.baca',[
+            'tanaman_terkait' => Tanaman::where('kerajaan', $this->tanaman->kerajaan)->limit('5')->get()
+        ])->layout('layouts.guest');
     }
 }

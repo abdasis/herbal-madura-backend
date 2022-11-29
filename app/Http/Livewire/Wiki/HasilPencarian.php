@@ -23,8 +23,8 @@ class HasilPencarian extends Component
 
     public function mount()
     {
-
-        $this->getTanaman($this->keyword);
+        $this->keyword = request()->get('keyword');
+        $this->getTanaman(request()->get('keyword'));
     }
 
 

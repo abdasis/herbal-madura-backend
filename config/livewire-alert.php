@@ -10,8 +10,6 @@ return [
         'timer' => 3000,
         'toast' => true,
         'text' => null,
-        'backdrop' => false,
-        'timerProgressBar' => true,
         'showCancelButton' => false,
         'showConfirmButton' => false
     ],

@@ -8,14 +8,16 @@
                     <p>Arsip Tentang Tanaman Herbal Terlengkap di Indonesia</p>
                 </div>
                 <div class="form-pencarian">
-                    <div class="form-group">
-                        <div class="input-group bg-plant border border-secondary icon-search p-2 rounded-pill">
-                            <div class="input-group-text me-2 rounded-circle  border-light bg-white">
-                                <i class="ri-search-2-line fs-16"></i>
+                    <form action="{{route('wiki.hasil-pencarian')}}">
+                        <div class="form-group">
+                            <div class="input-group bg-plant border border-secondary icon-search p-2 rounded-pill">
+                                <div class="input-group-text me-2 rounded-circle  border-light bg-white">
+                                    <i class="ri-search-2-line fs-16"></i>
+                                </div>
+                                <input type="text" name="keyword" class="form-control border-0 bg-transparent" id="autoSizingInputGroup" placeholder="Pencarian...">
                             </div>
-                            <input type="text" class="form-control border-0 bg-transparent" id="autoSizingInputGroup" placeholder="Pencarian...">
                         </div>
-                    </div>
+                    </form>
                 </div>
                <div class="spotlight mt-4" >
                    <h5 class="mb-3">Spotlight</h5>

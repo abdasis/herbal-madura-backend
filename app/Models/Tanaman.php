@@ -15,6 +15,8 @@ class Tanaman extends Model implements Viewable
     use HasFactory;
     use InteractsWithViews;
 
+    protected $guarded = [];
+
     public function user()
     {
        return $this->belongsTo(User::class, 'dibuat_oleh', 'id');

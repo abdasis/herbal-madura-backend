@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -12,7 +13,8 @@ class Tambah extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
-    public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Diterbitkan', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
+
+    public $nama_tanaman, $nama_latin, $gambar_tanaman, $status = 'Diterbitkan', $diskripsi, $pustaka, $referensi, $jenis_spesies;
 
     public $kerajaan, $ordo, $famili, $genus, $spesies;
 
@@ -32,29 +34,38 @@ class Tambah extends Component
         $this->validate();
         $nama_gambar = \Str::uuid() . '.' . $this->gambar_tanaman->extension();
         try {
-            $tanaman = new Tanaman();
-            $tanaman->nama_tanaman = $this->nama_tanaman;
-            $tanaman->slug = \Str::slug($this->nama_tanaman);
-            $tanaman->nama_latin = $this->nama_latin;
-            $tanaman->diskripsi_tanaman = $this->diskripsi;
-            $tanaman->gambar_tanaman = $nama_gambar;
-            $tanaman->status = $this->status;
-            $tanaman->kerajaan = $this->ordo;
-            $tanaman->famili = $this->famili;
-            $tanaman->genus = $this->genus;
-            $tanaman->kerajaan = $this->kerajaan;
-            $tanaman->jenis_spesies = $this->jenis_spesies;
-            $tanaman->refrensi = $this->referensi;
-            $tanaman->dibuat_oleh = \Auth::id();
-            $tanaman->diupdate_oleh = \Auth::id();
-            $tanaman->save();
-            $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_gambar);
-            $this->alert('success', 'Data berhasil disimpan');
-            $this->redirectRoute('tanaman.semua');
-        }catch (\Error $error){
+
+            $tgl_upload = now()->format('dmyhsi');
+            $ektension = $this->gambar_tanaman->extension();
+            $nama_file = "{$this->nama_tanaman}-{$tgl_upload}.{$ektension}";
+            $path = $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_file);
+
+
+            $tanaman = Tanaman::create([
+                'nama_tanaman' => $this->nama_tanaman,
+                'slug' => Str::slug($this->nama_tanaman),
+                'nama_latin' => $this->nama_latin,
+                'diskripsi_tanaman' => $this->diskripsi,
+                'status' => $this->status,
+                'ordo' => $this->ordo,
+                'famili' => $this->famili,
+                'genus' => $this->genus,
+                'kerajaan' => $this->kerajaan,
+                'jenis_spesies' => $this->jenis_spesies,
+                'refrensi' => $this->referensi,
+                'dibuat_oleh' => auth()->id(),
+                'diupdate_oleh' => auth()->id(),
+                'gambar_tanaman' => $path
+            ]);
+
+            $this->flash('success', 'Data berhasil ditambahkan', [], route('tanaman.semua'));
+
+        } catch (\Error $error) {
+            report($error);
             $this->alert('error', 'Terjadi kesalahan');
         }
     }
+
     public function render()
     {
         return view('livewire.tanaman.tambah');
