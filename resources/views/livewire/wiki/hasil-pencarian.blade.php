@@ -1,14 +1,19 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
     <div class="blur"></div>
+    <div class="banner-pencarian d-flex justify-content-center align-items-center">
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group w-100">
+                <input wire:model="keyword" placeholder="Pencarian" type="text" class="form-control form-control-lg rounded-pill mx-auto bg-white border border-warning" name="" id="">
+            </div>
+        </div>
+    </div>
     <div class="container mt-5">
         <div class="row justify-content-center" style="min-height: 100vh">
-
-            <div class="col-md-7">
-                <h5 class="text-quicksand">Hasil Pencarian</h5>
-                <div class="card border-0 shadow-sm rounded-0">
+            <div class="col-md-8">
+                <div class="card border rounded-3 border-light shadow-none rounded-0">
                     <div class="card-body">
-                        <ul class="nav nav-tabs mb-5">
+                        <ul class="nav nav-tabs nav-tabs-custom nav-success nav-justified mb-3">
                             <li class="nav-item">
                                 <a wire:click.prevent="$set('kategori', 'semua')" class="nav-link {{$kategori == 'semua' ? 'active' : ''}}" aria-current="page" href="#">Semua</a>
                             </li>
@@ -20,13 +25,7 @@
                             </li>
 
                         </ul>
-                        <form>
-                            <div class="form-group">
-                                <input wire:model="keyword" type="text" class="form-control bg-white border border-warning" name="" id="">
-                            </div>
-                        </form>
-                        <div class="alert alert-default-info info-hasil-text">
-
+                        <div class="alert alert-secondary info-hasil-text">
                             <small>Hasil pencarian yang ditemukan total
                                 @if($kategori == 'semua')
                                     <strong>{{$tanaman->count() + $produk->count()}}</strong>
@@ -67,8 +66,8 @@
                                             </div>
                                             <div class="card-text">
                                                 <div class="meta-artikel">
-                                                    <div class="badge bg-soft-light p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
-                                                    <div class="badge bg-soft-secondary p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
+                                                    <div class="badge bg-primary p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
+                                                    <div class="badge bg-success p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,7 +94,7 @@
                                             </div>
                                             <div class="card-text">
                                                 <div class="meta-artikel">
-                                                    <div class="badge badge-light p-1">{{\Carbon\Carbon::parse($detail_produk->created_at)->format('d F Y')}}</div>
+                                                    <div class="badge bg-primary p-1">{{\Carbon\Carbon::parse($detail_produk->created_at)->format('d F Y')}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,8 +120,8 @@
                                             </div>
                                             <div class="card-text">
                                                 <div class="meta-artikel">
-                                                    <div class="badge badge-light p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
-                                                    <div class="badge badge-light p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
+                                                    <div class="badge bg-primary p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
+                                                    <div class="badge bg-success p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,16 +145,13 @@
                                             </div>
                                             <div class="card-text">
                                                 <div class="meta-artikel">
-                                                    <div class="badge badge-soft-warning p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
-                                                    <div class="badge badge-soft-secondary p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
+                                                    <div class="badge bg-primary p-1">{{\Carbon\Carbon::parse($detail_produk->created_at)->format('d F Y')}}</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @empty
-
                                 @endforelse
-
                             @endif
                         @endif
                     </div>

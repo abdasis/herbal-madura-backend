@@ -300,3 +300,11 @@ footer{
     font-weight: 500;
     font-family: Poppins, sans-serif;
 }
+
+.banner-pencarian{
+    min-height: 450px !important;
+    background: url('../images/bg-herbal-transparent.png') no-repeat , linear-gradient(43deg, rgba(255,244,219,1) 0%, rgba(255,255,255,1) 100%);
+    width: 100% !important;
+    background-size: auto;
+    background-position: bottom;
+}
