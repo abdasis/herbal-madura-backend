@@ -308,3 +308,14 @@ footer{
     background-size: auto;
     background-position: bottom;
 }
+
+.deskripsi-tanaman h2{
+    margin-top: 20px;
+}
+
+
+.banner-contributor{
+    min-height: 450px !important;
+    background:  linear-gradient(90deg, rgba(245,253,255,1) 0%, rgba(255,255,255,.50) 100%), url('../images/bg-contributor.webp') no-repeat;
+    background-size: cover;
+}

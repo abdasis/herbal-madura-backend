@@ -115,7 +115,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="mb-0">{{$item->nama_tanaman}}</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                            <p>{!! Str::limit(strip_tags($item->diskripsi_tanaman), 55, '') !!}</p>
                                         </div>
                                     </div>
                                 </li>
