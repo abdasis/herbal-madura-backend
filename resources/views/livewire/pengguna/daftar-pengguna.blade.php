@@ -17,7 +17,7 @@
                                     class="ri-flashlight-fill text-white align-bottom"></i> <span
                                     class="trending-ribbon-text">Trending</span></div>
                             <img src="{{asset('assets/images/avatar.jpg')}}" class="avatar avatar-lg rounded-circle border-light border" alt="" height="45">
-                            <h5 class="mb-1 mt-4"><a href="apps-ecommerce-seller-details.html" class="link-primary">{{$pengguna->name}}</a></h5>
+                            <h5 class="mb-1 mt-4"><a href="{{route('pengguna.detail', $pengguna->id)}}" class="link-primary">{{$pengguna->name}}</a></h5>
                             <p class="text-muted mb-4">{{Str::title($pengguna->roles)}}</p>
                             <div class="row mt-4">
                                 <div class="col-lg-6 border-end-dashed border-end">

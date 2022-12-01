@@ -15,7 +15,7 @@
                         <a class="nav-link" href="{{url('/')}}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#wallet">Artkel</a>
+                        <a class="nav-link" href="#wallet">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('kontributor')}}">Kontributor</a>
