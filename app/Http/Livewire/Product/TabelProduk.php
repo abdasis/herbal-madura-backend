@@ -14,6 +14,12 @@ class TabelProduk extends DataTableComponent
     use AlertConfirm;
 
     protected $listeners = ['dihapus', 'batal'];
+
+    public function configure(): void
+    {
+        $this->setPrimaryKey('id');
+    }
+
     public function dihapus()
     {
         if ($this->model_id){

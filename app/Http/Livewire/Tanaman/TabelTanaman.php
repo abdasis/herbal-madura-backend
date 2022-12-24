@@ -17,6 +17,7 @@ class TabelTanaman extends DataTableComponent
 
     protected $listeners = ['dihapus', 'batal', 'diverifikasi'];
 
+    protected $model = Tanaman::class;
     public function configure(): void
     {
         $this->setPrimaryKey('id');
@@ -63,11 +64,5 @@ class TabelTanaman extends DataTableComponent
                 ]);
             })
         ];
-    }
-
-    public function builder(): Builder
-    {
-        return Tanaman::query();
-
     }
 }

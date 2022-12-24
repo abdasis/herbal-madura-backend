@@ -23,9 +23,7 @@ class Tambah extends Component
     public function simpan()
     {
         $this->validate();
-
         $nama_gambar = \Str::slug($this->nama_produk) . '-' . $this->gambar_produk->getClientOriginalName();
-
         $produk = new Product();
         $produk->nama_produk = $this->nama_produk;
         $produk->slug = \Str::slug($this->nama_produk);
@@ -40,6 +38,7 @@ class Tambah extends Component
         $this->alert('success', 'Data berhasil disimpan');
         $this->reset();
     }
+
     public function render()
     {
         return view('livewire.product.tambah');

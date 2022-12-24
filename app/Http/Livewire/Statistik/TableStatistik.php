@@ -10,6 +10,11 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 class TableStatistik extends DataTableComponent
 {
 
+    public function configure(): void
+    {
+        $this->setPrimaryKey('id');
+    }
+
     public function columns(): array
     {
         return [
@@ -25,6 +30,5 @@ class TableStatistik extends DataTableComponent
     public function query(): Builder
     {
         return Tanaman::query();
-
     }
 }

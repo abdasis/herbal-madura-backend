@@ -15,6 +15,13 @@ class TablePengguna extends DataTableComponent
 
     protected $listeners = ['dihapus', 'batal'];
 
+    protected $model = User::class;
+
+    public function configure(): void
+    {
+        $this->setPrimaryKey('id');
+    }
+
     public function dihapus()
     {
         if ($this->model_id){
@@ -44,9 +51,4 @@ class TablePengguna extends DataTableComponent
         ];
     }
 
-    public function query(): Builder
-    {
-
-        return  User::query();
-    }
 }

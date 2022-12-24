@@ -1,70 +1,64 @@
 <div>
-    {{-- Be like water. --}}
-    <div class="row">
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-                <div class="inner">
-                    <h3>{{\App\Models\Product::count()}}</h3>
-                    <p>Data Jamu</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="{{route('product.semua')}}" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-                <div class="inner">
-                    <h3>{{views(\App\Models\Tanaman::class)->count()}}<sup style="font-size: 20px"></sup></h3>
-
-                    <p>Statistik Pembaca</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="{{route('statistik.semua')}}" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-                <div class="inner">
-                    <h3>{{$semua_kontributor->count()}}</h3>
-
-                    <p>Kontributor</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="{{route('pengguna.semua')}}" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-                <div class="inner">
-                    <h3>{{\App\Models\Tanaman::count()}}</h3>
-
-                    <p>Data Tanaman</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa fa-leaf"></i>
-                </div>
-                <a href="{{route('tanaman.semua')}}" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-    </div>
+    <div class="row h-100">
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar-sm flex-shrink-0">
+                            <span
+                                class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                <i class="ri-plant-line align-middle"></i>
+                            </span>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Data Tanaman</p>
+                            <h4 class=" mb-0"><span class="counter-value" data-target="{{$total_tanama}}">1</span></h4>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar-sm flex-shrink-0">
+                            <span
+                                class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                <i class="ri-user-4-line align-middle"></i>
+                            </span>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total Pengguna</p>
+                            <h4 class=" mb-0"><span class="counter-value" data-target="{{$total_pengguna}}">1</span></h4>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar-sm flex-shrink-0">
+                            <span
+                                class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                <i class="ri-eye-line align-middle"></i>
+                            </span>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Total Pembaca</p>
+                            <h4 class=" mb-0"><span class="counter-value" data-target="{{$total_pembaca}}">1</span></h4>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+    </div> {{-- Be like water. --}}
     <div class="row">
         <div class="col-md-7">
             <div class="card card-outline card-orange">
-                <div class="card-header">
+                <div class="card-header card-title">
                     Data Produk Terbaru
                 </div>
                 <div class="card-body">
@@ -95,15 +89,15 @@
         <div class="col-md-5">
             <div class="card card-outline card-orange">
                 <div class="card-header">
-                    Data Kontributor
+                    Kontributor Terbaru
                 </div>
                 <div class="card-body">
                     <table class="table table-sm table-striped">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nama Kontributor</th>
-                            <th>Pendidikan Terakhir</th>
+                            <th>Nama Pengguna</th>
+                            <th>Pendidikan</th>
                             <th>Bergabung Pada</th>
                         </tr>
                         </thead>

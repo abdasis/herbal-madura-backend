@@ -126,6 +126,8 @@
             plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
             menubar: false,
             height: 600,
+            content_style: "body {font-family: Arial; }",
+
             setup: function (editor) {
                 editor.on('init change', function () {
                     editor.save();
@@ -141,6 +143,7 @@
             toolbar: false,
             menubar: false,
             height: 200,
+            content_style: "body {font-family: Arial; }",
             setup: function (editor) {
                 editor.on('init change', function () {
                     editor.save();

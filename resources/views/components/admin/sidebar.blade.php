@@ -28,12 +28,12 @@
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{route('dashboard')}}">
-                        <i class="ri-dashboard-3-fill"></i>Dashboard</span>
+                        <i class="ri-dashboard-3-fill"></i> <span> Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#tanaman" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tanaman">
-                        <i class="ri-book-line"></i>Artikel</span>
+                        <i class="ri-plant-line"></i> <span> Data Danaman</span>
                     </a>
                     <div class="collapse menu-dropdown" id="tanaman">
                         <ul class="nav nav-sm flex-column">
