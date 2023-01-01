@@ -20,7 +20,10 @@ class TabelTanaman extends DataTableComponent
     protected $model = Tanaman::class;
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')
+            ->setTableRowUrl(function ($row){
+                return route('tanaman.detail', $row->slug);
+            });
     }
 
     public function dihapus()
@@ -58,9 +61,11 @@ class TabelTanaman extends DataTableComponent
                 return '<div class="badge badge-'. $status .'">'. $val .'</div>';
             })->html(),
             Column::make('Dibuat Oleh', 'user.name'),
-            Column::make('Aksi', 'id')->format(function ($id){
+            Column::make('Slug', 'slug')->deselected(),
+            Column::make('Aksi', 'id')->format(function ($id, $model, $row){
                 return view('partials.tombol-aksi', [
-                    'hapus' => $id
+                    'hapus' => $id,
+                    'edit' => route('tanaman.sunting', $model->slug)
                 ]);
             })
         ];

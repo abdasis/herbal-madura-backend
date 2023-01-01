@@ -67,8 +67,7 @@ class Sunting extends Component
             $tanaman->dibuat_oleh = \Auth::id();
             $tanaman->diupdate_oleh = \Auth::id();
             $tanaman->save();
-            $this->alert('success', 'Data berhasil diperbarui');
-            redirect()->route('tanaman.semua');
+            $this->flash('success', 'Data berhasil diperbarui',[], route('tanaman.semua'));
 
 
         }catch (\Error $error){

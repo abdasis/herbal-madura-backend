@@ -6,15 +6,15 @@
                     <h1 class="post-title">{{$tanaman->nama_tanaman}}</h1>
                     <div class="separator"></div>
                     <ul class="list-unstyled p-0 m-0">
-                        <li class="d-flex meta-artikel align-items-center gap-2 m-0 mb-2">
+                        <li class="d-flex meta-artikel align-items-center fw-light gap-2 m-0 mb-2">
                             <i class="ri-calendar-2-line"></i>
                             Diterbitkan pada {{$tanaman->created_at->format('d F Y')}}
                         </li>
-                        <li class="d-flex meta-artikel align-items-center gap-2 m-0 mb-2">
+                        <li class="d-flex meta-artikel align-items-center fw-light gap-2 m-0 mb-2">
                             <i class="mdi mdi-account"></i>
-                            Ditulis Oleh pada {{$tanaman->user->name}}
+                            Ditulis Oleh {{$tanaman->user->name}}
                         </li>
-                        <li class="d-flex meta-artikel align-items-center gap-2 m-0 mb-2">
+                        <li class="d-flex meta-artikel align-items-center fw-light gap-2 m-0 mb-2">
                             <i class="mdi mdi-tag"></i>
                             Nama Latin {{$tanaman->nama_latin}}
                         </li>

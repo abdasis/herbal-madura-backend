@@ -7,6 +7,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="{{asset('assets/js/layout.js')}}"></script>
     <link rel="stylesheet" href="{{asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -18,7 +19,6 @@
         [x-cloak] { display: none !important; }
     </style>
     @stack('styles')
-    <script src="{{mix('js/app.js')}}"></script>
 </head>
 
 <body>

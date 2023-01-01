@@ -28,7 +28,7 @@
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{route('dashboard')}}">
-                        <i class="ri-dashboard-3-fill"></i> <span> Dashboard</span>
+                        <i class="ri-dashboard-2-line"></i> <span> Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">

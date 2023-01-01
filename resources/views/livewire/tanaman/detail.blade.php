@@ -3,17 +3,14 @@
     <div class="container py-3">
         <div class="card shadow-sm">
             <div class="card-body">
-                <div class="card-title">
-                    <h5>{{$tanaman->nama_tanaman}}</h5>
-                    <hr>
-
+                <div class="card-title mb-4">
+                    <h1>{{$tanaman->nama_tanaman}}</h1>
                 </div>
                 <div class="card-text diskripsi-tanaman">
-                    <div id="blogContents">
-                        <p class="text-bold">Daftar Isi</p>
-                        <ol style="padding-left: 10px" data-toc="div.diskripsi-tanaman" data-toc-headings="h2,h3,h4"></ol>
-                    </div>
                     {!! $tanaman->diskripsi_tanaman !!}
+                </div>
+                <div class="alert alert-warning">
+                    Arsip tanaman ini ditulis oleh {{$tanaman->user->name}} pada {{\Carbon\Carbon::parse($tanaman->created_at)->format('d-m-Y H:i')}}
                 </div>
             </div>
         </div>
