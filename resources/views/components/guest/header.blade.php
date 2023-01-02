@@ -12,13 +12,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mt-lg-0" id="navbar-example">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/')}}">Beranda</a>
+                        <a class="nav-link d-flex gap-1" href="{{url('/')}}">
+                            <i class="ri-home-3-line"></i>
+                            Beranda
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#wallet">Artikel</a>
+                        <a class="nav-link d-flex gap-1" href="{{route('wiki.hasil-pencarian')}}">
+                            <i class="ri-leaf-line"></i>
+                            Tanaman
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('kontributor')}}">Kontributor</a>
+                        <a class="nav-link d-flex gap-1" href="{{route('kontributor')}}">
+                            <i class="ri-user-star-line"></i>
+                            Kontributor
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#categories">Tentang</a>

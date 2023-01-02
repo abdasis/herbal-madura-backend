@@ -1,34 +1,7 @@
 <div>
-    <div class="header-post border-bottom border-light">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md-7">
-                    <h1 class="post-title">{{$tanaman->nama_tanaman}}</h1>
-                    <div class="separator"></div>
-                    <ul class="list-unstyled p-0 m-0">
-                        <li class="d-flex meta-artikel align-items-center fw-light gap-2 m-0 mb-2">
-                            <i class="ri-calendar-2-line"></i>
-                            Diterbitkan pada {{$tanaman->created_at->format('d F Y')}}
-                        </li>
-                        <li class="d-flex meta-artikel align-items-center fw-light gap-2 m-0 mb-2">
-                            <i class="mdi mdi-account"></i>
-                            Ditulis Oleh {{$tanaman->user->name}}
-                        </li>
-                        <li class="d-flex meta-artikel align-items-center fw-light gap-2 m-0 mb-2">
-                            <i class="mdi mdi-tag"></i>
-                            Nama Latin {{$tanaman->nama_latin}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-5" data-aos="zoom-in" data-aos-delay="500" data-aos-duration=".4">
-                    <img src="https://placeimg.com/640/480/nature"  class="rounded mx-auto img-fluid featured-image" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 p-4">
+        <div class="row justify-content-center content-box">
+            {{--<div class="col-md-3 p-4">
                 <div class="sidebar-widget">
                     <h5 class="text-bold widget-title text-quicksand d-flex align-items-center gap-2">
                         <i class="ri-book-read-line"></i>
@@ -53,8 +26,30 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-md-6">
+            </div>--}}
+            <div class="col-md-6 col-sm-12 col-lg-6">
+                <div class="card featured-image-box">
+                    <img class="featured-image" src="https://placeimg.com/640/480/nature" alt="">
+                </div>
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h2 class="content-title">{{$tanaman->nama_tanaman}}</h2>
+                        <div class="meta-tag mx-auto">
+                            <ul class="list-unstyled m-0 p-0">
+                                <li class="d-flex justify-content-center gap-2">
+                                    <div class="meta-item d-flex align-items-center gap-1">
+                                        <i class="ri-user-3-line"></i>
+                                        {{$tanaman->user->name}}
+                                    </div>
+                                    <div class="meta-item d-flex align-items-center gap-1">
+                                        <i class="ri-calendar-2-line"></i>
+                                        {{\Carbon::parse($tanaman->created_at)->format('d-m-Y')}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="card box-content">
                     <div class="card-body bg-transparent">
                         <div class="card-text deskripsi-tanaman">
@@ -73,7 +68,7 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="biografi-penulis">
+                        <div class="biografi-penulis border-light">
                             <div class="card-text">
                                 <div class="row justify-content-center">
                                     <div class="col d-grid text-center">
@@ -85,11 +80,14 @@
                                                 class="fas fa-check-circle text-primary"></i></h5>
                                         <div class="card-text diskripsi-penulis mt-2">
                                             <p>
-                                                Artikel ini disusun oleh tim penyunting terlatih dan peneliti yang memastikan keakuratan
+                                                Artikel ini disusun oleh tim penyunting terlatih dan peneliti yang
+                                                memastikan keakuratan
                                                 dan kelengkapannya.
 
-                                                Tim Manajemen Konten wikiHow memantau hasil penyuntingan staf kami secara saksama untuk
-                                                menjamin artikel yang berkualitas tinggi. Artikel ini telah dilihat 141.769 kali.
+                                                Tim Manajemen Konten wikiHow memantau hasil penyuntingan staf kami
+                                                secara saksama untuk
+                                                menjamin artikel yang berkualitas tinggi. Artikel ini telah dilihat
+                                                141.769 kali.
                                             </p>
                                         </div>
                                     </div>
@@ -98,29 +96,57 @@
                         </div>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title d-flex gap-1">
+                            <i class="ri-heart-2-line"></i>
+                            Berikan Reaksi
+                        </div>
+                        @auth()
+                            <div class="reaction-item ">
+                                <ul class="d-flex gap-2 list-unstyled ">
+                                    <li wire:click="suka"
+                                        class="d-flex cursor-pointer gap-1 {{\Reaction::has($tanaman, auth()->user(), 'heart') ? 'liked': 'not-liked'}}">
+                                        <i class="ri-heart-2-fill {{\Reaction::has($tanaman, auth()->user(),'heart')  ? 'text-danger': 'text-muted'}}"></i>
+                                        <span class="text-danger"> + {{Reaction::count($tanaman, 'heart')}}</span>
+                                    </li>
+                                    <li wire:click="jempol" class="d-flex cursor-pointer gap-1 {{\Reaction::has($tanaman, auth()->user(), 'person_raising_hand') ? 'liked': 'not-liked'}}">
+                                        <i class="ri-thumb-up-fill {{\Reaction::has($tanaman, auth()->user(),'person_raising_hand')  ? 'text-danger': 'text-muted'}}"></i>
+                                        <span class="text-danger"> + {{Reaction::count($tanaman, 'person_raising_hand')}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        @else
+                            <div class="alert alert-warning border-dashed">
+                                <a class="fw-bold text-warning" href="{{route('login')}}">Login</a> untuk memberikan reaksi
+                            </div>
+                        @endauth
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <div class="sidebar-widget mt-3">
-                    <h5 class="text-bold widget-title-dark d-flex align-items-center gap-2">
-                        <i class="ri-fire-line"></i>
-                        Tanaman Lainnya
-                    </h5>
-                    <div class="widget-body bg-transparent border-0">
-                        <ul class="list-unstyled">
-                            @foreach($tanaman_terkait as $item)
-                                <li class="container">
-                                    <div class="row align-items-center py-1 px-1 box-artikel-terkait">
-                                        <div class="col-md-4 p-1">
-                                            <img src="{{$item->gambar_tanaman ?? 'https://placeimg.com/640/480/nature'}}"  class="rounded border border-light mx-auto img-fluid" alt="{{$item->nama_tanaman}}">
-                                        </div>
-                                        <div class="col">
-                                            <h5 class="mb-0">{{$item->nama_tanaman}}</h5>
-                                            <p>{!! Str::limit(strip_tags($item->diskripsi_tanaman), 55, '') !!}</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
+            <div class="col-md-3 col-sm-12 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-grid">
+                            <button class="btn my-2 btn-outline-success btn-border d-flex gap-1 justify-content-center">
+                                <i class="ri-bookmark-2-fill"></i>
+                                Bookmark
+                            </button>
+                            <button class="btn my-2 btn-outline-dark d-flex gap-1 justify-content-center">
+                                Print
+                            </button>
+                            <!-- Single Button Dropdown -->
+                            <div class="dropdown d-grid">
+                                <button class="btn btn-outline-dark my-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Bagikan
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Facebook</a>
+                                    <a class="dropdown-item" href="#">Twitter</a>
+                                    <a class="dropdown-item" href="#">Whatsapp</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -143,18 +169,18 @@
         headers = document.getElementsByTagName("h2");
 
         // For each h3
-        for (i = 0; i < headers.length; i++){
+        for (i = 0; i < headers.length; i++) {
             // Create an id
-            name = "h"+i;
-            headers[i].id=name;
+            name = "h" + i;
+            headers[i].id = name;
 
             // a list item for the entry
             tocListItem = document.createElement("li");
 
             // a link for the h3
             tocEntry = document.createElement("a");
-            tocEntry.setAttribute("href","#"+name);
-            tocEntry.innerText=headers[i].innerText;
+            tocEntry.setAttribute("href", "#" + name);
+            tocEntry.innerText = headers[i].innerText;
 
 
             tocListItem.appendChild(tocEntry);

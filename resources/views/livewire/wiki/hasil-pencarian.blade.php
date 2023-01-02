@@ -11,158 +11,61 @@
     <div class="container mt-5">
         <div class="row justify-content-center" style="min-height: 100vh">
             <div class="col-md-8">
-                <div class="card border rounded-3 border-light shadow-none rounded-0">
-                    <div class="card-body">
-                        <ul class="nav nav-tabs nav-tabs-custom nav-success nav-justified mb-3">
-                            <li class="nav-item">
-                                <a wire:click.prevent="$set('kategori', 'semua')" class="nav-link {{$kategori == 'semua' ? 'active' : ''}}" aria-current="page" href="#">Semua</a>
-                            </li>
-                            <li class="nav-item">
-                                <a wire:click.prevent="$set('kategori', 'tanaman')" class="nav-link {{$kategori == 'tanaman' ? 'active' : ''}} "  href="#">Tanaman</a>
-                            </li>
-                            <li class="nav-item">
-                                <a wire:click.prevent="$set('kategori', 'jamu')" class="nav-link {{$kategori == 'jamu' ? 'active' : ''}}" href="#">Jamu</a>
-                            </li>
-
-                        </ul>
+                <div class="card-body">
+                    @if($keyword)
                         <div class="alert alert-secondary info-hasil-text">
                             <small>Hasil pencarian yang ditemukan total
-                                @if($kategori == 'semua')
-                                    <strong>{{$tanaman->count() + $produk->count()}}</strong>
-                                @elseif($kategori == 'jamu')
-                                    <strong>{{$produk->count()}}</strong>
-                                @else
-                                    <strong>{{$tanaman->count()}}</strong>
-                                @endif
-                                data
-                                @if($kategori == 'semua')
-                                    <strong>Tanaman dan Jamu</strong>
-                                @elseif($kategori == 'jamu')
-                                    <strong>Jamu</strong>
-                                @else
-                                    <strong>Tanaman</strong>
-                                @endif
+                                <strong>{{$tanaman->total()}}</strong>
                                 untuk keyword : <strong>{{$keyword}}</strong></small>
                         </div>
-                        @if(empty($tanaman))
-                            <div class="alert alert-light">
-                                Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
-                                <a href="#">Klik Disini</a>
-                            </div>
-                        @else
-                            @if($kategori == 'tanaman')
-                                @forelse($tanaman as $tanaman_detail)
-                                    <div class="card shadow-none mb-2 border-bottom border-bottom-dashed">
-                                        <div class="card-body">
-                                            <div class="card-title">
-                                                <a href="{{route('tanaman.baca', $tanaman_detail->slug)}}">
-                                                    <h5 class="title-tanaman">{{$tanaman_detail->nama_tanaman}} (Latin: {{$tanaman_detail->nama_latin}})</h5>
-                                                </a>
-                                            </div>
-                                            <div class="card-text diskripsi-singkat-tanaman">
-                                                <p>
-                                                    {!! Str::limit(strip_tags($tanaman_detail->diskripsi_tanaman), 250) !!}
+                    @endif
+                    @if(empty($tanaman))
+                        <div class="alert alert-light">
+                            Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
+                            <a href="#">Klik Disini</a>
+                        </div>
+                    @else
+                        @foreach($tanaman as $detail)
+                            <a href="{{route('tanaman.baca', $detail->slug)}}">
+                                <div class="card">
+                                    <div class="row g-0">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-2">{{$detail->nama_tanaman}}</h5>
+                                                <p class="card-text text-muted mb-0">
+                                                    {!! Str::limit(strip_tags($detail->diskripsi_tanaman),150, '...') !!}
                                                 </p>
                                             </div>
-                                            <div class="card-text">
-                                                <div class="meta-artikel">
-                                                    <div class="badge bg-primary p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
-                                                    <div class="badge bg-success p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
+                                            <div class="card-footer border-top-dashed">
+                                                <div class="meta-tag-footer d-flex align-items-center gap-2">
+                                                    <div class="card-text">
+                                                        <small class="text-muted d-flex align-items-center gap-1">
+                                                            <i class="ri-user-fill"></i>
+                                                            {{Str::title($detail->user->name)}}
+                                                        </small>
+                                                    </div>
+                                                    |
+                                                    <div class="card-text">
+                                                        <small class="text-muted">{{Carbon::parse($detail->created_at)->format('d, F Y')}}</small></div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @empty
-                                    <div class="alert alert-light">
-                                        Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
-                                        <a href="{{route('wiki.tambah-artikel')}}">Klik Disini</a>
-                                    </div>
-                                @endforelse
-                            @elseif($kategori == 'jamu')
-                                @forelse($produk as $detail_produk)
-                                    <div class="card shadow-none mb-2 border-bottom-dashed">
-                                        <div class="card-body">
-                                            <div class="card-title">
-                                                <a href="{{route('produk.baca', $detail_produk->slug)}}">
-                                                    <h5 class="title-tanaman">{{$detail_produk->nama_produk}}</h5>
-                                                </a>
-                                            </div>
-                                            <div class="card-text diskripsi-singkat-tanaman">
-                                                <p>
-                                                    {!! Str::limit(strip_tags($detail_produk->deskripsi), 250) !!}
-                                                </p>
-                                            </div>
-                                            <div class="card-text">
-                                                <div class="meta-artikel">
-                                                    <div class="badge bg-primary p-1">{{\Carbon\Carbon::parse($detail_produk->created_at)->format('d F Y')}}</div>
-                                                </div>
-                                            </div>
+                                        <div class="col-md-4">
+                                            <img class="rounded-end img-fluid h-100 object-cover" src="assets/images/small/img-2.jpg" alt="Card image">
                                         </div>
                                     </div>
-                                @empty
-                                    <div class="alert alert-light">
-                                        Mohon maaf produk yang anda cari belum tersedia di database kami, silahkan masukan kata pencarian lainnya?
-                                    </div>
-                                @endforelse
-                            @else
-                                @forelse($tanaman as $tanaman_detail)
-                                    <div class="card shadow-none mb-2 border-bottom-dashed">
-                                        <div class="card-body">
-                                            <div class="card-title">
-                                                <a href="{{route('tanaman.baca', $tanaman_detail->slug)}}">
-                                                    <h5 class="title-tanaman">{{$tanaman_detail->nama_tanaman}} (Latin: {{$tanaman_detail->nama_latin}})</h5>
-                                                </a>
-                                            </div>
-                                            <div class="card-text diskripsi-singkat-tanaman">
-                                                <p>
-                                                    {!! Str::limit(strip_tags($tanaman_detail->diskripsi_tanaman), 250) !!}
-                                                </p>
-                                            </div>
-                                            <div class="card-text">
-                                                <div class="meta-artikel">
-                                                    <div class="badge bg-primary p-1">{{\Carbon\Carbon::parse($tanaman_detail->created_at)->format('d F Y')}}</div>
-                                                    <div class="badge bg-success p-1">Ditinjau oleh: <span>{{$tanaman_detail->diverifikasi->name ?? 'Belum diverifikasi'}}</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @empty
-
-                                @endforelse
-
-                                @forelse($produk as $detail_produk)
-                                    <div class="card shadow-none mb-2 border-bottom-dashed">
-                                        <div class="card-body">
-                                            <div class="card-title">
-                                                <a href="{{route('produk.baca', $detail_produk->slug)}}">
-                                                    <h5 class="title-tanaman">{{$detail_produk->nama_produk}}</h5>
-                                                </a>
-                                            </div>
-                                            <div class="card-text diskripsi-singkat-tanaman">
-                                                <p>
-                                                    {!! Str::limit(strip_tags($detail_produk->deskripsi), 250) !!}
-                                                </p>
-                                            </div>
-                                            <div class="card-text">
-                                                <div class="meta-artikel">
-                                                    <div class="badge bg-primary p-1">{{\Carbon\Carbon::parse($detail_produk->created_at)->format('d F Y')}}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @empty
-                                @endforelse
-                            @endif
-                        @endif
-                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+                        {{$tanaman->links()}}
+                    @endif
                 </div>
-
             </div>
             <div class="col-md-3" style="margin-top: 34px">
 
                 <div class="list-group shadow-sm list-group-flush">
                     <a href="{{route('kontributor')}}" class="list-group-item list-group-item-action border-light">
-                        <span>👨‍🏫</span> Para Kontributor
+                        <span>👨‍🏫</span> Lihat Kontributor
                     </a>
                     <a href="{{route('wiki.tambah-artikel')}}" class="list-group-item list-group-item-action border-light">
                         <span>📝</span> Buat Artikel

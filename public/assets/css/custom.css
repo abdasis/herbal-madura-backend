@@ -5,8 +5,7 @@ Website: https://themesbrand.com/
 Contact: support@themesbrand.com
 File: Custom Css File
 */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
 
 body{
@@ -31,9 +30,8 @@ body{
 .box-content{
     background: #fff !important;
     position: relative;
-    top: -15px;
     z-index: -1;
-    padding: 70px 20px;
+    padding: 20px;
 }
 
 .biografi-penulis{
@@ -45,28 +43,35 @@ body{
     color: #2b3e50;
 }
 
+.featured-image-box{
+    min-width: 100% !important;
+    min-height: 400px;
+    max-height: 400px;
+}
 .featured-image{
     min-width: 100% !important;
-    max-height: 250px;
+    max-height: 400px;
     overflow: hidden;
     object-fit: cover;
     font-family: "Courier New", Courier, monospace;
+    border-radius: 7px;
 }
 
 .deskripsi-tanaman{
-    font-family: 'EB Garamond', serif;
+    font-family: 'Inter', serif;
 }
 
 .deskripsi-tanaman p{
-    font-size: 17px;
+    font-size: 16px;
     line-height: 22px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .deskripsi-tanaman h2{
     font-size: 28px;
-    font-family: 'EB Garamond', serif;
+    font-family: 'Inter', serif;
     font-weight: 600;
+    margin-top: 30px;
 }
 
 .riwayat-revisi h5 {
@@ -315,7 +320,58 @@ footer{
 
 
 .banner-contributor{
-    min-height: 450px !important;
+    min-height: 370px !important;
     background:  linear-gradient(90deg, rgba(245,253,255,1) 0%, rgba(255,255,255,.50) 100%), url('../images/bg-contributor.webp') no-repeat;
     background-size: cover;
 }
+
+.content-box{
+    margin-top: 100px !important;
+}
+
+.meta-item{
+    font-size: 10px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    color: #33393f;
+    border-right: 1px solid #d6d9e0;
+    padding-right: 10px;
+}
+
+.meta-tag li{
+    padding: 0;
+    margin: 0;
+}
+
+.content-title{
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+}
+.reaction-item li{
+    margin: 0;
+    margin-top: 20px;
+    padding: 2px 20px;
+    border: 1px solid #efefef;
+    border-radius: 8px;
+}
+
+.reaction-item .liked{
+    color: #F95E4F;
+    background: #FDF1E2;
+    padding: 2px 20px;
+    border: 1px solid #FF9933;
+    border-radius: 8px;
+}
+.reaction-item .not-liked{
+    color: #878A99;
+    border: 1px solid #878A99;
+    border-radius: 8px;
+}
+
+.reaction-item .not-liked span{
+    color: #878A99 !important;
+}
+

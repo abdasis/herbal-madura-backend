@@ -10,7 +10,7 @@
                 <div class="form-pencarian">
                     <form action="{{route('wiki.hasil-pencarian')}}">
                         <div class="form-group">
-                            <div class="input-group bg-plant border border-secondary icon-search p-2 rounded-pill">
+                            <div class="input-group bg-plant border border-light bg-white icon-search p-2 rounded-pill">
                                 <div class="input-group-text me-2 rounded-circle  border-light bg-white">
                                     <i class="ri-search-2-line fs-16"></i>
                                 </div>
