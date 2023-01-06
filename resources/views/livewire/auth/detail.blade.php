@@ -5,7 +5,7 @@
                 <div class="row g-4">
                     <div class="col-auto">
                         <div class="avatar-lg">
-                            <img src="{{auth()->user()->profile_photo_path}}" alt="user-img avatar-lg" class="img-thumbnail rounded-circle">
+                            <img src="{{file_exists(asset('upload/' . auth()->user()->profile_photo_path)) ? auth()->user()->profile_photo_path : Avatar::create(auth()->user()->name)}}" alt="user-img avatar-lg" class="img-thumbnail rounded-circle">
                         </div>
                     </div>
                     <!--end col-->
@@ -84,9 +84,45 @@
                     <h5 class="card-header border-white">
                         Kontribusi
                     </h5>
-                    <div class="card-body">
-                        Halaman Kontribusi
-                    </div>
+                    @if(empty(auth()->user()->tanaman))
+                        <div class="alert alert-light">
+                            Anda belum memiliki satupun kontribusi
+                        </div>
+                    @else
+                        @foreach($data_tanaman as $detail)
+                            <a href="{{route('tanaman.baca', $detail->slug)}}">
+                                <div class="card">
+                                    <div class="row gy-2">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-2">{{$detail->nama_tanaman}}</h5>
+                                                <p class="card-text text-muted mb-0">
+                                                    {!! Str::limit(strip_tags($detail->diskripsi_tanaman),150, '...') !!}
+                                                </p>
+                                            </div>
+                                            <div class="card-footer border-top-dashed">
+                                                <div class="meta-tag-footer d-flex align-items-center gap-2">
+                                                    <div class="card-text">
+                                                        <small class="text-muted d-flex align-items-center gap-1">
+                                                            <i class="ri-user-fill"></i>
+                                                            {{Str::title($detail->user->name)}}
+                                                        </small>
+                                                    </div>
+                                                    |
+                                                    <div class="card-text">
+                                                        <small class="text-muted">{{Carbon::parse($detail->created_at)->format('d, F Y')}}</small></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img class="rounded-end img-fluid h-100 object-cover" src="assets/images/small/img-2.jpg" alt="Card image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+                        {{$data_tanaman->links()}}
+                    @endif
                 </div>
             </div>
         </div>

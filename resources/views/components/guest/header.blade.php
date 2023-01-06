@@ -37,7 +37,7 @@
                 <div class="">
                     @if(auth()->check())
                         <div class="nav-profile d-flex align-items-center gap-2">
-                            <img src="{{auth()->user()->profile_photo_path}}" alt="avatar-circle" class="avatar-xs rounded-circle">
+                            <img src="{{file_exists(asset('upload/' . auth()->user()->profile_photo_path)) ? auth()->user()->profile_photo_path : Avatar::create(auth()->user()->name)}}" alt="avatar-circle" class="avatar-xs rounded-circle">
                             <a href="{{route('auth.detail', auth()->id())}}">
                                 <span>Hai, {{auth()->user()->name}}</span>
                             </a>

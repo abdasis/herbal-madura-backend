@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-md-4 ">
                             <div class="avatar">
-                                <img src="{{asset('upload' . '/' . $user->profile_photo_path) ?? asset('dist/img/user.png')}}" alt="avatar-pengguna" class="text-center w-75 img-rounded img-thumbnail mx-auto d-block">
+                                <img src="{{file_exists(asset('upload/' . auth()->user()->profile_photo_path)) ? auth()->user()->profile_photo_path : Avatar::create(auth()->user()->name)}}" alt="avatar-pengguna" class="text-center w-75 img-rounded img-thumbnail mx-auto d-block">
                             </div>
                             <p class="text-center" wire:click.prevent="uploadPhoto({{$user->id}})">
                                 <a href="#" class="text-center">

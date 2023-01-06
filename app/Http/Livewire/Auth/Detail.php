@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Livewire\Auth;
-
 use App\Models\Tanaman;
 use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 class Detail extends Component
 {
     use WithFileUploads;
@@ -49,8 +47,10 @@ class Detail extends Component
     }
     public function render()
     {
+        $data_tanaman   =  Tanaman::where('dibuat_oleh', auth()->id())->paginate(10);
         return view('livewire.auth.detail',[
-            'total_kontribusi' => auth()->user()->tanaman()->count()
+            'total_kontribusi' => auth()->user()->tanaman()->count(),
+            'data_tanaman' => $data_tanaman
         ])->layout('layouts.guest');
     }
 }
