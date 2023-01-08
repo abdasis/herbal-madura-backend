@@ -15,10 +15,6 @@ class HasilPencarian extends Component
     public $kategori = 'semua';
     public $queryString = ['keyword'];
     protected $listeners = ['pencarian'];
-    public function mount()
-    {
-        $this->keyword = request()->get('keyword');
-    }
 
     public function updatedKeyword()
     {
