@@ -234,7 +234,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Reaction' => \Maize\Markable\Models\Reaction::class,
-        'Carbon' => \Carbon\Carbon::class
+        'Carbon' => \Carbon\Carbon::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
     ],
 
 ];

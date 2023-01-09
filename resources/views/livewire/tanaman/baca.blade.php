@@ -132,9 +132,9 @@
                                 <i class="ri-bookmark-2-fill"></i>
                                 Bookmark
                             </button>
-                            <button class="btn my-2 btn-outline-dark d-flex gap-1 justify-content-center">
+                            <a class="btn my-2 btn-outline-dark d-flex gap-1 justify-content-center" href="{{route('tanaman.print', $tanaman->slug)}}">
                                 Print
-                            </button>
+                            </a>
                             <!-- Single Button Dropdown -->
                             <div class="dropdown d-grid">
                                 <button class="btn btn-outline-dark my-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
