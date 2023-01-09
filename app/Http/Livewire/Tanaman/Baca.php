@@ -11,6 +11,7 @@ class Baca extends Component
 {
     public $tanaman;
     public $is_like;
+
     public function mount($slug)
     {
         $this->tanaman = Tanaman::where('slug', $slug)->where('status', 'Diterbitkan')->first();
@@ -29,8 +30,15 @@ class Baca extends Component
 
     public function render()
     {
-        return view('livewire.tanaman.baca',[
-            'tanaman_terkait' => Tanaman::where('kerajaan', $this->tanaman->kerajaan)->limit('5')->get()
+        $share = \Share::currentPage($this->tanaman->nama_tanaman)
+            ->facebook()
+            ->twitter()
+            ->whatsapp()
+            ->getRawLinks();
+
+        return view('livewire.tanaman.baca', [
+            'tanaman_terkait' => Tanaman::where('kerajaan', $this->tanaman->kerajaan)->limit('5')->get(),
+            'share' => $share,
         ])->layout('layouts.guest');
     }
 }

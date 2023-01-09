@@ -18465,6 +18465,137 @@
      
 }
 
+    namespace Jorenvh\Share { 
+            /**
+     * 
+     *
+     */ 
+        class ShareFacade {
+                    /**
+         * 
+         *
+         * @param string $url
+         * @param string|null $title
+         * @param array $options
+         * @param string|null $prefix
+         * @param string|null $suffix
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function page($url, $title = null, $options = [], $prefix = null, $suffix = null)
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->page($url, $title, $options, $prefix, $suffix);
+        }
+                    /**
+         * 
+         *
+         * @param string|null $title
+         * @param array $options
+         * @param string|null $prefix
+         * @param string|null $suffix
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function currentPage($title = null, $options = [], $prefix = null, $suffix = null)
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->currentPage($title, $options, $prefix, $suffix);
+        }
+                    /**
+         * Facebook share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function facebook()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->facebook();
+        }
+                    /**
+         * Twitter share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function twitter()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->twitter();
+        }
+                    /**
+         * Reddit share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function reddit()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->reddit();
+        }
+                    /**
+         * Telegram share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function telegram()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->telegram();
+        }
+                    /**
+         * Whatsapp share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function whatsapp()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->whatsapp();
+        }
+                    /**
+         * Linked in share link
+         *
+         * @param string $summary
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function linkedin($summary = '')
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->linkedin($summary);
+        }
+                    /**
+         * Pinterest share link
+         *
+         * @return \Jorenvh\Share\Share 
+         * @static 
+         */ 
+        public static function pinterest()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->pinterest();
+        }
+                    /**
+         * Get the raw generated links.
+         *
+         * @return string|array 
+         * @static 
+         */ 
+        public static function getRawLinks()
+        {
+                        /** @var \Jorenvh\Share\Share $instance */
+                        return $instance->getRawLinks();
+        }
+         
+    }
+     
+}
+
     namespace Laravolt\Avatar { 
             /**
      * 
@@ -22966,6 +23097,7 @@ namespace  {
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Image extends \Intervention\Image\Facades\Image {}
             class Agent extends \Jenssegers\Agent\Facades\Agent {}
+            class Share extends \Jorenvh\Share\ShareFacade {}
             class Avatar extends \Laravolt\Avatar\Facade {}
             class Livewire extends \Livewire\Livewire {}
             class Notify extends \Mckenziearts\Notify\Facades\LaravelNotify {}

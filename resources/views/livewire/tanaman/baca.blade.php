@@ -132,18 +132,20 @@
                                 <i class="ri-bookmark-2-fill"></i>
                                 Bookmark
                             </button>
-                            <a class="btn my-2 btn-outline-dark d-flex gap-1 justify-content-center" href="{{route('tanaman.print', $tanaman->slug)}}">
+                            {{--<a class="btn my-2 btn-outline-dark d-flex gap-1 justify-content-center" href="{{route('tanaman.print', $tanaman->slug)}}">
                                 Print
-                            </a>
+                            </a>--}}
                             <!-- Single Button Dropdown -->
                             <div class="dropdown d-grid">
-                                <button class="btn btn-outline-dark my-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn d-flex gap-1 justify-content-center btn-outline-dark my-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="ri-share-line"></i>
                                     Bagikan
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Facebook</a>
-                                    <a class="dropdown-item" href="#">Twitter</a>
-                                    <a class="dropdown-item" href="#">Whatsapp</a>
+                                    @foreach($share as $key => $link)
+                                        <a class="dropdown-item" href="{{$link}}">{{Str::title($key)}}</a>
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div>
@@ -157,7 +159,9 @@
 
 
 @push('js')
+    <script src="https://kit.fontawesome.com/0016cf1886.js" crossorigin="anonymous"></script>
     <script>
+
         // Get ToC div
         toc = document.getElementById("ToC");
 
