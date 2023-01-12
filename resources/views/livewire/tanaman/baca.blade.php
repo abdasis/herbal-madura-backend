@@ -110,15 +110,18 @@
                                         <i class="ri-heart-2-fill {{\Reaction::has($tanaman, auth()->user(),'heart')  ? 'text-danger': 'text-muted'}}"></i>
                                         <span class="text-danger"> + {{Reaction::count($tanaman, 'heart')}}</span>
                                     </li>
-                                    <li wire:click="jempol" class="d-flex cursor-pointer gap-1 {{\Reaction::has($tanaman, auth()->user(), 'person_raising_hand') ? 'liked': 'not-liked'}}">
+                                    <li wire:click="jempol"
+                                        class="d-flex cursor-pointer gap-1 {{\Reaction::has($tanaman, auth()->user(), 'person_raising_hand') ? 'liked': 'not-liked'}}">
                                         <i class="ri-thumb-up-fill {{\Reaction::has($tanaman, auth()->user(),'person_raising_hand')  ? 'text-danger': 'text-muted'}}"></i>
-                                        <span class="text-danger"> + {{Reaction::count($tanaman, 'person_raising_hand')}}</span>
+                                        <span
+                                            class="text-danger"> + {{Reaction::count($tanaman, 'person_raising_hand')}}</span>
                                     </li>
                                 </ul>
                             </div>
                         @else
                             <div class="alert alert-warning border-dashed">
-                                <a class="fw-bold text-warning" href="{{route('login')}}">Login</a> untuk memberikan reaksi
+                                <a class="fw-bold text-warning" href="{{route('login')}}">Login</a> untuk memberikan
+                                reaksi
                             </div>
                         @endauth
                     </div>
@@ -128,16 +131,20 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-grid">
-                            <button class="btn my-2 btn-outline-success btn-border d-flex gap-1 justify-content-center">
+                            {{--<button onclick="bookmarkPage()"
+                                    class="btn my-2 btn-outline-success btn-border d-flex gap-1 justify-content-center">
                                 <i class="ri-bookmark-2-fill"></i>
                                 Bookmark
-                            </button>
+                            </button>--}}
                             {{--<a class="btn my-2 btn-outline-dark d-flex gap-1 justify-content-center" href="{{route('tanaman.print', $tanaman->slug)}}">
                                 Print
                             </a>--}}
                             <!-- Single Button Dropdown -->
                             <div class="dropdown d-grid">
-                                <button class="btn d-flex gap-1 justify-content-center btn-outline-dark my-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button
+                                    class="btn d-flex gap-1 justify-content-center btn-outline-dark my-2 dropdown-toggle"
+                                    type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     <i class="ri-share-line"></i>
                                     Bagikan
                                 </button>
@@ -161,6 +168,11 @@
 @push('js')
     <script src="https://kit.fontawesome.com/0016cf1886.js" crossorigin="anonymous"></script>
     <script>
+
+        function bookmarkPage() {
+            document.execCommand("addBookmark");
+        }
+
 
         // Get ToC div
         toc = document.getElementById("ToC");

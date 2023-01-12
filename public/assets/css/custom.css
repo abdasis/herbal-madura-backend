@@ -327,6 +327,7 @@ footer{
 
 .content-box{
     margin-top: 100px !important;
+    min-height: 70vh;
 }
 
 .meta-item{

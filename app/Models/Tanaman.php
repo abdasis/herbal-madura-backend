@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Traits\Blameable;
+use Coderflex\Laravisit\Concerns\CanVisit;
+use Coderflex\Laravisit\Concerns\HasVisits;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,12 +14,12 @@ use Maize\Markable\Markable;
 use Maize\Markable\Models\Like;
 use Maize\Markable\Models\Reaction;
 
-class Tanaman extends Model implements Viewable
+class Tanaman extends Model implements CanVisit
 {
     use Markable;
     use Searchable;
     use HasFactory;
-    use InteractsWithViews;
+    use HasVisits;
 
     protected static $marks = [
         Reaction::class,

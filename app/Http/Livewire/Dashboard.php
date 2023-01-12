@@ -20,13 +20,12 @@ class Dashboard extends Component
         $tanaman = Tanaman::latest()->paginate(5);
         $kontributor = User::where('roles', 'kontributor')->paginate(5);
         $total_tanaman = Tanaman::count();
-        $total_user = User::count();
         return view('livewire.dashboard',[
             'semua_tanaman' => $tanaman,
             'semua_kontributor' => $kontributor,
             'total_tanama' => $total_tanaman,
             'total_pengguna' => User::count(),
-            'total_pembaca' => views(Tanaman::class)->count()
+            'total_pengunjung' => \DB::table('laravisits')->count()
         ]);
     }
 }

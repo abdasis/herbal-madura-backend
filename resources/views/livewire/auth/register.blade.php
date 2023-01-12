@@ -45,6 +45,11 @@
 
                     </div>
                 </div>
+                <div class="my-3">
+                    <div class="text-center">
+                        <a href="{{route('login')}}">Sudah memiliki akun?</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

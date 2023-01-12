@@ -3,8 +3,8 @@
     <nav class="navbar navbar-expand-lg navbar-landing navbar-light border-bottom border-light shadow-none fixed-top is-sticky" id="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{asset('assets/images/logo-dark.png')}}" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                <img src="{{asset('assets/images/logo-light.png')}}" class="card-logo card-logo-light" alt="logo light" height="17">
+                <img src="{{asset('assets/images/logo-dark.png')}}" class="card-logo card-logo-dark" alt="logo dark" height="40">
+                <img src="{{asset('assets/images/logo-light.png')}}" class="card-logo card-logo-light" alt="logo light" height="40">
             </a>
             <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="mdi mdi-menu"></i>
@@ -24,13 +24,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex gap-1" href="{{route('kontributor')}}">
-                            <i class="ri-user-star-line"></i>
-                            Kontributor
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#categories">Tentang</a>
+                        <a class="nav-link" href="{{route('tentang')}}">Tentang</a>
                     </li>
                 </ul>
 

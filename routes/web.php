@@ -1,9 +1,20 @@
 <?php
 
+use App\Http\Controllers\PrintTanamanController;
+use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Beranda;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\HalamanUtama;
+use App\Http\Livewire\Pengguna\DaftarPengguna;
 use App\Http\Livewire\Pengguna\Detail;
 use App\Http\Livewire\Pengguna\Semua;
 use App\Http\Livewire\Pengguna\Sunting;
 use App\Http\Livewire\Pengguna\Tambah;
+use App\Http\Livewire\Product\Baca;
+use App\Http\Livewire\Tentang;
+use App\Http\Livewire\Wiki\HasilPencarian;
+use App\Http\Livewire\Wiki\SuntingArtikel;
+use App\Http\Livewire\Wiki\TambahArtikel;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -18,17 +29,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', \App\Http\Livewire\Beranda::class)->name('beranda');
+Route::get('/', Beranda::class)->name('beranda');
 Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tanaman.baca');
-Route::get('/tanaman/print/{slug}', [\App\Http\Controllers\PrintTanamanController::class, 'print'])->name('tanaman.print');
-Route::get('/produk/{slug}', \App\Http\Livewire\Product\Baca::class)->name('produk.baca');
-Route::get('hasil-pencarian', \App\Http\Livewire\Wiki\HasilPencarian::class)->name('wiki.hasil-pencarian');
+Route::get('/tanaman/print/{slug}', [PrintTanamanController::class, 'print'])->name('tanaman.print');
+Route::get('/produk/{slug}', Baca::class)->name('produk.baca');
+Route::get('hasil-pencarian', HasilPencarian::class)->name('wiki.hasil-pencarian');
 Route::get('profile/{id}', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail')->middleware('auth');
 Route::get('profile/{id}/update', \App\Http\Livewire\Auth\Sunting::class)->name('auth.sunting')->middleware('auth');
-Route::get('daftar-kontributor', \App\Http\Livewire\Pengguna\DaftarPengguna::class)->name('kontributor');
-Route::get('halaman-utama', \App\Http\Livewire\HalamanUtama::class)->name('halaman-utama');
-Route::get('kirim-artikel', \App\Http\Livewire\Wiki\TambahArtikel::class)->name('wiki.tambah-artikel')->middleware('auth');
-Route::get('revisi-artikel/{slug}', \App\Http\Livewire\Wiki\SuntingArtikel::class)->name('wiki.sunting-artikel')->middleware('auth');
+Route::get('daftar-kontributor', DaftarPengguna::class)->name('kontributor');
+Route::get('halaman-utama', HalamanUtama::class)->name('halaman-utama');
+Route::get('kirim-artikel', TambahArtikel::class)->name('wiki.tambah-artikel')->middleware('auth');
+Route::get('revisi-artikel/{slug}', SuntingArtikel::class)->name('wiki.sunting-artikel')->middleware('auth');
+Route::get('tentang', Tentang::class)->name('tentang');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'Produk'], function () {
@@ -57,10 +69,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     });
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', \App\Http\Livewire\Dashboard::class)->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', Dashboard::class)->name('dashboard');
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::get('register', \App\Http\Livewire\Auth\Register::class)->name('auth.register');
+    Route::get('register', Register::class)->name('auth.register');
 });
 
 /*route untuk reset password*/

@@ -7,7 +7,7 @@
                     <div class="col-md-5">
                         <div class="widget-footer">
                             <div class="widget-footer-title">
-                                <h3>Planty</h3>
+                                <img src="{{asset('assets/images/logo-dark.png')}}" class="card-logo card-logo-dark mb-3" alt="logo dark" height="40">
                                 <p>
                                     Sebuah platform yang memberikan informasi tentang tanaman herbal yang ada di nusantara, yang bisa di baca secara gratis dimana dan kapan saja.
                                 </p>

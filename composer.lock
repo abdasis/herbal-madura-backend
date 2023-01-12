@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66d329b91907dce0c02ebbc3bfa2692f",
+    "content-hash": "e8f9dc2a6ab84ef31a647977c2034ace",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -389,6 +389,156 @@
                 }
             ],
             "time": "2022-02-21T13:15:14+00:00"
+        },
+        {
+            "name": "coderflexx/laravel-presenter",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coderflexx/laravel-presenter.git",
+                "reference": "addc22af24b1d16f969a452463d39c66f945719f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coderflexx/laravel-presenter/zipball/addc22af24b1d16f969a452463d39c66f945719f",
+                "reference": "addc22af24b1d16f969a452463d39c66f945719f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.75|^9.0",
+                "illuminate/contracts": "^8.0|^9.0",
+                "php": "^8.0|^8.1",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^5.10|^6.1",
+                "nunomaduro/larastan": "^1.0",
+                "orchestra/testbench": "^6.23|^7.0.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Coderflex\\LaravelPresenter\\LaravelPresenterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Coderflex\\LaravelPresenter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Coderflex",
+                    "email": "oussama@coderflex.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Write Clean/Reusable Code with Presenters.",
+            "homepage": "https://github.com/coderflexx/laravel-presenter",
+            "keywords": [
+                "coderflex",
+                "laravel",
+                "laravel-presenter"
+            ],
+            "support": {
+                "issues": "https://github.com/coderflexx/laravel-presenter/issues",
+                "source": "https://github.com/coderflexx/laravel-presenter/tree/v1.2.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/coderflex",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-12-18T12:25:03+00:00"
+        },
+        {
+            "name": "coderflexx/laravisit",
+            "version": "v1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coderflexx/laravisit.git",
+                "reference": "7048aeff73ddafb302ee63e37a66c3b1cff1bff9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coderflexx/laravisit/zipball/7048aeff73ddafb302ee63e37a66c3b1cff1bff9",
+                "reference": "7048aeff73ddafb302ee63e37a66c3b1cff1bff9",
+                "shasum": ""
+            },
+            "require": {
+                "coderflexx/laravel-presenter": "^1.1",
+                "illuminate/contracts": "^8.0|^9.0",
+                "jaybizzle/crawler-detect": "^1.2",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^5.10|^6.1",
+                "nunomaduro/larastan": "^1.0",
+                "orchestra/testbench": "^6.23|^7.0.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Coderflex\\Laravisit\\LaravisitServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Coderflex\\Laravisit\\": "src",
+                    "Coderflex\\Laravisit\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "oussama sid",
+                    "email": "oussama@coderflex.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to keep track of your pages & understand your audience",
+            "homepage": "https://github.com/coderflexx/laravisit",
+            "keywords": [
+                "coderflex",
+                "laravel",
+                "laravisit"
+            ],
+            "support": {
+                "issues": "https://github.com/coderflexx/laravisit/issues",
+                "source": "https://github.com/coderflexx/laravisit/tree/v1.2.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/coderflex",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-12-18T12:37:00+00:00"
         },
         {
             "name": "cyrildewit/eloquent-viewable",
