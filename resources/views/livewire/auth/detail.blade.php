@@ -1,5 +1,5 @@
 <div>
-    <div class="container profile-page">
+    <div class="container profile-page ">
         <div class="profile-header border position-relative border-light p-4">
             <div class="pt-4 mb-4 mb-lg-3 pb-lg-4">
                 <div class="row g-4">
@@ -11,12 +11,12 @@
                     <!--end col-->
                     <div class="col">
                         <div class="p-2">
-                            <h3 class="mb-1 d-flex align-items-center gap-1">{{auth()->user()->name}} <a href=""><i class="ri-edit-2-line"></i></a></h3>
+                            <h3 class="mb-1 d-flex align-items-center gap-1">{{auth()->user()->name}} <a href="{{route('auth.sunting', auth()->id())}}"><i class="ri-edit-2-line"></i></a></h3>
                             <p class="">{{auth()->user()->email}}</p>
                             <div class="hstack gap-1">
                                 <div class="me-2"><i class="ri-map-pin-user-line me-1 fs-16 align-middle"></i>{{auth()->user()->alamat ?? '-'}}</div>
                                 <div>
-                                    <i class="ri-building-line me-1 fs-16 align-middle"></i>{{auth()->user()->tempat_bekerja ?? '-'}}
+                                    <i class="ri-building-line me-1 fs-16 align-middle"></i>{{auth()->user()->biodata->pekerjaan ?? '-'}}
                                 </div>
                             </div>
                         </div>
@@ -24,12 +24,12 @@
                     <!--end col-->
                     <div class="col-12 col-lg-auto order-last order-lg-0">
                         <div class="row text text-center">
-                            <div class="col-lg-6 col-4">
+                            {{--<div class="col-lg-6 col-4">
                                 <div class="p-2">
                                     <h4 class="mb-1">24.3K</h4>
                                     <p class="fs-14 mb-0">Like</p>
                                 </div>
-                            </div>
+                            </div>--}}
                             <div class="col-lg-6 col-4">
                                 <div class="p-2">
                                     <h4 class=" mb-1">{{$total_kontribusi}}</h4>

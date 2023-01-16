@@ -23,7 +23,7 @@ class HasilPencarian extends Component
     public function render()
     {
         if ($this->keyword){
-            $tanaman = Tanaman::search($this->keyword)->where('status', 'Diterbitkan')->paginate(10);
+            $tanaman = Tanaman::search($this->keyword)->paginate(10);
         }else{
             $tanaman = Tanaman::latest()->where('status', 'Diterbitkan')->paginate(10);
         }

@@ -6,14 +6,16 @@ use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
+
 class Detail extends Component
 {
     use WithFileUploads;
-
     use LivewireAlert;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public $user, $semua_tanaman;
-
     public $photo;
     public $user_id;
 

@@ -4,7 +4,7 @@
         <div class="row justify-content-center align-items-center" style="min-height: 80vh">
             <div class="col-md-6">
                 <div class="salam text-center">
-                    <h2>Planty</h2>
+                    <h2 class="fw-bold">Kamus Herbal</h2>
                     <p>Arsip Tentang Tanaman Herbal Terlengkap di Indonesia</p>
                 </div>
                 <div class="form-pencarian">
