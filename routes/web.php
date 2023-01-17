@@ -44,14 +44,14 @@ Route::get('tentang', Tentang::class)->name('tentang');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'Produk'], function () {
-        Route::get('semua', \App\Http\Livewire\Product\Semua::class)->name('product.semua');
+        Route::get('/', \App\Http\Livewire\Product\Semua::class)->name('product.semua');
         Route::get('tambah', \App\Http\Livewire\Product\Tambah::class)->name('product.tambah');
         Route::get('sunting/{id}', \App\Http\Livewire\Product\Sunting::class)->name('product.sunting');
         Route::get('detail/{slug}', \App\Http\Livewire\Product\Detail::class)->name('product.detail');
     });
 
     Route::group(['prefix' => 'tanaman'], function () {
-        Route::get('semua', \App\Http\Livewire\Tanaman\Semua::class)->name('tanaman.semua');
+        Route::get('/', \App\Http\Livewire\Tanaman\Semua::class)->name('tanaman.semua');
         Route::get('tambah', \App\Http\Livewire\Tanaman\Tambah::class)->name('tanaman.tambah');
         Route::get('sunting/{slug}', \App\Http\Livewire\Tanaman\Sunting::class)->name('tanaman.sunting');
         Route::get('detail/{slug}', \App\Http\Livewire\Tanaman\Detail::class)->name('tanaman.detail');

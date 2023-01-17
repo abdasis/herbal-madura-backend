@@ -32,16 +32,14 @@ class Tambah extends Component
     public function simpan()
     {
         $this->validate();
-        $nama_gambar = \Str::uuid() . '.' . $this->gambar_tanaman->extension();
         try {
 
-            $tgl_upload = now()->format('dmyhsi');
+            $tgl_upload = now()->format('d-m-Y-H-i-s');
             $ektension = $this->gambar_tanaman->extension();
             $nama_file = "{$this->nama_tanaman}-{$tgl_upload}.{$ektension}";
             $path = $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_file);
 
-
-            $tanaman = Tanaman::create([
+            Tanaman::create([
                 'nama_tanaman' => $this->nama_tanaman,
                 'slug' => Str::slug($this->nama_tanaman),
                 'nama_latin' => $this->nama_latin,

@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card shadow-none border-0">
                     <div class="card-body">
-                        <div class="card-title"><h5 class="text-bold mb-3">Tulis Artikel</h5></div>
+                        <div class="card-title"><h5 class="text-bold mb-3">Data Tanaman</h5></div>
                         <div class="form-group mb-2">
                             <x-form-input type="text" name="nama_tanaman" class="form-control" wire:model="nama_tanaman" placeholder="Masukan Nama Tanaman" />
                         </div>

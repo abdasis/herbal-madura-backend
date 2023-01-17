@@ -4,7 +4,7 @@
             <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
                 title="Edit">
                 <a  href="{{$edit}}" class="text-muted d-inline-block">
-                    <i class="ri-edit-2-line fs-16"></i>
+                    <i class="ri-edit-line"></i>
                 </a>
             </li>
         @endif
@@ -15,7 +15,7 @@
                 title="Message">
                 <a href="{{$verifikasi}}" wire:click.prevent="verifikasi({{$verifikasi}})"
                    class="text-muted d-inline-block">
-                    <i class="ri-check-double-line fs-16"></i>
+                    <i class="ri-check-double-line"></i>
                 </a>
             </li>
         @endif
