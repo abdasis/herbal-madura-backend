@@ -42,11 +42,14 @@ class Sunting extends Component
 
     public function simpan()
     {
-//        $this->validate();
+        $this->validate();
         if ( !empty($this->gambar_tanaman) && !is_string($this->gambar_tanaman))
         {
-            $nama_gambar = \Str::uuid() . '.' . $this->gambar_tanaman->extension();
-            $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_gambar);
+            $tgl_upload = now()->format('d-m-Y-H-i-s');
+            $ektension = $this->gambar_tanaman->extension();
+            $nama_file = \Str::slug($this->nama_tanaman);
+            $nama_file = "{$nama_file}-{$tgl_upload}.{$ektension}";
+            $nama_gambar = $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_file);
         }else{
             $nama_gambar = $this->gambar_tanaman;
         }
@@ -71,7 +74,6 @@ class Sunting extends Component
 
 
         }catch (\Error $error){
-            dd($error->getMessage());
             $this->alert('error', 'Terjadi kesalahan');
         }
     }

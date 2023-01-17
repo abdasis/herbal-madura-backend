@@ -14,6 +14,7 @@ class Baca extends Component
 
     public function mount($slug)
     {
+
         $this->tanaman = Tanaman::where('slug', $slug)->where('status', 'Diterbitkan')->first();
         $this->tanaman->visit()->withIP();
     }

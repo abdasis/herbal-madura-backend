@@ -51,7 +51,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img class="rounded-end img-fluid h-100 object-cover" src="assets/images/small/img-2.jpg" alt="Card image">
+                                            <img class="rounded-end img-fluid h-100 object-cover" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="Card image">
                                         </div>
                                     </div>
                                 </div>

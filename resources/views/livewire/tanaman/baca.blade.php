@@ -29,7 +29,7 @@
             </div>--}}
             <div class="col-md-6 col-sm-12 col-lg-6">
                 <div class="card featured-image-box">
-                    <img class="featured-image" src="https://placeimg.com/640/480/nature" alt="">
+                    <img class="featured-image" src="{{file_exists(public_path($tanaman->gambar_tanaman)) == true ? asset($tanaman->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="">
                 </div>
                 <div class="card">
                     <div class="card-body text-center">
