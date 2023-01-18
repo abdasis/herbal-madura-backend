@@ -89,7 +89,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group mb-2">
                                         <label for="">Status Artikel</label>
-                                        <x-form-select name="" wire:model.defer="status" class="custom-select" id="">
+                                        <x-form-select name="" wire:model.defer="status" disabled class="custom-select" id="">
                                             <option value="">Pilih status</option>
                                             <option selected value="Direview">Direview</option>
                                             <option value="Diterbitkan">Diterbitkan</option>

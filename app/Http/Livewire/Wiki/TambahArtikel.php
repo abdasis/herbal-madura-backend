@@ -30,15 +30,19 @@ class TambahArtikel extends Component
     {
         $this->validate();
         try {
-            $nama_file = now()->format('ymd-hi'). '-' .\Str::slug($this->nama_tanaman) . '.' . $this->gambar_tanaman->extension();
-            $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_file);
+            if ($this->gambar_tanaman){
+                $ektensi = $this->gambar_tanaman->extension();
+                $nama_file = \Str::slug($this->nama_tanaman);
+                $nama_file = now()->format('d-m-Y-H-i-s-') . $nama_file . '.' . $ektensi;
+                $path = $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_file);
+            }
 
             $tanaman = new Tanaman();
             $tanaman->nama_tanaman = $this->nama_tanaman;
             $tanaman->slug = \Str::slug($this->nama_tanaman);
             $tanaman->nama_latin = $this->nama_latin;
             $tanaman->diskripsi_tanaman = $this->diskripsi;
-            $tanaman->gambar_tanaman = $this->nama_tanaman;
+            $tanaman->gambar_tanaman = $path;
             $tanaman->status = 'Direview';
             $tanaman->kerajaan = $this->ordo;
             $tanaman->famili = $this->famili;

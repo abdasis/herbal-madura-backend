@@ -23,9 +23,9 @@ class HasilPencarian extends Component
     public function render()
     {
         if ($this->keyword){
-            $tanaman = Tanaman::search($this->keyword)->paginate(10);
+            $tanaman = Tanaman::search($this->keyword)->query(fn ($query) => $query->with('user'))->paginate(10);
         }else{
-            $tanaman = Tanaman::latest()->where('status', 'Diterbitkan')->paginate(10);
+            $tanaman = Tanaman::latest()->with('user')->where('status', 'Diterbitkan')->paginate(10);
         }
 
         return view('livewire.wiki.hasil-pencarian', [

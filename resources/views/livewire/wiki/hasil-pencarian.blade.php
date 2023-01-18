@@ -4,7 +4,7 @@
     <div class="banner-pencarian d-flex justify-content-center align-items-center">
         <div class="col-md-6 col-sm-12">
             <div class="form-group w-100">
-                <input wire:model="keyword" placeholder="Pencarian" type="text" class="form-control form-control-lg rounded-pill mx-auto bg-white border border-warning" name="" id="">
+                <input wire:model.debounce="keyword" placeholder="Pencarian" type="text" class="form-control form-control-lg rounded-pill mx-auto bg-white border border-warning" name="" id="">
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img class="rounded-end img-fluid h-100 object-cover" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="Card image">
+                                            <img class="rounded-end img-fluid h-100 object-cover" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
                                         </div>
                                     </div>
                                 </div>

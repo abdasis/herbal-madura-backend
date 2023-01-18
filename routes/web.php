@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PrintTanamanController;
+use App\Http\Livewire\Analityc\Index;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Beranda;
 use App\Http\Livewire\Dashboard;
@@ -62,6 +63,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('tambah', Tambah::class)->name('pengguna.tambah');
         Route::get('sunting/{id}', Sunting::class)->name('pengguna.sunting');
         Route::get('detail/{id}', Detail::class)->name('pengguna.detail');
+    });
+
+    Route::group(['prefix' => 'analityc'], function (){
+        Route::get('/', Index::class)->name('analityc.index');
     });
 
     Route::group(['prefix' => 'statistik'], function () {

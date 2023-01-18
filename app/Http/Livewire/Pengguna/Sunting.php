@@ -10,16 +10,17 @@ class Sunting extends Component
 {
 
     use LivewireAlert;
-    public  $name;
-    public  $email,
-            $pendidikan_terakhir,
-            $alamat_website,
-            $alamat,
-            $password,
-            $password_confirmation,
-            $roles,
-            $profesi,
-            $user_id;
+
+    public $name;
+    public $email,
+        $pendidikan_terakhir,
+        $alamat_website,
+        $alamat,
+        $password,
+        $password_confirmation,
+        $roles,
+        $profesi,
+        $user_id;
 
 
     public function mount($id)
@@ -34,15 +35,17 @@ class Sunting extends Component
         $this->profesi = $user->profesi;
         $this->user_id = $user->id;
     }
+
     public function rules()
     {
-        return[
+        return [
             'name' => 'required',
             'email' => 'required',
             'pendidikan_terakhir' => 'required',
+            'alamat_website' => 'required',
             'alamat' => 'required',
-            'password_confirmation' => 'required',
-            'password' => 'required|confirmed',
+            'password' => 'nullable|confirmed',
+            'password_confirmation' => 'required_with:password',
             'roles' => 'required',
 
         ];
@@ -56,15 +59,24 @@ class Sunting extends Component
         $user->email = $this->email;
         $user->pendidikan_terakhir = $this->pendidikan_terakhir;
         $user->alamat_website = $this->alamat_website ?? 'Belum diisi';
-        $user->alamat  = $this->alamat;
-        $user->password = \Hash::make($this->password);
-        $user->profesi = $this->profesi;
+        $user->alamat = $this->alamat;
         $user->roles = $this->roles;
+        if ($this->password) {
+            $user->password = \Hash::make($this->password);
+        }
         $user->save();
-        $this->alert('success', 'Data berhasil diperbarui');
-        $this->redirectRoute('pengguna.semua');
+
+        $user->biodata()->updateOrCreate(
+            ['user_id' => $user->id],
+            [
+                'pekerjaan' => $this->profesi,
+                'telepon' => '-'
+            ]);
+
+        $this->flash('success', 'Data berhasil diperbarui', [], route('pengguna.semua'));
 
     }
+
     public function render()
     {
         return view('livewire.pengguna.sunting');

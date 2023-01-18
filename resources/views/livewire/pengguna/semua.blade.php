@@ -1,8 +1,11 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="card">
-        <div class="card-header">
-            Semua Data Pengguna
+        <div class="card-header border-light d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Semua Data Pengguna</h5>
+            <a href="{{route('pengguna.tambah')}}" class="btn btn-light">
+                <i class="ri-add-box-line"></i>
+                Pengguna baru
+            </a>
         </div>
         <div class="card-body">
             <livewire:pengguna.table-pengguna/>

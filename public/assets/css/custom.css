@@ -57,13 +57,10 @@ body{
     border-radius: 7px;
 }
 
-.deskripsi-tanaman{
-    font-family: 'Inter', serif;
-}
-
-.deskripsi-tanaman p{
+.deskripsi-tanaman p, span{
+    font-family: 'Inter', sans-serif !important;
     font-size: 16px;
-    line-height: 22px;
+    line-height: 24px;
     font-weight: 400;
 }
 
@@ -100,9 +97,6 @@ body{
     font-size: 12px;
 }
 
-.diskripsi-tanaman {
-    font-family: 'Quicksand', sans-serif;
-}
 
 .title-tanaman, .title-tanaman p {
     font-family: 'Quicksand', sans-serif;
@@ -248,6 +242,10 @@ li.aksi-lainnya.active{
     margin-top: 50px !important;
 }
 
+.box-referensi p, span{
+    font-family: 'Inter', sans-serif !important;
+}
+
 .icon-book{
     position: absolute;
     left: 20px;
@@ -313,12 +311,6 @@ footer{
     background-size: auto;
     background-position: bottom;
 }
-
-.deskripsi-tanaman h2{
-    margin-top: 20px;
-}
-
-
 .banner-contributor{
     min-height: 370px !important;
     background:  linear-gradient(90deg, rgba(245,253,255,1) 0%, rgba(255,255,255,.50) 100%), url('../images/bg-contributor.webp') no-repeat;

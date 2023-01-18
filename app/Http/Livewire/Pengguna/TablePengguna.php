@@ -20,6 +20,9 @@ class TablePengguna extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+        $this->setTableRowUrl(function ($row){
+            return route('auth.detail', $row);
+        });
     }
 
     public function dihapus()
@@ -46,7 +49,7 @@ class TablePengguna extends DataTableComponent
                     'detail' => route('pengguna.detail', $val),
                     'hapus' => $val
                 ]);
-            })
+            })->unclickable()
 
         ];
     }

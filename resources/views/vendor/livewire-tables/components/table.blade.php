@@ -60,12 +60,12 @@
     }}>
         <table {{
             $attributes->merge($customAttributes['table'])
-                ->class(['table table-sm table-hover' => $customAttributes['table']['default'] ?? true])
+                ->class(['table table-hover table-sm' => $customAttributes['table']['default'] ?? true])
                 ->except('default')
         }}>
             <thead {{
                 $attributes->merge($customAttributes['thead'])
-                    ->class(['' => $customAttributes['thead']['default'] ?? true])
+                    ->class([' bg-light ' => $customAttributes['thead']['default'] ?? true])
                     ->except('default')
             }}>
                 <tr>

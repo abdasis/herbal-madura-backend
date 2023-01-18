@@ -46,13 +46,13 @@
                         </ul>
                     </div>
                 </li>
-                {{--<li class="nav-item">
-                    <a class="nav-link menu-link" href="widgets.html">
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{route('analityc.index')}}">
                         <i class="ri-bar-chart-2-line"></i><span data-key="t-widgets">Analitycs</span>
                     </a>
-                </li>--}}
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="widgets.html">
+                    <a class="nav-link menu-link" href="{{route('pengguna.semua')}}">
                         <i class="ri-user-6-line"></i> <span data-key="t-widgets">Kontributor</span>
                     </a>
                 </li>

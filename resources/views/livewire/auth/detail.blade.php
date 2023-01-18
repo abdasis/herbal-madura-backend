@@ -75,6 +75,13 @@
                                 </tr>
                                 </tbody>
                             </table>
+
+                            <div class="my-3 d-grid">
+                                <a href="{{route('kelaur')}}" class="btn btn-danger btn-sm">
+                                    <i class="ri-logout-box-line"></i>
+                                    Log out
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,14 +91,14 @@
                     <h5 class="card-header border-white">
                         Kontribusi
                     </h5>
-                    @if(empty(auth()->user()->tanaman))
+                    @if($data_tanaman->count() < 1)
                         <div class="alert alert-light">
-                            Anda belum memiliki satupun kontribusi
+                            Anda belum memiliki satupun kontribusi, <a href="{{route('wiki.tambah-artikel')}}">Tambah Kontribusi</a>
                         </div>
                     @else
                         @foreach($data_tanaman as $detail)
                             <a href="{{route('tanaman.baca', $detail->slug)}}">
-                                <div class="card">
+                                <div class="card my-2">
                                     <div class="row gy-2">
                                         <div class="col-md-8">
                                             <div class="card-body">
@@ -115,7 +122,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img class="rounded-end img-fluid h-100 object-cover" src="assets/images/small/img-2.jpg" alt="Card image">
+                                            <img class="rounded-end img-fluid h-100 object-cover" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
                                         </div>
                                     </div>
                                 </div>

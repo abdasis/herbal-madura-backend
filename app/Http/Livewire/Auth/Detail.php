@@ -38,7 +38,6 @@ class Detail extends Component
         $this->user_id = $id;
         $this->emit('modalUpload');
 
-
     }
 
     public function mount($id)
