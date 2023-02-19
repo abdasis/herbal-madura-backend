@@ -119,38 +119,38 @@
 @endpush
 @push('scripts')
     <script>
-        tinymce.init({
-            selector: 'textarea#manfaat',
-            plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
-            menubar: false,
-            height: 600,
-            content_style: "body {font-family: Arial; }",
+        Livewire.onLoad(() => {
+            tinymce.init({
+                selector: 'textarea#manfaat',
+                plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+                menubar: false,
+                height: 600,
+                content_style: "body {font-family: Arial; }",
+                setup: function (editor) {
+                    editor.on('init change', function () {
+                        editor.setContent(@this.diskripsi);
+                    });
+                    editor.on('change', function (e) {
+                        @this.set('diskripsi', editor.getContent());
+                    });
+                },
+            });
 
-            setup: function (editor) {
-                editor.on('init change', function () {
-                    editor.save();
-                });
-                editor.on('change', function (e) {
-                    @this.set('diskripsi', editor.getContent());
-                });
-            },
-        });
-
-        tinymce.init({
-            selector: 'textarea#referensi',
-            toolbar: false,
-            menubar: false,
-            height: 200,
-            content_style: "body {font-family: Arial; }",
-            setup: function (editor) {
-                editor.on('init change', function () {
-                    editor.save();
-                });
-                editor.on('change', function (e) {
-                    @this.set('referensi', editor.getContent());
-                });
-            },
-        });
-
+            tinymce.init({
+                selector: 'textarea#referensi',
+                toolbar: false,
+                menubar: false,
+                height: 200,
+                content_style: "body {font-family: Arial; }",
+                setup: function (editor) {
+                    editor.on('init change', function () {
+                        editor.setContent(@this.referensi)
+                    });
+                    editor.on('change', function (e) {
+                        @this.set('referensi', editor.getContent());
+                    });
+                },
+            });
+        })
     </script>
 @endpush
