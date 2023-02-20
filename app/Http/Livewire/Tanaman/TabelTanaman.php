@@ -58,7 +58,7 @@ class TabelTanaman extends DataTableComponent
             Column::make('Nama Latin', 'nama_latin')->sortable()->searchable(),
             Column::make('Status', 'status')->format(function ($val){
                 $status = $val == 'Diterbitkan' ? 'success' : 'warning';
-                return '<div class="badge badge-'. $status .'">'. $val .'</div>';
+                return '<div class="badge text-success bg-soft-'. $status .'">'. $val .'</div>';
             })->html(),
             Column::make('Dibuat Oleh', 'user.name'),
             Column::make('Slug', 'slug')->deselected(),
@@ -67,7 +67,7 @@ class TabelTanaman extends DataTableComponent
                     'hapus' => $id,
                     'edit' => route('tanaman.sunting', $model->slug)
                 ]);
-            })
+            })->unclickable()
         ];
     }
 }

@@ -60,7 +60,7 @@
     }}>
         <table {{
             $attributes->merge($customAttributes['table'])
-                ->class(['table table-hover table-sm' => $customAttributes['table']['default'] ?? true])
+                ->class(['table table-hover' => $customAttributes['table']['default'] ?? true])
                 ->except('default')
         }}>
             <thead {{
