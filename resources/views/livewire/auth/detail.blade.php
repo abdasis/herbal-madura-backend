@@ -5,13 +5,20 @@
                 <div class="row g-4">
                     <div class="col-auto">
                         <div class="avatar-lg">
-                            <img src="{{file_exists(asset('upload/' . auth()->user()->profile_photo_path)) ? auth()->user()->profile_photo_path : Avatar::create(auth()->user()->name)}}" alt="user-img avatar-lg" class="img-thumbnail rounded-circle">
+                            <img src="{{file_exists(public_path(auth()->user()->profile_photo_path)) ? asset(auth()->user()->profile_photo_path) : Avatar::create(auth()->user()->name) }}" alt="user-img avatar-lg" height="200px" class="img-thumbnail img-penulis rounded-circle">
                         </div>
                     </div>
                     <!--end col-->
                     <div class="col">
                         <div class="p-2">
-                            <h3 class="mb-1 d-flex align-items-center gap-1">{{auth()->user()->name}} <a href="{{route('auth.sunting', auth()->id())}}"><i class="ri-edit-2-line"></i></a></h3>
+                            <h3 class="mb-1 d-flex align-items-center gap-1">{{auth()->user()->name}}
+                                <a href="{{route('auth.sunting', auth()->id())}}">
+                                    <i class="ri-edit-2-line"></i>
+                                </a>
+                                {{--<a href="{{route('auth.sunting', auth()->id())}}">
+                                    <i class="ri-camera-2-fill"></i>
+                                </a>--}}
+                            </h3>
                             <p class="">{{auth()->user()->email}}</p>
                             <div class="hstack gap-1">
                                 <div class="me-2"><i class="ri-map-pin-user-line me-1 fs-16 align-middle"></i>{{auth()->user()->alamat ?? '-'}}</div>

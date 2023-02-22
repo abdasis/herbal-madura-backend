@@ -115,8 +115,9 @@ body{
 }
 
 .img-penulis {
-    height: 70px;
-    object-fit: scale-down;
+    height: 100px !important;
+    object-fit: fill;
+    width: 100px;
 }
 
 .title-penulis {

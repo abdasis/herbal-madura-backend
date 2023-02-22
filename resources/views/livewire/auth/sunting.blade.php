@@ -38,7 +38,9 @@
                                     <div class="form-group mb-3">
                                         <x-form-textarea rows="6" wire:model="alamat" name="alamat" label="Alamat"> </x-form-textarea>
                                     </div>
-
+                                    <div class="form-group mb-3">
+                                        <x-form-input name="avatar" wire:model="avatar" label="Avatar" type="file" placeholder="Masukan Nama Lengkap" />
+                                    </div>
 
                                 </div>
                                 <div class="col-md-5 border border-light rounded-sm p-4">

@@ -5,10 +5,12 @@ namespace App\Http\Livewire\Auth;
 use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Sunting extends Component
 {
     use LivewireAlert;
+    use WithFileUploads;
 
     public $name;
     public $email,
@@ -20,6 +22,8 @@ class Sunting extends Component
         $roles,
         $profesi,
         $user_id;
+
+    public $avatar;
 
 
     public function mount($id)
@@ -60,10 +64,23 @@ class Sunting extends Component
     public function simpan()
     {
         $this->validate();
+
+        //jika ada file avatar
+
+
         $user = User::find($this->user_id);
         //update password jika password tidak null
         if ($this->password != null) {
             $user->password = \Hash::make($this->password);
+        }
+
+        if ($this->avatar != null){
+            $nama_file = \Str::slug($this->name);
+            $uuid = \Str::uuid();
+            $extension = $this->avatar->extension();
+            $nama_file = $nama_file . $uuid . '.' . $extension;
+            $path =  $this->avatar->storeAs('avatar', $nama_file);
+            $user->profile_photo_path = $path;
         }
         $user->name = \Str::title($this->name);
         $user->email = $this->email;

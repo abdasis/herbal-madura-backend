@@ -43,6 +43,7 @@ class Detail extends Component
     public function mount($id)
     {
         $this->user = User::find($id);
+
         $this->semua_tanaman = Tanaman::where('dibuat_oleh', $id)->get();
 
     }
