@@ -31,8 +31,12 @@
                         <span></span>
                     </span>
                 </button>
+                <a href="{{url('/')}}" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger">
+                    <span class="hamburger-icon">
+                       <i class="mdi mdi-web"></i>
+                    </span>
+                </a>
             </div>
-
             <div class="d-flex align-items-center">
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"

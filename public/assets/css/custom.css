@@ -115,9 +115,11 @@ body{
 }
 
 .img-penulis {
-    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px;
     object-fit: fill;
-    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
 }
 
 .title-penulis {
@@ -368,4 +370,6 @@ footer{
 .reaction-item .not-liked span{
     color: #878A99 !important;
 }
+
+
 

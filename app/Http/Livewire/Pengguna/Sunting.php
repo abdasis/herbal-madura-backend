@@ -44,8 +44,8 @@ class Sunting extends Component
             'pendidikan_terakhir' => 'required',
             'alamat_website' => 'required',
             'alamat' => 'required',
-            'password' => 'nullable|confirmed',
-            'password_confirmation' => 'required_with:password',
+            'password' => 'nullable|confirmed|min:8',
+            'password_confirmation' => 'required_with:password|min:8',
             'roles' => 'required',
 
         ];

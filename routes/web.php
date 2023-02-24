@@ -43,7 +43,7 @@ Route::get('kirim-artikel', TambahArtikel::class)->name('wiki.tambah-artikel')->
 Route::get('revisi-artikel/{slug}', SuntingArtikel::class)->name('wiki.sunting-artikel')->middleware('auth');
 Route::get('tentang', Tentang::class)->name('tentang');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isKontributor']], function () {
     Route::group(['prefix' => 'Produk'], function () {
         Route::get('/', \App\Http\Livewire\Product\Semua::class)->name('product.semua');
         Route::get('tambah', \App\Http\Livewire\Product\Tambah::class)->name('product.tambah');

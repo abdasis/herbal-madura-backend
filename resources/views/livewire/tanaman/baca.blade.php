@@ -79,16 +79,6 @@
                                         <h5 class="nama-penulis">{{$tanaman->user->name ?? 'None'}} <i
                                                 class="fas fa-check-circle text-primary"></i></h5>
                                         <div class="card-text diskripsi-penulis mt-2">
-                                            <p>
-                                                Artikel ini disusun oleh tim penyunting terlatih dan peneliti yang
-                                                memastikan keakuratan
-                                                dan kelengkapannya.
-
-                                                Tim Manajemen Konten wikiHow memantau hasil penyuntingan staf kami
-                                                secara saksama untuk
-                                                menjamin artikel yang berkualitas tinggi. Artikel ini telah dilihat
-                                                141.769 kali.
-                                            </p>
                                         </div>
                                     </div>
                                 </div>

@@ -2,8 +2,8 @@
     {{-- Stop trying to control. --}}
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-outline card-orange shadow-sm">
-                <div class="card-header bg-white border-bottom border-lighter">
+            <div class="card card-outline card-orange shadow-sm border-light rounded">
+                <div class="card-header bg-white border-bottom border-light">
                     Form Update Pengguna
                 </div>
                 <div class="card-body">

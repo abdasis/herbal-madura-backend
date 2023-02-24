@@ -19,7 +19,6 @@ class isKontributor
         if (\Auth::user()->roles != 'admin'){
             return redirect()->route('auth.detail', \Auth::user()->id);
         }
-
         return $next($request);
     }
 }

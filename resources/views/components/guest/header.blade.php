@@ -28,21 +28,33 @@
                     </li>
                 </ul>
 
-                <div class="">
-                    @if(auth()->check())
-                        <div class="nav-profile d-flex align-items-center gap-2">
-                            <img src="{{file_exists(asset('upload/' . auth()->user()->profile_photo_path)) ? auth()->user()->profile_photo_path : Avatar::create(auth()->user()->name)}}" alt="avatar-circle" class="avatar-xs rounded-circle">
-                            <a href="{{route('auth.detail', auth()->id())}}">
-                                <span>Hai, {{auth()->user()->name}}</span>
-                            </a>
-                        </div>
-                    @else
-                        <a href="{{route('auth.register')}}" class="btn d-flex justify-content-center align-items-center btn-soft-success w-md">
-                            <em class="ri-user-3-fill me-1"></em>
-                            Buat Akun
+                @if(auth()->check())
+                    <div class="dropdown nav-profile d-flex align-items-center gap-2">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{file_exists(asset('upload/' . auth()->user()->profile_photo_path)) ? auth()->user()->profile_photo_path : Avatar::create(auth()->user()->name)}}" alt="avatar-circle" class="avatar-xs rounded-circle me-2">
+                            <span>Hai, {{auth()->user()->name}}</span>
                         </a>
-                    @endif
-                </div>
+                        <ul class="dropdown-menu mt-4 px-2" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item p-1 fs-14 d-flex align-items-center justify-content-start gap-2" href="{{ route('dashboard') }}">
+                                    <i class="ri-dashboard-2-line"></i>
+                                    Dashboard
+                                </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><form method="post" action="{{route('logout')}}">
+                                    @csrf
+                                    <button class="dropdown-item p-1 fs-14 text-danger d-flex align-items-center justify-content-start gap-2">
+                                        <i class="ri-logout-box-line"></i>
+                                        Logout
+                                    </button>
+                                </form></li>
+                        </ul>
+                    </div>
+                @else
+                    <a href="{{route('auth.register')}}" class="btn btn-light d-flex justify-content-center align-items-center w-md">
+                        <em class="ri-user-3-fill me-1"></em>
+                        Buat Akun
+                    </a>
+                @endif
             </div>
 
         </div>

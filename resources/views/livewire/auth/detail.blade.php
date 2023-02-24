@@ -95,9 +95,12 @@
             </div>
             <div class="profile-body col-md-8">
                 <div class="card">
-                    <h5 class="card-header border-white">
-                        Kontribusi
-                    </h5>
+                    <div class="card-header border-white d-flex justify-content-between">
+                        <h5>Kontribusi</h5>
+                        <a href="{{route('wiki.tambah-artikel')}}">
+                            <button class="btn btn-sm btn-light">Tambah Kontribusi</button>
+                        </a>
+                    </div>
                     @if($data_tanaman->count() < 1)
                         <div class="alert alert-light">
                             Anda belum memiliki satupun kontribusi, <a href="{{route('wiki.tambah-artikel')}}">Tambah Kontribusi</a>
@@ -105,7 +108,7 @@
                     @else
                         @foreach($data_tanaman as $detail)
                             <a href="{{route('tanaman.baca', $detail->slug)}}">
-                                <div class="card my-2">
+                                <div class="card my-2 border-0 shadow-none">
                                     <div class="row gy-2">
                                         <div class="col-md-8">
                                             <div class="card-body">
