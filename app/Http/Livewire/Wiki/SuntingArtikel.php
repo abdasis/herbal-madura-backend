@@ -77,6 +77,6 @@ class SuntingArtikel extends Component
     }
     public function render()
     {
-        return view('livewire.wiki.sunting-artikel')->layout('layouts.guest');
+        return view('livewire.wiki.sunting-artikel')->layout('layouts.editor');
     }
 }

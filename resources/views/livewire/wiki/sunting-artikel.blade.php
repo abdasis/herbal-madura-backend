@@ -105,7 +105,6 @@
             menubar: false,
             height: 600,
             content_style: "body {font-family: Arial; }",
-
             setup: function (editor) {
                 editor.on('init', function () {
                     editor.setContent(deskripsi)
