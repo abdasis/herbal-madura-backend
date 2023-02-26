@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Jenssegers\Agent\Agent;
 use Livewire\Component;
 use Maize\Markable\Models\Reaction;
 
@@ -16,10 +17,18 @@ class Baca extends Component
 
     public function mount($slug)
     {
+        $agent = new Agent();
         try {
             $this->tanaman = Tanaman::where('slug', $slug)->where('status', 'Diterbitkan')->first();
             if ($this->tanaman) {
-                $this->tanaman->visit()->withIP();
+                $this->tanaman->visit()->withIP()->withData([
+                    'browser' => $agent->browser(),
+                    'versi_browser' => $agent->version($agent->browser()),
+                    'device' => $agent->device(),
+                    'versi_device' => $agent->version($agent->device()),
+                    'platform' => $agent->platform(),
+                    'versi_platform' => $agent->version($agent->platform()),
+                ]);
             } else {
                 session()->flash('pesan', 'Tanaman belum diterbitkan anda cuma bisa mengedit dan belum bisa ditampilkan');
                 $this->flash('warning', 'Tanaman Belum Diterbitkan', [], route('auth.detail'));

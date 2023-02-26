@@ -50,9 +50,9 @@
                         </ul>
                     </div>
                 @else
-                    <a href="{{route('auth.register')}}" class="btn btn-light d-flex justify-content-center align-items-center w-md">
-                        <em class="ri-user-3-fill me-1"></em>
-                        Buat Akun
+                    <a href="{{route('login')}}" class="btn btn-light d-flex justify-content-center align-items-center w-md">
+                        <em class="ri-login-circle-line me-1"></em>
+                        Masuk
                     </a>
                 @endif
             </div>

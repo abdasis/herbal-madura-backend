@@ -56,6 +56,7 @@
 <!-- App js -->
 <script src="{{asset('assets/js/app.js')}}"></script>
 @livewireScripts
+@livewireChartsScripts
 <script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/sweetalerts.init.js')}}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

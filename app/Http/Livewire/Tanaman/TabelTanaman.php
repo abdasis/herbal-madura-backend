@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class TabelTanaman extends DataTableComponent
 {
@@ -48,6 +49,20 @@ class TabelTanaman extends DataTableComponent
             $this->alert('success', 'Data berhasil diverifikasi');
 
         }
+    }
+
+    public function filters(): array
+    {
+        return [
+            SelectFilter::make('Status')->options([
+                '' => 'Semua',
+                'Direview' => 'Direview',
+                'Diterbitkan' => 'Diterbitkan',
+                'Ditolak' => 'Ditolak',
+            ])->filter(function (Builder $builder, string $status){
+                $builder->where('tanamen.status', $status);
+            })
+        ];
     }
 
     public function columns(): array
