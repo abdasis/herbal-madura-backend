@@ -62,39 +62,37 @@
                 <div class="card">
                     <h5 class="card-header border-bottom border-white">Tentang</h5>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-nowrap table-borderless mb-0">
-                                <tbody>
-                                <tr>
-                                    <th class="ps-0" scope="row">Nama :</th>
-                                    <td class="text-muted">{{auth()->user()->name}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="ps-0" scope="row">Telepon :</th>
-                                    <td class="text-muted">{{auth()->user()->biodata->telepon}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="ps-0" scope="row">E-mail :</th>
-                                    <td class="text-muted">{{auth()->user()->email}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="ps-0" scope="row">Alamat :</th>
-                                    <td class="text-muted">{{auth()->user()->alamat ?? '-'}}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="ps-0" scope="row">Bergabung :</th>
-                                    <td class="text-muted">{{auth()->user()->created_at->format('d M Y')}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                            <tr>
+                                <th class="ps-0" scope="row">Nama :</th>
+                                <td class="text-muted">{{auth()->user()->name}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ps-0" scope="row">Telepon :</th>
+                                <td class="text-muted">{{auth()->user()->biodata->telepon}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ps-0" scope="row">E-mail :</th>
+                                <td class="text-muted text-truncate">{{auth()->user()->email}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ps-0" scope="row">Alamat :</th>
+                                <td class="text-muted">{{auth()->user()->alamat ?? '-'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="ps-0" scope="row">Bergabung :</th>
+                                <td class="text-muted">{{auth()->user()->created_at->format('d M Y')}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
 
-                            <div class="my-3 d-grid">
-                                <a href="{{route('kelaur')}}" class="btn btn-danger btn-sm">
-                                    <i class="ri-logout-box-line"></i>
-                                    Log out
-                                </a>
-                            </div>
+                        <div class="my-3 d-grid">
+                            <a href="{{route('kelaur')}}" class="btn btn-danger btn-sm">
+                                <i class="ri-logout-box-line"></i>
+                                Log out
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -104,20 +102,23 @@
                     <div class="card-header border-white d-flex justify-content-between align-items-center">
                         <div class="header-start d-flex gap-2 align-items-center">
                             <h5 class="mb-0">Kontribusi</h5>
-                            <x-form-input name="keyword" wire:model="keyword" placeholder="Judul Tanaman" class="form-control-sm"/>
+                            @if(in_array(auth()->user()->roles, ['admin', 'kontributor']))
+                                <x-form-input name="keyword" wire:model="keyword" placeholder="Judul Tanaman" class="form-control-sm"/>
+                            @endif
                         </div>
-
-                        <a href="{{route('wiki.tambah-artikel')}}">
-                            <button class="btn btn-sm btn-light">Tambah Kontribusi</button>
-                        </a>
+                        @if(in_array(auth()->user()->roles, ['admin', 'kontributor']))
+                            <a href="{{route('wiki.tambah-artikel')}}">
+                                <button class="btn btn-sm btn-light">Tambah Kontribusi</button>
+                            </a>
+                        @endif
                     </div>
-                    @if($data_tanaman->count() < 1)
-                        <div class="alert alert-light">
-                            Anda belum memiliki satupun kontribusi, <a href="{{route('wiki.tambah-artikel')}}">Tambah
-                                Kontribusi</a>
-                        </div>
-                    @else
-                        @foreach($data_tanaman as $detail)
+                    @if(auth()->user()->roles == 'user')
+                        @if($tanaman_disukai->count() < 1)
+                           <div class="alert alert-danger m-3">
+                               Anda belum menyukai satu tanaman pun.
+                           </div>
+                        @else
+                            @foreach($tanaman_disukai as $detail)
                                 <div class="card my-2 shadow-none border-top  border-top-dashed">
                                     <div class="row gy-2 align-items-center ">
                                         <div class="col-md-8">
@@ -171,8 +172,73 @@
                                         </div>
                                     </div>
                                 </div>
-                        @endforeach
-                        {{$data_tanaman->links()}}
+                            @endforeach
+                            {{$data_tanaman->links()}}
+                        @endif
+                    @else
+                        @if($data_tanaman->count() < 1)
+                            <div class="alert alert-light">
+                                Anda belum memiliki satupun kontribusi, <a href="{{route('wiki.tambah-artikel')}}">Tambah
+                                    Kontribusi</a>
+                            </div>
+                        @else
+                            @foreach($data_tanaman as $detail)
+                                <div class="card my-2 shadow-none border-top  border-top-dashed">
+                                    <div class="row gy-2 align-items-center ">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <a href="{{route('tanaman.baca', $detail->slug)}}">
+                                                    <h5 class="card-title text-primary mb-2">{{$detail->nama_tanaman}}</h5>
+                                                </a>
+                                                <p class="card-text text-muted mb-0">
+                                                    {!! Str::limit(strip_tags($detail->diskripsi_tanaman),150, '...') !!}
+                                                </p>
+                                            </div>
+                                            <div class="card-footer border-0">
+                                                <div class="meta-tag-footer d-flex justify-content-between align-items-center gap-2">
+                                                    <div class="footer-start d-flex justify-content-between align-items-center gap-2">
+                                                        <div class="card-text">
+                                                            <small class="text-muted d-flex align-items-center gap-1">
+                                                                <i class="ri-user-fill"></i>
+                                                                {{Str::title($detail->user->name)}}
+                                                            </small>
+                                                        </div>
+                                                        |
+                                                        <div class="card-text">
+                                                            <small
+                                                                class="text-muted">{{Carbon::parse($detail->created_at)->format('d, F Y')}}</small>
+                                                        </div>
+                                                        @if($detail->status == 'Direview')
+                                                            <span class="badge bg-warning">
+                                                            {{$detail->status}}
+                                                        </span>
+                                                        @else
+                                                            <span class="badge bg-success">
+                                                            {{$detail->status}}
+                                                        </span>
+                                                        @endif
+                                                        <a href="{{route('wiki.sunting-artikel', $detail->slug)}}">
+                                                            <i class="ri-pencil-line"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="footer-end">
+                                                        <button class="btn btn-link text-decoration-none text-danger" wire:click.prevent="hapus({{$detail->id}})">
+                                                            <i class="ri-delete-bin-4-line"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <img class="rounded-end img-fluid h-100 gambar-unggulan-tanaman d-none d-md-block"
+                                                 src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}"
+                                                 alt="{{$detail->nama_tanaman}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            {{$data_tanaman->links()}}
+                        @endif
                     @endif
                 </div>
             </div>

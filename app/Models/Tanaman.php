@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 use Maize\Markable\Markable;
+use Maize\Markable\Models\Like;
 use Maize\Markable\Models\Reaction;
 
 class Tanaman extends Model implements CanVisit
@@ -19,6 +20,7 @@ class Tanaman extends Model implements CanVisit
 
     protected static $marks = [
         Reaction::class,
+        Like::class
     ];
 
     protected $guarded = [];

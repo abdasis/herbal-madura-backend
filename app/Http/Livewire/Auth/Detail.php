@@ -83,7 +83,8 @@ class Detail extends Component
         return view('livewire.auth.detail', [
             'total_kontribusi' => auth()->user()->tanaman()->where('status', 'Diterbitkan')->count(),
             'total_direview' => auth()->user()->tanaman()->where('status', 'Direview')->count(),
-            'data_tanaman' => $data_tanaman
+            'data_tanaman' => $data_tanaman,
+            'tanaman_disukai' => Tanaman::whereHasReaction(auth()->user(), 'heart')->get()
         ])->layout('layouts.guest');
     }
 }
