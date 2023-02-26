@@ -59,8 +59,8 @@ body{
 
 .deskripsi-tanaman p, span{
     font-family: 'Inter', sans-serif !important;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 15px;
+    line-height: 24px !important;
     font-weight: 400;
 }
 
