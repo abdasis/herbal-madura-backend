@@ -37,7 +37,8 @@
                                                 </p>
                                             </div>
                                             <div class="card-footer border-top-dashed">
-                                                <div class="meta-tag-footer d-flex align-items-center gap-2">
+                                                <div class="meta-tag-footer d-fle
+                                                x align-items-center gap-2">
                                                     <div class="card-text">
                                                         <small class="text-muted d-flex align-items-center gap-1">
                                                             <i class="ri-user-fill"></i>
