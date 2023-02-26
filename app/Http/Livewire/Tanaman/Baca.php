@@ -3,20 +3,30 @@
 namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
-use Maize\Markable\Models\Like;
 use Maize\Markable\Models\Reaction;
 
 class Baca extends Component
 {
+    use LivewireAlert;
+
     public $tanaman;
     public $is_like;
 
     public function mount($slug)
     {
-
-        $this->tanaman = Tanaman::where('slug', $slug)->where('status', 'Diterbitkan')->first();
-        $this->tanaman->visit()->withIP();
+        try {
+            $this->tanaman = Tanaman::where('slug', $slug)->where('status', 'Diterbitkan')->first();
+            if ($this->tanaman) {
+                $this->tanaman->visit()->withIP();
+            } else {
+                session()->flash('pesan', 'Tanaman belum diterbitkan anda cuma bisa mengedit dan belum bisa ditampilkan');
+                $this->flash('warning', 'Tanaman Belum Diterbitkan', [], route('auth.detail'));
+            }
+        } catch (\Exception $exception) {
+            $this->flash('warning', 'Tanaman tidak ditemukan');
+        }
     }
 
     public function suka()

@@ -35,8 +35,9 @@ Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tan
 Route::get('/tanaman/print/{slug}', [PrintTanamanController::class, 'print'])->name('tanaman.print');
 Route::get('/produk/{slug}', Baca::class)->name('produk.baca');
 Route::get('tanaman', HasilPencarian::class)->name('wiki.hasil-pencarian');
-Route::get('profile/{id}', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail')->middleware('auth');
-Route::get('profile/{id}/update', \App\Http\Livewire\Auth\Sunting::class)->name('auth.sunting')->middleware('auth');
+Route::get('/user/{id}', \App\Http\Livewire\Auth\Profile::class)->name('auth.profile');
+Route::get('profile', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail')->middleware('auth');
+Route::get('update-profile', \App\Http\Livewire\Auth\Sunting::class)->name('auth.sunting')->middleware('auth');
 Route::get('daftar-kontributor', DaftarPengguna::class)->name('kontributor');
 Route::get('halaman-utama', HalamanUtama::class)->name('halaman-utama');
 Route::get('kirim-artikel', TambahArtikel::class)->name('wiki.tambah-artikel')->middleware('auth');

@@ -18,7 +18,7 @@
                                    @endforeach
                                </div>
                             @endif
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('login') }}" autocomplete="off" autofocus="off">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <x-form-input label="Email" type="email" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus />

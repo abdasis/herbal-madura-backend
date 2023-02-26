@@ -11,8 +11,19 @@ class Sunting extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
-    public $nama_tanaman, $nama_latin,$gambar_tanaman, $status, $diskripsi, $pustaka, $referensi,  $jenis_spesies;
-    public $kerajaan, $ordo, $famili, $genus, $spesies;
+    public $nama_tanaman;
+    public $nama_latin;
+    public $gambar_tanaman;
+    public $status;
+    public $deskripsi;
+    public $pustaka;
+    public $referensi;
+    public $jenis_spesies;
+    public $kerajaan;
+    public $ordo;
+    public $famili;
+    public $genus;
+    public $spesies;
 
     public $tanaman_id;
 
@@ -22,7 +33,7 @@ class Sunting extends Component
         $this->nama_tanaman = $tanaman->nama_tanaman;
         $this->nama_latin = $tanaman->nama_latin;
         $this->status = $tanaman->status;
-        $this->diskripsi = $tanaman->diskripsi_tanaman;
+        $this->deskripsi = $tanaman->diskripsi_tanaman;
         $this->pustaka = $tanaman->pustaka;
         $this->referensi = $tanaman->refrensi;
         $this->jenis_spesies = $tanaman->jenis_spesies;
@@ -34,8 +45,7 @@ class Sunting extends Component
         return [
             'nama_tanaman' => 'required',
             'nama_latin' => 'required',
-            'diskripsi' => 'required',
-            'gambar_tanaman' => 'required|mimes:jpg,png|max:2048',
+            'deskripsi' => 'required',
             'status' => 'required'
         ];
     }
@@ -58,7 +68,7 @@ class Sunting extends Component
             $tanaman->nama_tanaman = $this->nama_tanaman;
             $tanaman->slug = \Str::slug($this->nama_tanaman);
             $tanaman->nama_latin = $this->nama_latin;
-            $tanaman->diskripsi_tanaman = $this->diskripsi;
+            $tanaman->diskripsi_tanaman = $this->deskripsi;
             $tanaman->gambar_tanaman = $nama_gambar;
             $tanaman->status = $this->status;
             $tanaman->kerajaan = $this->ordo;
@@ -71,8 +81,6 @@ class Sunting extends Component
             $tanaman->diupdate_oleh = \Auth::id();
             $tanaman->save();
             $this->flash('success', 'Data berhasil diperbarui',[], route('tanaman.semua'));
-
-
         }catch (\Error $error){
             $this->alert('error', 'Terjadi kesalahan');
         }

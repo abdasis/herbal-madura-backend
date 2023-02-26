@@ -1,19 +1,17 @@
 <div>
     {{-- The best athlete wants his opponent at his best. --}}
-    <div class="blur"></div>
-    <div class="container" style="margin-top: 120px">
+    <div class="container-fluid" style="margin-top: 120px">
         <form wire:submit.prevent="simpan">
-            <div class="row">
-                <div class="col-md-12">
+            <div class="row justify-content-end">
+                <div class="col-md-7">
                     <div class="card shadow-none border-0">
                         <div class="card-body">
-                            <div class="card-title text-center my-3"><h2 class="text-bold mb-3">Tulis Artikel</h2></div>
                             <div class="form-group mb-2">
-                                <x-form-input type="text" name="nama_tanaman" class="form-control" wire:model="nama_tanaman" placeholder="Masukan Nama Tanaman" />
+                                <x-form-input type="text" name="nama_tanaman" class="form-control form-control-lg border-0" wire:model="nama_tanaman" placeholder="Masukan Nama Tanaman" />
                             </div>
                             <div class="form-group mb-2">
-                                <div class="editor-content" wire:ignore>
-                                <textarea name="" class="form-control" placeholder="Tulis lengkap diskripsi tanaman" id="manfaat" cols="30" rows="10">
+                                <div class="editor-content shadow-none border-0" wire:ignore>
+                                 <textarea name="" class="form-control shadow-none border-0" placeholder="Tulis lengkap diskripsi tanaman" id="manfaat" cols="30" rows="10">
                                     <h2>Deskripsi Tanaman</h2>
                                     <p>Tulis deskripsi tanaman disini</p>
                                     <h2>Zat yang Berkhasiat</h2>
@@ -27,7 +25,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-
                             <div class="form-group mb-2">
                                 <label for="">Referensi</label>
                                 <div class="" wire:ignore>
@@ -36,74 +33,44 @@
                                 </div>
                                 <x-error-message error="refrensi" />
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label for="">Nama Latin</label>
-                                        <x-form-input type="text" name="nama_latin" class="form-control" wire:model="nama_latin" placeholder="Masukan Nama Latin Tanaman"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label for="">Gambar Unggulan</label>
-                                        <x-form-input name="gambar_tanaman" wire:model="gambar_tanaman" type="file" />
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label for="">Kerajaan</label>
-                                        <input type="text" class="form-control" wire:model="kerajaan" placeholder="Kerajaan">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label for="">Ordo</label>
-                                        <input type="text" class="form-control" wire:model="ordo" placeholder="Ordo">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label for="">Famili</label>
-                                        <input type="text" class="form-control" wire:model="famili" placeholder="Famili">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label for="">Genus</label>
-                                        <input type="text" class="form-control" wire:model="genus" placeholder="Genus">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label for="">Jenis Spesies</label>
-                                        <input type="text" class="form-control" wire:model="jenis_spesies" placeholder="Jenis spesies">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label for="">Status Artikel</label>
-                                        <x-form-select name="" wire:model.defer="status" disabled class="custom-select" id="">
-                                            <option value="">Pilih status</option>
-                                            <option selected value="Direview">Direview</option>
-                                            <option value="Diterbitkan">Diterbitkan</option>
-                                        </x-form-select>
-                                        <x-error-message error="status" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-2 float-end">
-                                <button class="btn btn-warning d-flex gap-1">
-                                    <span class="ri-save-3-line"></span>
-                                    Simpan</button>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="sidebar-editor px-3">
+                        <div class="form-group mb-2">
+                            <label for="">Gambar Unggulan</label>
+                            <x-form-input name="gambar_tanaman" wire:model="gambar_tanaman" type="file" />
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Nama Latin</label>
+                            <x-form-input type="text" name="nama_latin" class="form-control" wire:model="nama_latin" placeholder="Masukan Nama Latin Tanaman"/>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Kerajaan</label>
+                            <input type="text" class="form-control" wire:model="kerajaan" placeholder="Kerajaan">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Ordo</label>
+                            <input type="text" class="form-control" wire:model="ordo" placeholder="Ordo">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Famili</label>
+                            <input type="text" class="form-control" wire:model="famili" placeholder="Famili">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Genus</label>
+                            <input type="text" class="form-control" wire:model="genus" placeholder="Genus">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Jenis Spesies</label>
+                            <input type="text" class="form-control" wire:model="jenis_spesies" placeholder="Jenis spesies">
+                        </div>
+                        <div class="d-grid text-center">
+                            <button class="btn btn-warning d-flex align-items-center justify-content-center gap-1">
+                                <i class="ri-save-3-line"></i>
+                                Simpan
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -144,6 +111,7 @@
 
         tinymce.init({
             selector: 'textarea#referensi',
+            placeholder: "Masukan referensi disini",
             toolbar: false,
             menubar: false,
             height: 200,

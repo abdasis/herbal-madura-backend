@@ -12,18 +12,20 @@ class TambahArtikel extends Component
     use LivewireAlert;
     use WithFileUploads;
     public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Direview', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
-
     public $kerajaan, $ordo, $famili, $genus, $spesies;
-
     public function rules()
     {
         return [
-            'nama_tanaman' => 'required',
+            'nama_tanaman' => 'required|unique:tanamen',
             'nama_latin' => 'required',
             'diskripsi' => 'required',
             'gambar_tanaman' => 'required|mimes:jpg,png|max:2048',
-            'status' => 'required'
         ];
+    }
+
+    public function updated($field)
+    {
+        $this->validateOnly($field);
     }
 
     public function simpan()
@@ -53,7 +55,7 @@ class TambahArtikel extends Component
             $tanaman->dibuat_oleh = \Auth::id();
             $tanaman->diupdate_oleh = \Auth::id();
             $tanaman->save();
-            $this->flash('success', 'Data berhasil disimpan', [], url('/'));
+            $this->flash('success', 'Data berhasil disimpan', [], route('auth.detail'));
         }catch (\Error $error){
             report($error->getMessage());
             $this->alert('error', 'Terjadi kesalahan');
@@ -61,6 +63,6 @@ class TambahArtikel extends Component
     }
     public function render()
     {
-        return view('livewire.wiki.tambah-artikel')->layout('layouts.guest');
+        return view('livewire.wiki.tambah-artikel')->layout('layouts.editor');
     }
 }

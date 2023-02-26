@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Kamus Tanaman | Kamus Tanaman Herbal Terbaik #1 Di Indonesia</title>
+    <title>Tambah Artikel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -19,8 +19,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-
     @livewireStyles
     @stack('css')
     <style>
@@ -28,10 +26,10 @@
     </style>
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
-<body>
-<div class="wrapper">
+<body class="bg-white">
+<div class="wrapper ">
     <x-guest.header/>
-   {{$slot}}
+    {{$slot}}
     <x-guest.footer/>
 </div>
 <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -42,6 +40,7 @@
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 <script src="{{asset('assets/libs/aos/aos.js')}}"></script>
 <script src="{{asset('assets/js/pages/animation-aos.init.js')}}"></script>
+<script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>
 @livewireScripts
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

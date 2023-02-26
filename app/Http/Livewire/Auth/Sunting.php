@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Auth;
 
-use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -22,68 +21,66 @@ class Sunting extends Component
         $roles,
         $profesi,
         $user_id;
-
+    public $telepon;
+    public $biodata;
     public $avatar;
 
 
-    public function mount($id)
+    public function mount()
     {
-        if ($id != auth()->id()) {
-            $this->flash('error', 'Kesalahan', [
-                'text' => 'Terjadi kesalahaan pada halaman yang dituju'
-            ], route('auth.detail', auth()->id()));
-        } else {
-            $user = User::find($id);
-            $this->name = $user->name;
-            $this->email = $user->email;
-            $this->pendidikan_terakhir = $user->pendidikan_terakhir;
-            $this->alamat_website = $user->alamat_website;
-            $this->alamat = $user->alamat;
-            $this->roles = $user->roles;
-            $this->profesi = $user->biodata->pekerjaan;
-            $this->user_id = $user->id;
-
-        }
+        $user = auth()->user();
+        $this->name = $user->name;
+        $this->email = $user->email;
+        $this->pendidikan_terakhir = $user->pendidikan_terakhir;
+        $this->alamat_website = $user->alamat_website;
+        $this->alamat = $user->alamat;
+        $this->roles = $user->roles;
+        $this->profesi = $user->biodata->pekerjaan;
+        $this->user_id = $user->id;
+        $this->avatar = $user->profile_photo_path;
+        $this->biodata = $user->biodata->biodata;
+        $this->telepon = $user->biodata->telepon;
     }
 
     public function rules()
     {
         return [
             'name' => 'required',
-            'email' => 'required',
             'pendidikan_terakhir' => 'required',
             'alamat_website' => 'required',
             'alamat' => 'required',
-            'password' => 'nullable|confirmed',
-            'password_confirmation' => 'required_with:password',
-            'roles' => 'required',
-
+            'biodata' => 'nullable',
+            'telepon' => 'required',
         ];
+    }
+
+    public function gantiAvatar()
+    {
+        $this->validate([
+            'avatar' => 'mimes:jpg,png|max:2048'
+        ]);
+        try {
+            if ($this->avatar != null) {
+                $nama_file = \Str::slug($this->name);
+                $uuid = \Str::uuid();
+                $extension = $this->avatar->extension();
+                $nama_file = $nama_file . $uuid . '.' . $extension;
+                $path = $this->avatar->storeAs('avatar', $nama_file);
+                auth()->user()->update([
+                    'profile_photo_path' => $path
+                ]);
+            }
+            $this->alert('success', 'Avatar berhasil di perbarui');
+        } catch (\Exception $exception) {
+            $this->alert('warning', 'Terjadi kesalahan');
+        }
     }
 
     public function simpan()
     {
         $this->validate();
-
-        //jika ada file avatar
-
-
-        $user = User::find($this->user_id);
-        //update password jika password tidak null
-        if ($this->password != null) {
-            $user->password = \Hash::make($this->password);
-        }
-
-        if ($this->avatar != null){
-            $nama_file = \Str::slug($this->name);
-            $uuid = \Str::uuid();
-            $extension = $this->avatar->extension();
-            $nama_file = $nama_file . $uuid . '.' . $extension;
-            $path =  $this->avatar->storeAs('avatar', $nama_file);
-            $user->profile_photo_path = $path;
-        }
+        $user = auth()->user();
         $user->name = \Str::title($this->name);
-        $user->email = $this->email;
         $user->pendidikan_terakhir = $this->pendidikan_terakhir;
         $user->alamat_website = $this->alamat_website;
         $user->alamat = $this->alamat;
@@ -93,11 +90,31 @@ class Sunting extends Component
             ['user_id' => $user->id],
             [
                 'pekerjaan' => $this->profesi,
-                'telepon' => '-'
+                'biodata' => $this->biodata,
+                'telepon' => $this->telepon,
             ]);
 
 
         $this->alert('success', 'Data berhasil diperbarui');
+    }
+
+    public function updatePassword()
+    {
+        $this->validate([
+            'password' => 'nullable|confirmed',
+            'password_confirmation' => 'required_with:password',
+            'email' => 'sometimes|nullable|unique:users,email,' . auth()->user()->id,
+        ]);
+
+        try {
+            auth()->user()->update([
+                'password' => bcrypt($this->password),
+                'email' => $this->email,
+            ]);
+            $this->alert('success', 'Password berhasil update');
+        } catch (\Exception $exception) {
+            $this->alert('warning', 'Terjadi kesalahan');
+        }
     }
 
 

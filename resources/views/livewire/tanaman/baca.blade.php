@@ -1,5 +1,6 @@
 <div>
     <div class="container-fluid">
+
         <div class="row justify-content-center content-box">
             {{--<div class="col-md-3 p-4">
                 <div class="sidebar-widget">
@@ -76,9 +77,13 @@
                                             src="{{ file_exists('upload' . '/' . $tanaman->user->profile_photo_path) ? asset($tanaman->user->profile_photo_path) : asset('assets/images/avatar.jpg')}}"
                                             class="rounded-circle img-penulis mx-auto">
                                         <h5 class="title-penulis">Disusun Oleh</h5>
-                                        <h5 class="nama-penulis">{{$tanaman->user->name ?? 'None'}} <i
-                                                class="fas fa-check-circle text-primary"></i></h5>
+                                        <a href="{{route('auth.profile', $tanaman->user->id)}}" class="text-primary">
+                                            <h5 class="nama-penulis">{{$tanaman->user->name ?? 'None'}} <i
+                                                    class="fas fa-check-circle text-primary"></i>
+                                            </h5>
+                                        </a>
                                         <div class="card-text diskripsi-penulis mt-2">
+                                            {{$tanaman->user->biodata->biodata ?? ''}}
                                         </div>
                                     </div>
                                 </div>

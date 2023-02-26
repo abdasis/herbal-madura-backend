@@ -1,0 +1,29 @@
+
+.tox-tinymce {
+    border: none !important;
+    background: #f7f7f7 !important;
+    border-radius: 10px;
+    box-shadow: none !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    overflow: hidden;
+    position: relative;
+    visibility: inherit!important;
+}
+.tox .tox-statusbar {
+    display: none !important;
+    align-items: center;
+    background-color: #fff;
+    border-top: none !important;
+    color: rgba(34,47,62,.7);
+    flex: 0 0 auto;
+    font-size: 14px;
+    font-weight: 400;
+    height: 25px;
+    overflow: hidden;
+    padding: 0 8px;
+    position: relative;
+    text-transform: none;
+}

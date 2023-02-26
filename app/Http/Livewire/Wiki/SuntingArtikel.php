@@ -69,10 +69,9 @@ class SuntingArtikel extends Component
             $tanaman->dibuat_oleh = \Auth::id();
             $tanaman->diupdate_oleh = \Auth::id();
             $tanaman->save();
-            $this->alert('success', 'Data berhasil disimpan');
-            $this->redirectRoute('halaman-utama');
+            $this->flash('success', 'Data berhasil disimpan', [], route('auth.detail'));
+
         }catch (\Exception $error){
-            dd($error->getMessage());
             $this->alert('error', 'Terjadi kesalahan');
         }
     }
