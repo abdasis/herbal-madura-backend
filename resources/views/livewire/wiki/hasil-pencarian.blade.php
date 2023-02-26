@@ -37,8 +37,7 @@
                                                 </p>
                                             </div>
                                             <div class="card-footer border-top-dashed">
-                                                <div class="meta-tag-footer d-fle
-                                                x align-items-center gap-2">
+                                                <div class="meta-tag-footer d-flex align-items-center gap-2">
                                                     <div class="card-text">
                                                         <small class="text-muted d-flex align-items-center gap-1">
                                                             <i class="ri-user-fill"></i>
@@ -52,7 +51,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img class="rounded-end img-fluid h-100 gambar-unggulan-tanaman d-none d-md-block" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
+                                            <img class="rounded-end gambar-unggulan-tanaman d-none d-md-block" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
                                         </div>
                                     </div>
                                 </div>
