@@ -51,7 +51,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img class="rounded-end gambar-unggulan-tanaman d-none d-md-block" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
+                                            <img class="rounded-end img-fluid gambar-unggulan-tanaman d-none d-md-block" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
                                         </div>
                                     </div>
                                 </div>
