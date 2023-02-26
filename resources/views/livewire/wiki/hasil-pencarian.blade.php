@@ -11,14 +11,14 @@
     <div class="container mt-5">
         <div class="row justify-content-center" style="min-height: 100vh">
             <div class="col-md-8">
+                @if($keyword)
+                    <div class="alert alert-secondary info-hasil-text">
+                        <small>Hasil pencarian yang ditemukan total
+                            <strong>{{$tanaman->total()}}</strong>
+                            untuk keyword : <strong>{{$keyword}}</strong></small>
+                    </div>
+                @endif
                 <div class="card-body">
-                    @if($keyword)
-                        <div class="alert alert-secondary info-hasil-text">
-                            <small>Hasil pencarian yang ditemukan total
-                                <strong>{{$tanaman->total()}}</strong>
-                                untuk keyword : <strong>{{$keyword}}</strong></small>
-                        </div>
-                    @endif
                     @if(empty($tanaman))
                         <div class="alert alert-light">
                             Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
@@ -61,19 +61,23 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-3" style="margin-top: 34px">
-
-                <div class="list-group shadow-sm list-group-flush">
-                    <a href="{{route('kontributor')}}" class="list-group-item list-group-item-action border-light">
-                        <span>👨‍🏫</span> Lihat Kontributor
-                    </a>
-                    <a href="{{route('wiki.tambah-artikel')}}" class="list-group-item list-group-item-action border-light">
-                        <span>📝</span> Buat Artikel
-                    </a>
-                    {{--<a href="#" class="list-group-item list-group-item-action border-light">
-                        <span>❔</span> Bantuan
-                    </a>--}}
-                </div>
+            <div class="col-md-4">
+                @if($spotligth_pencarian)
+                    <div class="card spotlight-pencarian">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <i class="ri-star-line"></i>
+                                {{$spotligth_pencarian->nama_tanaman}}
+                            </div>
+                            <div class="card-text text-muted">
+                                {!! \Illuminate\Support\Str::limit($spotligth_pencarian->diskripsi_tanaman, 350) !!}
+                            </div>
+                            <a href="{{route('tanaman.baca', $spotligth_pencarian->slug)}}">
+                                Selengkapnya
+                            </a>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

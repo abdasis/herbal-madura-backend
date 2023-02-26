@@ -57,7 +57,13 @@ class TabelTanaman extends DataTableComponent
             Column::make('Nama Tanaman', 'nama_tanaman')->sortable()->searchable(),
             Column::make('Nama Latin', 'nama_latin')->sortable()->searchable(),
             Column::make('Status', 'status')->format(function ($val){
-                $status = $val == 'Diterbitkan' ? 'success' : 'warning';
+                if ($val === 'Diterbitkan'){
+                    $status = 'success';
+                }elseif($val === 'Direview'){
+                    $status = 'warning';
+                }else{
+                    $status = 'danger';
+                }
                 return "<span class='badge bg-soft-$status text-$status'>$val</span>";
             })->html(),
             Column::make('Dibuat Oleh', 'user.name'),
@@ -65,6 +71,7 @@ class TabelTanaman extends DataTableComponent
             Column::make('Aksi', 'id')->format(function ($id, $model, $row){
                 return view('partials.tombol-aksi', [
                     'hapus' => $id,
+                    'verifikasi' => $id,
                     'edit' => route('tanaman.sunting', $model->slug)
                 ]);
             })->unclickable()

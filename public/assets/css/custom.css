@@ -408,3 +408,15 @@ footer{
     border-radius: 4px;
     border:  1px solid #f7f7f7;
 }
+.spotlight-pencarian h2{
+    font-size: 14px;
+}
+
+.spotlight-pencarian .card-title{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.spotlight-pencarian p span{
+    font-size: 12px !important;
+}

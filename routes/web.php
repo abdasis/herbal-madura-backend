@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PrintTanamanController;
 use App\Http\Livewire\Analityc\Index;
+use App\Http\Livewire\Auth\Profile;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Beranda;
 use App\Http\Livewire\Dashboard;
@@ -12,6 +13,7 @@ use App\Http\Livewire\Pengguna\Semua;
 use App\Http\Livewire\Pengguna\Sunting;
 use App\Http\Livewire\Pengguna\Tambah;
 use App\Http\Livewire\Product\Baca;
+use App\Http\Livewire\Tanaman\Verifikasi;
 use App\Http\Livewire\Tentang;
 use App\Http\Livewire\Wiki\HasilPencarian;
 use App\Http\Livewire\Wiki\SuntingArtikel;
@@ -35,7 +37,7 @@ Route::get('/tanaman/{slug}', \App\Http\Livewire\Tanaman\Baca::class)->name('tan
 Route::get('/tanaman/print/{slug}', [PrintTanamanController::class, 'print'])->name('tanaman.print');
 Route::get('/produk/{slug}', Baca::class)->name('produk.baca');
 Route::get('tanaman', HasilPencarian::class)->name('wiki.hasil-pencarian');
-Route::get('/user/{id}', \App\Http\Livewire\Auth\Profile::class)->name('auth.profile');
+Route::get('/user/{id}', Profile::class)->name('auth.profile');
 Route::get('profile', \App\Http\Livewire\Auth\Detail::class)->name('auth.detail')->middleware('auth');
 Route::get('update-profile', \App\Http\Livewire\Auth\Sunting::class)->name('auth.sunting')->middleware('auth');
 Route::get('daftar-kontributor', DaftarPengguna::class)->name('kontributor');
@@ -57,6 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isKontributor']], f
         Route::get('tambah', \App\Http\Livewire\Tanaman\Tambah::class)->name('tanaman.tambah');
         Route::get('sunting/{slug}', \App\Http\Livewire\Tanaman\Sunting::class)->name('tanaman.sunting');
         Route::get('detail/{slug}', \App\Http\Livewire\Tanaman\Detail::class)->name('tanaman.detail');
+        Route::get('/verifikasi/{id}', Verifikasi::class)->name('tanaman.verifikasi');
     });
 
     Route::group(['prefix' => 'pengguna'], function () {

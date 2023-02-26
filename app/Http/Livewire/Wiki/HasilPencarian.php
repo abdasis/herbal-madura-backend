@@ -23,13 +23,14 @@ class HasilPencarian extends Component
     public function render()
     {
         if ($this->keyword){
-            $tanaman = Tanaman::search($this->keyword)->query(fn ($query) => $query->with('user'))->paginate(10);
+            $tanaman = Tanaman::search($this->keyword)->where('status', 'Diterbitkan')->paginate(10);
+            $spotlight = Tanaman::search($this->keyword)->where('status', 'Diterbitkan')->first();
         }else{
             $tanaman = Tanaman::latest()->with('user')->where('status', 'Diterbitkan')->paginate(10);
         }
-
         return view('livewire.wiki.hasil-pencarian', [
-            'tanaman' => $tanaman
+            'tanaman' => $tanaman,
+            'spotligth_pencarian' => $spotlight ?? null
         ])->layout('layouts.guest');
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Tanaman;
+
 return [
 
     /*
@@ -132,6 +134,12 @@ return [
     'meilisearch' => [
         'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
         'key' => env('MEILISEARCH_KEY', null),
+        'index-settings' => [
+            Tanaman::class => [
+                'filterableAttributes'=> ['id', 'nama_tanaman', 'diskripsi_tanaman', 'status', 'nama_latin'],
+                'sortableAttributes' => ['created_at'],
+            ],
+        ],
     ],
 
 ];

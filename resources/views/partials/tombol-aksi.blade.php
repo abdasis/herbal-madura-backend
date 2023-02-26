@@ -12,10 +12,10 @@
 
         @if(!empty($verifikasi))
             <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
-                title="Message">
-                <a href="{{$verifikasi}}" wire:click.prevent="verifikasi({{$verifikasi}})"
+                title="Verifikasi">
+                <a href="{{route('tanaman.verifikasi', $verifikasi)}}"
                    class="text-muted d-inline-block">
-                    <i class="ri-check-double-line"></i>
+                    <i class="ri-check-double-line text-success"></i>
                 </a>
             </li>
         @endif
