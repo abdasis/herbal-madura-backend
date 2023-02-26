@@ -28,7 +28,7 @@
                         @foreach($tanaman as $detail)
                             <a href="{{route('tanaman.baca', $detail->slug)}}">
                                 <div class="card">
-                                    <div class="row g-0">
+                                    <div class="row g-2 align-items-center">
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title mb-2">{{$detail->nama_tanaman}}</h5>
@@ -51,7 +51,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img class="rounded-end img-fluid h-100 object-cover" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
+                                            <img class="rounded-end img-fluid h-100 gambar-unggulan-tanaman d-none d-md-block" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
                                         </div>
                                     </div>
                                 </div>
