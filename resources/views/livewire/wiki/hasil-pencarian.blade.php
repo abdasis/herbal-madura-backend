@@ -51,7 +51,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img class="rounded-end img-fluid gambar-unggulan-tanaman d-none d-md-block" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
+                                            <img class="rounded-end img-fluid
+                                             gambar-unggulan-tanaman d-none d-md-block" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
                                         </div>
                                     </div>
                                 </div>
@@ -97,6 +98,16 @@
         }
         .meta-artikel{
             font-family: 'Quicksand', sans-serif;
+        }
+
+        .gambar-unggulan-tanaman{
+            min-height: 100px;
+            max-height: 100px !important;
+            min-width: 200px;
+            max-width: 200px !important;
+            object-fit: cover;
+            border-radius: 4px;
+            border:  1px solid #f7f7f7;
         }
 
         .info-hasil-text{
