@@ -77,6 +77,7 @@
                                         <option value="">Pilih Roles</option>
                                         <option value="admin">Admin</option>
                                         <option value="kontributor">Kontributor</option>
+                                        <option value="user">User</option>
                                     </x-form-select>
                                 </div>
                                 <div class="form-group mb-3">

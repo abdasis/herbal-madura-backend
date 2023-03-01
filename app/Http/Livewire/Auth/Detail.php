@@ -77,12 +77,13 @@ class Detail extends Component
     {
         $data_tanaman = Tanaman::where('dibuat_oleh', auth()->id())
             ->when($this->keyword, function (Builder $builder) {
-                $builder->where('nama_tanaman', 'LIKE', "%$this->keyword");
+                $builder->where('nama_tanaman', 'LIKE', "%$this->keyword%");
             })
             ->paginate(5);
         return view('livewire.auth.detail', [
             'total_kontribusi' => auth()->user()->tanaman()->where('status', 'Diterbitkan')->count(),
             'total_direview' => auth()->user()->tanaman()->where('status', 'Direview')->count(),
+            'total_ditolak' => auth()->user()->tanaman()->where('status', 'Ditolak')->count(),
             'data_tanaman' => $data_tanaman,
             'tanaman_disukai' => Tanaman::whereHasReaction(auth()->user(), 'heart')->get()
         ])->layout('layouts.guest');

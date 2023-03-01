@@ -54,6 +54,8 @@
                         <!-- item-->
                         <h6 class="dropdown-header">Welcome {{auth()->user()->name}}!</h6>
 
+                        <a class="dropdown-item" href="{{route('auth.sunting')}}"><i
+                                class="mdi mdi-account fs-16 align-middle me-1"></i> <span>Profile</span></a>
                         <a class="dropdown-item text-danger" href="{{route('kelaur')}}"><i
                                 class="mdi mdi-logout text-danger fs-16 align-middle me-1"></i> <span
                                 class="align-middle" data-key="t-logout">Logout</span></a>

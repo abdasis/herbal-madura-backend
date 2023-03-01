@@ -74,8 +74,8 @@
                                 <div class="row justify-content-center">
                                     <div class="col d-grid text-center">
                                         <img
-                                            src="{{ file_exists('upload' . '/' . $tanaman->user->profile_photo_path) ? asset($tanaman->user->profile_photo_path) : asset('assets/images/avatar.jpg')}}"
-                                            class="rounded-circle img-penulis mx-auto">
+                                            src="{{ file_exists($tanaman->user->profile_photo_path) ? asset($tanaman->user->profile_photo_path) : asset('assets/images/avatar.jpg')}}"
+                                            class="rounded-circle img-thumbnail my-3 img-penulis mx-auto">
                                         <h5 class="title-penulis">Disusun Oleh</h5>
                                         <a href="{{route('auth.profile', $tanaman->user->id)}}" class="text-primary">
                                             <h5 class="nama-penulis">{{$tanaman->user->name ?? 'None'}} <i

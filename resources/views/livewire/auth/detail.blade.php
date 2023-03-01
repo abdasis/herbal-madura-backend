@@ -39,18 +39,24 @@
                     </div>
                     <!--end col-->
                     <div class="col-12 col-lg-auto order-last order-lg-0">
-                        <div class="row text text-center">
-                            <div class="col-lg-6 col-4 d-flex gap-2">
-                                <div class="px-5 py-2 border bg-soft-success text-success border-success rounded">
-                                    <h4 class="text-success mb-1">{{$total_kontribusi}}</h4>
-                                    <p class="fs-14 mb-0">Publish</p>
-                                </div>
-                                <div class="px-5 py-2 border bg-soft-warning text-warning border-warning rounded">
-                                    <h4 class="text-warning mb-1">{{$total_direview}}</h4>
-                                    <p class="fs-14 mb-0">Direview</p>
+                        @if(auth()->user()->roles == 'kontributor')
+                            <div class="row text text-center">
+                                <div class="col-lg-6 col-4 d-flex gap-2">
+                                    <div class="px-5 py-2 border bg-soft-success text-success border-success rounded">
+                                        <h4 class="text-success mb-1">{{$total_kontribusi}}</h4>
+                                        <p class="fs-14 mb-0">Publish</p>
+                                    </div>
+                                    <div class="px-5 py-2 border bg-soft-warning text-warning border-warning rounded">
+                                        <h4 class="text-warning mb-1">{{$total_direview}}</h4>
+                                        <p class="fs-14 mb-0">Direview</p>
+                                    </div>
+                                    <div class="px-5 py-2 border bg-soft-danger text-danger border-danger rounded">
+                                        <h4 class="text-danger mb-1">{{$total_ditolak}}</h4>
+                                        <p class="fs-14 mb-0">Ditolak</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                     <!--end col-->
                 </div>
@@ -144,23 +150,21 @@
                                                             <small
                                                                 class="text-muted">{{Carbon::parse($detail->created_at)->format('d, F Y')}}</small>
                                                         </div>
+                                                    </div>
+                                                    <div>
                                                         @if($detail->status == 'Direview')
-                                                            <span class="badge bg-warning">
-                                                            {{$detail->status}}
-                                                        </span>
+                                                            <span class="badge bg-soft-warning text-warning" >
+                                                                {{$detail->status}}
+                                                            </span>
+                                                        @elseif($detail->status == 'Ditolak')
+                                                            <span class="badge bg-soft-danger text-danger">
+                                                                {{$detail->status}}
+                                                            </span>
                                                         @else
-                                                            <span class="badge bg-success">
+                                                            <span class="badge bg-soft-success text-success">
                                                             {{$detail->status}}
                                                         </span>
                                                         @endif
-                                                        <a href="{{route('wiki.sunting-artikel', $detail->slug)}}">
-                                                            <i class="ri-pencil-line"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="footer-end">
-                                                        <button class="btn btn-link text-decoration-none text-danger" wire:click.prevent="hapus({{$detail->id}})">
-                                                            <i class="ri-delete-bin-4-line"></i>
-                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,8 +214,12 @@
                                                         </div>
                                                         @if($detail->status == 'Direview')
                                                             <span class="badge bg-warning">
-                                                            {{$detail->status}}
-                                                        </span>
+                                                                {{$detail->status}}
+                                                            </span>
+                                                        @elseif($detail->status == 'Ditolak')
+                                                            <span class="badge bg-warning">
+                                                                {{$detail->status}}
+                                                            </span>
                                                         @else
                                                             <span class="badge bg-success">
                                                             {{$detail->status}}

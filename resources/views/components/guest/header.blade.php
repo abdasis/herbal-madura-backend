@@ -36,8 +36,8 @@
                         </a>
                         <ul class="dropdown-menu mt-4 px-2" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item p-1 fs-14 d-flex align-items-center justify-content-start gap-2" href="{{ route('dashboard') }}">
-                                    <i class="ri-dashboard-2-line"></i>
-                                    Dashboard
+                                    <i class="mdi mdi-account"></i>
+                                    Profile
                                 </a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><form method="post" action="{{route('logout')}}">

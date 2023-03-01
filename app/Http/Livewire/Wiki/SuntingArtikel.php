@@ -18,6 +18,12 @@ class SuntingArtikel extends Component
 
     public function mount($slug)
     {
+        if (!in_array(auth()->user()->roles, ['kontributor', 'admin'])){
+            $this->flash('info', 'Informasi', [
+                'text' => 'Anda harus menjadi kontributor untuk menulis artikel'
+            ], route('auth.detail'));
+        }
+
         $tanaman = Tanaman::where('slug', $slug)->first();
         $this->nama_tanaman = $tanaman->nama_tanaman;
         $this->diskripsi = $tanaman->diskripsi_tanaman;

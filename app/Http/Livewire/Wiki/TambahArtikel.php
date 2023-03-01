@@ -13,6 +13,15 @@ class TambahArtikel extends Component
     use WithFileUploads;
     public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Direview', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
     public $kerajaan, $ordo, $famili, $genus, $spesies;
+
+    public function boot()
+    {
+        if (!in_array(auth()->user()->roles, ['kontributor', 'admin'])){
+            $this->flash('info', 'Informasi', [
+                'text' => 'Anda harus menjadi kontributor untuk menulis artikel'
+            ], route('beranda'));
+        }
+    }
     public function rules()
     {
         return [
