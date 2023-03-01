@@ -85,7 +85,7 @@ body{
 }
 
 #blogContents a, ol, li {
-    color: #495057;
+    color: #495057 !important;
     font-family: 'Quicksand', sans-serif;
     font-size: 18px;
     font-weight: 600;
