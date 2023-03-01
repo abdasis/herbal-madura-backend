@@ -151,21 +151,6 @@
                                                                 class="text-muted">{{Carbon::parse($detail->created_at)->format('d, F Y')}}</small>
                                                         </div>
                                                     </div>
-                                                    <div>
-                                                        @if($detail->status == 'Direview')
-                                                            <span class="badge bg-soft-warning text-warning" >
-                                                                {{$detail->status}}
-                                                            </span>
-                                                        @elseif($detail->status == 'Ditolak')
-                                                            <span class="badge bg-soft-danger text-danger">
-                                                                {{$detail->status}}
-                                                            </span>
-                                                        @else
-                                                            <span class="badge bg-soft-success text-success">
-                                                            {{$detail->status}}
-                                                        </span>
-                                                        @endif
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
