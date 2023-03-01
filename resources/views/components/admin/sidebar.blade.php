@@ -38,10 +38,10 @@
                     <div class="collapse menu-dropdown" id="tanaman">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{route('tanaman.tambah')}}" class="nav-link"> Tulis  Artikel </a>
+                                <a href="{{route('tanaman.tambah')}}" class="nav-link"> Tambah Baru </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('tanaman.semua')}}" class="nav-link"> Data Artikel </a>
+                                <a href="{{route('tanaman.semua')}}" class="nav-link"> Semua Tanaman </a>
                             </li>
                         </ul>
                     </div>
