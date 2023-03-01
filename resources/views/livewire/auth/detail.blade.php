@@ -217,7 +217,7 @@
                                                                 {{$detail->status}}
                                                             </span>
                                                         @elseif($detail->status == 'Ditolak')
-                                                            <span class="badge bg-warning">
+                                                            <span class="badge bg-danger">
                                                                 {{$detail->status}}
                                                             </span>
                                                         @else
