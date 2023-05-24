@@ -3,8 +3,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card card-outline card-orange shadow-sm">
-                <div class="card-header bg-white border-bottom border-lighter">
-                    Form Tambah Pengguna
+                <div class="card-header bg-white border-bottom border-light">
+                    <h5 class="card-title">
+                        Form Tambah Pengguna
+                    </h5>
                 </div>
                 <div class="card-body">
                     <form wire:submit.prevent="simpan">

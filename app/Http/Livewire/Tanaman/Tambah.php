@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -14,7 +13,14 @@ class Tambah extends Component
     use LivewireAlert;
     use WithFileUploads;
 
-    public $nama_tanaman, $nama_latin, $gambar_tanaman, $status = 'Diterbitkan', $diskripsi, $pustaka, $referensi, $jenis_spesies;
+    public $nama_tanaman,
+        $nama_latin,
+        $gambar_tanaman,
+        $status = 'Diterbitkan',
+        $diskripsi,
+        $pustaka,
+        $referensi,
+        $jenis_spesies;
 
     public $kerajaan, $ordo, $famili, $genus, $spesies;
 
@@ -27,6 +33,11 @@ class Tambah extends Component
             'gambar_tanaman' => 'required|mimes:jpg,png|max:2048',
             'status' => 'required'
         ];
+    }
+
+    public function resetImage()
+    {
+        $this->reset('gambar_tanaman');
     }
 
     public function simpan()
@@ -56,7 +67,9 @@ class Tambah extends Component
                 'gambar_tanaman' => $path
             ]);
 
-            $this->flash('success', 'Data berhasil ditambahkan', [], route('tanaman.semua'));
+            $this->flash('success', 'Data berhasil ditambahkan', [
+                'imageUrl' => asset('icons/success.png')
+            ], route('tanaman.semua'));
 
         } catch (\Error $error) {
             report($error);

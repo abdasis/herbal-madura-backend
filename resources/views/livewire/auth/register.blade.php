@@ -35,8 +35,8 @@
                             <div class="form-group mb-3">
                                 <x-form-input type="password" name="password_confirmation" wire:model.defer="password_confirmation" label="Konfirmasi Password"/>
                             </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-border d-flex gap-1 align-items-center float-end">
+                            <div class="form-group d-grid">
+                                <button class="btn btn-success btn-success justify-content-center btn-border d-flex gap-1 align-items-center float-end">
                                     <i class="mdi mdi-account-plus"></i>
                                     Daftar Sekarang
                                 </button>

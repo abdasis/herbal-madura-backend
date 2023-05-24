@@ -10,8 +10,10 @@ return [
         'timer' => 3000,
         'toast' => true,
         'text' => null,
+        'timerProgressBar' => true,
         'showCancelButton' => false,
-        'showConfirmButton' => false
+        'showConfirmButton' => false,
+        'color' => '#ffffff'
     ],
     'confirm' => [
         'icon' => 'warning',

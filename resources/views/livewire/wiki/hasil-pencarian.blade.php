@@ -18,7 +18,7 @@
                             untuk keyword : <strong>{{$keyword}}</strong></small>
                     </div>
                 @endif
-                <div class="card-body">
+                <div class="card-body box-hasil-pencarian">
                     @if(empty($tanaman))
                         <div class="alert alert-light">
                             Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
@@ -31,7 +31,7 @@
                                     <div class="row g-2 align-items-center">
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <h5 class="card-title mb-2">{{$detail->nama_tanaman}}</h5>
+                                                <h5 class="card-title title mb-2">{{$detail->nama_tanaman}}</h5>
                                                 <p class="card-text text-muted mb-0">
                                                     {!! Str::limit(strip_tags($detail->diskripsi_tanaman),150, '...') !!}
                                                 </p>

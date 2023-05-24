@@ -1,7 +1,7 @@
 <div>
     <div class="bg-tanaman"></div>
     <div class="container relative">
-        <div class="row justify-content-center align-items-center" style="min-height: 80vh">
+        <div class="row justify-content-center align-items-center hero-container">
             <div class="col-md-6">
                 <div class="salam text-center">
                     <h2 class="fw-bold">Kamus Herbal</h2>
@@ -25,10 +25,10 @@
                       @foreach($semua_tanaman as $tanaman)
                            <div class="col-md-6">
                                <a href="{{route('tanaman.baca', $tanaman->slug)}}">
-                                   <div class="card card-animate">
+                                   <div class="card card-animate h-100">
                                        <div class="card-body">
                                            <h4 class="post-title">{{$tanaman->nama_tanaman}}</h4>
-                                           <p>{!! \Illuminate\Support\Str::limit(strip_tags($tanaman->diskripsi_tanaman),45,'') !!}</p>
+                                           <p>{!! Str::limit(strip_tags($tanaman->diskripsi_tanaman),45,'') !!}</p>
                                        </div>
                                    </div>
                                </a>

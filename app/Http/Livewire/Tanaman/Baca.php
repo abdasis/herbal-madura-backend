@@ -3,6 +3,9 @@
 namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
+use Artesaos\SEOTools\Facades\JsonLd;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Jenssegers\Agent\Agent;
 use Livewire\Component;
@@ -17,10 +20,34 @@ class Baca extends Component
 
     public function mount($slug)
     {
-        $agent = new Agent();
         try {
             $this->tanaman = Tanaman::where('slug', $slug)->where('status', 'Diterbitkan')->first();
+            $post = $this->tanaman;
+            SEOMeta::setTitle($post->nama_tanaman);
+            SEOMeta::setDescription(\Str::limit($post->diskripsi_tanaman, 100));
+            SEOMeta::addMeta('article:published_time', $post->created_at->toW3CString(), 'property');
+            SEOMeta::addMeta('article:section', $post->jenis_spesies, 'property');
+            SEOMeta::addKeyword([$post->nama_tanaman]);
+
+            OpenGraph::setDescription(\Str::limit($post->diskripsi_tanaman, 100));
+            OpenGraph::setTitle($post->nama_tanaman);
+            OpenGraph::setUrl(url()->current());
+            OpenGraph::addProperty('type', 'article');
+            OpenGraph::addProperty('locale', 'id-ID');
+            OpenGraph::addProperty('locale:alternate', ['en-us']);
+
+            OpenGraph::addImage(asset('gambar-tanaman/' . $post->gambar_tanaman));
+            OpenGraph::addImage(asset('gambar-tanaman/' . $post->gambar_tanaman));
+            OpenGraph::addImage(['url' => asset('gambar-tanaman/' . $post->gambar_tanaman), 'size' => 300]);
+            OpenGraph::addImage(asset('gambar-tanaman/' . $post->gambar_tanaman), ['height' => 300, 'width' => 300]);
+
+            JsonLd::setTitle($post->nama_tanaman);
+            JsonLd::setDescription(\Str::limit($post->diskripsi_tanaman, 100));
+            JsonLd::setType('Article');
+            JsonLd::addImage(asset('gambar-tanaman/' . $post->gambar_tanaman));
+
             if ($this->tanaman) {
+                $agent = new Agent();
                 $this->tanaman->visit()->withIP()->withData([
                     'browser' => $agent->browser(),
                     'versi_browser' => $agent->version($agent->browser()),
@@ -34,6 +61,7 @@ class Baca extends Component
                 $this->flash('warning', 'Tanaman Belum Diterbitkan', [], route('auth.detail'));
             }
         } catch (\Exception $exception) {
+            report($exception);
             $this->flash('warning', 'Tanaman tidak ditemukan');
         }
     }
@@ -55,6 +83,7 @@ class Baca extends Component
             ->twitter()
             ->whatsapp()
             ->getRawLinks();
+
 
         return view('livewire.tanaman.baca', [
             'tanaman_terkait' => Tanaman::where('kerajaan', $this->tanaman->kerajaan)->limit('5')->get(),

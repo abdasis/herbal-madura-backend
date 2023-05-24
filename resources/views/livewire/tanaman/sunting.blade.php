@@ -5,7 +5,7 @@
                 <div class="card shadow-none border-0">
                     <div class="card-body">
                         <div class="form-group mb-2">
-                            <x-form-input type="text" name="nama_tanaman" class="form-control form-control-lg border-0" wire:model="nama_tanaman" placeholder="Masukan Nama Tanaman" />
+                            <x-form-input type="text" id="nama_tanaman" name="nama_tanaman" class="form-control form-control-lg border-0" wire:model="nama_tanaman" placeholder="Masukan Nama Tanaman" />
                         </div>
                         <div class="form-group mb-2">
                             <div class="editor-content shadow-none border-0" wire:ignore>
@@ -38,27 +38,23 @@
                 <div class="sidebar-editor px-3">
                     <div class="form-group mb-2">
                         <label for="">Gambar Unggulan</label>
-                        <x-form-input name="gambar_tanaman" wire:model="gambar_tanaman" type="file" />
+                        <div class="box-img text-end">
+                            @if($gambar_sekarang)
+                                <img src="{{public_path('gambar-tanaman/' . $gambar_sekarang)}}" class="img-fluid rounded-3" alt="">
+                                <button wire:click.prevent="resetImage" class="btn btn-danger btn-sm my-3">Hapus</button>
+                            @else
+                                @if($gambar_tanaman)
+                                    <img src="{{$gambar_tanaman->temporaryUrl()}}" class="img-fluid rounded-3" alt="">
+                                    <button wire:click.prevent="resetImage" class="btn btn-danger btn-sm my-3">Hapus</button>
+                                @else
+                                    <x-form-input name="gambar_tanaman" wire:model="gambar_tanaman" type="file"/>
+                                @endif
+                            @endif
+                        </div>
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Nama Latin</label>
                         <x-form-input type="text" name="nama_latin" class="form-control" wire:model="nama_latin" placeholder="Masukan Nama Latin Tanaman"/>
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="">Kerajaan</label>
-                        <input type="text" class="form-control" wire:model="kerajaan" placeholder="Kerajaan">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="">Ordo</label>
-                        <input type="text" class="form-control" wire:model="ordo" placeholder="Ordo">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="">Famili</label>
-                        <input type="text" class="form-control" wire:model="famili" placeholder="Famili">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="">Genus</label>
-                        <input type="text" class="form-control" wire:model="genus" placeholder="Genus">
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Jenis Spesies</label>
@@ -94,10 +90,14 @@
 
         tinymce.init({
             selector: 'textarea#manfaat',
-            plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+            plugins: ['advlist', 'autolink', 'lists', 'link', 'preview', 'wordcount', 'autosave', 'autoresize'],
             menubar: false,
-            height: 600,
-            content_style: "body {font-family: Arial; }",
+            autosave_ask_before_unload: true,
+            autosave_interval: '20s',
+            toolbar: 'undo redo | blocks formatselect | ' +
+                'bold italic |bullist | preview' ,
+            block_formats: 'Paragraph=p; Subheading=h2;',
+            content_style: "body {font-family: Arial}",
             setup: function (editor) {
                 editor.on('init', function () {
                     editor.setContent(deskripsi);
@@ -124,9 +124,15 @@
             },
         });
     </script>
+
     <style>
-        body{
+        body {
             background: #ffffff !important;
+        }
+        #nama_tanaman{
+            font-size: 48px;
+            font-family: 'Calistoga', cursive;
+            line-height: 70px;
         }
     </style>
     <link rel="stylesheet" href="{{asset('assets/css/editor.css')}}">

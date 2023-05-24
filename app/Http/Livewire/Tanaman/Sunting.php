@@ -3,13 +3,14 @@
 namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
+use App\Traits\Toast;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Sunting extends Component
 {
-    use LivewireAlert;
+    use Toast;
     use WithFileUploads;
     public $nama_tanaman;
     public $nama_latin;
@@ -24,9 +25,8 @@ class Sunting extends Component
     public $famili;
     public $genus;
     public $spesies;
-
     public $tanaman_id;
-
+    public $gambar_sekarang;
     public function mount($slug)
     {
         $tanaman = Tanaman::where('slug', $slug)->first();
@@ -38,7 +38,7 @@ class Sunting extends Component
         $this->referensi = $tanaman->refrensi;
         $this->jenis_spesies = $tanaman->jenis_spesies;
         $this->tanaman_id = $tanaman->id;
-        $this->gambar_tanaman = $tanaman->gambar_tanaman;
+        $this->gambar_sekarang = $tanaman->gambar_tanaman;
     }
     public function rules()
     {
@@ -48,6 +48,11 @@ class Sunting extends Component
             'deskripsi' => 'required',
             'status' => 'required'
         ];
+    }
+
+    public function resetImage()
+    {
+        $this->reset(['gambar_tanaman', 'gambar_sekarang']);
     }
 
     public function simpan()
@@ -80,7 +85,8 @@ class Sunting extends Component
             $tanaman->dibuat_oleh = \Auth::id();
             $tanaman->diupdate_oleh = \Auth::id();
             $tanaman->save();
-            $this->flash('success', 'Data berhasil diperbarui',[], route('tanaman.semua'));
+
+           $this->toast('success', 'Data berhasil perbarui', route('tanaman.semua'));
         }catch (\Error $error){
             $this->alert('error', 'Terjadi kesalahan');
         }

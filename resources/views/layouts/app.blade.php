@@ -13,6 +13,9 @@
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Karla:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=Pacifico&family=Vesper+Libre:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <style>
         [x-cloak] { display: none !important; }
