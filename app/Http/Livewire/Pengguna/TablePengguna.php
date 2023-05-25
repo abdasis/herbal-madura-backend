@@ -23,7 +23,7 @@ class TablePengguna extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setTableRowUrl(function ($row) {
             return route('auth.detail', $row);
-        });
+        })->setFilterLayoutSlideDown();
     }
 
     public function dihapus()
@@ -47,7 +47,7 @@ class TablePengguna extends DataTableComponent
                     'user' => 'User',
                 ])->filter(function (Builder $builder, string $role) {
                     $builder->where('roles', $role);
-                })
+                }),
         ];
     }
 

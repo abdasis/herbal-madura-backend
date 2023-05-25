@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
+use App\Models\User;
 use App\Traits\AlertConfirm;
 use App\Traits\Toast;
 use Carbon\Carbon;
@@ -26,6 +27,7 @@ class TabelTanaman extends DataTableComponent
             ->setTableRowUrl(function ($row){
                 return route('tanaman.detail', $row->slug);
             });
+        $this->setFilterLayoutSlideDown();
     }
 
     public function dihapus()
@@ -62,6 +64,15 @@ class TabelTanaman extends DataTableComponent
                 'Ditolak' => 'Ditolak',
             ])->filter(function (Builder $builder, string $status){
                 $builder->where('tanamen.status', $status);
+            }),
+            SelectFilter::make('User')->options(
+                User::orderBy('name', 'asc')
+                    ->get()
+                    ->keyBy('id')
+                    ->map(fn($user) => $user->name)
+                    ->toArray()
+            )->filter(function (Builder $builder, string $name){
+                $builder->where('dibuat_oleh', $name);
             })
         ];
     }

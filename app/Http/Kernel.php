@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\CekAdmin;
+use App\Http\Middleware\CekKontributor;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\isKontributor;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
@@ -87,5 +89,7 @@ class Kernel extends HttpKernel
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
         'isKontributor' => isKontributor::class,
+        'admin' => CekAdmin::class,
+        'kontributor' => CekKontributor::class,
     ];
 }

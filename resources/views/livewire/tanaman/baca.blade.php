@@ -71,12 +71,12 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="biografi-penulis border-light">
+                        <div class="biografi-penulis border py-4 rounded border-light">
                             <div class="card-text">
                                 <div class="row justify-content-center">
                                     <div class="col d-grid text-center">
                                         <img src="{{ file_exists($tanaman->user->profile_photo_path) ? asset($tanaman->user->profile_photo_path) : asset('assets/images/avatar.jpg') }}"
-                                            class="rounded-circle img-thumbnail img-penulis mx-auto my-3">
+                                            class="rounded-circle img-thumbnail img-penulis mx-auto mb-3">
                                         <h5 class="title-penulis my-2">Disusun Oleh</h5>
                                         <a href="{{ route('auth.profile', $tanaman->user->id) }}" class="text-primary">
                                             <h5 class="nama-penulis">{{ Str::title($tanaman->user?->name) }} <i

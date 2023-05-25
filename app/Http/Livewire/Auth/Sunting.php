@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\User;
+use App\Traits\Toast;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -10,6 +12,7 @@ class Sunting extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
+    use Toast;
 
     public $name;
     public $email,
@@ -24,22 +27,27 @@ class Sunting extends Component
     public $telepon;
     public $biodata;
     public $avatar;
+    public $avatar_sekarang;
 
 
-    public function mount()
+    public function mount($id)
     {
-        $user = auth()->user();
-        $this->name = $user->name;
-        $this->email = $user->email;
-        $this->pendidikan_terakhir = $user->pendidikan_terakhir;
-        $this->alamat_website = $user->alamat_website;
-        $this->alamat = $user->alamat;
-        $this->roles = $user->roles;
-        $this->profesi = $user->biodata->pekerjaan;
-        $this->user_id = $user->id;
-        $this->avatar = $user->profile_photo_path;
-        $this->biodata = $user->biodata->biodata;
-        $this->telepon = $user->biodata->telepon;
+        if (auth()->id() == $id) {
+            $user = User::find($id);
+            $this->name = $user->name;
+            $this->email = $user->email;
+            $this->pendidikan_terakhir = $user->pendidikan_terakhir;
+            $this->alamat_website = $user->alamat_website;
+            $this->alamat = $user->alamat;
+            $this->roles = $user->roles;
+            $this->profesi = $user->biodata->pekerjaan;
+            $this->user_id = $user->id;
+            $this->avatar_sekarang = $user->profile_photo_path;
+            $this->biodata = $user->biodata->biodata;
+            $this->telepon = $user->biodata->telepon;
+        } else {
+            $this->toast('error', 'Kesalahan Data', route('auth.profile', auth()->id()));
+        }
     }
 
     public function rules()
@@ -70,9 +78,9 @@ class Sunting extends Component
                     'profile_photo_path' => $path
                 ]);
             }
-            $this->alert('success', 'Avatar berhasil di perbarui');
+            $this->toast('success', 'Avatar berhasil di perbarui');
         } catch (\Exception $exception) {
-            $this->alert('warning', 'Terjadi kesalahan');
+            $this->toast('error', 'Terjadi kesalahan');
         }
     }
 
@@ -95,7 +103,7 @@ class Sunting extends Component
             ]);
 
 
-        $this->alert('success', 'Data berhasil diperbarui');
+        $this->toast('success', 'Data berhasil diperbarui');
     }
 
     public function updatePassword()
@@ -111,9 +119,9 @@ class Sunting extends Component
                 'password' => bcrypt($this->password),
                 'email' => $this->email,
             ]);
-            $this->alert('success', 'Password berhasil update');
+            $this->toast('success', 'Password berhasil update');
         } catch (\Exception $exception) {
-            $this->alert('warning', 'Terjadi kesalahan');
+            $this->toast('error', 'Terjadi kesalahan');
         }
     }
 

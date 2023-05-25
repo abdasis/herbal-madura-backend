@@ -70,25 +70,25 @@
                         <table class="table-borderless mb-0 table">
                             <tbody>
                                 <tr>
-                                    <th class="ps-0" scope="row">Nama :</th>
-                                    <td class="text-muted">{{ auth()->user()->name }}</td>
+                                    <th class="ps-0" scope="row">Nama</th>
+                                    <td class="text-muted">: {{ auth()->user()->name }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">Telepon :</th>
-                                    <td class="text-muted">{{ auth()->user()->biodata->telepon }}</td>
+                                    <th class="ps-0" scope="row">Telepon</th>
+                                    <td class="text-muted">: {{ auth()->user()->biodata->telepon }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">E-mail :</th>
-                                    <td class="text-muted text-truncate">{{ auth()->user()->email }}</td>
+                                    <th class="ps-0" scope="row">E-mail</th>
+                                    <td class="text-muted text-truncate">: {{ auth()->user()->email }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">Alamat :</th>
-                                    <td class="text-muted">{{ auth()->user()->alamat ?? '-' }}
+                                    <th class="ps-0" scope="row">Alamat</th>
+                                    <td class="text-muted">: {{ auth()->user()->alamat ?? '-' }}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">Bergabung :</th>
-                                    <td class="text-muted">{{ auth()->user()->created_at->format('d M Y') }}</td>
+                                    <th class="ps-0 text-nowrap" scope="row">Bergabung</th>
+                                    <td class="text-muted">: {{ auth()->user()->created_at->format('d M Y') }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -103,7 +103,7 @@
                 </div>
             </div>
             <div class="profile-body col-md-8">
-                <div class="card">
+                <div class="card card-body">
                     <div class="card-header d-flex justify-content-between align-items-center border-white">
                         <div class="header-start d-flex align-items-center gap-2">
                             <h5 class="mb-0">Kontribusi</h5>
@@ -169,10 +169,11 @@
                         @endif
                     @else
                         @if ($data_tanaman->count() < 1)
-                            <div class="alert alert-light">
-                                Anda belum memiliki satupun kontribusi, <a
-                                    href="{{ route('wiki.tambah-artikel') }}">Tambah
-                                    Kontribusi</a>
+                            <div class="alert alert-info">
+                                Anda belum memiliki satupun kontribusi,
+                                <a href="{{ route('wiki.tambah-artikel') }}">
+                                   <kbd>+ Tambah</kbd>
+                                </a>
                             </div>
                         @else
                             @foreach ($data_tanaman as $detail)
