@@ -3,12 +3,13 @@
 namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
+use App\Traits\Toast;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class Verifikasi extends Component
 {
-    use LivewireAlert;
+    use Toast;
     public $tanaman;
     public $status;
     public $catatan;
@@ -30,7 +31,14 @@ class Verifikasi extends Component
             'tanggal_verifikasi' => now(),
             'diverifikasi_oleh' => auth()->id(),
         ]);
-        $this->flash('success', 'Berhasil melakukan review', [], route('tanaman.semua'));
+
+        if ($this->tanaman->status == 'Diterbitkan'){
+            $this->toast('success', 'Berhasil menerbitkan', route('tanaman.semua'));
+        }elseif($this->tanaman->status == 'Ditolak'){
+            $this->toast('success', 'Menolak Kiriman', route('tanaman.semua'));
+        }else{
+            $this->toast('success', 'Menetapkan status direview', route('tanaman.semua'));
+        }
     }
 
     public function render()

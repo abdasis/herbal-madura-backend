@@ -5,7 +5,7 @@
             Semua Data Produk
         </div>
         <div class="card-body">
-            <livewire:product.tabel-produk/>
+            <livewire:product.tabel-produk />
         </div>
     </div>
 </div>

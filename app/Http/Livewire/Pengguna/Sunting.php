@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\Pengguna;
 
 use App\Models\User;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
+use App\Traits\Toast;
 use Livewire\Component;
 
 class Sunting extends Component
 {
 
-    use LivewireAlert;
+    use Toast;
 
     public $name;
     public $email,
@@ -36,34 +36,19 @@ class Sunting extends Component
         $this->user_id = $user->id;
     }
 
-    public function rules()
+    public function simpan()
     {
-        return [
+        $this->validate([
             'name' => 'required',
-            'email' => 'required',
             'pendidikan_terakhir' => 'required',
             'alamat_website' => 'required',
             'alamat' => 'required',
-            'password' => 'nullable|confirmed|min:8',
-            'password_confirmation' => 'required_with:password|min:8',
-            'roles' => 'required',
-
-        ];
-    }
-
-    public function simpan()
-    {
-        $this->validate();
+        ]);
         $user = User::find($this->user_id);
         $user->name = \Str::title($this->name);
-        $user->email = $this->email;
         $user->pendidikan_terakhir = $this->pendidikan_terakhir;
         $user->alamat_website = $this->alamat_website ?? 'Belum diisi';
         $user->alamat = $this->alamat;
-        $user->roles = $this->roles;
-        if ($this->password) {
-            $user->password = \Hash::make($this->password);
-        }
         $user->save();
 
         $user->biodata()->updateOrCreate(
@@ -73,9 +58,35 @@ class Sunting extends Component
                 'telepon' => '-'
             ]);
 
-        $this->flash('success', 'Data berhasil diperbarui', [], route('pengguna.semua'));
-
+        $this->toast('success', 'Biodata Berhasil Diperbarui');
     }
+
+    public function updateBiodata()
+    {
+        if (auth()->id() == $this->user_id) {
+            $this->validate([
+                'email' => 'required|email',
+                'password' => 'nullable|confirmed|min:8',
+                'password_confirmation' => 'required_with:password|min:8',
+                'roles' => 'required',
+            ]);
+
+            try {
+                $user = User::find($this->user_id);
+                $user->update([
+                    'password' => $this->password,
+                    'email' => $this->email,
+                ]);
+                $this->toast('success', 'Akun Berhasil Diperbarui');
+            } catch (\Exception $exception) {
+                report($exception);
+                $this->toast('error', 'Terjadi kesalahaan');
+            }
+        } else {
+            $this->toast('error', 'Anda tidak memiliki akses');
+        }
+    }
+
 
     public function render()
     {

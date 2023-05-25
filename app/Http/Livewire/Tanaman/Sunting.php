@@ -66,7 +66,7 @@ class Sunting extends Component
             $nama_file = "{$nama_file}-{$tgl_upload}.{$ektension}";
             $nama_gambar = $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_file);
         }else{
-            $nama_gambar = $this->gambar_tanaman;
+            $nama_gambar = $this->gambar_sekarang;
         }
         try {
             $tanaman = Tanaman::find($this->tanaman_id);

@@ -5,14 +5,14 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="avatar-sm flex-shrink-0">
-                            <span
-                                class="avatar-title bg-light text-primary rounded-circle fs-3">
+                            <span class="avatar-title bg-light text-primary rounded-circle fs-3">
                                 <i class="ri-plant-line align-middle"></i>
                             </span>
                         </div>
                         <div class="flex-grow-1 ms-3">
                             <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Data Tanaman</p>
-                            <h4 class=" mb-0"><span class="counter-value" data-target="{{$total_tanama}}">1</span></h4>
+                            <h4 class="mb-0"><span class="counter-value" data-target="{{ $total_tanama }}">1</span>
+                            </h4>
                         </div>
                     </div>
                 </div><!-- end card body -->
@@ -23,14 +23,14 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="avatar-sm flex-shrink-0">
-                            <span
-                                class="avatar-title bg-light text-primary rounded-circle fs-3">
+                            <span class="avatar-title bg-light text-primary rounded-circle fs-3">
                                 <i class="ri-user-4-line align-middle"></i>
                             </span>
                         </div>
                         <div class="flex-grow-1 ms-3">
                             <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total Pengguna</p>
-                            <h4 class=" mb-0"><span class="counter-value" data-target="{{$total_pengguna}}">1</span></h4>
+                            <h4 class="mb-0"><span class="counter-value" data-target="{{ $total_pengguna }}">1</span>
+                            </h4>
                         </div>
                     </div>
                 </div><!-- end card body -->
@@ -41,14 +41,14 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="avatar-sm flex-shrink-0">
-                            <span
-                                class="avatar-title bg-light text-primary rounded-circle fs-3">
+                            <span class="avatar-title bg-light text-primary rounded-circle fs-3">
                                 <i class="ri-eye-line align-middle"></i>
                             </span>
                         </div>
                         <div class="flex-grow-1 ms-3">
                             <p class="text-uppercase fw-semibold fs-12 text-muted mb-1">Total Pembaca</p>
-                            <h4 class=" mb-0"><span class="counter-value" data-target="{{$total_pengunjung}}">1</span></h4>
+                            <h4 class="mb-0"><span class="counter-value"
+                                    data-target="{{ $total_pengunjung }}">1</span></h4>
                         </div>
                     </div>
                 </div><!-- end card body -->
@@ -62,24 +62,24 @@
                     Data Produk Terbaru
                 </div>
                 <div class="card-body">
-                    <table class="table table-sm table-striped">
+                    <table class="table-sm table-striped table">
                         <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nama Tanaman</th>
-                            <th>Nama Latin</th>
-                            <th>Dibuat Pada</th>
-                        </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Tanaman</th>
+                                <th>Nama Latin</th>
+                                <th>Dibuat Pada</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        @foreach($semua_tanaman as $tanaman)
-                            <tr>
-                                <td>{{$tanaman->id}}</td>
-                                <td>{{$tanaman->nama_tanaman}}</td>
-                                <td>{{$tanaman->nama_latin}}</td>
-                                <td>{{\Carbon\Carbon::parse($tanaman->created_at)->format('d F Y')}}</td>
-                            </tr>
-                        @endforeach
+                            @foreach ($semua_tanaman as $tanaman)
+                                <tr>
+                                    <td>{{ $tanaman->id }}</td>
+                                    <td>{{ $tanaman->nama_tanaman }}</td>
+                                    <td>{{ $tanaman->nama_latin }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($tanaman->created_at)->format('d F Y') }}</td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
@@ -92,25 +92,25 @@
                     Kontributor Terbaru
                 </div>
                 <div class="card-body">
-                    <table class="table table-sm table-striped">
+                    <table class="table-sm table-striped table">
                         <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nama Pengguna</th>
-                            <th>Pendidikan</th>
-                            <th>Bergabung Pada</th>
-                        </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Pengguna</th>
+                                <th>Pendidikan</th>
+                                <th>Bergabung Pada</th>
+                            </tr>
                         </thead>
                         <tbody>
 
-                        @foreach($semua_kontributor as $kontributor)
-                            <tr>
-                                <td>{{$kontributor->id}}</td>
-                                <td>{{$kontributor->name}}</td>
-                                <td>{{$kontributor->email}}</td>
-                                <td>{{\Carbon\Carbon::parse($kontributor->created_at)->format('d F Y')}}</td>
-                            </tr>
-                        @endforeach
+                            @foreach ($semua_kontributor as $kontributor)
+                                <tr>
+                                    <td>{{ $kontributor->id }}</td>
+                                    <td>{{ $kontributor->name }}</td>
+                                    <td>{{ $kontributor->email }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($kontributor->created_at)->format('d F Y') }}</td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

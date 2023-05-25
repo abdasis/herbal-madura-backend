@@ -8,14 +8,17 @@
                     <div class="alert alert-info">
                         Data yang sudah di publish jika di perbarui, maka akan kami review kembali
                     </div>
-                    <div class="card shadow-none border-0">
+                    <div class="card border-0 shadow-none">
                         <div class="card-body">
                             <div class="form-group mb-2">
-                                <x-form-input type="text" name="nama_tanaman" class="form-control form-control-lg border-0" wire:model="nama_tanaman" placeholder="Masukan Nama Tanaman" />
+                                <x-form-input type="text" name="nama_tanaman"
+                                    class="form-control form-control-lg border-0" wire:model="nama_tanaman"
+                                    placeholder="Masukan Nama Tanaman" />
                             </div>
                             <div class="form-group mb-2">
-                                <div class="editor-content shadow-none border-0" wire:ignore>
-                                 <textarea name="" class="form-control shadow-none border-0" placeholder="Tulis lengkap diskripsi tanaman" id="manfaat" cols="30" rows="10">
+                                <div class="editor-content border-0 shadow-none" wire:ignore>
+                                    <textarea name="" class="form-control border-0 shadow-none" placeholder="Tulis lengkap diskripsi tanaman"
+                                        id="manfaat" cols="30" rows="10">
                                     <h2>Deskripsi Tanaman</h2>
                                     <p>Tulis deskripsi tanaman disini</p>
                                     <h2>Zat yang Berkhasiat</h2>
@@ -33,7 +36,8 @@
                                 <label for="">Referensi</label>
                                 <div class="" wire:ignore>
                                     <textarea class="form-control" name="" wire:model="referensi" id="referensi" cols="30" rows="5"></textarea>
-                                    <small class="text-muted">Pisahkan dengan koma (,) jika memiliki banyak refrensi</small>
+                                    <small class="text-muted">Pisahkan dengan koma (,) jika memiliki banyak
+                                        refrensi</small>
                                 </div>
                                 <x-error-message error="refrensi" />
                             </div>
@@ -48,7 +52,8 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="">Nama Latin</label>
-                            <x-form-input type="text" name="nama_latin" class="form-control" wire:model="nama_latin" placeholder="Masukan Nama Latin Tanaman"/>
+                            <x-form-input type="text" name="nama_latin" class="form-control" wire:model="nama_latin"
+                                placeholder="Masukan Nama Latin Tanaman" />
                         </div>
                         <div class="form-group mb-2">
                             <label for="">Kerajaan</label>
@@ -68,9 +73,10 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="">Jenis Spesies</label>
-                            <input type="text" class="form-control" wire:model="jenis_spesies" placeholder="Jenis spesies">
+                            <input type="text" class="form-control" wire:model="jenis_spesies"
+                                placeholder="Jenis spesies">
                         </div>
-                        <div class="d-grid text-center my-3">
+                        <div class="d-grid my-3 text-center">
                             <button class="btn btn-warning d-flex align-items-center justify-content-center gap-1">
                                 <i class="ri-save-3-line"></i>
                                 Simpan
@@ -85,10 +91,11 @@
 
 @push('css')
     <style>
-        #manfaat{
+        #manfaat {
             margin-top: 20px !important;
         }
-        .tox-editor-header{
+
+        .tox-editor-header {
             box-shadow: none !important;
             border-bottom: 1px solid #f7f7f7 !important;
         }
@@ -105,11 +112,11 @@
             menubar: false,
             height: 600,
             content_style: "body {font-family: Arial; }",
-            setup: function (editor) {
-                editor.on('init', function () {
+            setup: function(editor) {
+                editor.on('init', function() {
                     editor.setContent(deskripsi)
                 });
-                editor.on('change', function (e) {
+                editor.on('change', function(e) {
                     @this.set('diskripsi', editor.getContent());
                 });
             },
@@ -122,11 +129,11 @@
             menubar: false,
             height: 200,
             content_style: "body {font-family: Arial; }",
-            setup: function (editor) {
-                editor.on('init', function () {
+            setup: function(editor) {
+                editor.on('init', function() {
                     editor.setContent(referensi)
                 });
-                editor.on('change', function (e) {
+                editor.on('change', function(e) {
                     @this.set('referensi', editor.getContent());
                 });
             },

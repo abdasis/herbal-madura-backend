@@ -12,6 +12,7 @@
         "barryvdh/laravel-snappy": "^1.0",
         "coderflexx/laravisit": "^1.2",
         "cyrildewit/eloquent-viewable": "^6.0",
+        "diglactic/laravel-breadcrumbs": "^8.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "h4cc/wkhtmltoimage-amd64": "0.12.x",

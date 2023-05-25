@@ -7,6 +7,7 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 trait AlertConfirm
 {
     use LivewireAlert;
+    use Toast;
 
     public $model_id;
 
@@ -47,7 +48,7 @@ trait AlertConfirm
 
     public function batal()
     {
-        return $this->alert('info', 'Penghapusan dibatalkan');
+        return $this->toast('info', 'Penghapusan dibatalkan');
     }
 
 

@@ -6,16 +6,18 @@
 @endphp
 
 @if ($component->hasConfigurableAreaFor('before-pagination'))
-    @include($component->getConfigurableAreaFor('before-pagination'), $component->getParametersForConfigurableArea('before-pagination'))
+    @include(
+        $component->getConfigurableAreaFor('before-pagination'),
+        $component->getParametersForConfigurableArea('before-pagination'))
 @endif
 
 @if ($theme === 'tailwind')
     <div>
         @if ($component->paginationVisibilityIsEnabled())
-            <div class="mt-4 px-4 md:p-0 sm:flex justify-between items-center space-y-4 sm:space-y-0">
+            <div class="mt-4 items-center justify-between space-y-4 px-4 sm:flex sm:space-y-0 md:p-0">
                 <div>
                     @if ($component->paginationIsEnabled() && $component->isPaginationMethod('standard') && $rows->lastPage() > 1)
-                        <p class="paged-pagination-results text-sm text-gray-700 leading-5 dark:text-white">
+                        <p class="paged-pagination-results text-sm leading-5 text-gray-700 dark:text-white">
                             <span>@lang('Showing')</span>
                             <span class="font-medium">{{ $rows->firstItem() }}</span>
                             <span>@lang('to')</span>
@@ -25,14 +27,14 @@
                             <span>@lang('results')</span>
                         </p>
                     @elseif ($component->paginationIsEnabled() && $component->isPaginationMethod('simple'))
-                        <p class="paged-pagination-results text-sm text-gray-700 leading-5 dark:text-white">
+                        <p class="paged-pagination-results text-sm leading-5 text-gray-700 dark:text-white">
                             <span>@lang('Showing')</span>
                             <span class="font-medium">{{ $rows->firstItem() }}</span>
                             <span>@lang('to')</span>
                             <span class="font-medium">{{ $rows->lastItem() }}</span>
                         </p>
                     @else
-                        <p class="total-pagination-results text-sm text-gray-700 leading-5 dark:text-white">
+                        <p class="total-pagination-results text-sm leading-5 text-gray-700 dark:text-white">
                             @lang('Showing')
                             <span class="font-medium">{{ $rows->count() }}</span>
                             @lang('results')
@@ -55,7 +57,7 @@
                         {{ $rows->links('livewire-tables::specific.bootstrap-4.pagination') }}
                     </div>
 
-                    <div class="col-12 col-md-6 text-center text-md-right text-muted">
+                    <div class="col-12 col-md-6 text-md-right text-muted text-center">
                         <span>@lang('Showing')</span>
                         <strong>{{ $rows->count() ? $rows->firstItem() : 0 }}</strong>
                         <span>@lang('to')</span>
@@ -71,7 +73,7 @@
                         {{ $rows->links('livewire-tables::specific.bootstrap-4.pagination') }}
                     </div>
 
-                    <div class="col-12 col-md-6 text-center text-md-right text-muted">
+                    <div class="col-12 col-md-6 text-md-right text-muted text-center">
                         <span>@lang('Showing')</span>
                         <strong>{{ $rows->count() ? $rows->firstItem() : 0 }}</strong>
                         <span>@lang('to')</span>
@@ -98,7 +100,7 @@
                         {{ $rows->links('livewire-tables::specific.bootstrap-4.pagination') }}
                     </div>
 
-                    <div class="col-12 col-md-6 text-center text-md-end text-muted">
+                    <div class="col-12 col-md-6 text-md-end text-muted text-center">
                         <span>@lang('Showing')</span>
                         <strong>{{ $rows->count() ? $rows->firstItem() : 0 }}</strong>
                         <span>@lang('to')</span>
@@ -114,7 +116,7 @@
                         {{ $rows->links('livewire-tables::specific.bootstrap-4.pagination') }}
                     </div>
 
-                    <div class="col-12 col-md-6 text-center text-md-end text-muted">
+                    <div class="col-12 col-md-6 text-md-end text-muted text-center">
                         <span>@lang('Showing')</span>
                         <strong>{{ $rows->count() ? $rows->firstItem() : 0 }}</strong>
                         <span>@lang('to')</span>
@@ -135,5 +137,7 @@
 @endif
 
 @if ($component->hasConfigurableAreaFor('after-pagination'))
-    @include($component->getConfigurableAreaFor('after-pagination'), $component->getParametersForConfigurableArea('after-pagination'))
+    @include(
+        $component->getConfigurableAreaFor('after-pagination'),
+        $component->getParametersForConfigurableArea('after-pagination'))
 @endif

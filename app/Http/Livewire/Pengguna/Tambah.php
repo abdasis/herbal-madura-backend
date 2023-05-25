@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Pengguna;
 
+use App\Traits\Toast;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -9,7 +10,7 @@ use App\Models\User;
 
 class Tambah extends Component
 {
-    use LivewireAlert;
+    use Toast;
     public  $name;
     public  $email,
             $pendidikan_terakhir,
@@ -29,7 +30,7 @@ class Tambah extends Component
     {
         return[
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users,email',
             'pendidikan_terakhir' => 'required',
             'alamat_website' => 'required',
             'alamat' => 'required',
@@ -60,11 +61,11 @@ class Tambah extends Component
                 'telepon' => '-'
             ]);
             \DB::commit();
-
-            $this->alert('success', 'Data berhasil disimpan');
+            $this->toast('success', 'Data Berhasil Ditambahkan');
             $this->reset();
         }catch (\Exception $exception){
-            $this->alert('warning', 'Terjadi kesalahan');
+            report($exception);
+            $this->toast('error', 'Terjadi Kesalahan');
         }
 
     }

@@ -5,7 +5,7 @@
             Semua Tanaman
         </h5>
         <div class="card-body">
-            <livewire:tanaman.tabel-tanaman/>
+            <livewire:tanaman.tabel-tanaman />
         </div>
     </div>
 </div>

@@ -5,7 +5,7 @@
             <!-- small card -->
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>{{$statistik['hari_ini']}}</h3>
+                    <h3>{{ $statistik['hari_ini'] }}</h3>
                     <p>Hari Ini</p>
                 </div>
                 <div class="icon">
@@ -18,7 +18,7 @@
             <!-- small card -->
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>{{$statistik['unique']}}</h3>
+                    <h3>{{ $statistik['unique'] }}</h3>
 
                     <p>Unique View</p>
                 </div>
@@ -32,7 +32,7 @@
             <!-- small card -->
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>{{$statistik['bulan_ini']}}</h3>
+                    <h3>{{ $statistik['bulan_ini'] }}</h3>
 
                     <p>Bulan Ini</p>
                 </div>
@@ -46,7 +46,7 @@
             <!-- small card -->
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>{{$statistik['total']}}</h3>
+                    <h3>{{ $statistik['total'] }}</h3>
 
                     <p>Total Pengunjung</p>
                 </div>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <livewire:statistik.table-statistik/>
+                    <livewire:statistik.table-statistik />
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<div class="@if($type === 'hidden') d-none @else form-group @endif">
+<div class="@if ($type === 'hidden') d-none @else form-group @endif">
     <x-form-label :label="$label" :for="$attributes->get('id') ?: $id()" />
 
     <div class="input-group">
@@ -10,21 +10,11 @@
             </div>
         @endisset
 
-        <input {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!}
-            type="{{ $type }}"
-
-            @if($isWired())
-                wire:model{!! $wireModifier() !!}="{{ $name }}"
+        <input {!! $attributes->merge(['class' => 'form-control ' . ($hasError($name) ? 'is-invalid' : '')]) !!} type="{{ $type }}"
+            @if ($isWired()) wire:model{!! $wireModifier() !!}="{{ $name }}"
             @else
-                value="{{ $value }}"
-            @endif
-
-            name="{{ $name }}"
-
-            @if($label && !$attributes->get('id'))
-                id="{{ $id() }}"
-            @endif
-        />
+                value="{{ $value }}" @endif
+            name="{{ $name }}" @if ($label && !$attributes->get('id')) id="{{ $id() }}" @endif />
 
         @isset($append)
             <div class="input-group-append">
@@ -34,7 +24,7 @@
             </div>
         @endisset
 
-        @if($hasErrorAndShow($name))
+        @if ($hasErrorAndShow($name))
             <x-form-errors :name="$name" />
         @endif
     </div>

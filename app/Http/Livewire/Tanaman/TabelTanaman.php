@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Tanaman;
 
 use App\Models\Tanaman;
 use App\Traits\AlertConfirm;
+use App\Traits\Toast;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -14,7 +15,7 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 class TabelTanaman extends DataTableComponent
 {
     use AlertConfirm;
-    use LivewireAlert;
+    use Toast;
 
     protected $listeners = ['dihapus', 'batal', 'diverifikasi'];
 
@@ -31,9 +32,9 @@ class TabelTanaman extends DataTableComponent
     {
         if ($this->model_id){
             Tanaman::find($this->model_id)->delete();
-            $this->alert('success', 'Data berhasil dihapus');
+            $this->toast('success', 'Data berhasil dihapus');
         }else{
-            $this->alert('error', 'Data tidak ditemukan');
+            $this->toast('error', 'Data tidak ditemukan');
         }
 
     }
@@ -46,7 +47,7 @@ class TabelTanaman extends DataTableComponent
             $tanaman->diverifikasi_oleh = \Auth::id();
             $tanaman->tanggal_verifikasi = Carbon::now();
             $tanaman->save();
-            $this->alert('success', 'Data berhasil diverifikasi');
+            $this->toast('success', 'Data berhasil diverifikasi');
 
         }
     }

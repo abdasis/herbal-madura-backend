@@ -4,36 +4,39 @@
     <div class="banner-pencarian d-flex justify-content-center align-items-center">
         <div class="col-md-6 col-sm-12">
             <div class="form-group w-100">
-                <input wire:model.debounce="keyword" placeholder="Pencarian" type="text" class="form-control form-control-lg rounded-pill mx-auto bg-white border border-warning" name="" id="">
+                <input wire:model.debounce="keyword" placeholder="Pencarian" type="text"
+                    class="form-control form-control-lg rounded-pill border-warning mx-auto border bg-white"
+                    name="" id="">
             </div>
         </div>
     </div>
     <div class="container mt-5">
         <div class="row justify-content-center" style="min-height: 100vh">
             <div class="col-md-8">
-                @if($keyword)
+                @if ($keyword)
                     <div class="alert alert-secondary info-hasil-text">
                         <small>Hasil pencarian yang ditemukan total
-                            <strong>{{$tanaman->total()}}</strong>
-                            untuk keyword : <strong>{{$keyword}}</strong></small>
+                            <strong>{{ $tanaman->total() }}</strong>
+                            untuk keyword : <strong>{{ $keyword }}</strong></small>
                     </div>
                 @endif
                 <div class="card-body box-hasil-pencarian">
-                    @if(empty($tanaman))
+                    @if (empty($tanaman))
                         <div class="alert alert-light">
-                            Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan tentang tanaman ini di data kami?
+                            Mohon maaf tanaman yang anda cari belum tersedia di database kami, apakah mau menambahkan
+                            tentang tanaman ini di data kami?
                             <a href="#">Klik Disini</a>
                         </div>
                     @else
-                        @foreach($tanaman as $detail)
-                            <a href="{{route('tanaman.baca', $detail->slug)}}">
+                        @foreach ($tanaman as $detail)
+                            <a href="{{ route('tanaman.baca', $detail->slug) }}">
                                 <div class="card">
                                     <div class="row g-2 align-items-center">
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <h5 class="card-title title mb-2">{{$detail->nama_tanaman}}</h5>
+                                                <h5 class="card-title title mb-2">{{ $detail->nama_tanaman }}</h5>
                                                 <p class="card-text text-muted mb-0">
-                                                    {!! Str::limit(strip_tags($detail->diskripsi_tanaman),150, '...') !!}
+                                                    {!! Str::limit(strip_tags($detail->diskripsi_tanaman), 150, '...') !!}
                                                 </p>
                                             </div>
                                             <div class="card-footer border-top-dashed">
@@ -41,39 +44,42 @@
                                                     <div class="card-text">
                                                         <small class="text-muted d-flex align-items-center gap-1">
                                                             <i class="ri-user-fill"></i>
-                                                            {{Str::title($detail->user->name)}}
+                                                            {{ Str::title($detail->user->name) }}
                                                         </small>
                                                     </div>
                                                     |
                                                     <div class="card-text">
-                                                        <small class="text-muted">{{Carbon::parse($detail->created_at)->format('d, F Y')}}</small></div>
+                                                        <small
+                                                            class="text-muted">{{ Carbon::parse($detail->created_at)->format('d, F Y') }}</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4 px-4">
-                                            <img class="rounded-end img-fluid
-                                             gambar-unggulan-tanaman d-none d-md-block" src="{{file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png')}}" alt="{{$detail->nama_tanaman}}">
+                                            <img class="rounded-end img-fluid gambar-unggulan-tanaman d-none d-md-block"
+                                                src="{{ file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png') }}"
+                                                alt="{{ $detail->nama_tanaman }}">
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         @endforeach
-                        {{$tanaman->links()}}
+                        {{ $tanaman->links() }}
                     @endif
                 </div>
             </div>
             <div class="col-md-4">
-                @if($spotligth_pencarian)
+                @if ($spotligth_pencarian)
                     <div class="card spotlight-pencarian">
                         <div class="card-body">
                             <div class="card-title">
                                 <i class="ri-star-line"></i>
-                                {{$spotligth_pencarian->nama_tanaman}}
+                                {{ $spotligth_pencarian->nama_tanaman }}
                             </div>
                             <div class="card-text text-muted">
                                 {!! \Illuminate\Support\Str::limit($spotligth_pencarian->diskripsi_tanaman, 350) !!}
                             </div>
-                            <a href="{{route('tanaman.baca', $spotligth_pencarian->slug)}}">
+                            <a href="{{ route('tanaman.baca', $spotligth_pencarian->slug) }}">
                                 Selengkapnya
                             </a>
                         </div>
@@ -86,26 +92,29 @@
 
 @push('style')
     <style>
-        .title-tanaman{
+        .title-tanaman {
             font-family: 'Quicksand', sans-serif;
             font-weight: 600;
             font-size: 16px;
         }
-        .diskripsi-singkat-tanaman{
+
+        .diskripsi-singkat-tanaman {
             font-family: 'Quicksand', sans-serif;
             font-weight: 500;
             font-size: 13px;
         }
-        .meta-artikel{
+
+        .meta-artikel {
             font-family: 'Quicksand', sans-serif;
         }
 
-        .info-hasil-text{
+        .info-hasil-text {
             font-family: 'Quicksand', sans-serif;
             font-size: 16px;
         }
 
-        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
             color: #495057;
             background-color: #fff;
             border-color: white !important;

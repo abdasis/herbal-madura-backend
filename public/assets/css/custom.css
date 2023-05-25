@@ -438,3 +438,9 @@ footer{
     font-size: 14px;
     font-family: Inter, sans-serif;
 }
+
+.btn{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}

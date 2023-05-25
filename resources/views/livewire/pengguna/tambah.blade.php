@@ -2,32 +2,26 @@
     {{-- Stop trying to control. --}}
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-outline card-orange shadow-sm">
-                <div class="card-header bg-white border-bottom border-light">
-                    <h5 class="card-title">
-                        Form Tambah Pengguna
-                    </h5>
-                </div>
+            <div class="card border-light shadow-sm">
                 <div class="card-body">
                     <form wire:submit.prevent="simpan">
-                        <div class="row justify-content-around  ">
-                            <div class="col-md-5 border border-light rounded-sm p-4">
+                        <div class="row justify-content-around gap-3">
+                            <div class="col-md-12 rounded-sm p-4">
+                                <h3 class="card-title mb-3">Biodata Pengguna</h3>
                                 <div class="form-group mb-3">
                                     <x-form-input name="name" wire:model="name" placeholder="Masukan Nama Lengkap"
-                                                  label="Nama Lengkap"/>
+                                        label="Nama Lengkap" />
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <x-form-input type="text" name="profesi" wire:model="profesi" label="Profesi"
-                                                  placeholder="Masukan Profesi"/>
+                                        placeholder="Masukan Profesi" />
                                 </div>
 
                                 <div class="form-group mb-3">
 
                                     <x-form-select name="pendidikan_terakhir" wire:model="pendidikan_terakhir"
-                                                   placeholder="Pilih Pendidikan Terakhir"
-                                                   label="Pendidikan Terakhi"
-                                    >
+                                        placeholder="Pilih Pendidikan Terakhir" label="Pendidikan Terakhi">
                                         <option value="">Pilih Pendidikan Terakhir</option>
                                         <option value="SD/Sederajat">SD/Sederajat</option>
                                         <option value="SMP/Sederajat">SMP/Sederajat</option>
@@ -39,39 +33,31 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <x-form-input
-                                        name="alamat_website"
-                                        wire:model="alamat_website"
-                                        label="Personal Website"
-                                        placeholder="Masukan url personal blog"
-                                    />
+                                    <x-form-input name="alamat_website" wire:model="alamat_website"
+                                        label="Personal Website" placeholder="Masukan url personal blog" />
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <x-form-textarea rows="6" wire:model="alamat" name="alamat"
-                                                     label="Alamat"></x-form-textarea>
+                                        label="Alamat"></x-form-textarea>
                                 </div>
 
-
                             </div>
-                            <div class="col-md-5 border border-light rounded-sm p-4">
+                            <div class="col-md-12 rounded-sm p-4">
+                                <h3 class="card-title mb-3">Akun Pengguna</h3>
                                 <div class="form-group mb-3">
                                     <x-form-input name="email" wire:model="email" label="Email"
-                                                  placeholder="Masukan email aktif"/>
+                                        placeholder="Masukan email aktif" />
                                 </div>
                                 <div class="form-group mb-3">
                                     <x-form-input type="password" name="password" wire:model="password" label="Password"
-                                                  placeholder="Masukan password"/>
+                                        placeholder="Masukan password" />
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <x-form-input
-                                        type="password"
-                                        name="password_confirmation"
-                                        wire:model="password_confirmation"
-                                        label="Konfirmasi Password"
-                                        placeholder="Masukan Password Kembali"
-                                    />
+                                    <x-form-input type="password" name="password_confirmation"
+                                        wire:model="password_confirmation" label="Konfirmasi Password"
+                                        placeholder="Masukan Password Kembali" />
                                 </div>
 
                                 <div class="form-group mb-3">
