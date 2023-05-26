@@ -22,6 +22,16 @@ class TanamanByAuthor extends DataTableComponent
         $this->setPaginationMethod('simple');
         $this->setFilterLayoutSlideDown();
         $this->setQueryStringDisabled();
+        $this->setThAttributes(function (Column $column) {
+            if ($column->isField('id')) {
+                return [
+                    'class' => 'text-end'
+                ];
+            }
+
+            return [];
+        });
+
     }
 
     public function filters(): array
@@ -53,6 +63,7 @@ class TanamanByAuthor extends DataTableComponent
             Column::make("Diupdate Pada", "updated_at")
                 ->sortable()->deselected(),
             Column::make('Status', 'status')->deselected(),
+            Column::make('Catatan', 'catatan')->deselected(),
             Column::make('Aksi', 'id')->view('livewire.partials.tombol_aksi'),
         ];
     }

@@ -21,14 +21,14 @@
                             <form method="POST" action="{{ route('login') }}" autocomplete="off" autofocus="off">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <x-form-input label="Email" type="email" placeholder="Email" type="email"
+                                    <x-form-input autocomplete="off" label="Email" type="email" placeholder="Email" type="email"
                                         name="email" :value="old('email')" required autofocus />
 
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <x-form-input label="Password" type="password" placeholder="Password"
-                                        name="password" required autocomplete="current-password" />
+                                        name="password" required autocomplete="off" />
 
                                 </div>
                                 <div class="row align-items-center">

@@ -1,5 +1,11 @@
-<p class="fw-bold mb-0">{{$row->nama_tanaman}}</p>
+<p class="fw-bold mb-0 mt-2">{{$row->nama_tanaman}}</p>
 <p class="text-wrap">{!! Str::limit(strip_tags($row->diskripsi_tanaman), 105) !!}</p>
+
+@if($row->status == 'Ditolak')
+    <p>
+        <strong class="text-danger">Note:</strong> {{$row->catatan}}
+    </p>
+@endif
 
 <div class="meta-post d-flex mb-2 align-items-center gap-2">
     <div class="meta-date d-flex gap-1">
