@@ -37,8 +37,8 @@
                     <x-form-textarea rows="6" wire:model="alamat" name="alamat" label="Alamat">
                     </x-form-textarea>
                 </div>
-                <div class="my-3 form-group float-end">
-                    <button class="btn btn-primary d-flex align-items-center gap-1 btn-border">
+                <div class="form-group float-end my-3">
+                    <button class="btn btn-primary d-flex align-items-center btn-border gap-1">
                         <i class="ri-save-3-fill"></i>
                         Update Biodata
                     </button>
@@ -50,7 +50,7 @@
     <div class="card border-light rounded shadow-sm">
         <div class="card-body">
             <h3 class="card-title mb-3">Pengaturan Akun</h3>
-            @if(auth()->id() != $user_id)
+            @if (auth()->id() != $user_id)
                 <div class="alert alert-danger">
                     Anda tidak memiliki hak untuk memperbarui data akun ini
                 </div>
@@ -60,13 +60,14 @@
                     <x-form-input name="email" wire:model="email" label="Email" placeholder="Masukan email aktif" />
                 </div>
                 <div class="form-group mb-3">
-                    <x-form-input type="password" autocomplete="off" name="password" wire:model="password" label="Password"
-                                  placeholder="Masukan password" />
+                    <x-form-input type="password" autocomplete="off" name="password" wire:model="password"
+                        label="Password" placeholder="Masukan password" />
                 </div>
 
                 <div class="form-group mb-3">
-                    <x-form-input type="password" autocomplete="off" name="password_confirmation" wire:model="password_confirmation"
-                                  label="Konfirmasi Password" placeholder="Masukan Password Kembali" />
+                    <x-form-input type="password" autocomplete="off" name="password_confirmation"
+                        wire:model="password_confirmation" label="Konfirmasi Password"
+                        placeholder="Masukan Password Kembali" />
                 </div>
 
                 <div class="form-group mb-3">

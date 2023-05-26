@@ -58,7 +58,7 @@
         @endunless
     </th>
 @elseif ($theme === 'bootstrap-4' || $theme === 'bootstrap-5')
-    <th scope="col"
+    <th class="align-middle" scope="col"
         {{ $attributes->merge($customAttributes)->class(['' => $customAttributes['default'] ?? true])->class(['d-none d-sm-table-cell' => $column->shouldCollapseOnMobile()])->class(['d-none d-md-table-cell' => $column->shouldCollapseOnTablet()])->except('default') }}>
         @unless ($component->sortingIsEnabled() && $column->isSortable())
             {{ $column->getTitle() }}

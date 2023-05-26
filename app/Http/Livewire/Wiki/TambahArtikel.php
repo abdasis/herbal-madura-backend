@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Wiki;
 
 use App\Models\Tanaman;
+use App\Traits\Toast;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -11,6 +12,7 @@ class TambahArtikel extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
+    use Toast;
     public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Direview', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
     public $kerajaan, $ordo, $famili, $genus, $spesies;
 
@@ -64,10 +66,10 @@ class TambahArtikel extends Component
             $tanaman->dibuat_oleh = \Auth::id();
             $tanaman->diupdate_oleh = \Auth::id();
             $tanaman->save();
-            $this->flash('success', 'Data berhasil disimpan', [], route('auth.detail'));
+            $this->toast('success', 'Data berhasil disimpan', route('auth.detail'));
         }catch (\Error $error){
             report($error->getMessage());
-            $this->alert('error', 'Terjadi kesalahan');
+            $this->toast('error', 'Terjadi kesalahan');
         }
     }
     public function render()

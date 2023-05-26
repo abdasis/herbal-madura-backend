@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Wiki;
 
 use App\Models\Tanaman;
+use App\Traits\Toast;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -11,14 +12,28 @@ class SuntingArtikel extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
-    public $nama_tanaman, $nama_latin,$gambar_tanaman, $status = 'Direview', $diskripsi, $pustaka, $referensi,  $jenis_spesies;
+    use Toast;
 
-    public $kerajaan, $ordo, $famili, $genus, $spesies;
+    public $nama_tanaman,
+        $nama_latin,
+        $gambar_tanaman,
+        $status = 'Direview',
+        $diskripsi,
+        $pustaka,
+        $referensi,
+        $jenis_spesies;
+
+    public $kerajaan,
+        $ordo,
+        $famili,
+        $genus,
+        $spesies;
+    public $gambar_sekarang;
     public $detail_tanaman;
 
     public function mount($slug)
     {
-        if (!in_array(auth()->user()->roles, ['kontributor', 'admin'])){
+        if (!in_array(auth()->user()->roles, ['kontributor', 'admin'])) {
             $this->flash('info', 'Informasi', [
                 'text' => 'Anda harus menjadi kontributor untuk menulis artikel'
             ], route('auth.detail'));
@@ -37,8 +52,10 @@ class SuntingArtikel extends Component
         $this->famili = $tanaman->famili;
         $this->genus = $tanaman->genus;
         $this->spesies = $tanaman->spesies;
+        $this->gambar_sekarang = $tanaman->gambar_tanaman;
 
     }
+
     public function rules()
     {
         return [
@@ -52,11 +69,11 @@ class SuntingArtikel extends Component
     {
         $this->validate();
         try {
-            if (!empty($this->gambar_tanaman)){
+            if (!empty($this->gambar_tanaman)) {
                 $nama_gambar = \Str::uuid() . '.' . $this->gambar_tanaman->extension();
                 $nama_gambar = $nama_gambar;
                 $this->gambar_tanaman->storeAs('gambar-tanaman', $nama_gambar);
-            }else{
+            } else {
                 $nama_gambar = $this->detail_tanaman->gambar_tanaman;
             }
             $tanaman = Tanaman::find($this->detail_tanaman->id);
@@ -75,12 +92,13 @@ class SuntingArtikel extends Component
             $tanaman->dibuat_oleh = \Auth::id();
             $tanaman->diupdate_oleh = \Auth::id();
             $tanaman->save();
-            $this->flash('success', 'Data berhasil disimpan', [], route('auth.detail'));
+            $this->toast('success', 'Data berhasil disimpan', route('auth.detail'));
 
-        }catch (\Exception $error){
-            $this->alert('error', 'Terjadi kesalahan');
+        } catch (\Exception $error) {
+            $this->toast('error', 'Terjadi kesalahan');
         }
     }
+
     public function render()
     {
         return view('livewire.wiki.sunting-artikel')->layout('layouts.editor');

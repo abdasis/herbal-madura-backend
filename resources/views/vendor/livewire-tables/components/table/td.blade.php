@@ -13,7 +13,7 @@
         {{ $slot }}
     </td>
 @elseif ($theme === 'bootstrap-4' || $theme === 'bootstrap-5')
-    <td @if ($column->isClickable()) onclick="window.open('{{ $component->getTableRowUrl($row) }}', '{{ $component->getTableRowUrlTarget($row) ?? '_self' }}')"
+    <td class="align-middle" @if ($column->isClickable()) onclick="window.open('{{ $component->getTableRowUrl($row) }}', '{{ $component->getTableRowUrlTarget($row) ?? '_self' }}')"
             style="cursor:pointer" @endif
         {{ $attributes->merge($customAttributes)->class([' align-middle ' => $customAttributes['default'] ?? true])->class(['d-none d-sm-table-cell' => $column && $column->shouldCollapseOnMobile()])->class(['d-none d-md-table-cell' => $column && $column->shouldCollapseOnTablet()])->except('default') }}>
         {{ $slot }}

@@ -2,7 +2,7 @@
 
 @php
     $theme = $component->getTheme();
-    
+
     $customAttributes = [
         'wrapper' => $this->getTableWrapperAttributes(),
         'table' => $this->getTableAttributes(),
@@ -44,7 +44,7 @@
     <div
         {{ $attributes->merge($customAttributes['wrapper'])->class(['table-responsive' => $customAttributes['wrapper']['default'] ?? true])->except('default') }}>
         <table
-            {{ $attributes->merge($customAttributes['table'])->class(['table table-hover' => $customAttributes['table']['default'] ?? true])->except('default') }}>
+            {{ $attributes->merge($customAttributes['table'])->class(['table table-nowrap table-sm table-hover' => $customAttributes['table']['default'] ?? true])->except('default') }}>
             <thead
                 {{ $attributes->merge($customAttributes['thead'])->class([' bg-light ' => $customAttributes['thead']['default'] ?? true])->except('default') }}>
                 <tr>

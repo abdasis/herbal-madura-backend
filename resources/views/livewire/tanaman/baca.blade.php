@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="biografi-penulis border py-4 rounded border-light">
+                        <div class="biografi-penulis border-light rounded border py-4">
                             <div class="card-text">
                                 <div class="row justify-content-center">
                                     <div class="col d-grid text-center">

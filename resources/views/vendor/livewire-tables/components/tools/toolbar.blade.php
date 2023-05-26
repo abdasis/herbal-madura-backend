@@ -502,11 +502,11 @@
             $component->hasVisibleFilters() &&
             $component->isFilterLayoutSlideDown())
         <div x-cloak x-show="filtersOpen">
-            <div class="container">
-                <div class="row">
+            <div class="container-fluid">
+                <div class="row ">
                     @foreach ($component->getFilters() as $filter)
                         @if ($filter->isVisibleInMenus())
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="col-12 col-sm-6 px-0 col-md-4 col-lg-3 mb-4">
                                 <label for="{{ $component->getTableName() }}-filter-{{ $filter->getKey() }}"
                                     class="d-block">
                                     {{ $filter->getName() }}
@@ -723,11 +723,11 @@
             $component->hasVisibleFilters() &&
             $component->isFilterLayoutSlideDown())
         <div x-cloak x-show="filtersOpen">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     @foreach ($component->getFilters() as $filter)
                         @if ($filter->isVisibleInMenus())
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="col-12 col-sm-6 px-0 col-md-4 col-lg-3 mb-4">
                                 <label for="{{ $component->getTableName() }}-filter-{{ $filter->getKey() }}"
                                     class="d-block">
                                     {{ $filter->getName() }}

@@ -39,7 +39,7 @@
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-                    {{Breadcrumbs::render()}}
+                    {{ Breadcrumbs::render() }}
                     {{ $slot }}
                 </div>
             </div>
