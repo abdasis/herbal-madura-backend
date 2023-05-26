@@ -60,6 +60,17 @@
                                 Simpan
                             </button>
                         </div>
+                        <div class="my-3">
+                            @if($errors->any())
+                                <div class="alert alert-danger">
+                                    <ol class="mb-0 px-2">
+                                        @foreach($errors->all() as $error)
+                                            <li>{{$error}}</li>
+                                        @endforeach
+                                    </ol>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

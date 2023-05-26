@@ -6,13 +6,14 @@
                     <div class="card-body">
                         <div class="form-group mb-2">
                             <x-form-input id="nama_tanaman" type="text" name="nama_tanaman"
-                                class="form-control form-control-lg border-0 px-0" wire:model="nama_tanaman"
-                                placeholder="Masukan Nama Tanaman" />
+                                          class="form-control form-control-lg border-0 px-0" wire:model="nama_tanaman"
+                                          placeholder="Masukan Nama Tanaman"/>
                         </div>
                         <div class="form-group mb-2">
                             <div class="editor-content border-0 shadow-none" wire:ignore>
-                                <textarea name="" class="form-control border-0 shadow-none" placeholder="Tulis lengkap diskripsi tanaman"
-                                    id="manfaat" cols="30" rows="10">
+                                <textarea name="" class="form-control border-0 shadow-none"
+                                          placeholder="Tulis lengkap diskripsi tanaman"
+                                          id="manfaat" cols="30" rows="10">
                                     <h2>Tentang Tanaman</h2>
                                     <p>Tulis deskripsi tanaman disini</p>
                                     <h2>Kandungan</h2>
@@ -22,7 +23,7 @@
 
                                 </textarea>
                             </div>
-                            <x-error-message error="diskripsi" />
+                            <x-error-message error="diskripsi"/>
                         </div>
                     </div>
                     <div class="card-body">
@@ -32,7 +33,7 @@
                                 <textarea class="form-control" name="" wire:model="referensi" id="referensi"></textarea>
                                 <small class="text-muted">Pisahkan dengan koma (,) jika memiliki banyak refrensi</small>
                             </div>
-                            <x-error-message error="refrensi" />
+                            <x-error-message error="refrensi"/>
                         </div>
                     </div>
                 </div>
@@ -44,29 +45,42 @@
                         <div class="box-img text-end">
                             @if ($gambar_tanaman)
                                 <img src="{{ $gambar_tanaman->temporaryUrl() }}" class="img-fluid rounded-3"
-                                    alt="">
+                                     alt="">
                                 <button wire:click.prevent="resetImage"
-                                    class="btn btn-danger btn-sm my-3">Hapus</button>
+                                        class="btn btn-danger btn-sm my-3">Hapus
+                                </button>
                             @else
-                                <x-form-input name="gambar_tanaman" wire:model="gambar_tanaman" type="file" />
+                                <x-form-input name="gambar_tanaman" wire:model="gambar_tanaman" type="file"/>
                             @endif
                         </div>
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Nama Latin</label>
                         <x-form-input type="text" name="nama_latin" class="form-control" wire:model="nama_latin"
-                            placeholder="Masukan Nama Latin Tanaman" />
+                                      placeholder="Masukan Nama Latin Tanaman"/>
                     </div>
                     <div class="form-group mb-2">
                         <label for="">Jenis Spesies</label>
                         <input type="text" class="form-control" wire:model="jenis_spesies"
-                            placeholder="Jenis spesies">
+                               placeholder="Jenis spesies">
                     </div>
                     <div class="d-grid text-center">
                         <button class="btn btn-warning d-flex align-items-center justify-content-center gap-1">
                             <i class="ri-save-3-line"></i>
                             Simpan
                         </button>
+                    </div>
+
+                    <div class="my-3">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <ol class="mb-0 px-2">
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ol>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -101,8 +115,8 @@
                     'bold italic |bullist | preview',
                 block_formats: 'Paragraph=p; Subheading=h2;',
                 content_style: "body {font-family: Arial}",
-                setup: function(editor) {
-                    editor.on('change', function(e) {
+                setup: function (editor) {
+                    editor.on('change', function (e) {
                         editor.save()
                         @this.set('diskripsi', editor.getContent());
                     });
@@ -116,11 +130,13 @@
                 menubar: false,
                 height: 200,
                 content_style: "body {font-family: Arial; }",
-                setup: function(editor) {
-                    editor.on('init change', function() {
-                        editor.setContent(@this.referensi);
+                setup: function (editor) {
+                    editor.on('init change', function () {
+                        editor.setContent(@this.referensi
+                    )
+                        ;
                     });
-                    editor.on('change', function(e) {
+                    editor.on('change', function (e) {
                         @this.
                         set('referensi', editor.getContent());
                     });
