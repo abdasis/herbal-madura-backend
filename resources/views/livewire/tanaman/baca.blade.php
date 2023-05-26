@@ -102,13 +102,13 @@
                             <div class="reaction-item">
                                 <ul class="d-flex list-unstyled gap-2">
                                     <li wire:click="suka"
-                                        class="d-flex {{ \Reaction::has($tanaman, auth()->user(), 'heart') ? 'liked' : 'not-liked' }} cursor-pointer gap-1">
+                                        class="d-flex align-items-center mb-0 {{ \Reaction::has($tanaman, auth()->user(), 'heart') ? 'liked' : 'not-liked' }} cursor-pointer gap-1">
                                         <i
                                             class="ri-heart-2-fill {{ \Reaction::has($tanaman, auth()->user(), 'heart') ? 'text-danger' : 'text-muted' }}"></i>
                                         <span class="text-danger"> + {{ Reaction::count($tanaman, 'heart') }}</span>
                                     </li>
                                     <li wire:click="jempol"
-                                        class="d-flex {{ \Reaction::has($tanaman, auth()->user(), 'person_raising_hand') ? 'liked' : 'not-liked' }} cursor-pointer gap-1">
+                                        class="d-flex align-items-center mb-0 {{ \Reaction::has($tanaman, auth()->user(), 'person_raising_hand') ? 'liked' : 'not-liked' }} cursor-pointer gap-1">
                                         <i
                                             class="ri-thumb-up-fill {{ \Reaction::has($tanaman, auth()->user(), 'person_raising_hand') ? 'text-danger' : 'text-muted' }}"></i>
                                         <span class="text-danger"> +
