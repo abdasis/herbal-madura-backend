@@ -26,7 +26,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/3kubek8r1p1mz4kvit7hc1z2mxd8wgg551cbeu82qkmenprf/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
-
     @livewireStyles
     @stack('css')
     <style>
@@ -34,7 +33,6 @@
             display: none !important;
         }
     </style>
-    <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
 <body>

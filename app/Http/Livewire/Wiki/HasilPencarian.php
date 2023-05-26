@@ -13,7 +13,9 @@ class HasilPencarian extends Component
     protected $paginationTheme = 'bootstrap';
     public $keyword;
     public $kategori = 'semua';
-    public $queryString = ['keyword'];
+
+    protected $queryString = ['keyword'];
+
     protected $listeners = ['pencarian'];
 
     public function updatedKeyword()
