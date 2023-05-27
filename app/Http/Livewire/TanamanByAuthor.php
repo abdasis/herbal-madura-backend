@@ -20,6 +20,7 @@ class TanamanByAuthor extends DataTableComponent
     {
         $this->setPrimaryKey('id');
         $this->setPaginationMethod('simple');
+        $this->setDefaultSort('created_at', 'desc');
         $this->setFilterLayoutSlideDown();
         $this->setQueryStringDisabled();
         $this->setThAttributes(function (Column $column) {
