@@ -7,8 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Kamus Tanaman | Kamus Tanaman Herbal Terbaik #1 Di Indonesia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesbrand" name="author" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/aos/aos.css') }}">
     <script src="{{ asset('assets/js/layout.js') }}"></script>
