@@ -26,7 +26,6 @@
             display: none !important;
         }
     </style>
-    <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
 <body>
