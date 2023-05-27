@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Tambah Artikel</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesbrand" name="author" />
+    {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
+    {!! SEO::generate() !!}
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/aos/aos.css') }}">
     <script src="{{ asset('assets/js/layout.js') }}"></script>
@@ -27,7 +28,6 @@
             display: none !important;
         }
     </style>
-    <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
 <body class="bg-white">
