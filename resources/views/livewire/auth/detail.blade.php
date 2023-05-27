@@ -172,17 +172,7 @@
                                 </a>
                             </div>
                         @else
-                            @foreach ($data_tanaman as $detail)
-                                <div class="card border-top border-top-dashed py-3 my-2 shadow-none">
-                                    <livewire:tanaman-by-author/>
-                                    {{--<div class="col-md-4">
-                                           <img class="rounded-end img-fluid h-100 gambar-unggulan-tanaman d-none d-md-block"
-                                               src="{{ file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png') }}"
-                                               alt="{{ $detail->nama_tanaman }}">
-                                       </div>--}}
-                                </div>
-                            @endforeach
-                            {{ $data_tanaman->links() }}
+                            <livewire:tanaman-by-author />
                         @endif
                     @endif
                 </div>
@@ -206,7 +196,7 @@
 
 @push('css')
     <style>
-        *{
+        * {
             font-family: 'Inter', sans-serif !important;
         }
     </style>

@@ -98,7 +98,7 @@
                     @continue($filter->isHiddenFromPills())
 
                     <span wire:key="{{ $component->getTableName() }}-filter-pill-{{ $filter->getKey() }}"
-                        class="badge rounded-pill bg-info d-inline-flex align-items-center">
+                        class="badge rounded-pill bg-info d-inline-flex align-items-center px-2 py-0">
                         {{ $filter->getFilterPillTitle() }}: {{ $filter->getFilterPillValue($value) }}
 
                         <a href="#" wire:click="resetFilter('{{ $filter->getKey() }}')" class="ms-2 text-white">

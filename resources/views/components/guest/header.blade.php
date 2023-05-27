@@ -41,26 +41,18 @@
                                 alt="avatar-circle" class="avatar-xs rounded-circle me-2">
                             <span class="fw-bold">Hai, {{ Str::title(auth()->user()->name) }}</span>
                         </a>
-                        <ul class="dropdown-menu border-light mt-4 px-2 shadow-sm" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item fs-14 d-flex align-items-center justify-content-start gap-2 p-1"
-                                    href="{{ route('dashboard') }}">
-                                    <i class="mdi mdi-account"></i>
-                                    Profile
-                                </a></li>
-                            <li>
-                                <hr class="dropdown-divider border-light">
-                            </li>
-                            <li>
-                                <form method="post" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button
-                                        class="dropdown-item fs-14 text-danger d-flex align-items-center justify-content-start gap-2 p-1">
-                                        <i class="ri-logout-box-line"></i>
-                                        Logout
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
+                        <div class="dropdown-menu dropdown-menu-end mt-4 border-light shadow-sm">
+                            <!-- item-->
+                            <h6 class="dropdown-header">Welcome {{ auth()->user()->name }}!</h6>
+
+                            <a class="dropdown-item" href="{{ route('auth.detail', auth()->id()) }}"><i
+                                    class="mdi mdi-account fs-16 me-1 align-middle"></i> <span>Profile</span></a>
+                            <a class="dropdown-item" href="{{ route('auth.sunting', auth()->id()) }}"><i
+                                    class="ri ri-user-settings-line fs-16 me-1 align-middle"></i> <span>Update Profile</span></a>
+                            <a class="dropdown-item text-danger" href="{{ route('kelaur') }}"><i
+                                    class="mdi mdi-logout text-danger fs-16 me-1 align-middle"></i> <span
+                                    class="align-middle" data-key="t-logout">Logout</span></a>
+                        </div>
                     </div>
                 @else
                     <a href="{{ route('login') }}"

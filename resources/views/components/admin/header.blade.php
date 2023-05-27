@@ -24,7 +24,7 @@
                 </div>
 
                 <button type="button" class="btn btn-sm fs-16 header-item vertical-menu-btn topnav-hamburger px-3"
-                    id="topnav-hamburger-icon">
+                        id="topnav-hamburger-icon">
                     <span class="hamburger-icon">
                         <span></span>
                         <span></span>
@@ -32,7 +32,7 @@
                     </span>
                 </button>
                 <a href="{{ url('/') }}"
-                    class="btn btn-sm fs-16 header-item vertical-menu-btn topnav-hamburger px-3">
+                   class="btn btn-sm fs-16 header-item vertical-menu-btn topnav-hamburger px-3">
                     <span class="hamburger-icon">
                         <i class="mdi mdi-web"></i>
                     </span>
@@ -41,10 +41,10 @@
             <div class="d-flex align-items-center">
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                            aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle header-profile-user"
-                                src="{{ Avatar::create(auth()->user()->name) }}" alt="Header Avatar">
+                                 src="{{ Avatar::create(auth()->user()->name) }}" alt="Header Avatar">
                             <span class="ms-xl-2 text-start">
                                 <span
                                     class="d-none d-xl-inline-block fw-medium user-name-text ms-1">{{ Str::title(auth()->user()->name) }}</span>
@@ -57,8 +57,10 @@
                         <!-- item-->
                         <h6 class="dropdown-header">Welcome {{ auth()->user()->name }}!</h6>
 
-                        <a class="dropdown-item" href="{{ route('auth.sunting', auth()->id()) }}"><i
+                        <a class="dropdown-item" href="{{ route('auth.detail', auth()->id()) }}"><i
                                 class="mdi mdi-account fs-16 me-1 align-middle"></i> <span>Profile</span></a>
+                        <a class="dropdown-item" href="{{ route('auth.sunting', auth()->id()) }}"><i
+                                class="ri ri-user-settings-line fs-16 me-1 align-middle"></i> <span>Update Profile</span></a>
                         <a class="dropdown-item text-danger" href="{{ route('kelaur') }}"><i
                                 class="mdi mdi-logout text-danger fs-16 me-1 align-middle"></i> <span
                                 class="align-middle" data-key="t-logout">Logout</span></a>

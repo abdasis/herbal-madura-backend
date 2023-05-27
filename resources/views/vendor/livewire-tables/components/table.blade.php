@@ -2,7 +2,7 @@
 
 @php
     $theme = $component->getTheme();
-
+    
     $customAttributes = [
         'wrapper' => $this->getTableWrapperAttributes(),
         'table' => $this->getTableAttributes(),
