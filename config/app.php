@@ -179,6 +179,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        Rollbar\Laravel\RollbarServiceProvider::class,
 
     ],
 

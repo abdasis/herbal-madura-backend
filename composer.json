@@ -33,6 +33,7 @@
         "meilisearch/meilisearch-php": "^0.26.1",
         "protonemedia/laravel-form-components": "^3.6",
         "rappasoft/laravel-livewire-tables": "^2.8",
+        "rollbar/rollbar-laravel": "^7.2",
         "spatie/laravel-permission": "^5.1"
     },
     "require-dev": {
