@@ -10,7 +10,7 @@
 <div class="meta-post d-flex align-items-center mb-2 gap-2">
     <div class="meta-date d-flex gap-1">
         <i class="ri-calendar-2-line"></i>
-        <span class="fs-12">{{ $row->created_at->format('d-m-Y') }}</span>
+        <span class="fs-12">{{ $row->created_at->format('d-m-Y H:i') }}</span>
     </div>
     <div class="meta-status">
         @if ($row->status == 'Diterbitkan')

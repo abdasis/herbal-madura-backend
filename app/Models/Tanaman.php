@@ -34,4 +34,5 @@ class Tanaman extends Model implements CanVisit
     {
         return $this->belongsTo(User::class, 'diverifikasi_oleh', 'id');
     }
+
 }

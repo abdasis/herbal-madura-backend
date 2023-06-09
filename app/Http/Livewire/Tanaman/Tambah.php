@@ -42,6 +42,11 @@ class Tambah extends Component
         $this->reset('gambar_tanaman');
     }
 
+    public function updated($field)
+    {
+        $this->validateOnly($field);
+    }
+
     public function simpan()
     {
         $this->validate();

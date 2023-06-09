@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Tanaman;
+use App\Traits\AlertConfirm;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -10,6 +11,21 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class TanamanByAuthor extends DataTableComponent
 {
+    use AlertConfirm;
+
+    protected $listeners = ['dihapus', 'batal'];
+
+    public function dihapus()
+    {
+        if ($this->model_id) {
+            $tanaman = Tanaman::find($this->model_id);
+            $tanaman->delete();
+            $this->toast('success', 'Data berhasil dihapus');
+        }else{
+            $this->toast('error','Gagal saat menghapus data');
+        }
+
+    }
 
     public function builder(): Builder
     {

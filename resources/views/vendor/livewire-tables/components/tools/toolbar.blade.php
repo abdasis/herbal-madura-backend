@@ -576,7 +576,7 @@
                                 @lang('Filters')
 
                                 @if ($count = $component->getFilterBadgeCount())
-                                    <span class="badge rounded-pill bg-info px-2 py-0">
+                                    <span class="badge rounded-pill bg-info px-2 py-1">
                                         {{ $count }}
                                     </span>
                                 @endif

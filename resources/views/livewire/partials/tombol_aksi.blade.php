@@ -8,7 +8,7 @@
     </a>
 --}}
 
-    <button class="btn btn-link text-decoration-none text-danger">
+    <button wire:click.prevent="hapus({{$row->id}})" class="btn btn-link text-decoration-none text-danger">
         <i class="ri-delete-bin-2-line"></i>
     </button>
 

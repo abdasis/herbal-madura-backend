@@ -120,48 +120,7 @@
                                 Anda belum menyukai satu tanaman pun.
                             </div>
                         @else
-                            @foreach ($tanaman_disukai as $detail)
-                                <div class="card border-top border-top-dashed my-2 shadow-none">
-                                    <div class="row gy-2 align-items-center">
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <a href="{{ route('tanaman.baca', $detail->slug) }}">
-                                                    <h5 class="card-title text-primary mb-2">
-                                                        {{ $detail->nama_tanaman }}</h5>
-                                                </a>
-                                                <p class="card-text text-muted mb-0">
-                                                    {!! Str::limit(strip_tags($detail->diskripsi_tanaman), 150, '...') !!}
-                                                </p>
-                                            </div>
-                                            <div class="card-footer border-0">
-                                                <div
-                                                    class="meta-tag-footer d-flex justify-content-between align-items-center gap-2">
-                                                    <div
-                                                        class="footer-start d-flex justify-content-between align-items-center gap-2">
-                                                        <div class="card-text">
-                                                            <small class="text-muted d-flex align-items-center gap-1">
-                                                                <i class="ri-user-fill"></i>
-                                                                {{ Str::title($detail->user->name) }}
-                                                            </small>
-                                                        </div>
-                                                        |
-                                                        <div class="card-text">
-                                                            <small
-                                                                class="text-muted">{{ Carbon::parse($detail->created_at)->format('d, F Y') }}</small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img class="rounded-end img-fluid h-100 gambar-unggulan-tanaman d-none d-md-block"
-                                                src="{{ file_exists(public_path($detail->gambar_tanaman)) == true ? asset($detail->gambar_tanaman) : asset('assets/images/tanaman-placeholder.png') }}"
-                                                alt="{{ $detail->nama_tanaman }}">
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                            {{ $data_tanaman->links() }}
+                            <livewire:tabel-bookmark/>
                         @endif
                     @else
                         @if ($data_tanaman->count() < 1)

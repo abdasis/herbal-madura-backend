@@ -24,6 +24,12 @@ class TambahArtikel extends Component
             ], route('beranda'));
         }
     }
+
+    public function resetImage()
+    {
+        $this->reset(['gambar_tanaman']);
+
+    }
     public function rules()
     {
         return [

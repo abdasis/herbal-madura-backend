@@ -46,8 +46,14 @@ class Sunting extends Component
             'nama_tanaman' => 'required',
             'nama_latin' => 'required',
             'deskripsi' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'gambar_tanaman' => 'required|max:1024'
         ];
+    }
+
+    public function updated($field)
+    {
+        $this->validateOnly($field);
     }
 
     public function resetImage()

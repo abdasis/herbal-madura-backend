@@ -17,7 +17,6 @@ class Beranda extends Component
     }
     public function render()
     {
-        \Log::debug('Test debug message');
         $tanaman = Tanaman::inRandomOrder()->where('status', 'Diterbitkan')->limit(2)->get();
         return view('livewire.beranda',[
             'semua_tanaman' => $tanaman

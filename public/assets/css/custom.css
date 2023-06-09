@@ -3,6 +3,26 @@
     background: #F8FAFC !important;
 }
 
+div:where(.swal2-container) .swal2-html-container {
+    z-index: 1;
+    justify-content: center;
+    margin: 0px !important;
+    padding: 0;
+    overflow: auto;
+    color: inherit;
+    font-size: 14px !important;
+    font-weight: normal;
+    line-height: normal;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.swal2-container .swal2-title {
+    padding: 24px 24px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
 .header-post{
     margin-top: 50px;
     min-height: 400px;

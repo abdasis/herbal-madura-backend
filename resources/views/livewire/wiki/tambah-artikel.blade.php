@@ -12,7 +12,14 @@
                             </div>
                             <div class="form-group mb-2">
                                 <div class="editor-content border-0 shadow-none" wire:ignore>
-                                    <div id="manfaat"></div>
+                                    <div id="manfaat">
+                                        <h2>Tentang Tanaman</h2>
+                                        <p></p>
+                                        <h2>Kandungan</h2>
+                                        <p></p>
+                                        <h2>Manfaat</h2>
+                                        <p></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +72,7 @@
                                 <div class="alert alert-danger">
                                     <ol class="mb-0 px-2">
                                         @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
+                                            <li class="fs-12 fw-normal">{{ $error }}</li>
                                         @endforeach
                                     </ol>
                                 </div>

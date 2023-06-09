@@ -74,7 +74,7 @@
                         <tbody>
                             @foreach ($semua_tanaman as $tanaman)
                                 <tr>
-                                    <td>{{ $tanaman->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $tanaman->nama_tanaman }}</td>
                                     <td>{{ $tanaman->nama_latin }}</td>
                                     <td>{{ \Carbon\Carbon::parse($tanaman->created_at)->format('d F Y') }}</td>
