@@ -72,7 +72,7 @@ class Tambah extends Component
                 'dibuat_oleh' => auth()->id(),
                 'diupdate_oleh' => auth()->id(),
                 'gambar_tanaman' => $path
-            ]);
+            ])->searchable();
 
             $this->toast('success', 'Data berhasil ditambahkan', route('tanaman.semua'));
 

@@ -72,9 +72,10 @@ class TanamanByAuthor extends DataTableComponent
         return [
             Column::make("Id", "id")
                 ->sortable()->deselected(),
-            Column::make('Artikel', 'diskripsi_tanaman')->deselected(),
+            Column::make('Nama Tanaman', 'nama_tanaman')->searchable()->deselected(),
+            Column::make('Artikel', 'diskripsi_tanaman')->searchable()->deselected(),
             Column::make('Slug', 'slug')->deselected(),
-            Column::make('Judul Artikel', 'nama_tanaman')->view('livewire.tanaman._kolom_judul')->searchable(),
+            Column::make('Judul Artikel', 'id')->view('livewire.tanaman._kolom_judul')->searchable(),
             Column::make("Dibuat Pada", "created_at")
                 ->sortable()->format(fn($tanggal) => \Carbon::parse($tanggal)->format('d-m-Y'))->deselected(),
             Column::make("Diupdate Pada", "updated_at")

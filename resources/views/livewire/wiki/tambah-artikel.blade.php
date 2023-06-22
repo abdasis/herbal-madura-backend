@@ -154,8 +154,10 @@
                 selector: '#manfaat',
                 plugins: ['advlist', 'paste', 'autolink', 'lists', 'link', 'preview', 'wordcount',
                     'autosave',
-                    'autoresize'
+                    'autoresize',
+                    'code'
                 ],
+                paste_word_valid_elements: 'p,b,strong,i,em,h1,h2',
                 placeholder: 'Tulis Tentang Tanaman',
                 inline: true,
                 menubar: false,
@@ -164,10 +166,10 @@
                 fixed_toolbar_container: '#toolbar-tiny',
                 autosave_interval: '20s',
                 toolbar: ' | blocks formatselect | ' +
-                    'bold italic |bullist | preview',
+                    'bold italic |bullist | preview code',
                 block_formats: 'Paragraph=p; Subheading=h2;',
                 content_style: "body {font-family: Arial}",
-                paste_as_text: true,
+                paste_as_text: false,
                 setup: function(editor) {
                     editor.on('change', function(e) {
                         editor.save();
