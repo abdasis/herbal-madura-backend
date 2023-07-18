@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "algolia/algoliasearch-client-php": "^3.1",
+        "algolia/algoliasearch-client-php": "^3.3",
         "artesaos/seotools": "^1.2",
         "asantibanez/livewire-charts": "^2.5",
         "barryvdh/laravel-snappy": "^1.0",

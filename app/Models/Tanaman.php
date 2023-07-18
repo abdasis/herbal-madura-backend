@@ -35,4 +35,14 @@ class Tanaman extends Model implements CanVisit
         return $this->belongsTo(User::class, 'diverifikasi_oleh', 'id');
     }
 
+    public function isPublished()
+    {
+        return $this->status == "Diterbitkan";
+    }
+
+    public function shouldBeSearchable(): bool
+    {
+        return $this->isPublished();
+    }
+
 }
