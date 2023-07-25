@@ -24,12 +24,12 @@ class Baca extends Component
             $this->tanaman = Tanaman::where('slug', $slug)->where('status', 'Diterbitkan')->first();
             $post = $this->tanaman;
             SEOMeta::setTitle($post->nama_tanaman);
-            SEOMeta::setDescription(\Str::limit($post->diskripsi_tanaman, 100));
+            SEOMeta::setDescription(\Str::limit(strip_tags($post->diskripsi_tanaman), 100));
             SEOMeta::addMeta('article:published_time', $post->created_at->toW3CString(), 'property');
             SEOMeta::addMeta('article:section', $post->jenis_spesies, 'property');
             SEOMeta::addKeyword([$post->nama_tanaman]);
 
-            OpenGraph::setDescription(\Str::limit($post->diskripsi_tanaman, 100));
+            OpenGraph::setDescription(\Str::limit(strip_tags($post->diskripsi_tanaman), 100));
             OpenGraph::setTitle($post->nama_tanaman);
             OpenGraph::setUrl(url()->current());
             OpenGraph::addProperty('type', 'article');
@@ -42,7 +42,7 @@ class Baca extends Component
             OpenGraph::addImage(asset('gambar-tanaman/' . $post->gambar_tanaman), ['height' => 300, 'width' => 300]);
 
             JsonLd::setTitle($post->nama_tanaman);
-            JsonLd::setDescription(\Str::limit($post->diskripsi_tanaman, 100));
+            JsonLd::setDescription(\Str::limit(strip_tags($post->diskripsi_tanaman), 100));
             JsonLd::setType('Article');
             JsonLd::addImage(asset('gambar-tanaman/' . $post->gambar_tanaman));
 
